@@ -1,0 +1,17 @@
+{
+  "name": "LinkUp",
+  "displayName": "LinkUp",
+  "expo": {
+    "name": "LinkUp",
+    "slug": "LinkUp",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

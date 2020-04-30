@@ -1,7 +1,6 @@
+/* Used for reference:https://medium.com/technoetics/create-basic-login-forms-using-create-react-app-module-in-reactjs-511b9790dede class Login extends React.Component*/
 import React, {useState} from 'react';
 import {StyleSheet, Text, View, Button} from 'react-native';
-
-class Login extends React.Component
 
 class Login extends Component {
 constructor(props){

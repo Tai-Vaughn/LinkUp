@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { useState } from 'react';
 import {StyleSheet, View, Image, Text, TextInput} from 'react-native';
+import LoginForm from './LoginForm';
 
 /*
 const fontStyles = ["normal", "italic", "sans-serif-light"];
@@ -17,12 +18,14 @@ class LoginScreen extends React.Component{
             <View style={styles.logoContainer}>
               <Image 
               style={styles.logo}
-              source={require('.../static/LinkUp.png')}/>
+              source={require('./LinkUp.png')}/>
               <Text style={styles.name}>LINK UP</Text>
             </View>  
 
-          <View style={styles.form}></View>
-          
+            <View>
+              <LoginForm/>
+            </View>
+            
             </View>
         )
     }

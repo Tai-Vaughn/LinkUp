@@ -1,4 +1,4 @@
-/* Dijkstra's searching algorithm */
+/* Dijkstra's searching algorithm  */
 export default class DijkstraSearch {
 	static get BY_LINK_LENGTH() {
 		return "BY_LINK_LENGTH";

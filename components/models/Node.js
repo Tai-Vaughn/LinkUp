@@ -3,7 +3,7 @@ import { floatToFixedIfNeeded } from "~/utils";
 export default class Node {
 	constructor({ name, weight, x, y }) {
 		this.name = name;
-		this.weight = weight || 50;
+		this.weight = weight || 50; //ag=djust based on value in database
 		this.x = x;
 		this.y = y;
 		this.paths = [];
@@ -14,7 +14,13 @@ export default class Node {
 		if (this.name === path.toNodeName) return;
 
 		this.paths.push(path);
-	}
+    }
+
+    generatePath(path) {
+        //creates path based on weight from start to end.
+
+        this.paths.push(path);
+    }
 
 	removeLink(toNodeName) {
 		this.paths = this.paths.filter(link => link.toNodeName !== toNodeName);

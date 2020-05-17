@@ -2,7 +2,7 @@
 import sillyname from "sillyname";
 
 const getMinOrMaxPropertyHelper = (arr, prop, type) => {
-	/* IM FCKN GENIUS */
+	
 	if (!arr) return undefined;
 
 	return arr.reduce((m, item) => {
@@ -21,7 +21,18 @@ export const getMinProperty = (arr, prop) =>
 	getMinOrMaxPropertyHelper(arr, prop, "min");
 
 export const getMaxProperty = (arr, prop) =>
-	getMinOrMaxPropertyHelper(arr, prop, "max");
+    getMinOrMaxPropertyHelper(arr, prop, "max");
+
+
+export const getSafetyLevel = (point1, point2) => {
+// calculate the total safety from the route and members of the group
+
+};
+
+export const getPoints = (point1, point2) => {
+    //obtain user’s start location and end destination from database
+
+};
 
 export const getEquationOfLineFromTwoPoints = (point1, point2) => {
 	const equation = {
@@ -78,7 +89,7 @@ export const getExampleGraphJSON = () => {
 			} while (usedNames.includes(name));
 			usedNames.push(name);
 
-			const weight = getRandomInt(1, 1000);
+			const weight = getRandomInt(1, 1000); //Need to put the value of weight, x, y per node. draw from database
 			const x = getRandomInt(125 * i + 20, 125 * (i + 1) - 20);
 			const y = getRandomInt(125 * j + 20, 125 * (j + 1) - 20);
 			const node = { name, weight, x, y };
@@ -87,7 +98,7 @@ export const getExampleGraphJSON = () => {
 	}
 
 	nodes.forEach(node => {
-		const destinations = nodes.map(nd => {
+		const destinations = nodes.map(nd => { //has to be adjusted to pull from database based on selected points
 			const distance =
 				nd.name === node.name ? Infinity : getDistance(node, nd);
 			return { name: nd.name, distance };
@@ -98,7 +109,7 @@ export const getExampleGraphJSON = () => {
 		destinations.slice(0, 3).forEach(destination => {
 			const start = node.name;
 			const end = destination.name;
-			const length = getRandomInt(1, 1000);
+			const length = getRandomInt(1, 1000); //has to be adjusted to real value
 
 			const link = { start, end, length };
 			links.push(link);

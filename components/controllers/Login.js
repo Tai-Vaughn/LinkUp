@@ -1,3 +1,4 @@
+//https://code.tutsplus.com/tutorials/common-react-native-app-layouts-login-page--cms-27639
 /* Used for reference:https://medium.com/technoetics/create-basic-login-forms-using-create-react-app-module-in-reactjs-511b9790dede class Login extends React.Component*/
 import React, {useState} from 'react';
 import {StyleSheet, Text, View, Button} from 'react-native';

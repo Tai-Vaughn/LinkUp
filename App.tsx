@@ -1,9 +1,9 @@
 import React from 'react';
 import {StyleSheet, View, Image, Text, TextInput} from 'react-native';
-import LoginScreen from './components/Login/LoginScreen';
+import CreateAccountScreen from './components/CreateAccount/CreateAccountScreen';
 export default function App() {
   return (
-      <LoginScreen/>
+      <CreateAccountScreen/>
   );
 }
 

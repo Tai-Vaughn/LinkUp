@@ -3,13 +3,21 @@ import { useState } from 'react';
 import {StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar} from 'react-native';
 
 /* 
-MAY NEED FOR IOS
+MAY WANT FOR IOS
 
-import StatusBar
+import StatusBar;
 <StatusBar barStyle='light-content'/>
 
 import KeyboardAvoidingView
 change first view component to kav behaviour='padding'
+
+spacing, fontFamily, size of login button
+
+   spacing: {
+        paddingTop: 40,
+    }
+
+how to get cursor at end of or the beginning of text
 */
 
 class LoginForm extends React.Component{
@@ -17,7 +25,7 @@ class LoginForm extends React.Component{
         return (
             <View style={styles.container}>
                 <TextInput 
-                placeholder='Enter username or email'
+                placeholder='Username or Email-address'
                 placeholderTextColor='rgba(255,255,255,0.7)'
                 returnKeyType='next'
                 keyboardType='email-address'
@@ -53,7 +61,7 @@ const styles = StyleSheet.create({
         height: 40,
         backgroundColor: 'rgba(255,255,255,0.2)',
         marginBottom: 10,
-        color: '#FFF',
+        color: 'white',
         width: 200,
         paddingHorizontal: 10,
         borderRadius: 10, 
@@ -70,7 +78,7 @@ const styles = StyleSheet.create({
     buttonText:{
         width: 200,
         textAlign: 'center',
-        fontWeight: '900'
+        fontWeight: '700'
     }
 
 });

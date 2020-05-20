@@ -81,14 +81,14 @@ const styles = StyleSheet.create({
         backgroundColor: 'dodgerblue',
         borderRadius: 10,
         paddingVertical: 10,
-        width: 150,
-        alignItems: 'center'
+        width: 100,
+        alignSelf: 'center'
     },
 
     buttonText:{
         width: 200,
-        textAlign: 'center',
-        fontWeight: '700'
+        fontWeight: '700',
+        alignContent: 'center'
     }
 
 });

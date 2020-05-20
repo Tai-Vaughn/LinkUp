@@ -26,20 +26,23 @@ class GenReportScreen extends React.Component{
 const styles = StyleSheet.create({
   container: {
       backgroundColor: 'steelblue',
-      padding: 100,
+      padding: 40,
       alignItems: 'center'
   },
 
   text:{
     color:'white',
-    fontSize: 35,
-    textAlign:'justify'
+    fontSize: 30,
+    textAlign:'justify',
+    width: 325,
+    textAlign: 'center'
   },
 
   textDetails:{
     color:'white',
-    justifyContent:'flex-start',
-    marginBottom: 25
+    marginBottom: 30,
+    width: 320,
+    fontSize: 15
   }
 
 });

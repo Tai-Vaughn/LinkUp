@@ -1,28 +1,66 @@
 import React, {Component} from 'react';
 import { useState } from 'react';
-import {StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar} from 'react-native';
+import {StyleSheet, View, TextInput, TouchableOpacity, Text, ScrollView, Platform} from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
-class GenReportForm extends React.Component{
-    render(){
-        return (
-            <View style={styles.container}>
-                <TextInput 
-                placeholder='Time'
-                placeholderTextColor='rgba(255,255,255,0.7)'
-                returnKeyType='next'
-                style={styles.input}
-                autoCorrect={false}
-                />
-                
-                <TextInput 
-                placeholder='Date'
-                placeholderTextColor='rgba(255,255,255,0.7)'
-                returnKeyType='next'
-                style={styles.input}
-                />
+/* 
+Time/Date source code was copied from a github repo linked on React Native's website: 
+https://github.com/react-native-community/datetimepicker
+*/
 
-                <TextInput 
-                placeholder='Where did it occur?'
+const GenReportForm = () => {
+    const [date, setDate] = useState(new Date(1598051730000));
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
+  
+    const onChange = (event, selectedDate) => {
+      const currentDate = selectedDate || date;
+      setShow(Platform.OS === 'ios');
+      setDate= (event, date) => {};
+    };
+  
+    const showMode = currentMode => {
+      setShow(true);
+      setMode(currentMode);
+    };
+  
+    const showDatepicker = () => {
+      showMode('date');
+    };
+  
+    const showTimepicker = () => {
+      showMode('time');
+    };   
+  
+  return (
+    <ScrollView>
+        <View>
+                <TouchableOpacity style={styles.pickerContainer}>
+                    <Text style={styles.pickerText} onPress={showDatepicker}>
+                        Date
+                    </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.pickerContainer}>
+                    <Text style={styles.pickerText} onPress={showTimepicker}>
+                        Time
+                    </Text>
+                </TouchableOpacity>
+
+            {show && (
+            <DateTimePicker
+                testID="dateTimePicker"
+                timeZoneOffsetInMinutes={0}
+                value={date}
+                mode={mode}
+                is24Hour={false}
+                display="spinner"
+                onChange={onChange}
+            />
+            )}
+
+            <TextInput 
+                placeholder='Where did the incident occur?'
                 placeholderTextColor='rgba(255,255,255,0.7)'
                 returnKeyType='next'
                 style={styles.input}
@@ -39,23 +77,19 @@ class GenReportForm extends React.Component{
                 placeholder='Report Details'
                 placeholderTextColor='rgba(255,255,255,0.7)'
                 returnKeyType='next'
-                style={styles.details}
+                style={styles.input}
                 />
 
                 <TouchableOpacity style={styles.buttonContainer}>
                     <Text style={styles.buttonText}>SUBMIT</Text>
                 </TouchableOpacity>
+           
             </View>
-        )
-    }
-}
+            </ScrollView>
+        );
+    };
 
 const styles = StyleSheet.create({
-    /*container: {
-        padding: 20,
-        alignItems: 'center'
-    },*/
-
     input:{
         height: 40,
         backgroundColor: 'rgba(255,255,255,0.2)',
@@ -63,18 +97,8 @@ const styles = StyleSheet.create({
         color: 'gray',
         paddingHorizontal: 10,
         borderRadius: 10,  
-        width: 300
-    },
-
-    details:{
-        height: 40,
-        backgroundColor: 'rgba(255,255,255,0.2)',
-        marginBottom: 10,
-        color: 'gray',
-        paddingHorizontal: 10,
-        borderRadius: 10,  
         width: 300,
-        height: 200
+        flexWrap: 'wrap'
     },
 
     buttonContainer:{
@@ -82,15 +106,31 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         paddingVertical: 10,
         width: 150,
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 50
     },
 
     buttonText:{
         width: 200,
         textAlign: 'center',
         fontWeight: '700'
+    },
+
+    pickerContainer:{
+        backgroundColor: 'rgba(255,255,255,0.2)',
+        borderRadius: 10,
+        paddingVertical: 10,
+        width: 120,
+        textAlign: 'right',
+        marginBottom: 20
+    },
+
+    pickerText:{
+        width: 200,
+        textAlign: 'center',
+        color: 'rgba(255,255,255,0.7)'
     }
 
 });
-
-export default GenReportForm;
+ 
+  export default GenReportForm;

@@ -8,6 +8,8 @@ Time/Date source code was copied from a github repo linked on React Native's web
 https://github.com/react-native-community/datetimepicker
 */
 
+/*quick check*/
+
 const GenReportForm = () => {
     const [date, setDate] = useState(new Date(1598051730000));
     const [mode, setMode] = useState('date');

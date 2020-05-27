@@ -7,11 +7,8 @@ class FindRouteScreen extends React.Component{
   render(){
       return (
           <View style={styles.container}> 
-
             <Text style={styles.text}>Find Route</Text>
-          
-            <FindRouteForm/>
-          
+            <FindRouteForm/>    
           </View>  
       )
   }

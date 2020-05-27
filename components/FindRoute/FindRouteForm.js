@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { useState } from 'react';
-import {StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar} from 'react-native';
+import {StyleSheet, View, TextInput, TouchableOpacity, Text} from 'react-native';
 
 class FindRouteForm extends React.Component{
     render(){
@@ -59,17 +59,6 @@ const styles = StyleSheet.create({
         borderRadius: 10,  
         width: 300
     },
-/*
-    details:{
-        height: 40,
-        backgroundColor: 'rgba(255,255,255,0.2)',
-        marginBottom: 10,
-        color: 'gray',
-        paddingHorizontal: 10,
-        borderRadius: 10,  
-        width: 300,
-        height: 200
-    },*/
 
     buttonContainer:{
         backgroundColor: 'dodgerblue',

@@ -32,6 +32,7 @@ class FindRouteForm extends React.Component{
                 placeholder='Minimum Group Size'
                 placeholderTextColor='rgba(255,255,255,0.7)'
                 returnKeyType='next'
+                keyboardType='number-pad'
                 style={styles.input}
                 />
 

@@ -1,25 +1,34 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
 import logo from './components/Images/logo.jpeg';
-
+/*TO DO: call login and register js files on click*/
 export default function App() {
-  const [outputText, setOutputText] = useState('Open up App.tsx to start working on your app!');
-  return (
-      <View style={styles.container}>
-          <Image source={logo} style={styles.logo} />
-          <Text>Start Menu</Text>
-          <TouchableOpacity
-              onPress={() => alert('Start')}
-              style={{ backgroundColor: 'blue' }}>
-              <Text style={{ fontSize: 20, color: '#fff' }}>Map</Text>
-           </TouchableOpacity>
-      <Button title = "Hello world" onPress={() => setOutputText('The text has been changed!')} />
-    </View>
+    const [outputText, setOutputText] = useState('LINK UP');
+    return (
+        <View style={styles.screen}>
+            <View style={{ padding: 10 } }>
+                <Image source={logo} style={styles.logo} />
+            </View>
+            <View style={styles.root}>  
+              <Text>LINK UP</Text>
+              <Button title="Login" onClick={login} onPress={() => setOutputText('Begin Login!')} />  
+              <Button title="Create Account" onClick={register} onPress={() => setOutputText('Begin Registering!')} />
+              <TouchableOpacity
+                  onPress={() => alert('Start')}
+                  style={{ backgroundColor: 'blue' }}>
+                  <Text style={{ fontSize: 20, color: '#fff' }}>Map</Text>
+              </TouchableOpacity>
+              
+          </View>
+           
+       </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+    screen: { padding: 30 },
+    root: { flexDirection="row", justifyContent="space-between", alignItems="center" },
+    container: {
     flex: 1,
     backgroundColor: 'steelblue', /*options: steelblue, cornflowerblue*/
     alignItems: 'center',

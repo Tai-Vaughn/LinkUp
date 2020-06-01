@@ -37,7 +37,7 @@ export default class Node {
 		const weight = floatToFixedIfNeeded(this.weight);
 		return `${this.name} (${x}, ${y}) ${weight} u.`;
 	}
-
+    
 	toJSON() {
 		return {
 			name: this.name,
@@ -46,4 +46,8 @@ export default class Node {
 			y: this.y,
 		};
 	}
+}
+export const path(){
+
+    return { path: this.paths, };
 }

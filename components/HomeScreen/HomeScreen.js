@@ -14,7 +14,7 @@ class HomeScreen extends React.Component{
       <Text style={styles.text}>LINK UP</Text>
 
       <View style={styles.spacing}>
-      <Button
+      <Button style={styles.font2}
         title='Login'
       />
       </View>
@@ -49,8 +49,13 @@ const styles = StyleSheet.create({
   text:{
     color: 'white',
     fontSize: 40,
-    marginBottom: 90
+    marginBottom: 90,
+    fontFamily: 'righteous'
   },
+
+  font2:{
+    fontFamily: 'righteous'
+  }, 
 
   spacing:{
     marginBottom: 20
@@ -59,3 +64,5 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
+
+/*raleway manrope*/

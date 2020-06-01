@@ -1,18 +1,20 @@
 import { getPoints } from "~/utils";
 import { path } from "./Node";
 import { List, ListItem } from 'react-native-elements';
+import { FlatList, Text, View, ScrollView } from "react-native";
 
 export const findNearbyPersons{
     //if the destination entered by the user is a point along a longer route that other users are currently travelling
 
 start = getPoints.point1;
 end = getPoints.point2;
-path =;
+path = {...};
 };
 
 export const creatGroup{
     constructor() {
         this.group = {},
+           // {id/key: Math.random().toString(), value: group}
         this.start=getPoints.point1,
         this.destination = getPoints.point2;
     }
@@ -26,7 +28,9 @@ addParty(person) {
         this.group.push(person);
     }
 }
-return {}
+return {
+<View>
+</View>}
 };
 
 export const viewGroups{
@@ -38,10 +42,23 @@ export const viewGroups{
     if (group > 0) {
     return (
         <View style={styles.container}>
-            <FlatList
-                data={group}
-                renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
-            />
+            <ScrollView>
+                {groupsViewer.map(group => (
+                    <View key={group} style={styles.listItems}>
+                        <Text> {group} </Text>
+
+                    </View>))}
+                
+                <ScrollView />
+                <FlatList
+                    //keyExtractor={(item, index) => item.id}
+                    data={group}
+                    renderItem={itemData=> (
+                    <View style={styles.listItems} >
+                    <Text> {itemData.item.value}</Text>
+                    </View>)
+                    
+                    />
         </View>
         );
     }
@@ -52,7 +69,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 22
     },
-    item: {
+    listItems: {
         padding: 10,
         fontSize: 18,
         height: 44,

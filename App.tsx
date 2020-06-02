@@ -28,9 +28,9 @@ export default function App() {
     <NavigationContainer>
         {}
       <AuthStack.Navigator>
-          <AuthStack.Screen name="Home" component={HomeScreen}/>
-          <AuthStack.Screen name="login" component={LoginScreen} options= {{ title: "Login"}}/>
-          <AuthStack.Screen name="registration" component={regis} options={{ title : "Create Account"}}/>
+          <AuthStack.Screen name=" " component={HomeScreen}/>
+          <AuthStack.Screen name="login" component={LoginScreen} options= {{ title: ""}}/>
+          <AuthStack.Screen name="registration" component={regis} options={{ title : ""}}/>
         </AuthStack.Navigator>  
    
   </NavigationContainer>

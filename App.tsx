@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import * as Font from 'expo-font';
-import {StyleSheet, View, Image, Text, TextInput} from 'react-native';
 import HomeScreen from './components/HomeScreen/HomeScreen';
 import {AppLoading} from 'expo';
 

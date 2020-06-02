@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import { useState } from 'react';
+import React from 'react';
 import {StyleSheet, View, Image, Button, Text} from 'react-native';
+import {globalStyles} from './Styles'; 
 
 class HomeScreen extends React.Component{
   render(){
     return (
-      <View style={styles.container}>
+      <View style={globalStyles.container}>
       
       <View style={styles.logoContainer}>
       <Image style={styles.logo} source={require('./LinkUp.png')}/>
@@ -13,15 +13,17 @@ class HomeScreen extends React.Component{
 
       <Text style={styles.text}>LINK UP</Text>
 
-      <View style={styles.spacing}>
-      <Button style={styles.font2}
+      <View style={styles.button}>
+      <Button 
         title='Login'
       />
       </View>
 
-      <Button
+      <View style={styles.button}>
+      <Button 
         title='Create Account'
       />
+      </View>
 
       </View>
   )
@@ -29,13 +31,6 @@ class HomeScreen extends React.Component{
 }
 
 const styles = StyleSheet.create({
-  container: {
-      backgroundColor: 'steelblue',
-      padding: 50,
-      alignItems: 'center',
-      flex: 1
-  },
-
   logo:{
     width: 100,
     height: 100
@@ -51,18 +46,16 @@ const styles = StyleSheet.create({
     fontSize: 40,
     marginBottom: 90,
     fontFamily: 'righteous'
-  },
-
-  font2:{
-    fontFamily: 'righteous'
   }, 
 
-  spacing:{
-    marginBottom: 20
+  button:{
+    marginBottom: 20,
+    bottom: 0,
+    borderRadius: 10,
+    overflow: 'hidden',
+    width: 150
   }
 
 });
 
 export default HomeScreen;
-
-/*raleway manrope*/

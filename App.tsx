@@ -7,7 +7,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import { StyleSheet, Text, View, Button} from 'react-native';
 
-const Stack = createStackNavigator(); 
+const AuthStack = createStackNavigator(); 
+
 
 
 export default function App() {
@@ -16,10 +17,10 @@ export default function App() {
     <NavigationContainer>
       
         {islogedin ? () : (
-        <Stack.Navigator>
-          <Stack.Screen name="login" component={LoginScreen} options= {{ title: "Sign in"}}/>
-          <Stack.Screen name="regis" component={regis} options={{ title : "Create Account"}}/>
-        </Stack.Navigator>
+        <AuthStack.Navigator>
+          <AuthStack.Screen name="login" component={LoginScreen} options= {{ title: "Sign in"}}/>
+          <AuthStack.Screen name="regis" component={regis} options={{ title : "Create Account"}}/>
+        </AuthStack.Navigator>
         ) }
         
       

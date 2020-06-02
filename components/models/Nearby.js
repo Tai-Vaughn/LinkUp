@@ -1,32 +1,49 @@
 import { getPoints } from "~/utils";
 import { path } from "./Node";
 import { List, ListItem } from 'react-native-elements';
-import { FlatList, Text, View, ScrollView } from "react-native";
+import { FlatList, StyleSheet, Text, Button, View, ScrollView } from "react-native";
 
 export const findNearbyPersons{
     //if the destination entered by the user is a point along a longer route that other users are currently travelling
 
-start = getPoints.point1;
-end = getPoints.point2;
-path = {...};
+let start = getPoints.point1;
+let end = getPoints.point2;
+const path = [];
+let i = path.length;
+
+while (path[i] != 0) {
+    if (path[i] === start ) {
+        addParty(person);
+    }
+    if (path[i] === end) {
+        addParty(person);
+    }
+    i--;
+}
 };
 
 export const creatGroup{
     constructor() {
-        this.group = {},
+        this.group = [],
            // {id/key: Math.random().toString(), value: group}
         this.start=getPoints.point1,
         this.destination = getPoints.point2;
     }
 addParty(person) {
+   let i = path.length;
+
     //adds person to group if they have selected the same destination.
     if (this.start===person.start && this.destination === person.destination){
         this.group.push(person);
     }
     //if there are other users who also follow the same path as the user
-    if (this.path.point === person.path.point) {
-        this.group.push(person);
+    while (this.path[i] != 0) {
+        if (this.path.point === person.path.point) {
+            this.group.push(person);
+        }
+        i--;
     }
+    
 }
 return {
 <View>

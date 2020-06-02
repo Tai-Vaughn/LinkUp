@@ -1,37 +1,35 @@
 import React, { useState } from 'react';
-import { Image, StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
+import { Image, StyleSheet, Text, View, Button } from 'react-native';
 import logo from './components/Images/logo.jpeg';
-//import LoginScreen from './components/LoginScreen';
-/*TO DO: call login and register js files on click onClick(<LoginScreen />)*/
-class StartMenue extends React.Component
-    export default function App() {
-    const [outputText, setOutputText] = useState('App.tsx');
-    return (
-        <View style={styles.containers}>
-            <View style={styles.logoContainer}>
-                <Image
-                    style={styles.logo}
-                    source={logo} />
-                <Text style={styles.name}>LINK UP</Text>
-            </View>
+import LoginScreen from './components/Login/LoginScreen';
 
-            <View style={styles.root}>
-                <Text> Login</Text>
+/*TO DO: call login and register js files on click onClick(<LoginScreen />);  onPress={() => setOutputText('Begin Registering!')}; onPress={() => <View> <LoginScreen /> </View>} */
+class StartMenue extends React.Component{
+    //const [outputText, setOutputText] = useState('');
+    render() {
+        return (
+            <View style={styles.container}>
+                <View style={styles.logoContainer}>
+                    <Image
+                        style={styles.logo}
+                        source={logo} />
+                    <Text style={styles.name}>LINK UP</Text>
+                </View>
 
-                <Button title="Login" onPress={() => setOutputText('Begin Login!')} />
-                <Text> Create Account</Text>
-                <Button title="Create Account" onPress={() => setOutputText('Begin Registering!')} />
-                <TouchableOpacity
-                    onPress={() => alert('Start')}
-                    style={{ backgroundColor: 'blue' }}>
-                    <Text style={{ fontSize: 20, color: '#fff' }}>Map</Text>
-                </TouchableOpacity>
+                <View style={styles.root}>
+                    <Text>Login</Text>
+                    <Button title="Login" />
+                    <Text>Create Account</Text>
+                    <Button title="Create Account" />
+                   
+                </View>
 
             </View>
-
-        </View>
-    );
+        );
+    }
+    
 }
+
 
 const styles = StyleSheet.create({
     root: {
@@ -71,22 +69,5 @@ const styles = StyleSheet.create({
         marginTop: 10
     },
 });
-
-
-
-import React  from 'react';
-import { View , Text} from 'react-native';
-
-class StartMenue extends React.Component {
-    render() {
-        return (
-            <View>
-                <Text>
-                    im working wefw
-                </Text>
-            </View>
-        );
-    }
-}
 
 export default StartMenue;

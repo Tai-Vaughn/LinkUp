@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text, TextInput } from 'react-native';
-import StartMenue from './components/StartMenue';
+import { Image, StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
+import StartMenue from './components/StartMenue.js';
+
 export default function App() {
     return (
         <StartMenue />

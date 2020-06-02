@@ -4,7 +4,9 @@ import StartMenue from './components/StartMenue.js';
 
 export default function App() {
     return (
-        <StartMenue />
+        <View>
+            <StartMenue />
+            </View>
     );
 }
 

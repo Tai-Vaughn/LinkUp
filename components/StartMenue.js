@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import { Image, StyleSheet, Text, View, Button } from 'react-native';
 import logo from './components/Images/logo.jpeg';
 import LoginScreen from './components/Login/LoginScreen';
 
-/*TO DO: call login and register js files on click onClick(<LoginScreen />);  onPress={() => setOutputText('Begin Registering!')}; onPress={() => <View> <LoginScreen /> </View>} */
+/*TO DO: call login and register js files on click onClick(<LoginScreen />);  onPress={() => setOutputText('Begin Registering!')}; onPress={() => <View> <LoginScreen /> </View>} 
 class StartMenue extends React.Component{
     //const [outputText, setOutputText] = useState('');
     render() {
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: 'steelblue',/*options: steelblue, cornflowerblue*/
+        backgroundColor: 'steelblue',/*options: steelblue, cornflowerblue
         padding: 100
     },
     logo: {
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default StartMenue;
+export default StartMenue;*/

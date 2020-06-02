@@ -1,19 +1,28 @@
 import 'react-native-gesture-handler';
-import login from './components/Login/LoginScreen';
+import LoginScreen from './components/Login/LoginScreen';
+import regis from './components/CreateAccount/CreateAccountScreen';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
-import {createStackNavigator} from '@react-navigation/stack'
+import {createStackNavigator} from '@react-navigation/stack';
 import { StyleSheet, Text, View, Button} from 'react-native';
 
-
 const Stack = createStackNavigator(); 
+
+
 export default function App() {
+  const [islogedin , setIsLoggedin] = React.useState (false);
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="login" component={login}/>
-      </Stack.Navigator>
+      
+        {islogedin ? () : (
+        <Stack.Navigator>
+          <Stack.Screen name="login" component={LoginScreen} options= {{ title: "Sign in"}}/>
+          <Stack.Screen name="regis" component={regis} options={{ title : "Create Account"}}/>
+        </Stack.Navigator>
+        ) }
+        
+      
     {/* Rest of your app code */}
   </NavigationContainer>
   );

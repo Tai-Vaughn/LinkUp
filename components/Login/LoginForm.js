@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { useState } from 'react';
-import {StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar} from 'react-native';
+import {StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar, Button} from 'react-native';
 
 /* 
 MAY NEED FOR IOS
@@ -21,7 +21,8 @@ how to get cursor at end of or the beginning of text
 (cursor is at beginning on tablet but in the middle on phone)
 */
 
-class LoginForm extends React.Component{
+class LoginForm extends React.Component {
+    
     render(){
         return (
             <View style={styles.container}>
@@ -48,9 +49,9 @@ class LoginForm extends React.Component{
                     <Text style={styles.buttonText}>LOGIN</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.buttonContainer} onPress={()=>this.props.navigation.navigate('Register')}>
+                {/* <TouchableOpacity style={styles.buttonContainer} onPress={()=>this.props.navigation.navigate('Register')}>
                     <Text style={styles.buttonText}>Register</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
         )
     }

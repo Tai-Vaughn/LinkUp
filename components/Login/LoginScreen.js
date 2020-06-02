@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { useState } from 'react';
-import {StyleSheet, View, Image, Text, TextInput} from 'react-native';
+import {StyleSheet, View, Image, Text, TextInput, Button} from 'react-native';
 import LoginForm from './LoginForm';
 
 /*
@@ -10,26 +10,28 @@ const fontFamily = ['Iowan Old Style'];
 fontStyles = ["sans-serif-light"]
 */
 
-class LoginScreen extends React.Component{
-    render(){
+export default function LoginScreen  ({ navigation }){
         return (
             <View style={styles.container}>
 
             <View style={styles.logoContainer}>
               <Image 
               style={styles.logo}
-              source={require('./LinkUp.png')}/>
+              source={require('../../static/LinkUp.png')}/>
               <Text style={styles.name}>LINK UP</Text>
             </View>  
 
             <View>
               <LoginForm/>
             </View>
-            
+
+            <View>
+
+            </View>
+              <Button title="Register" onPress={() => navigation.push('regis')}></Button>
             </View>
         )
     }
-}
 
 const styles = StyleSheet.create({
     container: {
@@ -59,4 +61,3 @@ const styles = StyleSheet.create({
 
 });
 
-export default LoginScreen;

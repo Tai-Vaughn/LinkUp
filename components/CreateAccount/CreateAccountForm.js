@@ -1,25 +1,19 @@
-import React, {Component} from 'react';
-import { useState } from 'react';
-import {StyleSheet, View, TextInput, TouchableOpacity, Text, ScrollView} from 'react-native';
+import React from 'react';
+import {StyleSheet, View, TextInput, Button,} from 'react-native';
+import { globalStyles } from '../Styles';
 
-/* 
-need screen to scroll while user moves through the inputs 
-ensure formatting is right 
-need to switch to next field when user clicks next
-*/
 
 class CreateAccountForm extends React.Component{
     render(){
         return (
-            <View style={styles.container}>
+            <View style={globalStyles.formContainer}>
                 <TextInput 
                 placeholder='Full Name'
                 placeholderTextColor='rgba(255,255,255,0.7)'
                 returnKeyType='next'
-                keyboardType='default'
                 autoCapitalize='words'
-                style={styles.input}
-                /*onSubmitEditing={() => this.passwordInput.focus()}*/
+                style={globalStyles.input}
+                onSubmitEditing={() => this.usernameInput.focus()}
                 autoCorrect={false}
                 />
 
@@ -27,11 +21,21 @@ class CreateAccountForm extends React.Component{
                 placeholder='Username'
                 placeholderTextColor='rgba(255,255,255,0.7)'
                 returnKeyType='next'
-                keyboardType='default'
                 autoCapitalize='none'
-                style={styles.input}
+                style={globalStyles.input}
                 autoCorrect={false}
-                /*ref={(input) => this.passwordInput = input}*/
+                onSubmitEditing={() => this.idInput.focus()}
+                ref = {(input) => this.usernameInput = input}
+                />
+
+                <TextInput 
+                placeholder='ID number'
+                placeholderTextColor='rgba(255,255,255,0.7)'
+                returnKeyType='next'
+                keyboardType='decimal-pad'
+                style={globalStyles.input}
+                onSubmitEditing={() => this.emailInput.focus()}
+                ref = {(input) => this.idInput = input}
                 />
 
                 <TextInput 
@@ -40,9 +44,10 @@ class CreateAccountForm extends React.Component{
                 returnKeyType='next'
                 keyboardType='email-address'
                 autoCapitalize='none'
-                style={styles.input}
+                style={globalStyles.input}
                 autoCorrect={false}
-                /*ref={(input) => this.passwordInput = input}*/
+                onSubmitEditing={() => this.passwordInput.focus()}
+                ref={(input) => this.emailInput = input}
                 />
 
                 <TextInput 
@@ -50,11 +55,10 @@ class CreateAccountForm extends React.Component{
                 placeholderTextColor='rgba(255,255,255,0.7)'
                 secureTextEntry
                 returnKeyType='next'
-                keyboardType='default'
-                autoCapitalize='none'
-                style={styles.input}
+                style={globalStyles.input}
                 autoCorrect={false}
-                /*ref={(input) => this.passwordInput = input}*/
+                onSubmitEditing={() => this.verifyPasswordInput.focus()}
+                ref={(input) => this.passwordInput = input}
                 />
 
                 <TextInput 
@@ -62,51 +66,30 @@ class CreateAccountForm extends React.Component{
                 placeholderTextColor='rgba(255,255,255,0.7)'
                 secureTextEntry
                 returnKeyType='go'
-                keyboardType='default'
                 autoCapitalize='none'
-                style={styles.input}
+                style={globalStyles.input}
                 autoCorrect={false}
-                /*ref={(input) => this.passwordInput = input}*/
+                ref={(input) => this.verifyPasswordInput = input}
                 />
 
-                <TouchableOpacity style={styles.buttonContainer}>
-                    <Text style={styles.buttonText}>CREATE ACCOUNT</Text>
-                </TouchableOpacity>
+                <View style={styles.button}>
+                    <Button
+                    title='Create Account'
+                    />
+                </View>
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        padding: 20,
-        alignItems: 'center'
-    },
-
-    input:{
-        height: 40,
-        backgroundColor: 'rgba(255,255,255,0.2)',
-        marginBottom: 10,
-        color: '#FFF',
-        width: 200,
-        paddingHorizontal: 10,
-        borderRadius: 10, 
-        textAlign: 'center'
-    },
-
-    buttonContainer:{
-        backgroundColor: 'dodgerblue',
+       button:{
+        marginBottom: 20,
+        bottom: 0,
         borderRadius: 10,
-        paddingVertical: 15,
-        width: 200
-    },
-
-    buttonText:{
-        width: 200,
-        textAlign: 'center',
-        fontWeight: '700'
-    }
-
+        overflow: 'hidden',
+        width: 150
+        }
 });
 
 export default CreateAccountForm;

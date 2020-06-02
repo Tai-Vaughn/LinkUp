@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import { useState } from 'react';
-import {StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar, Button} from 'react-native';
+import React from 'react';
+import {StyleSheet, View, TextInput, Button} from 'react-native';
+import {globalStyles} from '../Styles'; 
 
 /* 
 MAY NEED FOR IOS
@@ -9,15 +9,13 @@ import StatusBar
 <StatusBar barStyle='light-content'/>
 
 import KeyboardAvoidingView
-change first view component to kav behaviour='padding'
-
-spacing, fontFamily, size of login button
+change first view component to KeyboardAvoidingView behaviour='padding'
 
    spacing: {
         paddingTop: 40,
     }
 
-how to get cursor at end of or the beginning of text
+how to get cursor at the beginning of text
 (cursor is at beginning on tablet but in the middle on phone)
 */
 
@@ -25,14 +23,14 @@ class LoginForm extends React.Component {
     
     render(){
         return (
-            <View style={styles.container}>
+            <View style={globalStyles.formContainer}>
                 <TextInput 
                 placeholder='Username or E-mail address'
                 placeholderTextColor='rgba(255,255,255,0.7)'
                 returnKeyType='next'
                 keyboardType='email-address'
                 autoCapitalize='none'
-                style={styles.input}
+                style={globalStyles.input}
                 onSubmitEditing={() => this.passwordInput.focus()}
                 autoCorrect={false}
                 />
@@ -42,50 +40,28 @@ class LoginForm extends React.Component {
                 placeholderTextColor='rgba(255,255,255,0.7)'
                 secureTextEntry
                 returnKeyType='go'
-                style={styles.input}
+                style={globalStyles.input}
                 ref={(input) => this.passwordInput = input}/>
 
-                <TouchableOpacity style={styles.buttonContainer}>
-                    <Text style={styles.buttonText}>LOGIN</Text>
-                </TouchableOpacity>
-
-                {/* <TouchableOpacity style={styles.buttonContainer} onPress={()=>this.props.navigation.navigate('Register')}>
-                    <Text style={styles.buttonText}>Register</Text>
-                </TouchableOpacity> */}
+            <View style={styles.button}>
+            <Button
+                title='Login'
+            />
+            </View>
+          
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        padding: 20,
-        alignItems: 'center'
-    },
-
-    input:{
-        height: 40,
-        backgroundColor: 'rgba(255,255,255,0.2)',
-        marginBottom: 10,
-        color: '#FFF',
-        width: 200,
-        paddingHorizontal: 10,
-        borderRadius: 10, 
-        textAlign: 'center'
-    },
-
-    buttonContainer:{
-        backgroundColor: 'dodgerblue',
+    button:{
+        bottom: 0,
         borderRadius: 10,
-        paddingVertical: 15,
-        width: 200
-    },
-
-    buttonText:{
-        width: 200,
-        textAlign: 'center',
-        fontWeight: '700'
-    }
+        overflow: 'hidden',
+        width: 150,
+        marginBottom: 100
+      }
 
 });
 

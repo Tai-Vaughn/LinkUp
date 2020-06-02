@@ -25,10 +25,6 @@ export default function LoginScreen  ({ navigation }){
               <LoginForm/>
             </View>
 
-            <View>
-
-            </View>
-              <Button title="Register" onPress={() => navigation.push('regis')}></Button>
             </View>
         )
     }

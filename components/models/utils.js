@@ -1,5 +1,7 @@
+import React, { useState } from 'react';
+import {TextInput, StyleSheet, Text, View } from 'react-native';
 /* eslint-disable no-mixed-operators */
-import sillyname from "sillyname";
+//import sillyname from "sillyname";
 
 const getMinOrMaxPropertyHelper = (arr, prop, type) => {
 	
@@ -31,9 +33,31 @@ export const getSafetyLevel = (point1, point2) => {
 
 export const getPoints = (point1, point2) => {
     //obtain user’s start location and end destination from database
-
-};
-
+    const [start, setStart] = useState('');
+    const [end, setEnd] = useState('');
+    return (
+        <View>
+            <Text>Enter Starting Point: </Text>
+            <TextInput
+                style={styles.input}
+                placeholder='e.g.Humanities'
+                onChangeText={(val) => setStart(val)}
+            />
+            <Text>Enter Destination Point: </Text>
+            <TextInput
+                style={styles.input}
+                placeholder='e.g.Students Union'
+                onChangeText={(val) => setEnd(val)
+            />
+        </View>
+        point1= start //(name, x, y)
+        point2= end //(name, x, y)
+        start.x, start.y;
+        end.x, end.y;
+            );
+        
+    };
+    
 export const getEquationOfLineFromTwoPoints = (point1, point2) => {
 	const equation = {
 		gradient: (point1.y - point2.y) / (point1.x - point2.x),
@@ -56,19 +80,23 @@ export const getEquationOfLineFromTwoPoints = (point1, point2) => {
 		}
 
 		return `y = ${parts.join(" + ")}`;
-	};
+            };
+        
+            return equation;
+        };
+        
+        export const floatToFixedIfNeeded = number =>
+            number.toFixed(2).replace(/[.,]00$/, "");
+        
+        /*export const getFirstSillyName = () =>
+            sillyname().split(" ")[Math.round(Math.random())];
+        
+        export const getRandomInt = (min, max) =>
+            Math.floor(Math.random() * (max - min + 1)) + min;*/
 
-	return equation;
-};
-
-export const floatToFixedIfNeeded = number =>
-	number.toFixed(2).replace(/[.,]00$/, "");
-
-export const getFirstSillyName = () =>
-	sillyname().split(" ")[Math.round(Math.random())];
-
-export const getRandomInt = (min, max) =>
-	Math.floor(Math.random() * (max - min + 1)) + min;
+  //generate weight based on distance, security, time, etc      
+export const getWeight = (name, x, y) =>{
+            };
 
 export const getDistance = (a, b) =>
 	Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
@@ -85,13 +113,13 @@ export const getExampleGraphJSON = () => {
 		for (let j = 0; j < 8; j += 1) {
 			let name;
 			do {
-				name = getFirstSillyName();
+				name = db.name;//get name of point from db
 			} while (usedNames.includes(name));
 			usedNames.push(name);
 
-			const weight = getRandomInt(1, 1000); //Need to put the value of weight, x, y per node. draw from database
-			const x = getRandomInt(125 * i + 20, 125 * (i + 1) - 20);
-			const y = getRandomInt(125 * j + 20, 125 * (j + 1) - 20);
+			const weight = getWeight(name,x,y); //Need to put the value of weight, x, y per node. draw from database
+			const x = db.longitude;
+			const y = db.latitude;
 			const node = { name, weight, x, y };
 			nodes.push(node);
 		}
@@ -109,7 +137,7 @@ export const getExampleGraphJSON = () => {
 		destinations.slice(0, 3).forEach(destination => {
 			const start = node.name;
 			const end = destination.name;
-			const length = getRandomInt(1, 1000); //has to be adjusted to real value
+			const length = getRandomInt(1, 1000); //has to be adjusted to real value for weight? or for distance?
 
 			const link = { start, end, length };
 			links.push(link);
@@ -117,4 +145,11 @@ export const getExampleGraphJSON = () => {
 	});
 
 	return { nodes, links };
-};
+                        };
+                        
+   const styles = StyleSheet.create({
+        input:{
+                borderWidth:1,
+                borderColor: '#777'
+    },
+   });

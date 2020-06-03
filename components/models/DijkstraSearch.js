@@ -88,7 +88,7 @@ export default class DijkstraSearch {
 
 		return null;
 	}
-
+    //possibly remove distanceType and rearrange code for getDistance.
 	static getDistance(node, link, endPoint, distanceType) {
 		if (distanceType === DijkstraSearch.BY_LINK_LENGTH) {
 			return link.length;

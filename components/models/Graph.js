@@ -1,7 +1,7 @@
 import _ from "lodash";
 import Link from "./Link";
 import DijkstraSearch from "./DijkstraSearch";
-import { getMinProperty, getMaxProperty } from "~/utils";
+import { getMinProperty, getMaxProperty } from "./utils";
 import Node from "./Node";
 
 export default class Graph {
@@ -132,7 +132,7 @@ export default class Graph {
 		nodes.forEach(nd => {
 			const { name } = nd;
 
-			const weight = Number(nd.weight);
+			const weight = Number(nd.weight);//adjust weight
 			const x = Number(nd.x);
 			const y = Number(nd.y);
 

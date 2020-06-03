@@ -1,7 +1,9 @@
-import { getPoints } from "~/utils";
+import { getPoints } from "./utils";
 import { path } from "./Node";
-import { List, ListItem } from 'react-native-elements';
+//import { List, ListItem } from 'react-native-elements';
+import React, { useState } from 'react';
 import { FlatList, StyleSheet, Text, Button, View, ScrollView } from "react-native";
+//import ActivePerson from './Activeperson';
 
 export const findNearbyPersons{
     //if the destination entered by the user is a point along a longer route that other users are currently travelling
@@ -10,13 +12,12 @@ let start = getPoints.point1;
 let end = getPoints.point2;
 const path = [];
 let i = path.length;
-
+let [activeperson, setActivePerson] = useState('name');
 while (path[i] != 0) {
-    if (path[i] === start ) {
-        addParty(person);
-    }
-    if (path[i] === end) {
-        addParty(person);
+    //need to separate by users to compare by username
+    //adds aperson if they have a start or end point that matches the path
+    if (path[i] === start || path[i] === end) {
+        addParty(activeperson);
     }
     i--;
 }
@@ -33,13 +34,14 @@ addParty(person) {
    let i = path.length;
 
     //adds person to group if they have selected the same destination.
-    if (this.start===person.start && this.destination === person.destination){
-        this.group.push(person);
+    if (this.start===person.start && this.destination === person.end){
+        this.group.push(person.name);
     }
     //if there are other users who also follow the same path as the user
     while (this.path[i] != 0) {
         if (this.path.point === person.path.point) {
-            this.group.push(person);
+            this.group.push(person.name);
+            //person added to group
         }
         i--;
     }
@@ -59,14 +61,7 @@ export const viewGroups{
     if (group > 0) {
     return (
         <View style={styles.container}>
-            <ScrollView>
-                {groupsViewer.map(group => (
-                    <View key={group} style={styles.listItems}>
-                        <Text> {group} </Text>
-
-                    </View>))}
-                
-                <ScrollView />
+           
                 <FlatList
                     //keyExtractor={(item, index) => item.id}
                     data={group}
@@ -88,7 +83,15 @@ const styles = StyleSheet.create({
     },
     listItems: {
         padding: 10,
-        fontSize: 18,
-        height: 44,
-    },
-})
+            fontSize: 18,
+            height: 44,
+        },
+    })
+ /*<ScrollView>
+                {groupsViewer.map(group => (
+                    <View key={group} style={styles.listItems}>
+                        <Text> {group} </Text>
+
+                    </View>))}
+
+                <ScrollView />*/

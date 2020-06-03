@@ -1,4 +1,4 @@
-import { getPoints } from "~/utils";
+import { getPoints } from "./utils";
 export default class Group {
     //may need to be adjusted
     constructor({ group, destination }) {

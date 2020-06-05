@@ -22,6 +22,7 @@ const ProfileStack = createStackNavigator();
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const [islogedin , setIsLoggedin] = React.useState (true);
+  const [JWT_Token , setToken] =React.useState(null);
   
   if (fontsLoaded){
   return (

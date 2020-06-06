@@ -17,16 +17,16 @@ class FindRouteScreen extends React.Component{
 const styles = StyleSheet.create({
   container: {
       backgroundColor: 'steelblue',
-      padding: 70,
+      padding: 50,
+      flex: 1,
       alignItems: 'center'
   },
 
   text:{
     color:'white',
-    fontSize: 30,
-    textAlign:'justify',
-    width: 325,
-    textAlign: 'center'
+    fontSize: 40,
+    textAlign: 'center',
+    fontFamily: 'righteous'
   },
 
   textDetails:{

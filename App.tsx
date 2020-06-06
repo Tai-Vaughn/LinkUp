@@ -1,17 +1,16 @@
-import 'react-native-gesture-handler';
-import {useState} from 'react';
+import 'react-native-gesture-handler'; 
 
-import {StyleSheet, View, Image, Text, TextInput} from 'react-native';
+import {useState} from 'react';
 import FindRouteScreen from './components/FindRoute/FindRouteScreen';
-import regis from './components/FindRoute/FindRouteScreen';
+/*import regis from './components/FindRoute/FindRouteScreen';*/
 
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-
 import {createStackNavigator} from '@react-navigation/stack';
 
 import * as Font from 'expo-font';
 import {AppLoading} from 'expo';
+
 
 const AuthStack = createStackNavigator(); 
 const ProfileStack = createStackNavigator();
@@ -26,16 +25,17 @@ export default function App() {
   
   if (fontsLoaded){
     return (
+      /*
       <NavigationContainer>
-      {}
-      <AuthStack.Navigator>
-        <AuthStack.Screen name="findroute" component={FindRouteScreen} options= {{ title: ""}}/>
-      </AuthStack.Navigator>  
- 
+          <AuthStack.Screen name=" " component={FindRouteScreen}/>
       </NavigationContainer>
+      */
+     <FindRouteScreen/>
   );
   }
 
+  /* watchman watch-del-all && react-native start --reset-cache */
+  
   else{
     return(
     <AppLoading

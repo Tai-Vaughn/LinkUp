@@ -35,11 +35,11 @@ export const globalStyles = StyleSheet.create ({
     input:{
         height: 40,
         backgroundColor: 'rgba(255,255,255,0.2)',
-        marginBottom: 10,
         color: '#FFF',
         width: 200,
         paddingHorizontal: 10,
-        borderRadius: 10
+        borderRadius: 10,
+        flexDirection: 'row-reverse'
     },
 
     formContainer: {
@@ -61,13 +61,6 @@ export const globalStyles = StyleSheet.create ({
         fontSize: 40
       },
 
-    buttonText:{
-        width: 200,
-        fontWeight: '700',
-        alignItems: 'center',
-        height: 20
-    },
-
     button:{
         bottom: 0,
         borderRadius: 10,
@@ -75,5 +68,12 @@ export const globalStyles = StyleSheet.create ({
         width: 150,
         marginBottom: 100,
         alignSelf: 'center'
+      },
+
+      errorMessage:{
+          color:'yellow',
+          fontWeight: '700',
+          marginBottom: 20,
+          marginTop: 5
       }
 });

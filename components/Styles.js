@@ -37,10 +37,12 @@ export const globalStyles = StyleSheet.create ({
         backgroundColor: 'rgba(255,255,255,0.2)',
         marginBottom: 10,
         color: '#FFF',
-        width: 200,
         paddingHorizontal: 10,
         borderRadius: 10, 
-        textAlign: 'center'
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+        width: 300
     },
 
     formContainer: {
@@ -60,6 +62,13 @@ export const globalStyles = StyleSheet.create ({
         color: 'white',
         flex: 1,
         fontSize: 40
-      }
+    },
+
+      errorMessage:{
+        color:'yellow',
+        fontWeight: '700',
+        marginBottom: 20,
+        marginTop: 5
+    }
 });
 

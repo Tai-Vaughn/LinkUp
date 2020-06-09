@@ -5,7 +5,7 @@ import {View, TextInput, Button, Text} from 'react-native';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 
-const FindRouteSchema = yup.object({
+const CreateAccountSchema = yup.object({
     FirstName: yup.string()
     .required(),
 
@@ -43,8 +43,8 @@ class CreateAccountScreen extends React.Component{
                 
                 <Formik
                 initialValues={{FirstName: '', LastName: '', Username: '', IDNumber: '', Email: '',
-            Password: '', ConfirmPassword: ''}}
-                validationSchema={FindRouteSchema}
+                Password: '', ConfirmPassword: ''}}
+                validationSchema={CreateAccountSchema}
                 onSubmit={(values, actions) => {
                     actions.resetForm();
                     console.log(values);

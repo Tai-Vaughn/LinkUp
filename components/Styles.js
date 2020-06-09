@@ -29,7 +29,8 @@ export const globalStyles = StyleSheet.create ({
         bottom: 0,
         borderRadius: 10,
         overflow: 'hidden',
-        width: 150
+        width: 150,
+        alignSelf: 'center'
     },
 
     input:{

@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, TextInput, Button,} from 'react-native';
 import { globalStyles } from '../Styles';
-
+import * as DataService from '../Service/DataService';
 
 class CreateAccountForm extends React.Component{
     constructor(){
@@ -145,7 +145,7 @@ class CreateAccountForm extends React.Component{
                 <View style={styles.button}>
                     <Button
                     title='Create Account'
-                    onPress={() => this.createUser()}
+                    onPress={() => DataService.createUser(this.state.userInfo).subscribe(console.log())}
                     />
                 </View>
             </View>

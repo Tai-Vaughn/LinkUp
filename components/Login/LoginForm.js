@@ -1,7 +1,9 @@
 import React from 'react';
-import {StyleSheet, View, TextInput, Button} from 'react-native';
+import {StyleSheet, View, TextInput, Button,Text} from 'react-native';
 import {globalStyles} from '../Styles'; 
 import { fetchUpdateAsync } from 'expo-updates';
+import * as DataService from '../Service/DataService';
+import {map,tap} from 'rxjs/operators'
 
 /* 
 MAY NEED FOR IOS
@@ -27,8 +29,8 @@ class LoginForm extends React.Component {
             Authinfo : {
                 email: '',
                 password: ''
-            }
-
+            },
+            Message: 'we'
         }
     }
 
@@ -39,21 +41,10 @@ class LoginForm extends React.Component {
             this.state.Authinfo.password =data
         }
     }
-    login (){
-        console.log(this.state.Authinfo)
-        fetch('https://linkupcapstone.herokuapp.com/users/login', {
-            method:'POST',
-            headers: {
-                 Accept: 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this.state.Authinfo)
-        })
-        .then( (response) => response.json())
-        .then((json) => console.log(json.token))
-        .catch( (err) => console.log(err))
-    }
 
+    setMessage(data){
+        this.state.Message = 'yoyo';
+    }
 
     render(){
         return (
@@ -83,8 +74,13 @@ class LoginForm extends React.Component {
             <View style={styles.button}>
             <Button
                 title='Login'
-                onPress = {() => this.login() }
+                onPress = { () => DataService.login(this.state.Authinfo) }
             />
+            <Button
+                title='test'
+                onPress = { () => this.setMessage('yoyo') }
+            />
+            <Text>{this.state.Message}</Text>
             </View>
           
             </View>

@@ -1,166 +1,158 @@
-import React from 'react';
-import {StyleSheet, View, TextInput, Button,} from 'react-native';
-import { globalStyles } from '../Styles';
-import * as DataService from '../Service/DataService';
+import React, {Component} from 'react';
+import {globalStyles} from '../Styles';
+import {View, TextInput, Button, Text} from 'react-native';
 
-class CreateAccountForm extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-            userInfo: {
-                firstName: 'joe',
-                lastName: 'Shmo',
-                username: 'regular',
-                studentID: 1234567,
-                email: 'joeShmo@hotmail.com',
-                password: 'pass123'
-            }
-        }
-        
-    }
-    setuserinfo(data,type){
-        switch(type){
-            case 'FirstName':
-                this.state.userInfo.firstName = data
-                break;
-            case 'LastName':
-                this.state.userInfo.lastName = data
-                break;
-            case 'Username':
-                this.state.userInfo.username = data
-                break;
-            case 'StudentID':
-                this.state.userInfo.studentID = parseInt(data)
-                break;
-            case 'Email':
-                this.state.userInfo.email = data
-                break;
-            case 'Password':
-                this.state.userInfo.password = data
-                break;
-            
-        }
+import {Formik} from 'formik';
+import * as yup from 'yup';
 
-    }
+const CreateAccountSchema = yup.object({
+    FirstName: yup.string()
+    .required(),
 
-    createUser(){
-        fetch('https://linkupcapstone.herokuapp.com/users/signup',{
-            method:'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
+    LastName: yup.string()
+    .required(),
 
-            },
-            body: JSON.stringify(this.state.userInfo)
+    Username: yup.string()
+    .required()
+    .min(6),
 
-        })
-        .then( (response) => response.json())
-        .then((json) => console.log(json))
-        .catch( (err) => console.log(err))
-    }
+    IDNumber: yup.string()
+    .required()
+    .test('is-num-higher-than-4', 'You must choose a group size of at least 4 persons (including yourself)', (val) => {
+        return parseInt(val) >= 4;
+    })
+    ,
+
+    Email: yup.string()
+    .required(),
+
+    Password: yup.string()
+    .required()
+    .min(8),
+
+    ConfirmPassword: yup.string()
+    .required()
+    .min(8),
+})
+
+class CreateAccountScreen extends React.Component{
     render(){
         return (
-            <View style={globalStyles.formContainer}>
-                <TextInput 
-                placeholder='First Name'
-                placeholderTextColor='rgba(255,255,255,0.7)'
-                returnKeyType='next'
-                autoCapitalize='words'
-                style={globalStyles.input}
-                onSubmitEditing={() => this.usernameInput.focus()}
-                autoCorrect={false}
-                onChangeText={(val) => {this.setuserinfo(val,'FirstName')}}
-                />
+        
+            <View style={globalStyles.container}>
+                
+                <Formik
+                initialValues={{FirstName: '', LastName: '', Username: '', IDNumber: '', Email: '',
+                Password: '', ConfirmPassword: ''}}
+                validationSchema={CreateAccountSchema}
+                onSubmit={(values, actions) => {
+                    actions.resetForm();
+                    console.log(values);
+                }}
+                >
 
-                <TextInput 
-                placeholder='Last Name'
-                placeholderTextColor='rgba(255,255,255,0.7)'
-                returnKeyType='next'
-                autoCapitalize='words'
-                style={globalStyles.input}
-                onSubmitEditing={() => this.usernameInput.focus()}
-                autoCorrect={false}
-                onChangeText={(val) => {this.setuserinfo(val,'LastName')}}
-                />
+                {(props) => (
+                    <View>
+                        <TextInput 
+                        placeholder='First Name'
+                        returnKeyType='next'
+                        style={globalStyles.input}
+                        onChangeText={props.handleChange('FirstName')}
+                        value={props.values.FirstName}
+                        onSubmitEditing={() => this.LastNameInput.focus()}
+                        onBlur={props.handleBlur('FirstName')}
+                        />
+                        <Text style={globalStyles.errorMessage}> {props.touched.FirstName && props.errors.FirstName} </Text>
 
-                <TextInput 
-                placeholder='Username'
-                placeholderTextColor='rgba(255,255,255,0.7)'
-                returnKeyType='next'
-                autoCapitalize='none'
-                style={globalStyles.input}
-                autoCorrect={false}
-                onSubmitEditing={() => this.idInput.focus()}
-                ref = {(input) => this.usernameInput = input}
-                onChangeText={(val) => {this.setuserinfo(val,'Username')}}
-                />
+                        <TextInput 
+                        placeholder='Last Name'
+                        returnKeyType='next'
+                        style={globalStyles.input}
+                        onChangeText={props.handleChange('LastName')}
+                        value={props.values.LastName}
+                        onSubmitEditing={() => this.UsernameInput.focus()}
+                        ref={(input) => this.LastNameInput = input}
+                        onBlur={props.handleBlur('LastName')}
+                        />
+                        <Text style={globalStyles.errorMessage}> {props.touched.LastName && props.errors.LastName}</Text>
 
-                <TextInput 
-                placeholder='ID number'
-                placeholderTextColor='rgba(255,255,255,0.7)'
-                returnKeyType='next'
-                keyboardType='decimal-pad'
-                style={globalStyles.input}
-                onSubmitEditing={() => this.emailInput.focus()}
-                ref = {(input) => this.idInput = input}
-                onChangeText={(val) => {this.setuserinfo(val,'StudentID')}}
-                />
+                        <TextInput 
+                        placeholder='Username'
+                        returnKeyType='next'
+                        style={globalStyles.input}
+                        onChangeText={props.handleChange('Username')}
+                        value={props.values.Username}
+                        onSubmitEditing={() => this.IDNumberInput.focus()}
+                        ref={(input) => this.UsernameInput = input}
+                        onBlur={props.handleBlur('Username')}
+                        />
+                        <Text style={globalStyles.errorMessage}> {props.touched.Username && props.errors.Username}</Text>
 
-                <TextInput 
-                placeholder='E-mail Address'
-                placeholderTextColor='rgba(255,255,255,0.7)'
-                returnKeyType='next'
-                keyboardType='email-address'
-                autoCapitalize='none'
-                style={globalStyles.input}
-                autoCorrect={false}
-                onSubmitEditing={() => this.passwordInput.focus()}
-                ref={(input) => this.emailInput = input}
-                onChangeText={(val) => {this.setuserinfo(val,'Email')}}
-                />
+                        <TextInput 
+                        placeholder='ID Number'
+                        returnKeyType='next'
+                        keyboardType='numeric'
+                        style={globalStyles.input}
+                        onChangeText={props.handleChange('IDNumber')}
+                        value={props.values.IDNumber}
+                        ref={(input) => this.IDNumberInput = input}
+                        onBlur={props.handleBlur('IDNumber')}
+                        onSubmitEditing={() => this.EmailInput.focus()}
+                        />
+                        <Text style={globalStyles.errorMessage}> {props.touched.IDNumber && props.errors.IDNumber}</Text>
 
-                <TextInput 
-                placeholder='Password'
-                placeholderTextColor='rgba(255,255,255,0.7)'
-                secureTextEntry
-                returnKeyType='next'
-                style={globalStyles.input}
-                autoCorrect={false}
-                onSubmitEditing={() => this.verifyPasswordInput.focus()}
-                ref={(input) => this.passwordInput = input}
-                onChangeText={(val) => {this.setuserinfo(val,'Password')}}
-                />
+                        <TextInput
+                        placeholder='E-mail Address'
+                        returnKeyType='next'
+                        keyboardType='email-address'
+                        style={globalStyles.input}
+                        onChangeText={props.handleChange('Email')}
+                        value={props.values.Email}
+                        ref={(input) => this.EmailInput = input}
+                        onBlut={props.handleBlur('Email')}
+                        onSubmitEditing={() => this.PasswordInput.focus()}
+                        />
+                        <Text style={globalStyles.errorMessage}> {props.touched.Email && props.errors.Email}</Text>
 
-                <TextInput 
-                placeholder='Confirm Password'
-                placeholderTextColor='rgba(255,255,255,0.7)'
-                secureTextEntry
-                returnKeyType='go'
-                autoCapitalize='none'
-                style={globalStyles.input}
-                autoCorrect={false}
-                ref={(input) => this.verifyPasswordInput = input}
-                />
+                        <TextInput
+                        placeholder='Password'
+                        returnKeyType='next'
+                        secureTextEntry
+                        style={globalStyles.input}
+                        onChangeText={props.handleChange('Password')}
+                        value={props.values.Password}
+                        ref={(input) => this.PasswordInput = input}
+                        onBlut={props.handleBlur('Password')}
+                        onSubmitEditing={() => this.ConfirmPasswordInput.focus()}
+                        />
+                        <Text style={globalStyles.errorMessage}> {props.touched.Password && props.errors.Password}</Text>
 
-                <View style={styles.button}>
-                    <Button
-                    title='Create Account'
-                    onPress={() => DataService.createUser(this.state.userInfo).subscribe(console.log())}
-                    />
-                </View>
+                        <TextInput
+                        placeholder='Confirm Password'
+                        returnKeyType='go'
+                        secureTextEntry
+                        style={globalStyles.input}
+                        onChangeText={props.handleChange('ConfirmPassword')}
+                        value={props.values.ConfirmPassword}
+                        ref={(input) => this.ConfirmPasswordInput = input}
+                        onBlur={props.handleBlur('ConfirmPassword')}
+                        />
+                        <Text style={globalStyles.errorMessage}> {props.touched.ConfirmPassword && props.errors.ConfirmPassword}</Text>
+
+                        <View style={globalStyles.button}>
+                            <Button 
+                            title='Submit' 
+                            onPress={props.handleSubmit}
+                            />
+                        </View>
+                    </View>
+                )}
+                </Formik>
+               
             </View>
+         
         )
     }
 }
 
-const styles = StyleSheet.create({
-       button:{
-        marginBottom: 20,
-        bottom: 0,
-        borderRadius: 10,
-        overflow: 'hidden',
-        width: 150
-        }
-});
-
-export default CreateAccountForm;
+export default CreateAccountScreen;

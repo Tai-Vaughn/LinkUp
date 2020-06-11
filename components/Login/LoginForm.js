@@ -1,6 +1,8 @@
 import React from 'react';
-import {StyleSheet, View, TextInput, Button,Text} from 'react-native';
+import {StyleSheet, View, TextInput, Button, Text} from 'react-native';
 import {globalStyles} from '../Styles'; 
+import {Formik} from 'formik'; 
+import * as yup from 'yup';
 import { fetchUpdateAsync } from 'expo-updates';
 import * as DataService from '../Service/DataService';
 import {map,tap} from 'rxjs/operators'
@@ -22,72 +24,86 @@ how to get cursor at the beginning of text
 (cursor is at beginning on tablet but in the middle on phone)
 */
 
-class LoginForm extends React.Component {
-    constructor(){
-        super()
-        this.state = {
-            Authinfo : {
-                email: '',
-                password: ''
-            },
-            Message: 'we'
-        }
-    }
 
-    setAuthinfo(data,type){
-        if (type == 'email'){
-            this.state.Authinfo.email = data
-        } else {
-            this.state.Authinfo.password =data
-        }
-    }
 
-    setMessage(data){
-        this.state.Message = 'yoyo';
-    }
 
+
+const LoginSchema = yup.object({
+    UsernameorEmail: yup.string()
+    .required(),
+
+    LoginPassword: yup.string()
+    .required()
+})
+
+class LoginForm extends React.Component{
     render(){
         return (
-            <View style={globalStyles.formContainer}>
-                <TextInput 
-                placeholder='Username or E-mail address'
-                placeholderTextColor='rgba(255,255,255,0.7)'
-                returnKeyType='next'
-                keyboardType='email-address'
-                autoCapitalize='none'
-                style={globalStyles.input}
-                onSubmitEditing={() => this.passwordInput.focus()}
-                autoCorrect={false}
-                onChangeText = {(val) => this.setAuthinfo(val,'email')}
-                />
+        
+            <View style={globalStyles.container}>
                 
-                <TextInput 
-                placeholder='Password'
-                placeholderTextColor='rgba(255,255,255,0.7)'
-                secureTextEntry
-                returnKeyType='go'
-                style={globalStyles.input}
-                ref={(input) => this.passwordInput = input}
-                onChangeText = {(val) => this.setAuthinfo(val,'password')}
-                />
+                <Formik
+                initialValues={{UsernameorEmail: '', LoginPassword: ''}}
+                validationSchema={LoginSchema}
+                
+                onSubmit={(values, actions) => {
+                    actions.resetForm();
+                    console.log(values);
+                }}
+                >
 
-            <View style={styles.button}>
-            <Button
-                title='Login'
-                onPress = { () => DataService.login(this.state.Authinfo) }
-            />
-            <Button
-                title='test'
-                onPress = { () => this.setMessage('yoyo') }
-            />
-            <Text>{this.state.Message}</Text>
+                {(props) => (
+                    <View>
+                        
+                        <TextInput
+                        placeholder='Username or E-mail Address'
+                        returnKeyType='next'
+
+                        style={globalStyles.input}
+                        onChangeText={props.handleChange('UsernameorEmail')}
+                        value={props.values.UsernameorEmail}    
+
+                        onBlur={props.handleBlur('UsernameorEmail')}
+                        onSubmitEditing={() => this.LoginPasswordInput.focus()}
+                        />
+
+                        <Text 
+                        style={globalStyles.errorMessage}> 
+                        {props.touched.UsernameorEmail && props.errors.UsernameorEmail}
+                        </Text>
+
+                        <TextInput
+                        placeholder='Confirm Password'
+                        returnKeyType='go'
+                        secureTextEntry
+
+                        style={globalStyles.input}
+                        onChangeText={props.handleChange('LoginPassword')}
+                        value={props.values.LoginPassword}
+
+                        ref={(input) => this.LoginPasswordInput = input}
+                        onBlur={props.handleBlur('LoginPassword')}
+                        />
+                        
+                        <Text style={globalStyles.errorMessage}> 
+                        {props.touched.LoginPassword && props.errors.LoginPassword}
+                        </Text>
+
+                        <View style={globalStyles.button}>
+                            <Button 
+                            title='Submit' 
+                            onPress={props.handleSubmit}
+                            />
+                        </View>
+                    </View>
+                )}
+                </Formik>
+               
             </View>
-          
-            </View>
+         
         )
     }
 }
-
 const styles = StyleSheet.create({
     button:{
         bottom: 0,

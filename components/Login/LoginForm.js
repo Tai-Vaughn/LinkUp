@@ -1,6 +1,11 @@
 import React from 'react';
 import {StyleSheet, View, TextInput, Button, Text} from 'react-native';
 import {globalStyles} from '../Styles'; 
+import {Formik} from 'formik'; 
+import * as yup from 'yup';
+import { fetchUpdateAsync } from 'expo-updates';
+import * as DataService from '../Service/DataService';
+import {map,tap} from 'rxjs/operators'
 
 /* 
 MAY NEED FOR IOS
@@ -20,11 +25,11 @@ how to get cursor at the beginning of text
 */
 
 
-import {Formik} from 'formik';
-import * as yup from 'yup';
+
+
 
 const LoginSchema = yup.object({
-    UsernameorEmail: yup.string()
+    Email: yup.string()
     .required(),
 
     LoginPassword: yup.string()
@@ -38,7 +43,7 @@ class LoginForm extends React.Component{
             <View style={globalStyles.container}>
                 
                 <Formik
-                initialValues={{UsernameorEmail: '', LoginPassword: ''}}
+                initialValues={{Email: 'regular@gmail.com', LoginPassword: 'pass123'}}
                 validationSchema={LoginSchema}
                 
                 onSubmit={(values, actions) => {
@@ -51,20 +56,20 @@ class LoginForm extends React.Component{
                     <View>
                         
                         <TextInput
-                        placeholder='Username or E-mail Address'
+                        placeholder='E-mail Address'
                         returnKeyType='next'
 
                         style={globalStyles.input}
-                        onChangeText={props.handleChange('UsernameorEmail')}
-                        value={props.values.UsernameorEmail}    
+                        onChangeText={props.handleChange('Email')}
+                        value={props.values.Email}    
 
-                        onBlur={props.handleBlur('UsernameorEmail')}
+                        onBlur={props.handleBlur('Email')}
                         onSubmitEditing={() => this.LoginPasswordInput.focus()}
                         />
 
                         <Text 
                         style={globalStyles.errorMessage}> 
-                        {props.touched.UsernameorEmail && props.errors.UsernameorEmail}
+                        {props.touched.Email && props.errors.Email}
                         </Text>
 
                         <TextInput
@@ -87,7 +92,7 @@ class LoginForm extends React.Component{
                         <View style={globalStyles.button}>
                             <Button 
                             title='Submit' 
-                            onPress={props.handleSubmit}
+                            onPress={() => DataService.login(props.values)}
                             />
                         </View>
                     </View>

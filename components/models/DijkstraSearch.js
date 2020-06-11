@@ -1,18 +1,7 @@
 /* Dijkstra's searching algorithm  */
 export default class DijkstraSearch {
-	static get BY_LINK_LENGTH() {
-		return "BY_LINK_LENGTH";
-	}
 
-	static get BY_WEIGHT() {
-		return "BY_WEIGHT";
-	}
-
-	static get BY_COORDINATES() {
-		return "BY_COORDINATES";
-	}
-
-	static search(start, finish, graph, distanceType) {
+	static search(start, finish, graph) {
 		if (!graph.nodes[start] || !graph.nodes[finish]) {
 			console.error("Nodes are not part of the graph!");
 			return null;
@@ -56,7 +45,6 @@ export default class DijkstraSearch {
 						current,
 						link,
 						endPoint,
-						distanceType,
 					);
 
 				if (nodesProps[endPoint.name].distanceFromStart > newDistance) {
@@ -89,20 +77,13 @@ export default class DijkstraSearch {
 		return null;
 	}
     //possibly remove distanceType and rearrange code for getDistance.
-	static getDistance(node, link, endPoint, distanceType) {
-		if (distanceType === DijkstraSearch.BY_LINK_LENGTH) {
-			return link.length;
-		}
-
-		if (distanceType === DijkstraSearch.BY_COORDINATES) {
-			const a = node;
-			const b = endPoint;
-			return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
-		}
-
-		if (distanceType === DijkstraSearch.BY_WEIGHT) {
-			return endPoint.weight;
-		}
+    static getDistance(weight, distance) {
+        if (distance > weight) {
+            return weight; //returns whichever of the two is less for the actual distance which includes the safety
+        }
+        if (weight > distance) {
+            return distance;
+        }
 
 		return 0;
 	}

@@ -1,7 +1,7 @@
 export default class Link {
     //may need to be adjusted
-	constructor({ length, to }) {
-		this.length = length;
+    constructor({ distance, to }) {
+        this.distance = distance;
 		this.toNodeName = to;
 	}
 }

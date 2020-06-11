@@ -35,24 +35,24 @@ export const getPoints = (point1, point2) => {
     //obtain user’s start location and end destination from user and database
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
-    return (
+    return(
         <View>
-            <Text>Enter Starting Point: </Text>
-            <TextInput
-                style={styles.input}
-                placeholder='e.g.Humanities'
-                onChangeText={(val) => setStart(val)}
-            />
-            <Text>Enter Destination Point: </Text>
-            <TextInput
-                style={styles.input}
-                placeholder='e.g.Students Union'
-                onChangeText={(val) => setEnd(val)}
+             <Text>Enter Starting Point: </Text>
+             <TextInput
+                 style={styles.input}
+                 placeholder='e.g.Humanities'
+                 onChangeText={(val) => setStart(val)}
              />
-        </View>
-        point1 = start;
-        point2 = end; //(name, x, y) ? (name, distance, safety) makes up a point
-        return (point1, point2); //?
+             <Text>Enter Destination Point: </Text>
+             <TextInput
+                 style={styles.input}
+                 placeholder='e.g.Students Union'
+                 onChangeText={(val) => setEnd(val)}
+             />
+         </View>
+
+        
+        //point2 = end, (name, x, y) ? (name, distance, safety) makes up a point
             );
         
     };

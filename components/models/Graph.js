@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import _ from "lodash";
+import { Image, StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
 import Link from "./Link";
 import DijkstraSearch from "./DijkstraSearch";
 import Node from "./Node";
 
+
 export default class Graph extends React.Component{
     render() {
-        // there is a return of graph at the end of code. how to display the graph?
         return (
             <View>
-            graph;
+                <Text>"Hello World"</Text>
             </View>    
-                )
+            )
     }
-    //original start
-	constructor() {
+    /*
+    constructor() {
 		this.nodes = {};
 	}
 
@@ -156,8 +157,8 @@ export default class Graph extends React.Component{
 			}
 
             graph.createPath(from, distance, to);
-		});
-
+        });
+        console.log(graph);
 		return graph;
-	}
+	}*/
 }

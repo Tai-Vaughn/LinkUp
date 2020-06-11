@@ -1,26 +1,68 @@
 import React from 'react';
 import MapView from 'react-native-maps'; //https://medium.com/@samil.mehdiyev/integrating-google-maps-into-react-native-app-on-android-40c984c0e4f2
-import { Image, StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
+import { Image, StyleSheet, TouchableHighlight, Text, View, TouchableOpacity, Button } from 'react-native';
 //import StartMenue from './components/StartMenue.js';
 import MapRun from './components/models/MapRun.js';
+import Graph from './components/models/Graph.js'
+import UsersMap from './components/models/UsersMap';
+import FetchLocation from './components/models/FetchLocation';
 
 export default function App() {
+    state = {
+        userLocation: null
+    }
+
+    getUserLocationHandler = () => {
+        navigator.geolocation.getCurrentPosition(position => {
+            this.setState({
+                userLocation: {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                    latitudeDelta: 0.0922,
+                    longitudeDelta: 0.0421,
+                }
+            })
+        }, err => console.log(err));
+        
+    }
     return (
-        <View>
-            <MapView
+        <View style={styles.container}>
+            <FetchLocation onGetLocation={this.getUserLocationHandler} />
+            <UsersMap userLocation={this.state.userLocation}/>
+           
+        </View>
+
+    );
+}
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
+});
+
+
+/* <Graph />
+ * onPressButton(){
+        <Graph />
+    }
+ *  <Text>Opening Graph Sample</Text>
+            <Button
+                onPress={this.onPressButton}
+                title="Graph"
+                />
+ *  <TouchableHighlight onPress={this.OnBUttonPress}>
+                <Text>{this.state.text}</Text>
+            </TouchableHighlight>
+ * 
+ * <UsersMap />
+ * <MapView
                 initialRegion={{
                     latitude: 37.78825,
                     longitude: -122.4324,
                     latitudeDelta: 0.0922,
                     longitudeDelta: 0.0421,
                 }}
-            />
-            <MapRun />
-        </View>
-
-    );
-}
-
-
-
-
+            />*/

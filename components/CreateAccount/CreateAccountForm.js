@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {globalStyles} from '../Styles';
 import {View, TextInput, Button, Text} from 'react-native';
-
+import * as DataService from '../Service/DataService';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 
@@ -42,8 +42,8 @@ class CreateAccountScreen extends React.Component{
             <View style={globalStyles.container}>
                 
                 <Formik
-                initialValues={{FirstName: '', LastName: '', Username: '', IDNumber: '', Email: '',
-                Password: '', ConfirmPassword: ''}}
+                initialValues={{FirstName: null, LastName: null, Username: null, IDNumber: null, Email: null,
+                Password: null, ConfirmPassword: null}}
                 validationSchema={CreateAccountSchema}
                 onSubmit={(values, actions) => {
                     actions.resetForm();
@@ -142,7 +142,7 @@ class CreateAccountScreen extends React.Component{
                         <View style={globalStyles.button}>
                             <Button 
                             title='Submit' 
-                            onPress={props.handleSubmit}
+                            onPress={() => DataService.createUser(props.values)}
                             />
                         </View>
                     </View>

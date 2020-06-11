@@ -15,7 +15,10 @@ export const login = (Authinfo) => {
         },
         body: JSON.stringify(Authinfo)
     }).pipe(
-        map( (response) => tokenSubject.next(response.response.token) ),
+        map( (response) => {
+            console.log(response.response.token)
+            tokenSubject.next(response.response.token)
+        } ),
         catchError(error => {
             console.log('error: ', error);
             return of(error);
@@ -24,16 +27,19 @@ export const login = (Authinfo) => {
         ).subscribe()
 }
 export const createUser = (UserInfo) => {
-    return ajax({
+    ajax({
         url: 'https://linkupcapstone.herokuapp.com/users/signup',
         method: 'POST',
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'
         },
-        body: UserInfo
+        body: JSON.stringify(UserInfo)
 
-    })
+    }).pipe(
+        map(res => console.log(res.response)),
+        catchError( err => console.log(err))
+    ).subscribe()
 }
     // .then( (response) => response.json())
     // .then((json) => {

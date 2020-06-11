@@ -32,7 +32,7 @@ export const getSafetyLevel = (point1, point2) => {
 };
 
 export const getPoints = (point1, point2) => {
-    //obtain user’s start location and end destination from database
+    //obtain user’s start location and end destination from user and database
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
     return (
@@ -47,13 +47,12 @@ export const getPoints = (point1, point2) => {
             <TextInput
                 style={styles.input}
                 placeholder='e.g.Students Union'
-                onChangeText={(val1) => setEnd(val1)
-            />
+                onChangeText={(val) => setEnd(val)}
+             />
         </View>
-        point1= start //(name, x, y)
-        point2= end //(name, x, y) (name, distance, safety) makes up a point
-        start.x, start.y;
-        end.x, end.y;
+        point1 = start;
+        point2 = end; //(name, x, y) ? (name, distance, safety) makes up a point
+        return (point1, point2); //?
             );
         
     };

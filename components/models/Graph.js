@@ -6,6 +6,7 @@ import Node from "./Node";
 
 export default class Graph extends React.Component{
     render() {
+        // there is a return of graph at the end of code. how to display the graph?
         return (
             <View>
             graph;

@@ -9,7 +9,8 @@ import FetchLocation from './components/models/FetchLocation';
 
 export default function App() {
     state = {
-        userLocation: null
+        userLocation: null,
+        usersPlaces: []
     }
 
     getUserLocationHandler = () => {
@@ -18,21 +19,56 @@ export default function App() {
                 userLocation: {
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude,
-                    latitudeDelta: 0.0922,
-                    longitudeDelta: 0.0421,
+                    latitudeDelta: 0.0622,
+                    longitudeDelta: 0.0421
                 }
+            });
+            /*send to database 
+            fetch('http url', {
+                method: 'POST',
+                body: JSON.stringify({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                })
             })
-        }, err => console.log(err));
-        
-    }
-    return (
-        <View style={styles.container}>
-            <FetchLocation onGetLocation={this.getUserLocationHandler} />
-            <UsersMap userLocation={this.state.userLocation}/>
-           
-        </View>
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+                */
+        },
+            err => console.log(err)
+        );
 
-    );
+    };
+    /*
+    getUserPlacesHandler = () => {
+        fetch('http url for database')
+            .then(res => res.json())
+            .then(parsedRes => {
+                const placesArray = [];
+                for (const key in parsedRes) {
+                    placesArray.push({
+                        latitude: parsedRes[key].latitude,
+                        longitude: parsedRes[key].longitude,
+                        id: key
+                    });
+                }
+                this.setState({
+                    usersPlaces:placesArray
+                });
+            })
+            .catch(err => console.log(err));
+    };*/
+        return (
+            <View style={styles.container}>
+               
+                <FetchLocation onGetLocation={this.getUserLocationHandler} />
+                <UsersMap userLocation={this.state.userLocation} />
+
+            </View>
+
+        );
+    
+    
 }
 const styles = StyleSheet.create({
     container: {
@@ -44,7 +80,14 @@ const styles = StyleSheet.create({
 });
 
 
-/* <Graph />
+/*place above fetch loction 
+ * <View>
+ <Button title="Get User Places" onPress={this.getUserPlacesHandler} />
+  </View>
+ * replace with <UsersMap userLocation={this.state.userLocation}
+ * usersPlaces={this.state.usersPlaces}/> binds the other user places to map
+ *<Graph />
+ * 
  * onPressButton(){
         <Graph />
     }

@@ -43,7 +43,7 @@ class LoginForm extends React.Component{
             <View style={globalStyles.container}>
                 
                 <Formik
-                initialValues={{Email: 'regular@gmail.com', LoginPassword: 'pass123'}}
+                initialValues={{Email: null, LoginPassword: null}}
                 validationSchema={LoginSchema}
                 
                 onSubmit={(values, actions) => {

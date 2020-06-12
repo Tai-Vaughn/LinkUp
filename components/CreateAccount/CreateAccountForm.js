@@ -143,6 +143,7 @@ class CreateAccountScreen extends React.Component{
                             <Button 
                             title='Submit' 
                             onPress={() => DataService.createUser(props.values)}
+                            onPress={props.handleSubmit}
                             />
                         </View>
                     </View>

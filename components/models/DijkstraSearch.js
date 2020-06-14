@@ -1,12 +1,12 @@
 /* Dijkstra's searching algorithm  */
-import React from 'react';
+import React, { Component } from 'react';
+import { View, Text, FlatList, Image } from 'react-native';
 
-class DijkstraSearch {
+class DijkstraSearch extends Component {
     constructor({ distance, to }) {
         this.distance = distance;
         this.toNodeName = to;
     }
-    return(
     static search(start, finish, graph) {
         if (!graph.nodes[start] || !graph.nodes[finish]) {
             console.error("Nodes are not part of the graph!");
@@ -48,9 +48,7 @@ class DijkstraSearch {
                 const newDistance =
                     currentDistance +
                     DijkstraSearch.getDistance(
-                        current,
-                        link,
-                        endPoint,
+                        link.distance, //to replace current link and endpoint for function
                     );
 
                 if (nodesProps[endPoint.name].distanceFromStart > newDistance) {
@@ -81,9 +79,12 @@ class DijkstraSearch {
         }
 
         return null;
-});
+    }
+
     //possibly remove distanceType and rearrange code for getDistance.
-    static getDistance=(weight, distance)=> {
+    static getDistance = (distance) => {
+        let safety = 0.75;//should vary
+        let weight = distance * (1 + safety);
         if (distance > weight) {
             return weight; //returns whichever of the two is less for the actual distance which includes the safety
         }
@@ -92,6 +93,11 @@ class DijkstraSearch {
         }
 
         return 0;
+    }
+    render() {
+        return (
+            { path };
+             );
     }
 };
 const styles = StyleSheet.create({

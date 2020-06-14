@@ -8,7 +8,11 @@ import UsersMap from './components/models/UsersMap';
 import FetchLocation from './components/models/FetchLocation';
 
 export default function App() {
-    
+
+    state = {
+        userLocation: null,
+        usersPlaces: []
+    }
     /*state = {
         userLocation: null,
         usersPlaces: []
@@ -20,7 +24,7 @@ export default function App() {
                 userLocation: {
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude,
-                    latitudeDelta: 0.0622,
+                    latitudeDelta: 0.0422,
                     longitudeDelta: 0.0421
                 }
             });
@@ -59,15 +63,14 @@ export default function App() {
             })
             .catch(err => console.log(err));
     };*/
-        return (
-            <View style={styles.container}>
-               
-                <Graph />
-                
+    return (
+        <View style={styles.container}>
 
-            </View>
+            <UsersMap />
 
-        );
+        </View>
+
+    );
     
     
 }

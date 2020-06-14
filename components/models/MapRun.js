@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Image, Text, TextInput, Button } from 'react-native';
 //import StartMenue from './components/StartMenue.js';
-import Graph from './Graph';
+import UsersMap from './components/models/UsersMap';
 
 export default function MapRun() {
     return (
@@ -15,7 +15,7 @@ export default function MapRun() {
             </View>
 
             <View>
-                <Graph />
+                <UsersMap />
             </View>
 
         </View>

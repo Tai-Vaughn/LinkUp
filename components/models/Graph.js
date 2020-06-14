@@ -7,7 +7,7 @@ import Node from "./Node";
 
 
 export default class Graph extends Component() {
-    constructor(props) {
+    constructor(props: {}) {
         super(props);
         this.nodes = {};
     }

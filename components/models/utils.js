@@ -1,94 +1,61 @@
 import React, { useState } from 'react';
-import {TextInput, StyleSheet, Text, View } from 'react-native';
-/* eslint-disable no-mixed-operators */
-//import sillyname from "sillyname";
-
-const getMinOrMaxPropertyHelper = (arr, prop, type) => {
-	
-	if (!arr) return undefined;
-
-	return arr.reduce((m, item) => {
-		const value = item[prop];
-
-		if (!m) return value;
-
-		if (type === "min" && value < m) return value;
-		if (type === "max" && value > m) return value;
-
-		return m;
-	}, undefined);
-};
-
-export const getMinProperty = (arr, prop) =>
-	getMinOrMaxPropertyHelper(arr, prop, "min");
-
-export const getMaxProperty = (arr, prop) =>
-    getMinOrMaxPropertyHelper(arr, prop, "max");
+import { TextInput, StyleSheet, Text, View } from 'react-native';
 
 
 export const getSafetyLevel = (point1, point2) => {
 // calculate the total safety from the route and members of the group
+    //sample code to adjust
+    if (!arr) return undefined;
 
+    return arr.reduce((m, item) => {
+        const value = item[prop];
+
+        if (!m) return value;
+
+        if (type === "min" && value < m) return value;
+        if (type === "max" && value > m) return value;
+
+        return m;
+    }, undefined);
 };
 
-export const getPoints = (point1, point2) => {
+export const getPoints = () => {
     //should have select of points on map instead
+    //(name, distance, safety) makes up a point
     //obtain user’s start location and end destination from user and database
-    const [start, setStart] = useState('');
-    const [end, setEnd] = useState('');
-    return(
+    
+    return points((start,end) => {
+        const [start, setStart] = useState('start');
+        const [end, setEnd] = useState('end');
         <View>
-             <Text>Enter Starting Point: </Text>
             <TextInput
-                 style={styles.input}
-                 placeholder='e.g.Humanities'
-                 onChangeText={(val) => setStart(val)}
-             />
-             <Text>Enter Destination Point: </Text>
-             <TextInput
-                 style={styles.input}
-                 placeholder='e.g.Students Union'
-                 onChangeText={(val) => setEnd(val)}
+                placeholder='Starting Point'
+                placeholderTextColor='rgba(255,255,255,0.7)'
+                returnKeyType='next'
+                keyboardType='default'
+                style={styles.input}
+                autoCorrect={false}
+                onChangeText={(val) => setStart(val)}
+            />
+            <TextInput
+                placeholder='Destination'
+                placeholderTextColor='rgba(255,255,255,0.7)'
+                returnKeyType='next'
+                keyboardType='default'
+                style={styles.input}
+                autoCorrect={false}
+                onChangeText={(val) => setEnd(val)}
             />
             <Text> {start}, {end} </Text>
-         </View>
-
-        
-        //point2 = end, (name, x, y) ? (name, distance, safety) makes up a point
-            );
+        </View>
+        return start, end;
+    }, undefined);
         
     };
     
-        //not using coordinates, only weight and distance between points
-export const getEquationOfLineFromTwoPoints = (point1, point2) => {
-	const equation = {
-		gradient: (point1.y - point2.y) / (point1.x - point2.x),
-	};
-	let parts;
-
-	equation.yIntercept = point1.y - equation.gradient * point1.x;
-	equation.toString = () => {
-		if (Math.abs(equation.gradient) === Infinity) {
-			return `x = ${point1.x}`;
-		}
-		parts = [];
-
-		if (equation.gradient !== 0) {
-			parts.push(`${equation.gradient}x`);
-		}
-
-		if (equation.yIntercept !== 0) {
-			parts.push(equation.yIntercept);
-		}
-
-		return `y = ${parts.join(" + ")}`;
-                    };
                 
-                    return equation;
-                };
-                
-                export const floatToFixedIfNeeded = number =>
-                    number.toFixed(2).replace(/[.,]00$/, "");
+export const floatToFixedIfNeeded = number =>
+         number.toFixed(2).replace(/[.,]00$/, "");
                 
                 
         
@@ -116,9 +83,9 @@ export const getExampleGraphJSON = () => {
 			} while (usedNames.includes(name));
 			usedNames.push(name);
 
-			const weight = getWeight(name, distance, safety); //Need to put the value of weight, x, y per node. draw from database
+			const weight = getWeight(name, distance, safety); //Need to pull the value of distance, calculate safety. draw from database
 			const distance = db.distance;
-			const safety = 0.75;
+			const safety = 0.75;//should vary
         //do a comparison of weight and distance to return the lesser one? to keep shortest path
            /* if(distance>weight){
                 const node={name, weight};

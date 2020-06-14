@@ -6,6 +6,9 @@ class Link {
         this.distance = distance;
         this.toNodeName = to;
     }
+    render() {
+        return ({ distance, to});
+    }
 };
 const styles = StyleSheet.create({
 

@@ -2,9 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\components",
+<<<<<<< Updated upstream
     "\\components\\models",
     "\\components\\views"
   ],
   "SelectedNode": "\\components\\views\\DPQ.js",
+=======
+    "\\components\\CreateAccount",
+    "\\components\\HomeScreen"
+  ],
+  "SelectedNode": "\\components\\CreateAccount\\CreateAccountForm.js",
+>>>>>>> Stashed changes
   "PreviewInSolutionExplorer": false
 }

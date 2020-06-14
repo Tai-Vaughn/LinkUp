@@ -1,18 +1,19 @@
-import React, {Component} from 'react';
-import { useState } from 'react';
-import {StyleSheet, View, Image, Text, TextInput} from 'react-native';
+import React from 'react';
+import {View, Image, Text, ScrollView} from 'react-native';
 import CreateAccountForm from './CreateAccountForm';
+import {globalStyles} from '../Styles'; 
 
 class CreateAccountScreen extends React.Component{
   render(){
       return (
-          <View style={styles.container}>
+        <ScrollView>
+          <View style={globalStyles.container}>
 
-          <View style={styles.logoContainer}>
+          <View style={globalStyles.logoContainer}>
             <Image 
-            style={styles.logo}
+            style={globalStyles.logo}
             source={require('../../static/LinkUp.png')}/>
-            <Text style={styles.name}>LINK UP</Text>
+            <Text style={globalStyles.name}>LINK UP</Text>
           </View>  
 
           <View>
@@ -20,36 +21,9 @@ class CreateAccountScreen extends React.Component{
           </View>
           
           </View>
+          </ScrollView>
       )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-      flex: 1,
-      backgroundColor: 'steelblue',
-      padding: 100
-  },
-
-  logo:{
-    width: 100,
-    height: 100
-  },
-
-  logoContainer:{
-    alignItems: 'center',
-    flexGrow: 1,
-    justifyContent: 'center'
-  },
-
-  name:{
-    textAlign: 'center',
-    color: 'white',
-    flex: 1,
-    fontSize: 40,
-    marginTop: 10
-  }
-
-});
 
 export default CreateAccountScreen;

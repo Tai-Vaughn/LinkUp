@@ -5,9 +5,8 @@ import React, { useState } from 'react';
 import { FlatList, StyleSheet, Text, Button, View, ScrollView } from "react-native";
 //import ActivePerson from './Activeperson';
 
-export const findNearbyPersons{
-    //if the destination entered by the user is a point along a longer route that other users are currently travelling
-
+const findNearbyPersons = () => {
+     //if the destination entered by the user is a point along a longer route that other users are currently travelling
 let start = getPoints.point1;
 let end = getPoints.point2;
 const path = [];
@@ -47,30 +46,30 @@ addParty(person) {
     }
     
 }
-return {
-<View>
-</View>}
+return () {
+    <View >
+    </View >
+}
 };
 
-export const viewGroups{
-    const group;
-    if (group === 0){
-        console.warn('No Groups', group)
+export const viewGroups(group){
+    
+    this.group= group;
+    if (this.group === 0){
+        console.warn('No Groups', this.group)
         return;
     }
-    if (group > 0) {
+    if (this.group > 0) {
     return (
         <View style={styles.container}>
            
                 <FlatList
                     //keyExtractor={(item, index) => item.id}
-                    data={group}
-                    renderItem={itemData=> (
+                data={this.group}
+                renderItem={item => (
                     <View style={styles.listItems} >
-                    <Text> {itemData.item.value}</Text>
-                    </View>)
-                    
-                    />
+                        <Text> {item.value}</Text>
+                    </View>)}/>
         </View>
         );
     }
@@ -86,7 +85,8 @@ const styles = StyleSheet.create({
             fontSize: 18,
             height: 44,
         },
-    })
+    });
+ 
  /*<ScrollView>
                 {groupsViewer.map(group => (
                     <View key={group} style={styles.listItems}>

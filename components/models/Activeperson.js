@@ -1,12 +1,15 @@
-export default class ActivePerson {
+import React from 'react';
+import { Stylesheet, Alert } from 'react-native';
+
+
+class ActivePerson{
     constructor({ name, start, end }) {
         this.name = name;
         this.start = start;
         this.end = end;
-        this.status ='';//not automatically active
+        this.status = '';//not automatically active
     }
-    
-    setStatus() {
+    setStatus=()=> {
         const persons = []; //array of active persons
         //set status, need a condition for change
         this.status = 'active';
@@ -29,5 +32,11 @@ export default class ActivePerson {
             status: this.status,
         };
     }
+    return (
+        );
+};
+const styles = StyleSheet.create({
 
-}
+});
+
+export default ActivePerson;

@@ -32,13 +32,14 @@ export const getSafetyLevel = (point1, point2) => {
 };
 
 export const getPoints = (point1, point2) => {
+    //should have select of points on map instead
     //obtain user’s start location and end destination from user and database
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
     return(
         <View>
              <Text>Enter Starting Point: </Text>
-             <TextInput
+            <TextInput
                  style={styles.input}
                  placeholder='e.g.Humanities'
                  onChangeText={(val) => setStart(val)}
@@ -48,7 +49,8 @@ export const getPoints = (point1, point2) => {
                  style={styles.input}
                  placeholder='e.g.Students Union'
                  onChangeText={(val) => setEnd(val)}
-             />
+            />
+            <Text> {start}, {end} </Text>
          </View>
 
         

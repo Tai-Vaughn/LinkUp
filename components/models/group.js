@@ -1,8 +1,15 @@
 import { getPoints } from "./utils";
-export default class Group {
-    //may need to be adjusted
+import React from 'react';
+
+//class Group
+class Group {
     constructor({ group, destination }) {
         this.group = [];
         this.destination = getPoints.point2;
     }
-}
+};
+const styles = StyleSheet.create({
+
+});
+
+export default new Group();

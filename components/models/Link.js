@@ -1,7 +1,14 @@
-export default class Link {
-    //may need to be adjusted
+import React from 'react';
+
+//class link
+class Link {
     constructor({ distance, to }) {
         this.distance = distance;
-		this.toNodeName = to;
-	}
-}
+        this.toNodeName = to;
+    }
+};
+const styles = StyleSheet.create({
+
+});
+
+export default new Link();

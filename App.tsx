@@ -8,7 +8,8 @@ import UsersMap from './components/models/UsersMap';
 import FetchLocation from './components/models/FetchLocation';
 
 export default function App() {
-    state = {
+    
+    /*state = {
         userLocation: null,
         usersPlaces: []
     }
@@ -23,8 +24,8 @@ export default function App() {
                     longitudeDelta: 0.0421
                 }
             });
-            /*send to database 
-            fetch('http url', {
+            send to database 
+            fetch('API url', {
                 method: 'POST',
                 body: JSON.stringify({
                     latitude: position.coords.latitude,
@@ -33,12 +34,12 @@ export default function App() {
             })
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
-                */
+                
         },
             err => console.log(err)
         );
 
-    };
+    };*/
     /*
     getUserPlacesHandler = () => {
         fetch('http url for database')
@@ -61,8 +62,8 @@ export default function App() {
         return (
             <View style={styles.container}>
                
-                <FetchLocation onGetLocation={this.getUserLocationHandler} />
-                <UsersMap userLocation={this.state.userLocation} />
+                <Graph />
+                
 
             </View>
 
@@ -84,6 +85,8 @@ const styles = StyleSheet.create({
  * <View>
  <Button title="Get User Places" onPress={this.getUserPlacesHandler} />
   </View>
+  <FetchLocation onGetLocation={this.getUserLocationHandler} />
+  <UsersMap userLocation={this.state.userLocation} />
  * replace with <UsersMap userLocation={this.state.userLocation}
  * usersPlaces={this.state.usersPlaces}/> binds the other user places to map
  *<Graph />

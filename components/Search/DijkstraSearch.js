@@ -86,7 +86,8 @@ class DijkstraSearch extends Component {
         let safety = 0.75;//should vary
         let weight = distance * (1 + safety);
         if (distance > weight) {
-            return weight; //returns whichever of the two is less for the actual distance which includes the safety
+            return weight; 
+            //returns whichever of the two is less for the actual distance which includes the safety
         }
         if (weight > distance) {
             return distance;
@@ -96,7 +97,7 @@ class DijkstraSearch extends Component {
     }
     render() {
         return (
-            { path };
+            { path }
              );
     }
 };

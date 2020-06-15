@@ -3,7 +3,8 @@ import {useState} from 'react';
 
 import LoginScreen from './components/Login/LoginScreen';
 import regis from './components/CreateAccount/CreateAccountScreen';
-import HomeScreen from './components/HomeScreen/HomeScreen'
+import HomeScreen from './components/HomeScreen/HomeScreen';
+import FindRouteScreen from './components/FindRoute/FindRouteScreen'
 
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
@@ -32,6 +33,7 @@ export default function App() {
           <AuthStack.Screen name=" " component={HomeScreen}/>
           <AuthStack.Screen name="login" component={LoginScreen} options= {{ title: ""}}/>
           <AuthStack.Screen name="registration" component={regis} options={{ title : ""}}/>
+          <AuthStack.Screen name="find route" component={FindRouteScreen} options={{ title : ""}}/>
         </AuthStack.Navigator>  
    
   </NavigationContainer>
@@ -48,6 +50,4 @@ export default function App() {
   }
   };
 
-  /* watchman watch-del-all && react-native start --reset-cache */
-  
 

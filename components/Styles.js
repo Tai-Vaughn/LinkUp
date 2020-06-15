@@ -4,8 +4,8 @@ export const globalStyles = StyleSheet.create ({
     
     container: {
         backgroundColor: 'steelblue',
-        padding: 50,
-        flex: 1
+        flex: 1,
+        padding: 50
     }, 
 
     logo:{
@@ -18,18 +18,19 @@ export const globalStyles = StyleSheet.create ({
     },
 
     text:{
-        color: 'white',
+        color:'white',
         fontSize: 40,
-        marginBottom: 90,
+        textAlign: 'center',
         fontFamily: 'righteous'
-      },
+      }, 
 
     button:{
-        marginBottom: 20,
-        bottom: 0,
         borderRadius: 10,
         overflow: 'hidden',
-        width: 150
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0
     },
 
     input:{
@@ -39,7 +40,9 @@ export const globalStyles = StyleSheet.create ({
         width: 200,
         paddingHorizontal: 10,
         borderRadius: 10,
-        flexDirection: 'row-reverse'
+        flexDirection: 'row-reverse',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start'
     },
 
     formContainer: {
@@ -70,10 +73,16 @@ export const globalStyles = StyleSheet.create ({
         alignSelf: 'center'
       },
 
-      errorMessage:{
-          color:'yellow',
-          fontWeight: '700',
-          marginBottom: 20,
-          marginTop: 5
-      }
+    errorMessage:{
+        color:'yellow',
+        fontWeight: '700',
+        marginBottom: 20,
+        marginTop: 5
+    },
+
+    test:{
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start'
+        //try alignSelf
+    }
 });

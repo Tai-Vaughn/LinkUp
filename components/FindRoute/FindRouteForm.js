@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {globalStyles} from '../Styles';
-import {View, TextInput, Button, ActionSheetIOS,
-    TouchableWithoutFeedback, Keyboard, Text} from 'react-native';
+import {View, TextInput, Button, Picker, Text, StyleSheet} from 'react-native';
 
 import {ScrollView} from 'react-native-gesture-handler';
 
@@ -18,10 +17,6 @@ const FindRouteSchema = yup.object({
     Destination: yup.string()
     .required(),
 
-    Group: yup.string()
-    .required()
-    .max(3),
-
     Size: yup.string()
     .required()
     .test('is-num-higher-than-4', 'You must choose a group size of at least 4 persons (including yourself)', (val) => {
@@ -30,13 +25,19 @@ const FindRouteSchema = yup.object({
 })
 
 class FindRouteForm extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            PickerValue:''
+        }
+    }
+    
     render(){
         return (
             <ScrollView>
             <View style={globalStyles.container}>
-                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <Formik
-                initialValues={{Origin: '', Destination: '', Group: '', Size: ''}}
+                initialValues={{Origin: '', Destination: '', Size: ''}}
                 validationSchema={FindRouteSchema}
                 onSubmit={(values, actions) => {
                     actions.resetForm();
@@ -46,6 +47,26 @@ class FindRouteForm extends React.Component{
 
                 {(props) => (
                     <View>
+                        <Picker
+                        style={{width:'80000%'}}
+                        selectedValue={this.state.PickerValue}
+                        onValueChange={(itemValue) => this.setState({PickerValue: itemValue})}
+                        >
+                            <Picker.Item label='Would you like to travel with a group?' value=''/>
+                            <Picker.Item label='Yes' value='yes'/>
+                            <Picker.Item label='No' value='no'/>
+                        </Picker>
+
+                        <Picker
+                        style={{width:'80000%'}}
+                        selectedValue={this.state.PickerValue}
+                        onValueChange={(itemValue,itemIndex) => this.setState({PickerValue: itemValue})}
+                        >
+                            <Picker.Item label='Group Size (including yourself)' value=''/>
+                            <Picker.Item label='4' value='4'/>
+                            <Picker.Item label='5' value='5'/>
+                        </Picker>
+                        
                         <TextInput 
                         placeholder='Origin'
                         returnKeyType='next'
@@ -69,30 +90,6 @@ class FindRouteForm extends React.Component{
                         />
                         <Text style={globalStyles.errorMessage}> {props.touched.Destination && props.errors.Destination}</Text>
 
-                        <TextInput 
-                        placeholder='Would you like to travel with a Group?'
-                        returnKeyType='next'
-                        style={globalStyles.input}
-                        onChangeText={props.handleChange('Group')}
-                        value={props.values.Group}
-                        onSubmitEditing={() => this.SizeInput.focus()}
-                        ref={(input) => this.placeholderInput = input}
-                        onBlur={props.handleBlur('Group')}
-                        />
-                        <Text style={globalStyles.errorMessage}> {props.touched.Group && props.errors.Group}</Text>
-
-                        <TextInput 
-                        placeholder='Minimum Group Size'
-                        returnKeyType='next'
-                        keyboardType='numeric'
-                        style={globalStyles.input}
-                        onChangeText={props.handleChange('Size')}
-                        value={props.values.Size}
-                        ref={(input) => this.SizeInput = input}
-                        onBlur={props.handleBlur('Size')}
-                        />
-                        <Text style={globalStyles.errorMessage}> {props.touched.Size && props.errors.Size}</Text>
-
                         <View style={globalStyles.button}>
                             <Button 
                             title='Submit' 
@@ -102,11 +99,18 @@ class FindRouteForm extends React.Component{
                     </View>
                 )}
                 </Formik>
-                </TouchableWithoutFeedback>
+               
             </View>
             </ScrollView>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container:{
+        backgroundColor: 'white',
+        flex: 1
+    }
+});
 
 export default FindRouteForm;

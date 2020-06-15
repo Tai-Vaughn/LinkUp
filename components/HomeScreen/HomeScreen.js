@@ -32,7 +32,12 @@ export default function HomeScreen ({navigation}) {
         onPress = {() => navigation.push('callmap')}
       />
       </View>
-      
+      <View style={globalStyles.button}>
+      <Button
+        title='Graph'
+        onPress = {() => navigation.push('callgraph')}
+      />
+      </View>
       </View>
   )
 }

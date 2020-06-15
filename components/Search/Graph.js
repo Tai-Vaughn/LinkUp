@@ -5,7 +5,20 @@ import Link from "./Link";
 import DijkstraSearch from "./DijkstraSearch";
 import Node from "./Node";
 
-export default class Graph extends Component() {
+const Graphs = props => {
+    if(props.userGraph){
+
+    }
+    return (
+        <Button
+            title="Graph Map"
+            onPress={props.onGetGraph}
+         />
+    );
+};
+export default Graphs;
+
+export default class Graph extends Component(props) {
     constructor(props: {}) {
         super(props);
         this.nodes = {};
@@ -110,7 +123,7 @@ export default class Graph extends Component() {
             links,
         };
     }
-
+//find adjacent
     static fromJSON({ nodes, links }) {
         const graph = new Graph();
 
@@ -156,8 +169,8 @@ export default class Graph extends Component() {
         
         return (
             <View>
-                <Text>Map</Text>
-                {graph}
+                <Text>{graph}</Text>
+                
             </View>
         );
     }

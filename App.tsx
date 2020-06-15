@@ -5,6 +5,7 @@ import LoginScreen from './components/Login/LoginScreen';
 import regis from './components/CreateAccount/CreateAccountScreen';
 import HomeScreen from './components/HomeScreen/HomeScreen';
 import CallMap from './components/Map/CallMap';
+import CallGraph from './components/Search/CallGraph';
 
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
@@ -32,6 +33,7 @@ export default function App() {
       <AuthStack.Navigator>
           <AuthStack.Screen name=" " component={HomeScreen}/>
           <AuthStack.Screen name="callmap" component={CallMap}/>
+          <AuthStack.Screen name="callgraph" component={CallGraph}/>
           <AuthStack.Screen name="login" component={LoginScreen} options= {{ title: ""}}/>
           <AuthStack.Screen name="registration" component={regis} options={{ title : ""}}/>
         </AuthStack.Navigator>  

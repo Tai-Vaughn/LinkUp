@@ -95,11 +95,7 @@ class DijkstraSearch extends Component {
 
         return 0;
     }
-    render() {
-        return (
-            { path }
-             );
-    }
+
 };
 const styles = StyleSheet.create({
 

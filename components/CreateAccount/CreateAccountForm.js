@@ -42,8 +42,8 @@ class CreateAccountScreen extends React.Component{
             <View style={globalStyles.container}>
                 
                 <Formik
-                initialValues={{FirstName: null, LastName: null, Username: null, IDNumber: null, Email: null,
-                Password: null, ConfirmPassword: null}}
+                initialValues={{FirstName: '', LastName: '', Username: '', IDNumber: '', Email: '',
+                Password: '', ConfirmPassword: ''}}
                 validationSchema={CreateAccountSchema}
                 onSubmit={(values, actions) => {
                     actions.resetForm();

@@ -1,8 +1,8 @@
 import React from 'react';
 import MapView from 'react-native-maps'; //https://medium.com/@samil.mehdiyev/integrating-google-maps-into-react-native-app-on-android-40c984c0e4f2
 import { Image, StyleSheet, TouchableHighlight, Text, View, TouchableOpacity, Button } from 'react-native';
-import UsersMap from './components/Map/UsersMap';
-import FetchLocation from './components/Map/FetchLocation';
+import UsersMap from './UsersMap';
+import FetchLocation from './FetchLocation';
 
 export default function CallMap() {
 

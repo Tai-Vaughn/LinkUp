@@ -2,12 +2,12 @@ import React from 'react';
 import {View, Button, Picker, Text} from 'react-native';
 import {globalStyles} from '../Styles'
 
-import * as DataService from '../Service/DataService';
+// import * as DataService from '../Service/DataService';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Formik} from 'formik';
 
-import * as yup from 'yup';
-import { map } from 'rxjs/operators';
+// import * as yup from 'yup';
+// import { map } from 'rxjs/operators';
 
 class FindRouteScreen extends React.Component{
     constructor(props){

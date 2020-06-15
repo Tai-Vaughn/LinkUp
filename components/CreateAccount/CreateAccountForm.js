@@ -16,7 +16,7 @@ const CreateAccountSchema = yup.object({
     .required()
     .min(6),
 
-    IDNumber: yup.string()
+    IDNumber: yup.string() 
     .required()
     .test('is-num-higher-than-4', 'You must choose a group size of at least 4 persons (including yourself)', (val) => {
         return parseInt(val) >= 4;

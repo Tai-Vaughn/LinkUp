@@ -31,7 +31,7 @@ export default function App() {
         {}
       <AuthStack.Navigator>
           <AuthStack.Screen name=" " component={HomeScreen}/>
-          <AuthStack.Screen name=" " component={CallMap}/>
+          <AuthStack.Screen name="callmap" component={CallMap}/>
           <AuthStack.Screen name="login" component={LoginScreen} options= {{ title: ""}}/>
           <AuthStack.Screen name="registration" component={regis} options={{ title : ""}}/>
         </AuthStack.Navigator>  

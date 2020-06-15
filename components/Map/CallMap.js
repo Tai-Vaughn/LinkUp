@@ -4,7 +4,7 @@ import { Image, StyleSheet, TouchableHighlight, Text, View, TouchableOpacity, Bu
 import UsersMap from './components/Map/UsersMap';
 import FetchLocation from './components/Map/FetchLocation';
 
-export default function CallMap({navigation}) {
+export default function CallMap() {
 
     state = {
         userLocation: null,

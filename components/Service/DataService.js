@@ -4,7 +4,11 @@ import {map, catchError} from 'rxjs/operators'
 import { ajax } from 'rxjs/ajax';
 
 const tokenSubject  = new BehaviorSubject(null)
-export const token$ =() => tokenSubject.asObservable()
+const markers = new BehaviorSubject(null)
+
+export const markers$ = markers.asObservable()
+export const token$ = tokenSubject.asObservable()
+
 export const login = (Authinfo) => {
     ajax({
         url:'https://linkupcapstone.herokuapp.com/users/login',
@@ -41,9 +45,22 @@ export const createUser = (UserInfo) => {
         catchError( err => console.log(err))
     ).subscribe()
 }
-    // .then( (response) => response.json())
-    // .then((json) => {
-    //     //  this.tokenSubject.next(json.error.message)
-    //     console.log(json);
-    // })
-    // .catch( (err) => console.log(err))
+export const getMarkers = () => {
+    ajax({
+        url: "https://linkupcapstone.herokuapp.com/markers",
+        method: "GET",
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }).pipe(
+        map( (response) => {
+            console.log(response.response);
+            markers.next(response.response)
+        } ),
+        catchError(error => {
+            console.log('error: ', error);
+            return of(error);
+          })
+        ).subscribe()
+ } 

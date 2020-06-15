@@ -1,10 +1,11 @@
 import React from 'react';
 import {View, TextInput, Button, Picker, Text} from 'react-native';
 import {globalStyles} from '../Styles'
-
+import * as DataService from '../Service/DataService';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Formik} from 'formik';
 import * as yup from 'yup';
+import { map } from 'rxjs/operators';
 
 
 const FindRouteSchema = yup.object({
@@ -26,10 +27,18 @@ class FindRouteScreen extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            PickerValue:''
+            PickerValue:'',
+            Markers: []
         }
     }
+    setMarkers = () => {
+        
+    }
 
+    componentDidMount(){
+        DataService.getMarkers();
+        DataService.markers$.subscribe((data) => this.state.Markers = data)
+    }
     render(){
       return (
      
@@ -98,6 +107,7 @@ class FindRouteScreen extends React.Component{
                             onPress={props.handleSubmit}
                             />
                         </View>
+                        
                     </View>
                 )}
                 </Formik>

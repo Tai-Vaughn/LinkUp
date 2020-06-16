@@ -1,12 +1,9 @@
-import { getPoints } from "./utils";
-import { path } from "./Node";
-//import { List, ListItem } from 'react-native-elements';
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { FlatList, StyleSheet, Text, Button, View, ScrollView } from "react-native";
-//import ActivePerson from './Activeperson';
-export const viewGroups(group){
+
+export default function ViewGroups (props){
     
-    this.group= group;
+    this.group= props.group;
     if (this.group === 0){
         console.warn('No Groups', this.group)
         return;
@@ -16,9 +13,9 @@ export const viewGroups(group){
         <View style={styles.container}>
            
                 <FlatList
-                    //keyExtractor={(item, index) => item.id}
-                data={this.group}
-                renderItem={item => (
+                    keyExtractor={(item, index) => item.id}
+                    data={this.group}
+                    renderItem={item => (
                     <View style={styles.listItems} >
                         <Text> {item.value}</Text>
                     </View>)}/>

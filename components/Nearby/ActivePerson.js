@@ -26,7 +26,7 @@ class ActivePerson extends React.Component(person) {
             activpersons.push(activeNow);
             
             //adds the name of the person and changes their status to active
-            return activeNow;
+            return activpersons;
         } 
     };
     

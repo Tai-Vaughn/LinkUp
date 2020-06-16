@@ -9,6 +9,7 @@ export default function ViewGroups (props){
         return;
     }
     if (this.group > 0) {
+        //if groups is populated display a list of persons/groups
     return (
         <View style={styles.container}>
            

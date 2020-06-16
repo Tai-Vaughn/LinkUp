@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { useState } from 'react';
 import { StyleSheet, View, Image, Text, TextInput } from 'react-native';
 import { getPoints } from "./getPoints";
 import { path } from "./Node";

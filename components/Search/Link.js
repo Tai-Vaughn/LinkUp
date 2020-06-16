@@ -10,8 +10,5 @@ class Link extends Component{
         return ({ distance, to});
     }
 };
-const styles = StyleSheet.create({
-
-});
 
 export default Link;

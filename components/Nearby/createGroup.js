@@ -35,7 +35,7 @@ export default class CreateGroup extends Component{
             } 
         }
         //or a while loop
-        /*while (this.path[i] != 0) {
+        /*while (this.path[i] !== 0) {
             if (this.path.point === person.path.point) {
                 this.group.push(person.name);
                 //person added to group if point matched

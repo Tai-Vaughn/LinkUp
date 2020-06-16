@@ -27,7 +27,7 @@ for(this.path[j];this.path[j]<i; j++){
     }
 }
 /* replaced while with for loop
-while (path[i] != 0) {
+while (path[i] !==0) {
     //need to separate by users to compare by username
     //adds a person if they have a start or end point that matches the path
    

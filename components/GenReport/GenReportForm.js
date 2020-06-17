@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { useState } from 'react';
-import {StyleSheet, View, TextInput, TouchableOpacity, Text, ScrollView, Platform} from 'react-native';
+import {StyleSheet, View, TextInput, Button, 
+    TouchableOpacity, Text, ScrollView, Platform} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 /* 
@@ -80,9 +81,11 @@ const GenReportForm = () => {
                 style={styles.input}
                 />
 
-                <TouchableOpacity style={styles.buttonContainer}>
-                    <Text style={styles.buttonText}>SUBMIT</Text>
-                </TouchableOpacity>
+                <View style={styles.buttonContainer}>
+                    <Button
+                    title='submit'
+                    />
+                </View>
            
             </View>
             </ScrollView>
@@ -104,17 +107,16 @@ const styles = StyleSheet.create({
     buttonContainer:{
         backgroundColor: 'dodgerblue',
         borderRadius: 10,
-        paddingVertical: 10,
-        width: 150,
-        alignItems: 'center',
-        marginTop: 50
+        overflow: 'hidden',
+        alignSelf: 'center',
+     
     },
 
-    buttonText:{
-        width: 200,
-        textAlign: 'center',
-        fontWeight: '700'
-    },
+    // buttonText:{
+    //     width: 200,
+    //     textAlign: 'center',
+    //     fontWeight: '700'
+    // },
 
     pickerContainer:{
         backgroundColor: 'rgba(255,255,255,0.2)',

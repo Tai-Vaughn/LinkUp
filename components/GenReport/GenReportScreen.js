@@ -6,19 +6,18 @@ import GenReportForm from './GenReportForm';
 class GenReportScreen extends React.Component{
   render(){
       return (
-        <ScrollView>
+       
           <View style={styles.container}> 
-
-            <Text style={styles.text}>Make a Report</Text>
-            <Text style={styles.textDetails}>If you or someone you know has been attacked or 
-              you happened to witness one and wish to report it, fill out the fields below. 
-              If you do not see the location in the prescribed menu, ensure to include it in your 
-              report details.
-            </Text>
-            <GenReportForm/>
-          
+            <ScrollView>
+              <Text style={styles.text}>Make a Report</Text>
+              <Text style={styles.textDetails}>If you or someone you know has been attacked or 
+                you happened to witness one and wish to report it, fill out the fields below. 
+                If you do not see the location in the prescribed menu, ensure to include it in your 
+                report details.
+              </Text>
+              <GenReportForm/>
+            </ScrollView>
           </View>
-          </ScrollView>
       )
   }
 }
@@ -27,7 +26,8 @@ const styles = StyleSheet.create({
   container: {
       backgroundColor: 'steelblue',
       padding: 40,
-      alignItems: 'center'
+      alignItems: 'center',
+      flex: 1
   },
 
   text:{
@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
     width: 300,
     textAlign: 'center',
     borderColor: 'white',
-    elevation: 4,
     marginBottom: 10
   },
 

@@ -27,9 +27,12 @@ export default function CallGraph() {
             <View>
                  <getPoints onAddPoint={addPointsHandler} />
             </View>
-            <Text>Graph</Text>
-            <Map pointName={this.state.pointStart} 
-            pointName2={this.state.pointEnd} />
+            <View>
+                <Text>Graph</Text>
+                <Map pointName={this.state.pointStart} 
+                pointName2={this.state.pointEnd} />
+            </View>
+            
             
         </View>
 

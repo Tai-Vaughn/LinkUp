@@ -21,8 +21,8 @@ export default function CallMap() {
                     longitudeDelta: 0.0421
                 }
             });
-           // send to database 
-            /*fetch('API url', {
+           // send to database, 'API url'
+            fetch('https://linkupcapstone.herokuapp.com/map', {
                 method: 'POST',
                 body: JSON.stringify({
                     latitude: position.coords.latitude,
@@ -31,14 +31,14 @@ export default function CallMap() {
             })
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
-              */  
+               
         },
             err => console.log(err)
         );
 
     };
-   /* getUserPlacesHandler = () => {
-        fetch('http url for database')
+   getUserPlacesHandler = () => {
+        fetch('https://linkupcapstone.herokuapp.com/map')
             .then(res => res.json())
             .then(parsedRes => {
                 const placesArray = [];
@@ -54,10 +54,12 @@ export default function CallMap() {
                 });
             })
             .catch(err => console.log(err));
-    };*/
+    };
     return (
         <View style={styles.container}>
-            
+            <View>
+                <Button title="Get User Places" onPress={this.getUserPlacesHandler} />
+            </View>
             <FetchLocation onGetLocation={this.getUserLocationHandler} />
             <UsersMap userLocation={this.state.userLocation} 
             usersPlaces={this.state.usersPlaces}/>
@@ -100,12 +102,4 @@ const styles = StyleSheet.create({
                 <Text>{this.state.text}</Text>
             </TouchableHighlight>
  * 
- * <UsersMap />
- * <MapView
-                initialRegion={{
-                    latitude: 37.78825,
-                    longitude: -122.4324,
-                    latitudeDelta: 0.0922,
-                    longitudeDelta: 0.0421,
-                }}
-            />*/
+ * */

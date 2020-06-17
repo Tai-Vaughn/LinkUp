@@ -8,8 +8,7 @@ import {getExampleMap} from './utils';
 
 //include a database with adjacent points from one point and distance to each.
 export default class Map extends Component(props) {
-    constructor(props) {
-        super(props);
+    constructor() {
         this.nodes = {};
     }
     get linkArray() {
@@ -94,7 +93,7 @@ export default class Map extends Component(props) {
         };
     }
 //find adjacency list
-    static newMap({ nodes, links }) {
+    static newMap({ nodes, links, props }) {
         const mapper = new Map();
         let start=props.pointStart;
         let end=props.pointEnd;

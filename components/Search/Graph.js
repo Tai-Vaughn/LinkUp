@@ -6,8 +6,7 @@ import DijkstraSearch from "./DijkstraSearch";
 import Node from "./Node";
 
 export default class Graph extends Component(props) {
-    constructor(props: {}) {
-        super(props);
+    constructor() {
         this.nodes = {};
     }
    

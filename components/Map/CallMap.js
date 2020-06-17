@@ -22,7 +22,7 @@ export default function CallMap() {
                 }
             });
            // send to database, 'API url'
-            fetch('https://linkupcapstone.herokuapp.com/map', {
+            /*fetch('https://linkupcapstone.herokuapp.com/map', {
                 method: 'POST',
                 body: JSON.stringify({
                     latitude: position.coords.latitude,
@@ -31,13 +31,13 @@ export default function CallMap() {
             })
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
-               
+               */
         },
             err => console.log(err)
         );
 
     };
-   getUserPlacesHandler = () => {
+   /*getUserPlacesHandler = () => {
         fetch('https://linkupcapstone.herokuapp.com/map')
             .then(res => res.json())
             .then(parsedRes => {
@@ -54,7 +54,7 @@ export default function CallMap() {
                 });
             })
             .catch(err => console.log(err));
-    };
+    };*/
     return (
         <View style={styles.container}>
             <View>

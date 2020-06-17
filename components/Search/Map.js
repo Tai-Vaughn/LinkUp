@@ -4,14 +4,14 @@ import { Image, StyleSheet, Text, View, TouchableOpacity, Button } from 'react-n
 import Link from "./Link";
 import DijkstraSearch from "./DijkstraSearch";
 import Node from "./Node";
+import {getExampleMap} from './utils';
 
-
+//include a database with adjacent points from one point and distance to each.
 export default class Map extends Component(props) {
-    constructor(props: {}) {
+    constructor(props) {
         super(props);
         this.nodes = {};
     }
-   
     get linkArray() {
         return this.nodeArray.reduce((links, node) => {
             const nodeLinks = node.paths.reduce((nls, link) => {
@@ -20,9 +20,9 @@ export default class Map extends Component(props) {
                 return [
                     ...nls,
                     {
-                        start: node,
+                        start: node,//from database points
                         distance: link.distance,
-                        end,
+                        end,//to
                     },
                 ];
             }, []);
@@ -32,7 +32,8 @@ export default class Map extends Component(props) {
     get nodeArray() {
         return Object.values(this.nodes);
     }
-
+    //gives path from djkstra search
+    //getpoints start, end
     search(start, end) {
         const path = DijkstraSearch.search(start, end, this);
         return {
@@ -48,7 +49,7 @@ export default class Map extends Component(props) {
             [node.name]: node,
         };
     }
-
+//links current to next path
     createPath(from, distance, to) {
         if (!this.nodes[from.name] || !this.nodes[to.name]) {
             console.error("Nodes are not part of the graph!");
@@ -83,24 +84,30 @@ export default class Map extends Component(props) {
     toJSON() {
         const nodes = this.nodeArray.map(node => node.toJSON());
         const links = this.linkArray.map(link => ({
-            start: link.start.name,
+            start: link.start.name, 
             distance: link.distance,
-            end: link.end.name,
+            end: link.end.name, 
         }));
         return {
             nodes,
             links,
         };
     }
-//find adjacent
-    static fromJSON({ nodes, links }) {
-        const graph = new Graph();
+//find adjacency list
+    static newMap({ nodes, links }) {
+        const mapper = new Map();
+        let start=props.pointStart;
+        let end=props.pointEnd;
+        const newPath=search(start,end);
+        let nodemap=[];
+        let linkmap=[];
 
-        nodes.forEach(nd => {
+       (nodemap, linkmap)=utils.getExampleMap(newPath);
+       //replace nodes with nodemap
+       nodemap.forEach(nd => {
             const { name } = nd;
 
-            const weight = Number(nd.weight);//adjust weight
-
+            const weight = Number(nd.weight);
 
             if (!name || isNaN(weight)) {
                 console.warn("Invalid node, skipped.", nd);
@@ -110,10 +117,10 @@ export default class Map extends Component(props) {
                 name,
                 weight,
             });
-            graph.insertNode(node);
+            mapper.insertNode(node);
         });
-
-        links.forEach(link => {
+        //replace links with linkmap
+        linkmap.forEach(link => {
             const { start, end } = link;
             const distance = Number(link.distance);
 
@@ -122,17 +129,17 @@ export default class Map extends Component(props) {
                 return;
             }
 
-            const from = graph.nodes[start];
-            const to = graph.nodes[end];
+            const from = mapper.nodes[start];
+            const to = mapper.nodes[end];//getpoints from database
             if (!from || !to) {
                 console.warn("Invalid link, skipped.", link);
                 return;
             }
 
-            graph.createPath(from, distance, to);
+            mapper.createPath(from, distance, to);
         });
-        console.log(graph);
-        return graph;
+        console.log(mapper);
+        return mapper;
     }
 
      

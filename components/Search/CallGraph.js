@@ -3,10 +3,20 @@ import { Image, StyleSheet, TouchableHighlight, Text, View, TouchableOpacity, Bu
 import Graph from './Graph';
 
 export default function CallGraph() {
+    
+    state = {
+        pointStart: null,
+        pointEnd: null,
+        currentPoints=[]
+    }
 
     const addPointsHandler=(pointName, pointName2)=>{
-        setPoint1(currentPoints=>[...currentPoints,{value:pointName}]);
-        setPoint2(currentPoints=>[...currentPoints,{value:pointName2}]);
+        this.setState({
+            pointStart:setPoints(currentPoints=[...currentPoints,{value:pointName}]),
+            pointEnd:setPoints(currentPoints=[...currentPoints,{value:pointName2}])
+            
+        });
+       
     };
     const getUserGraphHandler=()=>{
 
@@ -14,13 +24,12 @@ export default function CallGraph() {
 
     return (
         <View style={styles.container}>
-            <Text> Graph</Text>
-            <Map />
-            
-        <View>
-            <getPoints onAddPoint={addPointsHandler} />
-        </View>
-    
+            <View>
+                 <getPoints onAddPoint={addPointsHandler} />
+            </View>
+            <Text>Graph</Text>
+            <Map pointName={this.state.pointStart} 
+            pointName2={this.state.pointEnd} />
             
         </View>
 

@@ -14,6 +14,54 @@ export const getWeight = (name, distance, safety) =>{
         //distance will be drawn from database based on the name of the node/point. Set to random vaue 20
 export const getDistance = (a, b) => 20;
 
+export const getExampleMap = ({newPath}) => {
+	// return HARCODED_GRAPH;
+
+	const nodes = [];
+	const links = [];
+	let stop=newPath.length;
+	const usedNames = [];
+
+	for (let i = 0; i < stop; i += 1) {
+		for (let j = 0; j < stop; j += 1) {
+			let name;
+			do {
+				name = newPath.start;//get name of point from db
+			} while (usedNames.includes(name));
+			usedNames.push(name);
+
+			const weight = getWeight(name, distance, safety); //Need to pull the value of distance, calculate safety. draw from database
+			const distance = 20; //database import distance;
+			const safety = 0.75;//should vary
+		//a comparison of weight and distance to return the lesser one is made in dijkstra
+		   
+			const node = { name, weight};
+			nodes.push(node);
+		}
+	}
+		//make adjacent list? compare the weights of the adjacent nodes to choose path?
+	nodes.forEach(node => {
+		const destinations = nodes.map(nd => { 
+			const weight =
+				nd.name === node.name ? Infinity : getWeight(node, distance, safety);
+			return { name: nd.name, weight };
+		});
+
+		destinations.sort((a, b) => a.weight - b.weight);
+
+		destinations.slice(0, 3).forEach(destination => {
+			const start = node.name;
+			const end = destination.name;
+			const distance = destination.weight; 
+
+			const link = { start, end, distance };
+			links.push(link);
+		});
+	});
+
+	return { nodes, links };
+						};
+/*
 export const getExampleGraphJSON = () => {
 	// return HARCODED_GRAPH;
 
@@ -34,12 +82,7 @@ export const getExampleGraphJSON = () => {
 			const distance = db.distance;
 			const safety = 0.75;//should vary
         //do a comparison of weight and distance to return the lesser one? to keep shortest path
-           /* if(distance>weight){
-                const node={name, weight};
-            }
-            if(weight>distance{
-                const node={name, distance};
-            }*/
+          
 			const node = { name, weight};
 			nodes.push(node);
 		}
@@ -65,7 +108,7 @@ export const getExampleGraphJSON = () => {
 	});
 
 	return { nodes, links };
-                        };
+                        };*/
                         
    const styles = StyleSheet.create({
         input:{

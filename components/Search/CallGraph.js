@@ -7,7 +7,7 @@ export default function CallGraph() {
     state = {
         pointStart: null,
         pointEnd: null,
-        currentPoints=[]
+        currentPoints:[]
     }
 
     const addPointsHandler=(pointName, pointName2)=>{

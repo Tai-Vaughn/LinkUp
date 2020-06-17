@@ -5,19 +5,6 @@ import Link from "./Link";
 import DijkstraSearch from "./DijkstraSearch";
 import Node from "./Node";
 
-const Graphs = props => {
-    if(props.userGraph){
-
-    }
-    return (
-        <Button
-            title="Graph Map"
-            onPress={props.onGetGraph}
-         />
-    );
-};
-export default Graphs;
-
 export default class Graph extends Component(props) {
     constructor(props: {}) {
         super(props);
@@ -169,6 +156,10 @@ export default class Graph extends Component(props) {
         
         return (
             <View>
+                <Button
+                title="Graph Map"
+                onPress={props.onGetGraph}
+                />
                 <Text>{graph}</Text>
                 
             </View>
@@ -176,3 +167,16 @@ export default class Graph extends Component(props) {
     }
      
     }
+    /*
+    const Graphs = props => {
+    if(props.userGraph){
+
+    }
+    return (
+        <Button
+            title="Graph Map"
+            onPress={props.onGetGraph}
+         />
+    );
+};
+export default Graphs;*/

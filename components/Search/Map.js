@@ -138,7 +138,8 @@ export default class Map extends Component(props) {
             mapper.createPath(from, distance, to);
         });
         console.log(mapper);
-        return mapper;
+//return mapper;
+        return newPath;
     }
 
      

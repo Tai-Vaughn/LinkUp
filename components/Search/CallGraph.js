@@ -49,6 +49,19 @@ const styles = StyleSheet.create({
     }
 });
 /*
+send the latitude and longitude of the location you want to navigate to the devices Maps app
+double lat = < latitude of the location you want to navigate to>
+
+double lng = < longitude of the location you want to navigate to>     
+
+String format = "geo:0,0?q=" + lat + "," + lng + "( Location title)";
+
+Uri uri = Uri.parse(format); 
+
+
+Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+startActivity(intent);
 
     state = {
         userGraph: null,

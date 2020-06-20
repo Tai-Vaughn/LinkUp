@@ -1,39 +1,58 @@
 import React, { useState} from 'react';
-import { FlatList, StyleSheet, Text, Button, View, ScrollView } from "react-native";
+import { FlatList, ScrollView, StyleSheet, Text, Button, View, ScrollView } from "react-native";
 
 export default function ViewGroups (props){
-    
-    this.group= props.group;
-    if (this.group === 0){
-        console.warn('No Groups', this.group)
-        return;
-    }
-    if (this.group > 0) {
-        //if groups is populated display a list of persons/groups
-    return (
-        <View style={styles.container}>
-           
-                <FlatList
-                    keyExtractor={(item, index) => item.id}
-                    data={this.group}
-                    renderItem={item => (
-                    <View style={styles.listItems} >
-                        <Text> {item.value}</Text>
-                    </View>)}/>
-        </View>
         
-        /*<ScrollView>
-                {groupsViewer.map(group => (
-                    <View key={group} style={styles.listItems}>
-                        <Text> {group} </Text>
-
-                    </View>))}
-
-         <ScrollView />*/
-        );
+    let i=0;
+    let group=[];
+    groupsList= props;
+    j=groupsList.length;
+    if (groupsList===0){
+        console.warn('No Groups.')
+            return;
+    }else{
+        for(group=groupsList[i];i<j;i++){
+            //if groups is populated display a list of persons/groups
+            //list group names
+        return (
+            <View style={styles.container}>
+               <SafeAreaView style={styles.container}>
+                <FlatList
+                            keyExtractor={item=> item.id}
+                            data={group}
+                            renderItem={item => (
+                            <View style={styles.listItems} >
+                                <TouchableOpacity onPress={showGroupMembersHandler}>
+                                    <Text>Available Groups: {item.groupName}</Text>
+                                </TouchableOpacity>
+                                
+                            </View>)}/>
+                </SafeAreaView>
+                    
+            </View>
+            
+            
+            );
+        }
     }
-};    
-   
+     //handler to list group name and members when selected
+     const showGroupMembersHandler(group){
+        <View>
+            <Text>{group.groupName}</Text>
+            <Text> {group.groupStart} to {group.groupDestination}</Text>
+            <Text> {group.departureTime}</Text>
+        </View>
+        <View>
+            <ScrollView>
+                <Text>{group.members} </Text>
+            </ScrollView>
+            
+        </View>
+        }
+};  
+  
+  
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -45,4 +64,11 @@ const styles = StyleSheet.create({
             height: 44,
         },
     });
- 
+ /*<ScrollView>
+                {groupsViewer.map(group => (
+                    <View key={group} style={styles.listItems}>
+                        <Text> {group} </Text>
+
+                    </View>))}
+
+         <ScrollView />*/

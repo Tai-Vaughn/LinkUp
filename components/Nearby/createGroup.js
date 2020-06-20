@@ -10,7 +10,10 @@ import newId from './newId';
 let groupsList=[];
 //make an array of groups? when group count reach 20, stop and create a new group 
 //should be made from a list of active persons? 
+
+// group in the form of a database table, dont create in app
 export default class CreateGroup extends Component{
+    
     
     constructor() {
         this.group = [], //array of persons that have the same path
@@ -42,6 +45,8 @@ export default class CreateGroup extends Component{
         }
     }
     groupsList.push(this.group);
+    
+
     //reset group counter and continue generating groups?
 }
 
@@ -55,9 +60,9 @@ export default class CreateGroup extends Component{
 return () {
     <View >
         
-        <ViewGroups group={this.group} /> 
+        <ViewGroups groupsList={groupsList} /> 
     </View >
-}
+
 };
    
 const styles = StyleSheet.create({

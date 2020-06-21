@@ -36,6 +36,7 @@ export default class App extends React.Component {
   componentDidMount(){
     getFonts();
     Dataservice.token$.subscribe(data =>this.setState({JWT_Token: data}))
+    Dataservice.getGroups()
   }
 
   stateHelper(){

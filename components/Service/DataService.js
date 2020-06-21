@@ -3,11 +3,13 @@ import {Subject , of} from 'rxjs';
 import {map, catchError, tap} from 'rxjs/operators'
 import { ajax } from 'rxjs/ajax';
 
-export const tokenSubject  = new Subject
-const markers = new Subject
+const tokenSubject  = new Subject
+const markersSubject = new Subject
+const groupsSubject = new Subject
 
-export const markers$ = markers.asObservable()
+export const markers$ = markersSubject.asObservable()
 export const token$ = tokenSubject.asObservable()
+export const groups$ = groupsSubject.asObservable()
 
 export const login = (Authinfo) => {
     ajax({
@@ -55,11 +57,27 @@ export const getMarkers = () => {
     }).pipe(
         map( (response) => {
             console.log(response.response);
-            markers.next(response.response)
+            markersSubject.next(response.response)
         } ),
         catchError(error => {
             console.log('error: ', error);
             return of(error);
           })
         ).subscribe()
- } 
+ }
+ export const getGroups = () => {
+    ajax({
+        url: "https://linkupcapstone.herokuapp.com/groups",
+        method: "GET",
+        headers: { 
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }).pipe(
+        tap((response) => groupsSubject.next(response.response) ),
+        catchError(error => {
+            console.log('error: ', error);
+            return of(error);
+          })
+        ).subscribe()
+ }

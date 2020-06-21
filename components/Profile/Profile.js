@@ -9,7 +9,7 @@ class StartMenue extends React.Component {
                     im working wefw dasdas 
                 </Text>
             </View>
-        );
+        ); 
     }
 }
 

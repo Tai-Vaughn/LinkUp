@@ -1,10 +1,10 @@
 import React from 'react';
-import {BehaviorSubject , of} from 'rxjs';
-import {map, catchError} from 'rxjs/operators'
+import {Subject , of} from 'rxjs';
+import {map, catchError, tap} from 'rxjs/operators'
 import { ajax } from 'rxjs/ajax';
 
-const tokenSubject  = new BehaviorSubject(null)
-const markers = new BehaviorSubject(null)
+export const tokenSubject  = new Subject
+const markers = new Subject
 
 export const markers$ = markers.asObservable()
 export const token$ = tokenSubject.asObservable()
@@ -19,8 +19,7 @@ export const login = (Authinfo) => {
         },
         body: JSON.stringify(Authinfo)
     }).pipe(
-        map( (response) => {
-            console.log(response.response.token)
+        tap( (response) => {
             tokenSubject.next(response.response.token)
         } ),
         catchError(error => {

@@ -6,7 +6,7 @@ class StartMenue extends React.Component {
         return (
             <View>
                 <Text>
-                    im working wefw
+                    im working wefw dasdas 
                 </Text>
             </View>
         );

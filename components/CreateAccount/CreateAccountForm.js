@@ -17,14 +17,11 @@ const CreateAccountSchema = yup.object({
     .min(6),
 
     IDNumber: yup.string() 
-    .required()
-    .test('is-num-higher-than-4', 'You must choose a group size of at least 4 persons (including yourself)', (val) => {
-        return parseInt(val) >= 4;
-    })
-    ,
+    .required(),
 
     Email: yup.string()
-    .required(),
+    .required()
+    .email(),
 
     Password: yup.string()
     .required()
@@ -32,7 +29,9 @@ const CreateAccountSchema = yup.object({
 
     ConfirmPassword: yup.string()
     .required()
-    .min(8),
+    .test('passwords-match', 'Passwords must match', function(value) {
+        return this.parent.Password === value;
+      }),
 })
 
 class CreateAccountScreen extends React.Component{

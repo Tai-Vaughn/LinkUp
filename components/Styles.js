@@ -40,7 +40,8 @@ export const globalStyles = StyleSheet.create ({
         color: '#FFF',
         paddingHorizontal: 10,
         borderRadius: 10, 
-        alignSelf: 'flex-start'
+        // alignSelf: 'flex-start',
+        width: 200
     },
 
     formContainer: {

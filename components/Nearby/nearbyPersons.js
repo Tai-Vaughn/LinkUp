@@ -1,20 +1,18 @@
 import { getPoints } from "./utils";
-import { path } from "./Node";
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, Text, Button, View, ScrollView } from "react-native";
 import ActivePerson from "./ActivePerson";
-import person from './Person';
-import CreateGroup from "./createGroup";
 
+//take the list of active persons and compare the path from each to the current user start and destination
 const nearbyPersons = (path) => {
      //if the destination entered by the user is a point along a longer route that other users are currently travelling
-let start = getPoints.point1;
+let start = getPoints.point1; //take input from user
 let end = getPoints.point2;
 const {path} = path;//need to pass actual path and not empty array
 let i = path.length;
 
 let person={person};
-let activeperson;
+let activeperson='';
 //active person should be a variable person, compared with the path to create a list of active persons
     for(let j=0;j<i; j++){
     //need to separate by users to compare by username
@@ -24,19 +22,28 @@ let activeperson;
         activeperson=ActivePerson.setStatusHandler(person);
         CreateGroup.addParty(activeperson);
     }
-
-}
-/* replaced while with for loop
-while (path[i] !==0) {
-    //need to separate by users to compare by username
-    //adds a person if they have a start or end point that matches the path
-   
-    if (path[i] === start || path[i] === end) {
-        activeperson=ActivePerson.setStatusHandler(person);
-        CreateGroup.addParty(activeperson);
     }
-    i--;
-}*/
+
+//take the person and compare the path from each to the current user start and destination; generate list of active persons
+const nearby = (person) => {
+    //if the destination entered by the user is a point along a longer route that other users are currently travelling
+//let start = getPoints.point1; 
+let end = getPoints.point2;//take input from user
+const {path} = person.path;//need to pass actual path and not empty array
+let i = path.length;
+
+let person={person}; //if the person has a path
+let activeperson='';
+//active person should be a variable person, compared with the path to create a list of active persons
+   for(let j=0;j<i; j++){
+   //need to separate by users to compare by username
+   //adds a person if they have an end point that matches the path
+       const pathNow=path[j];
+   if (pathNow === end) {
+       activeperson=ActivePerson.setStatusHandler(person);
+       CreateGroup.addParty(activeperson);
+   }
+   }
 return(
     <View>
         <Text>Nearby:</Text>
@@ -49,6 +56,7 @@ return(
                     </View>)}/>
     </View>
 );
+}
 };
 
    
@@ -63,4 +71,5 @@ const styles = StyleSheet.create({
             height: 44,
         },
     });
+
 export default nearbyPersons;

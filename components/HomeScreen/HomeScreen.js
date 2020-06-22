@@ -1,11 +1,11 @@
 import React from 'react';
 import {StyleSheet, View, Image, Button, Text} from 'react-native';
-import {globalStyles} from '../Styles'; 
+import {globalStyles} from '../Styles';
 
 export default function HomeScreen ({navigation}) {
     return (
       <View style={styles.container}>
-      
+
       <View style={globalStyles.logoContainer}>
       <Image style={globalStyles.logo} source={require('../../static/LinkUp.png')}/>
       </View>
@@ -28,11 +28,11 @@ export default function HomeScreen ({navigation}) {
 
       <View style={globalStyles.button}>
       <Button
-        title='Map'
-        onPress = {() => navigation.push('callmap')}
+        title='Find Route'
+        onPress = {() => navigation.push('find route')}
       />
       </View>
-      
+
       </View>
   )
 }

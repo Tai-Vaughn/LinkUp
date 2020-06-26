@@ -28,16 +28,11 @@ export default function HomeScreen ({navigation}) {
 
       <View style={globalStyles.button}>
       <Button
-        title='Map'
-        onPress = {() => navigation.push('callmap')}
+        title='Find Route'
+        onPress = {() => navigation.push('find route')}
       />
       </View>
-      <View style={globalStyles.button}>
-      <Button
-        title='Graph'
-        onPress = {() => navigation.push('callgraph')}
-      />
-      </View>
+      
       </View>
   )
 }

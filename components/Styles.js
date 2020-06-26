@@ -20,8 +20,8 @@ export const globalStyles = StyleSheet.create ({
     text:{
         color: 'white',
         fontSize: 40,
-        marginBottom: 90,
-        fontFamily: 'righteous'
+        fontFamily: 'righteous',
+        alignSelf: 'center'
       },
 
     button:{
@@ -40,10 +40,8 @@ export const globalStyles = StyleSheet.create ({
         color: '#FFF',
         paddingHorizontal: 10,
         borderRadius: 10, 
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
-        width: 300
+        // alignSelf: 'flex-start',
+        width: 200
     },
 
     formContainer: {

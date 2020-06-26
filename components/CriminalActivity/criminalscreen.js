@@ -3,8 +3,18 @@ import {View, Image, Text, ScrollView} from 'react-native';
 
 import {globalStyles} from '../Styles'; 
 
+let description=[];
+//one report database, categorizes by type of report
+//different database store different types of reports
 class CriminalScreen extends React.Component{
     assaultHandler=()=>{
+        for(let i=0; i<4;i++){
+            if(report.type==="Aggravated Assault"){
+                description.push(report.description[i]);
+
+            }
+
+        }
         return(
             <ScrollView>
                 <View>

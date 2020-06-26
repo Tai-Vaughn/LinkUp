@@ -1,3 +1,4 @@
+
 import 'react-native-gesture-handler';
 import {useState} from 'react';
 
@@ -5,6 +6,7 @@ import LoginScreen from './components/Login/LoginScreen';
 import RegistrationScreen from './components/CreateAccount/CreateAccountScreen';
 import HomeScreen from './components/HomeScreen/HomeScreen';
 import Profile from './components/Profile/Profile'
+import ViewGroups from './components/Nearby/viewGroups';
 
 import * as React from 'react';
 import {View, Button , Text} from 'react-native'

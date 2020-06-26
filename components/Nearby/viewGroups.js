@@ -1,11 +1,26 @@
 import React, { useState} from 'react';
 import { FlatList, ScrollView, StyleSheet, Text, Button, View, ScrollView } from "react-native";
+import * as DataService from '../Service/DataService';
+import showGroupMembersHandler from './viewMembers';
 
 export default function ViewGroups (props){
-        
+    
+    showGroupMembersHandler=(group)=>{
+        return(
+            <View>
+            <Text>{group.groupName}</Text>
+            <Text> {group.groupStart} to {group.groupDestination}</Text>
+            <Text> {group.departureTime}</Text>
+            <ScrollView>
+                <Text>{group.members}</Text>
+            </ScrollView>
+        </View>
+        );
+    }
+    //DataService.groups$.subscribe();
     let i=0;
     let group=[];
-    groupsList= props;
+    groupsList= DataService.groups$.subscribe();
     j=groupsList.length;
     if (groupsList===0){
         console.warn('No Groups.')
@@ -22,36 +37,27 @@ export default function ViewGroups (props){
                             data={group}
                             renderItem={item => (
                             <View style={styles.listItems} >
-                                <TouchableOpacity onPress={showGroupMembersHandler}>
+                                <TouchableOpacity onPress={this.showGroupMembersHandler}>
                                     <Text>Available Groups: {item.groupName}</Text>
                                 </TouchableOpacity>
                                 
                             </View>)}/>
                 </SafeAreaView>
                     
+                <View style={globalStyles.button}>
+                            <Button 
+                            title='Search' 
+                            onPress={() => DataService.getGroups()}
+                            onPress={props.handleSubmit}
+                            />
+                </View>
             </View>
             
             
             );
         }
     }
-     //handler to list group name and members when selected
-     const showGroupMembersHandler(group){
-        <View>
-            <Text>{group.groupName}</Text>
-            <Text> {group.groupStart} to {group.groupDestination}</Text>
-            <Text> {group.departureTime}</Text>
-        </View>
-        <View>
-            <ScrollView>
-                <Text>{group.members} </Text>
-            </ScrollView>
-            
-        </View>
-        }
-};  
-  
-  
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -64,11 +70,12 @@ const styles = StyleSheet.create({
             height: 44,
         },
     });
- /*<ScrollView>
+    /*
+ <ScrollView>
                 {groupsViewer.map(group => (
                     <View key={group} style={styles.listItems}>
                         <Text> {group} </Text>
 
                     </View>))}
 
-         <ScrollView />*/
+         <ScrollView /> */

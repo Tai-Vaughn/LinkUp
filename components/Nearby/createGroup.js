@@ -28,42 +28,44 @@ export default class CreateGroup extends Component{
         let i = this.path.length;
         let j=0;
         
-    //adds person to group if they have selected the same destination.  
-    //max for a group is 20, let it be 19 persons so the person can add themself to the group
-    while (this.group.length<19){
-        if (this.start===person.start && this.destination === person.end){
-            this.group.push(person.name);
-        }else{
-            //if there are other users who also follow the same path as the user
-            for(this.path[j];this.path[j]<i; j++){
-                //takes a point from the path and compares
-                if (this.path.point === person.path.point) {
-                    this.group.push(person.name);
-                    //person added to group if point matched
-                } 
+        //adds person to group if they have selected the same destination.  
+        //max for a group is 20, let it be 19 persons so the person can add themself to the group
+        while (this.group.length<19){
+            if (this.start===person.start && this.destination === person.end){
+                this.group.push(person.name);
+            }else{
+                //if there are other users who also follow the same path as the user
+                for(this.path[j];this.path[j]<i; j++){
+                    //takes a point from the path and compares
+                    if (this.path.point === person.path.point) {
+                        this.group.push(person.name);
+                        //person added to group if point matched
+                    } 
+                }
             }
         }
+        groupsList.push(this.group);
+    
+
+        //reset group counter and continue generating groups?
     }
-    groupsList.push(this.group);
-    
 
-    //reset group counter and continue generating groups?
-}
-
-    
     getMembersHandler = () => {
 
     }
-    
-}
-//calls function to display the groups created as a list
-return () {
-    <View >
-        
-        <ViewGroups groupsList={groupsList} /> 
-    </View >
+    render(){
+        //calls function to display the groups created as a list
 
-};
+        return (
+            <View >
+                
+                <ViewGroups groupsList={groupsList} /> 
+            </View >
+        );
+    }
+}
+
+
    
 const styles = StyleSheet.create({
     container: {

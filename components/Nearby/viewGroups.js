@@ -3,8 +3,10 @@ import { FlatList, ScrollView, StyleSheet, Text, Button, View, ScrollView } from
 import * as DataService from '../Service/DataService';
 import showGroupMembersHandler from './viewMembers';
 
-export default function ViewGroups (props){
-    
+export default function ViewGroups (){
+    addMemberHandler=(group,username)=>{
+        group.members.push(username);
+    }
     showGroupMembersHandler=(group)=>{
         return(
             <View>

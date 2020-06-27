@@ -1,9 +1,16 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import MapView from 'react-native-maps';
+import ViewGroups from '../Nearby/viewGroups';
 
 const usersMap = props => {
     let userLocationMarker = null;
+    callGroup = () => {
+        <View>
+            <ViewGroups/>
+        </View>
+        
+       }
     if (props.userLocation) {
         userLocationMarker = <MapView.Marker coordinate={props.userLocation} />;
         }
@@ -23,6 +30,10 @@ const usersMap = props => {
                     style={styles.map}>
                     {userLocationMarker}
                 </MapView>
+                <Button
+                    name='View Groups'
+                    onPress={() => {
+                        this.callGroup();}} />
             </View>
         );
 };

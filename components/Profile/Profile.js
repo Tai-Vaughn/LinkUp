@@ -34,6 +34,12 @@ class StartMenue extends React.Component {
         
                     />
                 </View>
+                <View style={globalStyles.button}>
+                    <Button
+                        title='Alerts'
+        
+                    />
+                </View>
                 
             </View>
         ); 

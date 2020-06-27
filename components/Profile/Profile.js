@@ -3,13 +3,20 @@ import {View, Image, Text} from 'react-native';
 
 export default class Profile extends React.Component {
     
-    render(){
+    callAlerts=()=>{
+        <View>
+            <CriminalScreen />
+        </View>
+
+        }
+    render() {
         return (
             <View>
-                <Text>
-                    I'm working!
-                </Text>
+                 <Button
+                    name='Alert'
+                    onPress={() => {
+                        this.callAlerts();}} />
             </View>
-        )
-    }
+        ); 
+                    }
 }

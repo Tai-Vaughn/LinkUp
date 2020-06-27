@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {globalStyles} from '../Styles';
-import {View, TextInput, Button, Text} from 'react-native';
+import {View, TextInput, Button, Text, StyleSheet} from 'react-native';
 import * as DataService from '../Service/DataService';
 import {Formik} from 'formik';
 import * as yup from 'yup';
@@ -38,7 +38,7 @@ class CreateAccountScreen extends React.Component{
     render(){
         return (
         
-            <View style={globalStyles.container}>
+            <View style={styles.container}>
                 
                 <Formik
                 initialValues={{FirstName: '', LastName: '', Username: '', IDNumber: '', Email: '',
@@ -154,5 +154,13 @@ class CreateAccountScreen extends React.Component{
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: 'steelblue',
+        flex: 1,
+        marginTop: 30
+    }
+});
 
 export default CreateAccountScreen;

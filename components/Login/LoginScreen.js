@@ -1,12 +1,12 @@
 import React from 'react';
-import {View, Image, Text, ScrollView} from 'react-native';
+import {View, Image, Text, ScrollView, StyleSheet} from 'react-native';
 import LoginForm from './LoginForm';
 import {globalStyles} from '../Styles'; 
 
 export default function LoginScreen  ({ navigation }){
         return (
           <ScrollView>
-            <View style={globalStyles.container}>
+            <View style={styles.container}>
 
             <View style={globalStyles.logoContainer}>
               <Image 
@@ -22,4 +22,10 @@ export default function LoginScreen  ({ navigation }){
         )
     }
 
-
+const styles = StyleSheet.create({
+      container: {
+          backgroundColor: 'steelblue',
+          flex: 1,
+          padding: 100
+      }
+});

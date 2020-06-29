@@ -5,7 +5,7 @@ import {globalStyles} from '../Styles';
 
 class StartMenue extends React.Component {
     callRoute(){
-        {FindRouteScreen}
+        new FindRouteScreen.render();
     }
     render() {
         return (
@@ -21,7 +21,8 @@ class StartMenue extends React.Component {
                         <Button title='Map'/>
                     </View>
                     <View style={globalStyles.button}>
-                        <Button title='Find Route' onPress={() =>{this.callRoute();}}/>
+                        <Button title='Find Route' 
+                        onPress = {() => {this.callRoute}}/>
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Alert'/>

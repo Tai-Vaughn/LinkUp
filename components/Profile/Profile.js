@@ -27,7 +27,7 @@ export default class Profile extends React.Component {
           })
         ).isRequired,
       }
-    
+
       static defaultProps = {
         containerStyle: {},
         tabContainerStyle: {},
@@ -53,12 +53,12 @@ export default class Profile extends React.Component {
           <View>
                     <Text>John Doe {firstname} {lastname}</Text>
                 </View>
-                
+
                 <View>
                     <Text>jdoe {username}</Text>
                 </View>
         </View>
-        
+
       </View>
     )
   }
@@ -74,13 +74,13 @@ export default class Profile extends React.Component {
                 <View style={globalStyles.button}>
                     <Button
                         title='Find Route'
-        
+
                     />
                 </View>
                 <View style={globalStyles.button}>
                     <Button
                         title='Friends'
-        
+
                     />
                 </View>
                 <View style={globalStyles.button}>
@@ -93,11 +93,11 @@ export default class Profile extends React.Component {
   }
 
     render() {
-        
+
         return (
             <View style={styles.container}>
                 <Text style={styles.text}>Profile Page</Text>
-                
+
                 <View>
                     {this.renderContactHeader()}
                 </View>
@@ -105,9 +105,9 @@ export default class Profile extends React.Component {
                 <View>
                     {this.renderMenu()}
                 </View>
-                
+
             </View>
-        ); 
+        );
     }
 }
 

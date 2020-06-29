@@ -1,37 +1,9 @@
 import React from 'react';
 import {View, Image, Text} from 'react-native';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 export default class Profile extends React.Component {
-    static propTypes = {
-        avatar: PropTypes.string.isRequired,
-        username: PropTypes.string.isRequired,
-        firstname: PropTypes.string.isRequired,
-        lastname: PropTypes.string.isRequired,
-        containerStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-        tabContainerStyle: PropTypes.oneOfType([
-          PropTypes.object,
-          PropTypes.number,
-        ]),
-        posts: PropTypes.arrayOf(
-          PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            image: PropTypes.string,
-            user: PropTypes.shape({
-              firstname: PropTypes.string.isRequired,
-              lastname: PropTypes.string.isRequired,
-              username: PropTypes.string.isRequired,
-              avatar: PropTypes.string.isRequired,
-              email: PropTypes.string.isRequired,
-            }),
-          })
-        ).isRequired,
-      }
-
-      static defaultProps = {
-        containerStyle: {},
-        tabContainerStyle: {},
-      }
+    
     callAlerts=()=>{
         <View>
             <CriminalScreen />
@@ -139,4 +111,34 @@ const styles=StyleSheet.create({
  <View >
                     <Image source={require('../../static/LinkUp.png')}/>
                 </View>
+
+static propTypes = {
+        avatar: PropTypes.string.isRequired,
+        username: PropTypes.string.isRequired,
+        firstname: PropTypes.string.isRequired,
+        lastname: PropTypes.string.isRequired,
+        containerStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+        tabContainerStyle: PropTypes.oneOfType([
+          PropTypes.object,
+          PropTypes.number,
+        ]),
+        posts: PropTypes.arrayOf(
+          PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            image: PropTypes.string,
+            user: PropTypes.shape({
+              firstname: PropTypes.string.isRequired,
+              lastname: PropTypes.string.isRequired,
+              username: PropTypes.string.isRequired,
+              avatar: PropTypes.string.isRequired,
+              email: PropTypes.string.isRequired,
+            }),
+          })
+        ).isRequired,
+      }
+
+      static defaultProps = {
+        containerStyle: {},
+        tabContainerStyle: {},
+      }
                 */

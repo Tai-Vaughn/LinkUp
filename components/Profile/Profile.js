@@ -1,16 +1,15 @@
 import React  from 'react';
 import { View , Text, Button} from 'react-native';
 import FindRouteScreen from '../FindRoute/FindRouteScreen';
+import {globalStyles} from '../Styles'; 
 
 class StartMenue extends React.Component {
     callRoute(){
-        <View>
-            <FindRouteScreen />
-        </View>
+        new FindRouteScreen().render();
     }
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 <Text>
                     Profile Page
                 </Text>
@@ -27,5 +26,23 @@ class StartMenue extends React.Component {
         ); 
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+       backgroundColor: 'steelblue',
+       padding: 50,
+       justifyContent: 'center',
+       alignItems: 'center',
+       flex: 1
+   },
+ 
+   text:{
+     color: 'white',
+     fontSize: 40,
+     marginBottom: 90,
+     fontFamily: 'righteous'
+   }
+ 
+ });
 
 export default StartMenue;

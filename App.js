@@ -32,7 +32,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       fontsLoaded : true,
-      JWT_Token : null
+      JWT_Token : true,
     }
   }
   componentDidMount(){

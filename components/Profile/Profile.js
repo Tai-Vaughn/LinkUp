@@ -7,13 +7,13 @@ class StartMenue extends React.Component {
             <View style={styles.container}>
                 <Text style={styles.text}>Profile Page</Text>
                 <View>
-                    <Text>{firstname} {lastname}</Text>
+                    <Text>John Doe{firstname} {lastname}</Text>
                 </View>
                 <View >
                 <Image source={require('../../static/LinkUp.png')}/>
                 </View>
                 <View>
-                    <Text>{username}</Text>
+                    <Text>jdoe {username}</Text>
                 </View>
                 <Text>Menu:</Text>
                 <View style={globalStyles.button}>

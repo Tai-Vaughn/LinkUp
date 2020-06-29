@@ -4,7 +4,29 @@ import FindRouteScreen from '../FindRoute/FindRouteScreen';
 import {globalStyles} from '../Styles'; 
 
 class StartMenue extends React.Component {
-    callRoute(){
+    constructor(props){
+        super(props);
+        this.state={
+            firstname:'',
+            lastname:'',
+            username:'',
+            dataSource:null,
+        }
+    }
+    componentDidMount(){
+        return fetch('https://linkupcapstone.herokuapp.com/users/signup')
+        .then((response)=>response.json())
+        .then((responseJson)=>{
+            this.setState({
+                dataSource:responseJson.signup,
+
+            })
+        })
+        .catch((error)=>{
+            console.log(error)
+        });
+    }
+    callRoute=()=>{
         new FindRouteScreen().render();
         return(
             <View>

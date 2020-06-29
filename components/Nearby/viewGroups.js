@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import { FlatList, ScrollView, StyleSheet, Text, Button, View } from "react-native";
+import { FlatList, ScrollView, StyleSheet, Text, Button, View} from "react-native";
 import * as DataService from '../Service/DataService';
 import showGroupMembersHandler from './viewMembers';
 

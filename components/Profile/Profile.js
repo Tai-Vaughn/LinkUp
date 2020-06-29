@@ -2,7 +2,7 @@ import React  from 'react';
 import { View , Text} from 'react-native';
 import CriminalScreen from '../CriminalActivity/criminalscreen';
 
-class StartMenue extends React.Component {
+class Profile extends React.Component {
     callAlerts=()=>{
         <View>
             <CriminalScreen />
@@ -21,4 +21,4 @@ class StartMenue extends React.Component {
     }
 }
 
-export default StartMenue;
+export default Profile;

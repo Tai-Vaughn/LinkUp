@@ -13,7 +13,7 @@ export default class Profile extends React.Component {
     
 
     render() {
-        const { firstname, lastname, username } = this.props
+        
         return (
             <View style={styles.container}>
                 <Text style={styles.text}>Profile Page</Text>
@@ -59,8 +59,7 @@ export default class Profile extends React.Component {
                 <View style={globalStyles.button}>
                 <Button
                     name='Alert'
-                    onPress={() => {
-                        this.callAlerts();}} />
+                     />
                 </View>
                 </View>
 
@@ -89,12 +88,16 @@ const styles=StyleSheet.create({
         marginBottom: 12,
       },
 })
-/*<View>
+/*onPress={() => {
+                        this.callAlerts();}}
+<View>
      <Text>{firstname} {lastname} {username}</Text>
  </View>
  <View >
                     <Image source={require('../../static/LinkUp.png')}/>
                 </View>
+
+                const { firstname, lastname, username } = this.props
 
 static propTypes = {
         avatar: PropTypes.string.isRequired,

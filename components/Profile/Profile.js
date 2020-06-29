@@ -6,6 +6,11 @@ import {globalStyles} from '../Styles';
 class StartMenue extends React.Component {
     callRoute(){
         new FindRouteScreen().render();
+        return(
+            <View>
+                <FindRouteScreen />
+            </View>
+        )
     }
     render() {
         return (

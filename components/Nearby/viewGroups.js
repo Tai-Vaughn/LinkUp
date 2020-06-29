@@ -2,7 +2,6 @@ import React, { useState} from 'react';
 import { FlatList, StyleSheet, Text, Button, View, ScrollView} from "react-native";
 import * as DataService from '../Service/DataService';
 import showGroupMembersHandler from './viewMembers';
-import { ScrollView } from 'react-native-gesture-handler';
 
 export default function ViewGroups (){
     addMemberHandler=(group,username)=>{

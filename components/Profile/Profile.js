@@ -65,6 +65,7 @@ export default class Profile extends React.Component {
 
   renderMenu = () => {
     return (
+        <View>
       <View style={globalStyles.button}>
                     <Button
                         title='Map'
@@ -88,6 +89,7 @@ export default class Profile extends React.Component {
                     name='Alert'
                     onPress={() => {
                         this.callAlerts();}} />
+                </View>
                 </View>
     )
   }

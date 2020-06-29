@@ -10,11 +10,15 @@ export default class Profile extends React.Component {
         </View>
 
         }
+    
 
-    renderContactHeader = () => {
+    render() {
         const { firstname, lastname, username } = this.props
-    return (
-      <View style={styles.headerContainer}>
+        return (
+            <View style={styles.container}>
+                <Text style={styles.text}>Profile Page</Text>
+
+                <View style={styles.headerContainer}>
         <View style={styles.userRow}>
           <Image
             style={styles.userImage}
@@ -32,13 +36,9 @@ export default class Profile extends React.Component {
         </View>
 
       </View>
-    )
-  }
-
-  renderMenu = () => {
-    return (
-        <View>
-      <View style={globalStyles.button}>
+                <Text>Menu:</Text>
+                <View>
+                <View style={globalStyles.button}>
                     <Button
                         title='Map'
                     />
@@ -62,22 +62,6 @@ export default class Profile extends React.Component {
                     onPress={() => {
                         this.callAlerts();}} />
                 </View>
-                </View>
-    )
-  }
-
-    render() {
-
-        return (
-            <View style={styles.container}>
-                <Text style={styles.text}>Profile Page</Text>
-
-                <View>
-                    {this.renderContactHeader()}
-                </View>
-                <Text>Menu:</Text>
-                <View>
-                    {this.renderMenu()}
                 </View>
 
             </View>

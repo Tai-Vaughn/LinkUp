@@ -5,16 +5,21 @@ import {globalStyles} from '../Styles';
 
 class StartMenue extends React.Component {
     callRoute(){
-        new FindRouteScreen.render();
+        new FindRouteScreen().render();
     }
     render() {
         return (
             <View style={styles.container}>
-                <Text>
-                    Profile Page
-                </Text>
-                <Text>John Doe</Text>
-                <Text>jdoe</Text>
+                <View style={styles.text}>
+                    <Text>
+                        Profile Page
+                    </Text>
+                </View>
+                <View style={styles.text}>
+                    <Text >John Doe</Text>
+                    <Text>jdoe</Text>
+                </View>
+                
                 <View>
                     <Text> Menu:</Text>
                     <View style={globalStyles.button}>

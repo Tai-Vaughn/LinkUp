@@ -66,8 +66,8 @@ class StartMenue extends React.Component {
                         <Button title='Map'/>
                     </View>
                     <View style={globalStyles.button}>
-                        <Button title='Find Route' 
-                        onPress = {<FindRouteScreen />} />
+                        <Button title='Find Route'/>
+                        <FindRouteScreen />
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Alert'/>

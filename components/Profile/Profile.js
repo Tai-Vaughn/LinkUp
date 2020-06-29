@@ -7,9 +7,7 @@ class StartMenue extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            firstname:'',
-            lastname:'',
-            username:'',
+           isLoading:true,
             dataSource:null,
         }
     }
@@ -18,6 +16,7 @@ class StartMenue extends React.Component {
         .then((response)=>response.json())
         .then((responseJson)=>{
             this.setState({
+                isLoading:false,
                 dataSource:responseJson.signup,
 
             })
@@ -35,6 +34,22 @@ class StartMenue extends React.Component {
         )
     }
     render() {
+        /*if(this.state.isLoading){
+            return(
+                <View>
+                    <Text>
+                        Profile Page
+                    </Text>
+                </View>
+            )
+        }else{
+            let users=this.state.dataSource.map((val,key)=>{
+                return <View key={key}>
+                    <Text>{val.username}</Text>
+                </View>
+            });
+//put return statement here and call users variable
+        }*/
         return (
             <View style={styles.container}>
                 <View>
@@ -54,7 +69,7 @@ class StartMenue extends React.Component {
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Find Route' 
-                        onPress = {() => {this.callRoute}}/>
+                        onPress = {<FindRouteScreen />} />
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Alert'/>

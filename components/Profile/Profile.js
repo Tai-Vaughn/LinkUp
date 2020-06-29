@@ -27,11 +27,11 @@ export default class Profile extends React.Component {
             }}
           />
           <View>
-                    <Text>John Doe {firstname} {lastname}</Text>
+                    <Text>John Doe</Text>
                 </View>
 
                 <View>
-                    <Text>jdoe {username}</Text>
+                    <Text>jdoe</Text>
                 </View>
         </View>
 

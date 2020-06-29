@@ -35,7 +35,7 @@ export default function HomeScreen ({navigation}) {
       <View style={globalStyles.button}>
       <Button
         title='Profile'
-        onPress = {() => navigation.push('Profile')}
+        onPress = {() => navigation.push('profile')}
       />
       </View>
       

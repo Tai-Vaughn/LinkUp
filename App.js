@@ -55,7 +55,7 @@ export default class App extends React.Component {
           <AuthStack.Screen name=" " component={HomeScreen}/>
           <AuthStack.Screen name="login" component={LoginScreen} options= {{ title: ""}}/>
           <AuthStack.Screen name="registration" component={RegistrationScreen} options={{ title : ""}}/>
-          <AuthStack.Screen name="profile" component={Profile}/>
+          
       </AuthStack.Navigator> 
       }
 

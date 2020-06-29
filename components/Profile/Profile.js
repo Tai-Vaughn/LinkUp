@@ -2,6 +2,7 @@ import React  from 'react';
 import { View , Text, Button, StyleSheet} from 'react-native';
 import FindRouteScreen from '../FindRoute/FindRouteScreen';
 import {globalStyles} from '../Styles'; 
+import Alert from '../Alerts/Alert';
 
 class StartMenue extends React.Component {
     constructor(props){
@@ -71,6 +72,7 @@ class StartMenue extends React.Component {
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Alert'/>
+                        <Alert />
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Friends'/>

@@ -37,12 +37,12 @@ class StartMenue extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.text}>
+                <View>
                     <Text>
                         Profile Page
                     </Text>
                 </View>
-                <View style={styles.text}>
+                <View>
                     <Text >John Doe</Text>
                     <Text>jdoe</Text>
                 </View>

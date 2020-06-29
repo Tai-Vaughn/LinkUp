@@ -44,9 +44,7 @@ class StartMenue extends React.Component {
             )
         }else{
             let users=this.state.dataSource.map((val,key)=>{
-                return <View key={key}>
-                    <Text>{val.username}</Text>
-                </View>
+                return <View key={key}><Text>{val.username}</Text></View>
             });
 //put return statement here and call users variable
         }*/

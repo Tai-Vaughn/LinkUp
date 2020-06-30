@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Button, Picker, Text, StyleSheet} from 'react-native';
 import {globalStyles} from '../Styles';
-import { createStackNavigator, createAppContainer } from '@react-navigation';
+
 
 // import FixedBottom from './FixedBottom';
 import {ScrollView} from 'react-native-gesture-handler';

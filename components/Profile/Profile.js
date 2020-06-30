@@ -3,7 +3,7 @@ import { View , Text, Button, StyleSheet} from 'react-native';
 import FindRouteScreen from '../FindRoute/FindRouteScreen';
 import {globalStyles} from '../Styles'; 
 import Alert from '../Alerts/Alert';
-import { createStackNavigator, createAppContainer } from '@react-navigation';
+//import { createStackNavigator, createAppContainer } from '@react-navigation';
 
 class StartMenue extends React.Component{
     constructor(props){

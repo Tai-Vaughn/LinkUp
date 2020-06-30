@@ -16,7 +16,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import * as Font from 'expo-font';
 import * as Dataservice from './components/Service/DataService';
-import Alert from './components/Alerts/Alert';
+import Alerter from './components/Alerts/Alerter';
 import FindRouteScreen from './components/FindRoute/FindRouteScreen';
 
 const getFonts = () => Font.loadAsync({
@@ -52,7 +52,7 @@ export default class App extends React.Component {
       {this.state.JWT_Token ?
         <ProfileDrawer.Navigator initialRouteName = "Profile">
           <ProfileDrawer.Screen name='Profile' component={Profile}/>
-          <ProfileDrawer.Screen name='Alert' component={Alert}/>
+          <ProfileDrawer.Screen name='Alerter' component={Alerter}/>
           <ProfileDrawer.Screen name='Route' component={FindRouteScreen}/>
 
         </ProfileDrawer.Navigator> :

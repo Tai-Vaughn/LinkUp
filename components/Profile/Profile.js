@@ -2,7 +2,7 @@ import React  from 'react';
 import { View , Text, Button, StyleSheet} from 'react-native';
 import FindRouteScreen from '../FindRoute/FindRouteScreen';
 import {globalStyles} from '../Styles'; 
-import Alert from '../Alerts/Alert';
+import Alerter from '../Alerts/Alerter';
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
 
 class StartMenue extends React.Component{
@@ -74,7 +74,7 @@ class StartMenue extends React.Component{
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Alert'
-                         onPress = {() => this.props.navigation.navigate('Alert')}/>
+                         onPress = {() => this.props.navigation.navigate('Alerter')}/>
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Friends'/>

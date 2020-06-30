@@ -14,7 +14,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import * as Font from 'expo-font';  
+import * as Font from 'expo-font';
 import * as Dataservice from './components/Service/DataService';
 import Alert from './components/Alerts/Alert';
 import FindRouteScreen from './components/FindRoute/FindRouteScreen';
@@ -22,9 +22,8 @@ import FindRouteScreen from './components/FindRoute/FindRouteScreen';
 const getFonts = () => Font.loadAsync({
   'righteous': require('./components/fonts/Righteous-Regular.ttf')
 });
-const AuthStack = createStackNavigator(); 
-const ProfileStack = createDrawerNavigator();
-const MenuTab =createBottomTabNavigator();
+const AuthStack = createStackNavigator();
+const ProfileDrawer = createDrawerNavigator();
 
 export default class App extends React.Component {
   // const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -48,20 +47,20 @@ export default class App extends React.Component {
   }
 
   render() {
-  return (  
+  return (
     <NavigationContainer>
-      {this.state.JWT_Token ? 
-        <ProfileStack.Navigator initialRouteName = "Profile">
-          <ProfileStack.Screen name='Profile' component={Profile}/>
-          <ProfileStack.Screen name='Alert' component={Alert}/>
-          <ProfileStack.Screen name='Route' component={FindRouteScreen}/>
-          
-        </ProfileStack.Navigator> :
+      {this.state.JWT_Token ?
+        <ProfileDrawer.Navigator initialRouteName = "Profile">
+          <ProfileDrawer.Screen name='Profile' component={Profile}/>
+          <ProfileDrawer.Screen name='Alert' component={Alert}/>
+          <ProfileDrawer.Screen name='Route' component={FindRouteScreen}/>
+
+        </ProfileDrawer.Navigator> :
       <AuthStack.Navigator>
           <AuthStack.Screen name=" " component={HomeScreen}/>
           <AuthStack.Screen name="login" component={LoginScreen} options= {{ title: ""}}/>
           <AuthStack.Screen name="registration" component={RegistrationScreen} options={{ title : ""}}/>
-      </AuthStack.Navigator> 
+      </AuthStack.Navigator>
       }
 
     </NavigationContainer>
@@ -69,9 +68,9 @@ export default class App extends React.Component {
   }
   };
 
-  /* watchman watch-del-all && react-native start --reset-cache 
-  
-  
+  /* watchman watch-del-all && react-native start --reset-cache
+
+
       <MenuTab.Navigator>
         <MenuTab.Screen name="ProfileStack" component={ProfileStack}
         options={{menuTabBarLabel:"Profile",}}/>
@@ -80,5 +79,3 @@ export default class App extends React.Component {
         <MenuTab.Screen />
       </MenuTab.Navigator>
       */
-  
-

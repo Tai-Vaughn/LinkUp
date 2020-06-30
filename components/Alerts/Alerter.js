@@ -37,8 +37,10 @@ class Alerter extends React.Component{
         return(
             <ScrollView>
                 <View>
-                    <Text>Aggravated Assault</Text>
-                    <Text>{description}</Text>
+                    <View><Text>Aggravated Assault:</Text></View>
+                    <View><Text>{description}</Text></View>
+                    
+                    
                 </View>
             </ScrollView>
             
@@ -56,7 +58,7 @@ class Alerter extends React.Component{
             )
         }else{
             let reports=this.state.dataSource.map((val,key)=>{
-                return <View key={key}><Text>{val.title}: {val.description}</Text></View>
+                return <View key={key}><Text>{val.type}: {val.details}</Text></View>
             });
 //put return statement here and call users variable
 <View>
@@ -66,19 +68,29 @@ class Alerter extends React.Component{
                 <ScrollView>
                 <View style={styles.container}>
                     <View style={globalStyles.logoContainer}>
-                    <Image 
-                    style={globalStyles.logo}
-                    source={require('../../static/LinkUp.png')}/>
+                    
                     <Text style={styles.text}>RECENT CRIMINAL ACTIVITY</Text>
                 </View> 
                 
                 <View style={globalStyles.button}>
                     <Button title='Aggravated Assault' onPress={this.assaultHandler}/>
+                </View> 
+                <View style={globalStyles.button}>
                     <Button title='Break-In'onPress={this.breakHandler}/>
+                </View> 
+                <View style={globalStyles.button}>
                     <Button title='Kidnapping/Attempted Kidnapping'onPress={this.kidnapHandler}/>
+                </View> 
+                <View style={globalStyles.button}>
                     <Button title='Robbery/Attempted Robbery'onPress={this.robHandler}/>
+                </View> 
+                <View style={globalStyles.button}>
                     <Button title='Sexual Assault/Rape'onPress={this.saHandler}/>
+                </View> 
+                <View style={globalStyles.button}>
                     <Button title='Shooting'onPress={this.shootHandler}/>
+                </View> 
+                <View style={globalStyles.button}>
                     <Button title='Theft'onPress={this.theftHandler}/>
                 </View> 
                 </View>

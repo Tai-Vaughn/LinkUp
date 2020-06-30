@@ -22,7 +22,7 @@ const getFonts = () => Font.loadAsync({
   'righteous': require('./components/fonts/Righteous-Regular.ttf')
 });
 const AuthStack = createStackNavigator(); 
-const ProfileStack = createDrawerNavigator();
+const ProfileDrawer = createDrawerNavigator();
 
 export default class App extends React.Component {
   // const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -49,12 +49,12 @@ export default class App extends React.Component {
   return (  
     <NavigationContainer>
       {this.state.JWT_Token ? 
-        <ProfileStack.Navigator initialRouteName = "Profile">
-          <ProfileStack.Screen name='Profile' component={Profile}/>
-          <ProfileStack.Screen name='Alert' component={Alert}/>
-          <ProfileStack.Screen name='Route' component={FindRouteScreen}/>
+        <ProfileDrawer.Navigator initialRouteName = "Profile">
+          <ProfileDrawer.Screen name='Profile' component={Profile}/>
+          <ProfileDrawer.Screen name='Alert' component={Alert}/>
+          <ProfileDrawer.Screen name='Route' component={FindRouteScreen}/>
           
-        </ProfileStack.Navigator> :
+        </ProfileDrawer.Navigator> :
       <AuthStack.Navigator>
           <AuthStack.Screen name=" " component={HomeScreen}/>
           <AuthStack.Screen name="login" component={LoginScreen} options= {{ title: ""}}/>

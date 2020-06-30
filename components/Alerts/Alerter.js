@@ -1,5 +1,5 @@
 import React  from 'react';
-import { View , Text, Image, StyleSheet, Button} from 'react-native';
+import { View , Text, Image, StyleSheet, Button, ScrollView} from 'react-native';
 import {globalStyles} from '../Styles'; 
 
 
@@ -46,7 +46,7 @@ class Alerter extends React.Component{
         
     }
     render() {
-        if(this.state.isLoading){
+        /*if(this.state.isLoading){
             return(
                 <View>
                     <Text>
@@ -59,6 +59,9 @@ class Alerter extends React.Component{
                 return <View key={key}><Text>{val.title}: {val.description}</Text></View>
             });
 //put return statement here and call users variable
+<View>
+                    <Text>{reports}</Text>
+                </View>*/
             return (
                 <ScrollView>
                 <View style={styles.container}>
@@ -68,9 +71,7 @@ class Alerter extends React.Component{
                     source={require('../../static/LinkUp.png')}/>
                     <Text style={styles.text}>RECENT CRIMINAL ACTIVITY</Text>
                 </View> 
-                <View>
-                    <Text>{reports}</Text>
-                </View>
+                
                 <View style={globalStyles.button}>
                     <Button title='Aggravated Assault' onPress={this.assaultHandler}/>
                     <Button title='Break-In'onPress={this.breakHandler}/>
@@ -83,7 +84,7 @@ class Alerter extends React.Component{
                 </View>
                 </ScrollView>
             ); 
-        }
+        //}
         
     }
 }

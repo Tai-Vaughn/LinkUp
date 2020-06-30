@@ -1,8 +1,9 @@
 import React  from 'react';
 import { View , Text} from 'react-native';
 import {globalStyles} from '../Styles'; 
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
-class Alert extends React.Component {
+class Alert extends React.Component{
     render() {
         return (
             <View>

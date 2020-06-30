@@ -3,8 +3,9 @@ import { View , Text, Button, StyleSheet} from 'react-native';
 import FindRouteScreen from '../FindRoute/FindRouteScreen';
 import {globalStyles} from '../Styles'; 
 import Alert from '../Alerts/Alert';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
-class StartMenue extends React.Component ({navigation}){
+class StartMenue extends React.Component{
     constructor(props){
         super(props);
         this.state={
@@ -68,12 +69,12 @@ class StartMenue extends React.Component ({navigation}){
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Find Route'
-                        onPress = {() => navigation.push('Route')}/>
+                        onPress = {() => this.props.navigation.navigate('Route')}/>
                         <FindRouteScreen />
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Alert'
-                         onPress = {() => navigation.push('Alert')}/>
+                         onPress = {() => this.props.navigation.navigate('Alert')}/>
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Friends'/>

@@ -85,9 +85,9 @@ export default class App extends React.Component {
     <NavigationContainer>
       
       <MenuTab.Navigator initialRouteName="Home">
-        <MenuTab.Screen name="ProfileStack" component={ProfileStack}
+        <MenuTab.Screen name="Profile" component={ProfileStack}
         options={{menuTabBarLabel:"Profile",}}/>
-        <MenuTab.Screen name="AuthStack" component={AuthStack} 
+        <MenuTab.Screen name="Home" component={AuthStack} 
         options={{menuTabBarLabel:"Home",}}/>
       </MenuTab.Navigator>
   

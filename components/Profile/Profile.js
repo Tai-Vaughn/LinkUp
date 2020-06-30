@@ -27,14 +27,7 @@ class StartMenue extends React.Component{
             console.log(error)
         });
     }
-    callRoute=()=>{
-        new FindRouteScreen().render();
-        return(
-            <View>
-                <FindRouteScreen />
-            </View>
-        )
-    }
+    
     render() {
         /*if(this.state.isLoading){
             return(

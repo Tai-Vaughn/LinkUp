@@ -12,7 +12,16 @@ class Alerter extends React.Component{
                 style={globalStyles.logo}
                 source={require('../../static/LinkUp.png')}/>
                 <Text style={globalStyles.name}>RECENT CRIMINAL ACTIVITY</Text>
-            </View>  
+            </View> 
+            <View>
+                <Button title='Aggravated Assault' onPress={this.assaultHandler}/>
+                <Button title='Break-In'onPress={this.breakHandler}/>
+                <Button title='Kidnapping/Attempted Kidnapping'onPress={this.kidnapHandler}/>
+                <Button title='Robbery/Attempted Robbery'onPress={this.robHandler}/>
+                <Button title='Sexual Assault/Rape'onPress={this.saHandler}/>
+                <Button title='Shooting'onPress={this.shootHandler}/>
+                <Button title='Theft'onPress={this.theftHandler}/>
+            </View> 
             </View>
         ); 
     }

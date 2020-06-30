@@ -18,46 +18,12 @@ import * as Font from 'expo-font';
 import * as Dataservice from './components/Service/DataService';
 import Alerter from './components/Alerts/Alerter';
 import FindRouteScreen from './components/FindRoute/FindRouteScreen';
-import { render } from 'react-dom';
 
 const getFonts = () => Font.loadAsync({
   'righteous': require('./components/fonts/Righteous-Regular.ttf')
 });
-//const AuthStack = createStackNavigator();
-//const ProfileDrawer = createDrawerNavigator();
-//const ProfileStack=createStackNavigator();
-const Stack=createStackNavigator();
-const MenuTab=createBottomTabNavigator();
-
-function AuthStack(){
-  return(
-          <Stack.Navigator initialRouteName="Home"
-          screenOptions={{
-            headerStyle:{backgroundColor:'#00008B'},
-            headerTitleStyle:{fontWeight:'bold'}
-          }}>
-          <Stack.Screen name="Home" component={HomeScreen} options= {{ title: "Home Page"}}/>
-          <Stack.Screen name="login" component={LoginScreen} options= {{ title: "Login Page"}}/>
-          <Stack.Screen name="registration" component={RegistrationScreen} options={{ title : "Registation Page"}}/>
-      </Stack.Navigator>
-      
-
-  );
-}
-function ProfileStack(){
-  return(
-    <Stack.Navigator initialRouteName = "Profile"
-    screenOptions={{
-      headerStyle:{backgroundColor:'#00008B'},
-      headerTitleStyle:{fontWeight:'bold'}
-    }}>
-          <Stack.Screen name='Profile' component={Profile} options= {{ title: "Profile Page"}}/>
-          <Stack.Screen name='Alerter' component={Alerter} options= {{ title: "Alerts"}}/>
-          <Stack.Screen name='Route' component={FindRouteScreen} options= {{ title: "Routes"}}/>
-
-        </Stack.Navigator>
-  );
-}
+const AuthStack = createStackNavigator();
+const ProfileDrawer = createDrawerNavigator();
 
 export default class App extends React.Component {
   // const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -67,7 +33,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       fontsLoaded : true,
-      JWT_Token : null
+      JWT_Token : true
     }
   }
   componentDidMount(){
@@ -81,34 +47,6 @@ export default class App extends React.Component {
   }
 
   render() {
-  return (
-    <NavigationContainer>
-      
-      <MenuTab.Navigator initialRouteName="Home">
-        <MenuTab.Screen name="ProfileStack" component={ProfileStack}
-        options={{menuTabBarLabel:"Profile",}}/>
-        <MenuTab.Screen name="AuthStack" component={AuthStack} 
-        options={{menuTabBarLabel:"Home",}}/>
-      </MenuTab.Navigator>
-  
-    </NavigationContainer>
-  );
-  }
-  };
-
-  /* watchman watch-del-all && react-native start --reset-cache
-
-
-      <MenuTab.Navigator>
-        <MenuTab.Screen name="ProfileStack" component={ProfileStack}
-        options={{menuTabBarLabel:"Profile",}}/>
-        <MenuTab.Screen />
-        <MenuTab.Screen />
-        <MenuTab.Screen />
-      </MenuTab.Navigator>
-      */
-
-      /*render() {
   return (
     <NavigationContainer>
       {this.state.JWT_Token ?
@@ -128,4 +66,16 @@ export default class App extends React.Component {
     </NavigationContainer>
   );
   }
-  };*/
+  };
+
+  /* watchman watch-del-all && react-native start --reset-cache
+
+
+      <MenuTab.Navigator>
+        <MenuTab.Screen name="ProfileStack" component={ProfileStack}
+        options={{menuTabBarLabel:"Profile",}}/>
+        <MenuTab.Screen />
+        <MenuTab.Screen />
+        <MenuTab.Screen />
+      </MenuTab.Navigator>
+      */

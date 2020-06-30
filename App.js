@@ -9,6 +9,7 @@ import Profile from './components/Profile/Profile'
 import * as React from 'react';
 import {View, Button , Text} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import {createStackNavigator} from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -23,6 +24,7 @@ const getFonts = () => Font.loadAsync({
 });
 const AuthStack = createStackNavigator(); 
 const ProfileStack = createDrawerNavigator();
+const MenuTab =createBottomTabNavigator();
 
 export default class App extends React.Component {
   // const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -63,11 +65,20 @@ export default class App extends React.Component {
       }
 
     </NavigationContainer>
- 
   );
   }
   };
 
-  /* watchman watch-del-all && react-native start --reset-cache */
+  /* watchman watch-del-all && react-native start --reset-cache 
+  
+  
+      <MenuTab.Navigator>
+        <MenuTab.Screen name="ProfileStack" component={ProfileStack}
+        options={{menuTabBarLabel:"Profile",}}/>
+        <MenuTab.Screen />
+        <MenuTab.Screen />
+        <MenuTab.Screen />
+      </MenuTab.Navigator>
+      */
   
 

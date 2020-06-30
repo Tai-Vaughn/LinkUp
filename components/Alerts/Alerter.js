@@ -4,8 +4,28 @@ import {globalStyles} from '../Styles';
 
 
 class Alerter extends React.Component{
+    assaultHandler=()=>{
+        for(let i=0; i<4;i++){
+            if(report.type==="Aggravated Assault"){
+                description.push(report.description[i]);
+
+            }
+
+        }
+        return(
+            <ScrollView>
+                <View>
+                    <Text>Aggravated Assault</Text>
+                    <Text>{description}</Text>
+                </View>
+            </ScrollView>
+            
+        )
+        
+    }
     render() {
         return (
+            <ScrollView>
             <View style={styles.container}>
                 <View style={globalStyles.logoContainer}>
                 <Image 
@@ -13,7 +33,7 @@ class Alerter extends React.Component{
                 source={require('../../static/LinkUp.png')}/>
                 <Text style={styles.text}>RECENT CRIMINAL ACTIVITY</Text>
             </View> 
-            <View>
+            <View style={globalStyles.button}>
                 <Button title='Aggravated Assault' onPress={this.assaultHandler}/>
                 <Button title='Break-In'onPress={this.breakHandler}/>
                 <Button title='Kidnapping/Attempted Kidnapping'onPress={this.kidnapHandler}/>
@@ -23,6 +43,7 @@ class Alerter extends React.Component{
                 <Button title='Theft'onPress={this.theftHandler}/>
             </View> 
             </View>
+            </ScrollView>
         ); 
     }
 }
@@ -37,7 +58,7 @@ const styles = StyleSheet.create({
  
    text:{
      color: 'white',
-     fontSize: 40,
+     fontSize: 30,
      marginBottom: 90,
      fontFamily: 'righteous'
    }

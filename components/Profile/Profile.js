@@ -4,7 +4,7 @@ import FindRouteScreen from '../FindRoute/FindRouteScreen';
 import {globalStyles} from '../Styles'; 
 import Alert from '../Alerts/Alert';
 
-class StartMenue extends React.Component {
+class StartMenue extends React.Component ({navigation}){
     constructor(props){
         super(props);
         this.state={
@@ -67,12 +67,13 @@ class StartMenue extends React.Component {
                         <Button title='Map'/>
                     </View>
                     <View style={globalStyles.button}>
-                        <Button title='Find Route'/>
+                        <Button title='Find Route'
+                        onPress = {() => navigation.push('Route')}/>
                         <FindRouteScreen />
                     </View>
                     <View style={globalStyles.button}>
-                        <Button title='Alert'/>
-                        <Alert />
+                        <Button title='Alert'
+                         onPress = {() => navigation.push('Alert')}/>
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Friends'/>

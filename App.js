@@ -15,6 +15,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import * as Font from 'expo-font';  
 import * as Dataservice from './components/Service/DataService';
+import Alert from './components/Alerts/Alert';
+import FindRouteScreen from './components/FindRoute/FindRouteScreen';
 
 const getFonts = () => Font.loadAsync({
   'righteous': require('./components/fonts/Righteous-Regular.ttf')
@@ -49,6 +51,8 @@ export default class App extends React.Component {
       {this.state.JWT_Token ? 
         <ProfileStack.Navigator initialRouteName = "Profile">
           <ProfileStack.Screen name='Profile' component={Profile}/>
+          <ProfileStack.Screen name='Alert' component={Alert}/>
+          <ProfileStack.Screen name='Route' component={FindRouteScreen}/>
           
         </ProfileStack.Navigator> :
       <AuthStack.Navigator>

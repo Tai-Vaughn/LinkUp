@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Image, Button, Text} from 'react-native';
+import {StyleSheet, View, Image, Button, Text, TouchableOpacity} from 'react-native';
 import {globalStyles} from '../Styles'; 
 
 export default function HomeScreen ({navigation}) {

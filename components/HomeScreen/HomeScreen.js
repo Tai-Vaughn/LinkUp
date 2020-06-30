@@ -12,7 +12,43 @@ export default function HomeScreen ({navigation}) {
 
       <Text style={styles.text}>LINK UP</Text>
 
-      <View style={globalStyles.button}>
+      <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('AuthStack', { screen: 'Login' })}>
+              <Text>Login</Text>
+           </TouchableOpacity>
+
+     
+      
+      </View>
+  )
+}
+
+const styles = StyleSheet.create({
+   container: {
+      backgroundColor: 'steelblue',
+      padding: 50,
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10,
+    width: 300,
+    marginTop: 16,
+  },
+
+  text:{
+    color: 'white',
+    fontSize: 40,
+    marginBottom: 90,
+    fontFamily: 'righteous'
+  }
+
+});
+ /*<View style={globalStyles.button}>
       <Button
         title='Login'
         onPress = {() => navigation.push('login')}
@@ -31,26 +67,4 @@ export default function HomeScreen ({navigation}) {
         title='Find Route'
         onPress = {() => navigation.push('find route')}
       />
-      </View>
-      
-      </View>
-  )
-}
-
-const styles = StyleSheet.create({
-   container: {
-      backgroundColor: 'steelblue',
-      padding: 50,
-      justifyContent: 'center',
-      alignItems: 'center',
-      flex: 1
-  },
-
-  text:{
-    color: 'white',
-    fontSize: 40,
-    marginBottom: 90,
-    fontFamily: 'righteous'
-  }
-
-});
+      </View>*/

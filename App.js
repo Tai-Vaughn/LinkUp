@@ -9,7 +9,7 @@ import Profile from './components/Profile/Profile'
 import * as React from 'react';
 import {View, Button , Text} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+//import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import {createStackNavigator} from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -33,7 +33,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       fontsLoaded : true,
-      JWT_Token : true
+      JWT_Token : null
     }
   }
   componentDidMount(){

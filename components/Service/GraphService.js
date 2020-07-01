@@ -53,10 +53,16 @@ class GraphClass {
     } 
 }
 
-const Graph = new GraphClass()
-// const Markers$ = Dataservice.markers$.subscribe(data => console.log(data))
-Markers$.unsubscribe()
-export default Graph
+
+export const GetGraph = () =>{
+  const Graph = new GraphClass()
+
+  return Graph
+}
+ 
+// const Markers$ = Dataservice.markers$.subscribe(data => console.log(data)) 
+// Markers$.unsubscribe()
+
 
 
 // console.log('yoyo')

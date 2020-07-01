@@ -4,8 +4,8 @@ import {useState} from 'react';
 import LoginScreen from './components/Login/LoginScreen';
 import RegistrationScreen from './components/CreateAccount/CreateAccountScreen';
 import HomeScreen from './components/HomeScreen/HomeScreen';
-import Profile from './components/Profile/Profile'
-import Graph from './components/Service/GraphService'
+import Profile from './components/Profile/Profile';
+import * as Graph from './components/Service/GraphService';
 
 import * as React from 'react';
 import {View, Button , Text} from 'react-native'
@@ -22,7 +22,7 @@ const getFonts = () => Font.loadAsync({
 });
 const AuthStack = createStackNavigator(); 
 const ProfileStack = createDrawerNavigator(); 
-const graph = Graph;
+const graph = Graph.GetGraph();
 
 export default class App extends React.Component {
   // const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -42,7 +42,7 @@ export default class App extends React.Component {
     getFonts();
     Dataservice.getMarkers()
     Dataservice.token$.subscribe(data =>this.setState({JWT_Token: data}))
-    Dataservice.markers$.subscribe(data => console.log(data))
+    // Dataservice.markers$.subscribe(data => console.log(data))
 
   }
 

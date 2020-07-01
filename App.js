@@ -4,7 +4,8 @@ import {useState} from 'react';
 import LoginScreen from './components/Login/LoginScreen';
 import RegistrationScreen from './components/CreateAccount/CreateAccountScreen';
 import HomeScreen from './components/HomeScreen/HomeScreen';
-import Profile from './components/Profile/Profile'
+import Profile from './components/Profile/Profile';
+import Logout from './components/LogOut/Logout';
 
 import * as React from 'react';
 import {View, Button , Text} from 'react-native'
@@ -54,6 +55,7 @@ export default class App extends React.Component {
           <ProfileDrawer.Screen name='Profile' component={Profile} options= {{ title: "Profile",}}/>
           <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{ title: "Alerts",}}/>
           <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{ title: "Routes",}}/>
+          <ProfileDrawer.Screen name='LogOut' component={LogOut} options= {{ title: "LogOut",}}/>
 
         </ProfileDrawer.Navigator> :
       <AuthStack.Navigator screenOptions= {{headerStyle:{backgroundColor:'#fff'}, headerTintColor: '#000', headerTitleStyle: {fontWeight: 'bold',},}}>

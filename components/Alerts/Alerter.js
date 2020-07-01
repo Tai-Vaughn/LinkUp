@@ -4,28 +4,7 @@ import {globalStyles} from '../Styles';
 
 
 class Alerter extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={
-           isLoading:true,
-            dataSource:null,
-        }
-    }
-    //Get from database
-    componentDidMount(){
-        return fetch('https://linkupcapstone.herokuapp.com/users/reports')
-        .then((response)=>response.json())
-        .then((responseJson)=>{
-            this.setState({
-                isLoading:false,
-                dataSource:responseJson.reports,
-
-            })
-        })
-        .catch((error)=>{
-            console.log(error)
-        });
-    }
+   
     assaultHandler=()=>{
         for(let i=0; i<4;i++){
             if(report.type==="Aggravated Assault"){
@@ -41,6 +20,79 @@ class Alerter extends React.Component{
                     <View><Text>{description}</Text></View>
                     
                     
+                </View>
+            </ScrollView>
+            
+        )
+        
+    }
+    
+    breakHandler=()=>{
+        return(
+            <ScrollView>
+                <View>
+                    <Text>Break-In</Text>
+                    <Text>{description}</Text>
+                </View>
+            </ScrollView>
+            
+        )
+        
+    }
+    kidnapHandler=()=>{
+        return(
+            <ScrollView>
+                <View>
+                    <Text>Kidnapping/Attempted Kidnapping'</Text>
+                    <Text>{description}</Text>
+                </View>
+            </ScrollView>
+            
+        )
+        
+    }
+    robHandler=()=>{
+        return(
+            <ScrollView>
+                <View>
+                    <Text>Robbery/Attempted Robbery</Text>
+                    <Text>{description}</Text>
+                </View>
+            </ScrollView>
+            
+        )
+        
+    }
+    saHandler=()=>{
+        return(
+            <ScrollView>
+                <View>
+                    <Text>Sexual Assault/Rape</Text>
+                    <Text>{description}</Text>
+                </View>
+            </ScrollView>
+            
+        )
+        
+    }
+    shootHandler=()=>{
+        return(
+            <ScrollView>
+                <View>
+                    <Text>Shooting</Text>
+                    <Text>{description}</Text>
+                </View>
+            </ScrollView>
+            
+        )
+        
+    }
+    theftHandler=()=>{
+        return(
+            <ScrollView>
+                <View>
+                    <Text>Theft</Text>
+                    <Text>{description}</Text>
                 </View>
             </ScrollView>
             
@@ -118,3 +170,26 @@ const styles = StyleSheet.create({
  
  });
 export default Alerter;
+
+/* constructor(props){
+        super(props);
+        this.state={
+           isLoading:true,
+            dataSource:null,
+        }
+    }
+    //Get from database
+    componentDidMount(){
+        return fetch('https://linkupcapstone.herokuapp.com/users/reports')
+        .then((response)=>response.json())
+        .then((responseJson)=>{
+            this.setState({
+                isLoading:false,
+                dataSource:responseJson.reports,
+
+            })
+        })
+        .catch((error)=>{
+            console.log(error)
+        });
+    }*/

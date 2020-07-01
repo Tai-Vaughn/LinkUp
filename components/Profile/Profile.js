@@ -73,6 +73,12 @@ class StartMenue extends React.Component{
                         <Button title='Friends'/>
                     </View>
                 </View>
+                <View>
+                <View style={globalStyles.button}>
+                        <Button title='Log Out'/>
+                    </View>
+                </View>
+                
             </View>
         ); 
     }

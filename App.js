@@ -31,6 +31,7 @@ const MenuTab=createBottomTabNavigator();
 
 function AuthStack(){
   return(
+    
           <Stack.Navigator initialRouteName="Home"
           screenOptions={{
             headerStyle:{backgroundColor:'#00008B'},
@@ -83,14 +84,15 @@ export default class App extends React.Component {
   render() {
   return (
     <NavigationContainer>
-      
+      {this.state.JWT_Token ?
+      <MenuTab.Screen name="Profile" component={ProfileStack}
+      options={{menuTabBarLabel:"Profile",}}/>:
       <MenuTab.Navigator initialRouteName="Home">
-        <MenuTab.Screen name="Profile" component={ProfileStack}
-        options={{menuTabBarLabel:"Profile",}}/>
         <MenuTab.Screen name="Home" component={AuthStack} 
         options={{menuTabBarLabel:"Home",}}/>
+        
       </MenuTab.Navigator>
-  
+  }
     </NavigationContainer>
   );
   }
@@ -98,6 +100,8 @@ export default class App extends React.Component {
 
   /* watchman watch-del-all && react-native start --reset-cache
 
+
+          <Stack.Screen name="logout" component={LogOutScreen} options= {{ title: "Logout Page"}}/>
 
       <MenuTab.Navigator>
         <MenuTab.Screen name="ProfileStack" component={ProfileStack}

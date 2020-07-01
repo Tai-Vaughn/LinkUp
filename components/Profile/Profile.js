@@ -4,12 +4,14 @@ import FindRouteScreen from '../FindRoute/FindRouteScreen';
 import {globalStyles} from '../Styles'; 
 import Alerter from '../Alerts/Alerter';
 import parseJwt from '../Service/jwtparser';
-//import { createStackNavigator, createAppContainer } from '@react-navigation';
 
+var jwtDecode = require('jwt-decode');
+var decoded = jwt_decode(JWT_Token);
 class StartMenue extends React.Component{
     constructor(props){
         super(props);
-        this.username=parseJwt(JWT_Token);
+        this.user=parseJwt(JWT_Token);
+        
     }
     
     
@@ -36,8 +38,9 @@ class StartMenue extends React.Component{
                     </Text>
                 </View>
                 <View>
+                    
                     <Text >John Doe</Text>
-                    <Text>{this.username}</Text>
+                    <Text>{decoded}</Text>
                 </View>
                 
                 <View>

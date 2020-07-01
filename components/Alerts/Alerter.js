@@ -102,7 +102,7 @@ class Alerter extends React.Component{
 }
 const styles = StyleSheet.create({
     container: {
-       backgroundColor: 'steelblue',
+       backgroundColor: 'white',
        padding: 50,
        justifyContent: 'center',
        alignItems: 'center',
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
    },
  
    text:{
-     color: 'white',
+     color: 'black',
      fontSize: 30,
      marginBottom: 90,
      fontFamily: 'righteous'

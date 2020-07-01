@@ -102,7 +102,7 @@ class Alerter extends React.Component{
 }
 const styles = StyleSheet.create({
     container: {
-       backgroundColor: 'white',
+       backgroundColor: 'steelblue',
        padding: 50,
        justifyContent: 'center',
        alignItems: 'center',

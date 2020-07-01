@@ -5,7 +5,7 @@ import LoginScreen from './components/Login/LoginScreen';
 import RegistrationScreen from './components/CreateAccount/CreateAccountScreen';
 import HomeScreen from './components/HomeScreen/HomeScreen';
 import Profile from './components/Profile/Profile';
-import Logout from './components/LogOut/Logout';
+import LogOut from './components/LogOut/Logout';
 
 import * as React from 'react';
 import {View, Button , Text} from 'react-native'

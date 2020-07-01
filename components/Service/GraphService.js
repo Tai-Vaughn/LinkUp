@@ -1,8 +1,14 @@
-export default class Graph {
+import * as Dataservice from './DataService'
+import { tap } from 'rxjs/operators';
+import { date } from 'yup';
+
+
+class GraphClass {
     constructor(noOfVerticies) {
         this.noOfVerticies = noOfVerticies;
         this.AdjList = new Map()
-    }
+
+    } 
 
     addVerticies(node){
         this.AdjList.set(node,[]);
@@ -18,6 +24,10 @@ export default class Graph {
             neighbour : src,
             Cost: parseInt(weight)
         });
+    }
+
+    populate(list){
+        this.noOfVerticies = 10
     }
 
     printGraph() 
@@ -42,10 +52,11 @@ export default class Graph {
         } 
     } 
 }
-export const test = new Graph();
 
-export const getGraph = () => {
-    return test
-}
+const Graph = new GraphClass()
+// const Markers$ = Dataservice.markers$.subscribe(data => console.log(data))
+Markers$.unsubscribe()
+export default Graph
+
 
 // console.log('yoyo')

@@ -5,6 +5,7 @@ import LoginScreen from './components/Login/LoginScreen';
 import RegistrationScreen from './components/CreateAccount/CreateAccountScreen';
 import HomeScreen from './components/HomeScreen/HomeScreen';
 import Profile from './components/Profile/Profile'
+import Graph from './components/Service/GraphService'
 
 import * as React from 'react';
 import {View, Button , Text} from 'react-native'
@@ -20,7 +21,8 @@ const getFonts = () => Font.loadAsync({
   'righteous': require('./components/fonts/Righteous-Regular.ttf')
 });
 const AuthStack = createStackNavigator(); 
-const ProfileStack = createDrawerNavigator();
+const ProfileStack = createDrawerNavigator(); 
+const graph = Graph;
 
 export default class App extends React.Component {
   // const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -30,13 +32,18 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       fontsLoaded : true,
-      JWT_Token : null
-    }
+      JWT_Token : null,
+      markers: null,
+    };
   }
+  
   componentDidMount(){
+    console.log(graph)
     getFonts();
+    Dataservice.getMarkers()
     Dataservice.token$.subscribe(data =>this.setState({JWT_Token: data}))
-    Dataservice.getGroups()
+    Dataservice.markers$.subscribe(data => console.log(data))
+
   }
 
   stateHelper(){

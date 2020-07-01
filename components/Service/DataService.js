@@ -55,8 +55,7 @@ export const getMarkers = () => {
             'Content-Type': 'application/json'
         }
     }).pipe(
-        map( (response) => {
-            console.log(response.response);
+        tap( (response) => {
             markersSubject.next(response.response)
         } ),
         catchError(error => {

@@ -46,7 +46,7 @@ class CreateAccountScreen extends React.Component{
                 validationSchema={CreateAccountSchema}
                 onSubmit={(values, actions) => {
                     actions.resetForm();
-                    console.log(values);
+                    DataService.createUser(values)
                 }}
                 >
 
@@ -141,7 +141,6 @@ class CreateAccountScreen extends React.Component{
                         <View style={globalStyles.button}>
                             <Button 
                             title='Submit' 
-                            onPress={() => DataService.createUser(props.values)}
                             onPress={props.handleSubmit}
                             />
                         </View>

@@ -46,7 +46,7 @@ class StartMenue extends React.Component{
         return (
             <View style={styles.container}>
                 <View>
-                    <Text>
+                    <Text style={styles.text}>
                         Profile Page
                     </Text>
                 </View>
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
  
    text:{
      color: 'white',
-     fontSize: 40,
+     fontSize: 20,
      marginBottom: 90,
      fontFamily: 'righteous'
    }

@@ -50,16 +50,16 @@ export default class App extends React.Component {
   return (
     <NavigationContainer>
       {this.state.JWT_Token ?
-        <ProfileDrawer.Navigator initialRouteName = "Profile">
-          <ProfileDrawer.Screen name='Profile' component={Profile} options= {{ title: "Profile", headerStyle:{backgroundColor:'#fff'}, headerTintColor: '#000', headerTitleStyle: {fontWeight: 'bold',},}}/>
-          <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{ title: "Alerts", headerStyle:{backgroundColor:'#fff'}, headerTintColor: '#000', headerTitleStyle: {fontWeight: 'bold',},}}/>
-          <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{ title: "Routes", headerStyle:{backgroundColor:'#fff'}, headerTintColor: '#000', headerTitleStyle: {fontWeight: 'bold',},}}/>
+        <ProfileDrawer.Navigator initialRouteName = "Profile" screenOptions= {{headerStyle:{backgroundColor:'#fff'}, headerTintColor: '#000', headerTitleStyle: {fontWeight: 'bold',},}}>
+          <ProfileDrawer.Screen name='Profile' component={Profile} options= {{ title: "Profile",}}/>
+          <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{ title: "Alerts",}}/>
+          <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{ title: "Routes",}}/>
 
         </ProfileDrawer.Navigator> :
-      <AuthStack.Navigator>
+      <AuthStack.Navigator screenOptions= {{headerStyle:{backgroundColor:'#fff'}, headerTintColor: '#000', headerTitleStyle: {fontWeight: 'bold',},}}>
           <AuthStack.Screen name=" " component={HomeScreen}/>
-          <AuthStack.Screen name="login" component={LoginScreen} options= {{ title: "", headerStyle:{backgroundColor:'#fff'}, headerTintColor: '#000', headerTitleStyle: {fontWeight: 'bold',},}}/>
-          <AuthStack.Screen name="registration" component={RegistrationScreen} options= {{ title: "", headerStyle:{backgroundColor:'#fff'}, headerTintColor: '#000', headerTitleStyle: {fontWeight: 'bold',},}}/>
+          <AuthStack.Screen name="login" component={LoginScreen} options= {{ title: "Login",}}/>
+          <AuthStack.Screen name="registration" component={RegistrationScreen} options= {{ title: "Registration",}}/>
       </AuthStack.Navigator>
       }
 

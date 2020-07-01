@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
  
    text:{
      color: 'black',
-     fontSize: 25,
+     fontSize: 18,
      marginBottom: 90,
      fontFamily: 'righteous'
    }

@@ -3,15 +3,30 @@ import { View , Text, Button, StyleSheet} from 'react-native';
 import FindRouteScreen from '../FindRoute/FindRouteScreen';
 import {globalStyles} from '../Styles'; 
 import Alerter from '../Alerts/Alerter';
-import parseJwt from '../Service/jwtparser';
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
 
 class StartMenue extends React.Component{
     constructor(props){
         super(props);
-        this.username=parseJwt(JWT_Token);
+        this.state={
+           isLoading:true,
+            dataSource:null,
+        }
     }
-    
+    componentDidMount(){
+        return fetch('https://linkupcapstone.herokuapp.com/users/signup')
+        .then((response)=>response.json())
+        .then((responseJson)=>{
+            this.setState({
+                isLoading:false,
+                dataSource:responseJson.signup,
+
+            })
+        })
+        .catch((error)=>{
+            console.log(error)
+        });
+    }
     
     render() {
         /*if(this.state.isLoading){
@@ -37,7 +52,7 @@ class StartMenue extends React.Component{
                 </View>
                 <View>
                     <Text >John Doe</Text>
-                    <Text>{this.username}</Text>
+                    <Text>jdoe</Text>
                 </View>
                 
                 <View>

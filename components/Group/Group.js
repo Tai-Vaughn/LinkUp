@@ -1,5 +1,5 @@
 import React  from 'react';
-import { View , Text} from 'react-native';
+import { View , Text, Button, StyleSheet} from 'react-native';
 
 class Group extends React.Component {
     render() {

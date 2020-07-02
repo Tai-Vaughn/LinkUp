@@ -40,7 +40,7 @@ class Group extends React.Component {
         DataService.getGroups()
         DataService.groups$.subscribe(data => this.setState({groups: data}))
     }
-viewGroupHandler=(props)=>{
+viewGroupHandler=(item)=>{
         
             return (
                 <View style={styles.container}>     
@@ -48,9 +48,7 @@ viewGroupHandler=(props)=>{
                         <Text style={styles.listItems}>{item.name}</Text>
                         <Text style={styles.listItems}>  {item.start} to {item.destination}</Text>
                         <Text style={styles.listItems}> {item.time}</Text>
-                        <ScrollView>
-                            <Text>{item.members}</Text>
-                        </ScrollView>
+                        
                     </View>
                     <View style={globalStyles.button}>
                         <Button 
@@ -139,7 +137,12 @@ const styles = StyleSheet.create({
     });
 export default Group;
 
-/*<View style={styles.listItems} >
+/*<ScrollView>
+                            <Text>{item.members}</Text>
+                        </ScrollView>
+
+
+<View style={styles.listItems} >
                                     <Text>{title}</Text>
                                 
                             </View>

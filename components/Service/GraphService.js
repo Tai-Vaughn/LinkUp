@@ -3,10 +3,11 @@ import { tap } from 'rxjs/operators';
 import { date } from 'yup';
 
 
-class GraphClass {
-    constructor(noOfVerticies) {
-        this.noOfVerticies = noOfVerticies;
+export class GraphClass {
+    constructor(list) {
+        this.noOfVerticies = list.length;
         this.AdjList = new Map()
+        this.populate(list)
 
     } 
 
@@ -27,7 +28,15 @@ class GraphClass {
     }
 
     populate(list){
-        this.noOfVerticies = 10
+        for (let i=0; i< this.noOfVerticies; i++){
+           this.addVerticies(list[i].name)
+        };
+        for (let i=0; i<this.noOfVerticies; i++){
+            for (let x=0; x<list[i].neighbour.length; x++){
+                this.addEdge(list[i].name,list[i].neighbour[x].name,list[i].neighbour[x].cost)
+            }
+
+        }
     }
 
     printGraph() 
@@ -53,13 +62,9 @@ class GraphClass {
     } 
 }
 
+export const FindPath = (Graph , Start, End) => {
 
-export const GetGraph = () =>{
-  const Graph = new GraphClass()
-
-  return Graph
 }
- 
 // const Markers$ = Dataservice.markers$.subscribe(data => console.log(data)) 
 // Markers$.unsubscribe()
 

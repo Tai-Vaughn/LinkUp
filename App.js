@@ -64,7 +64,7 @@ export default class App extends React.Component {
         headerTitleStyle: {fontWeight: 'bold',},}}>
           <AuthStack.Screen name=" " component={HomeScreen}/>
           <AuthStack.Screen name="login" component={LoginScreen} options= {{title: "Login",}}/>
-          <AuthStack.Screen name="registration" component={RegistrationScreen} options= {{\title: "Registration",}}/>
+          <AuthStack.Screen name="registration" component={RegistrationScreen} options= {{title: "Registration",}}/>
       </AuthStack.Navigator>
       }
 

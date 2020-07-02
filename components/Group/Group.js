@@ -1,5 +1,6 @@
 import React  from 'react';
 import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity} from "react-native";
+import {globalStyles} from '../Styles'; 
 
 let group=['0:lol','1:Amy', '2:Joe'];
 

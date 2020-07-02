@@ -55,10 +55,10 @@ export default class App extends React.Component {
           headerStyle:{backgroundColor:'#fff'}, 
           headerTintColor: '#000', 
           headerTitleStyle: {fontWeight: 'bold',},}}>
-          <ProfileDrawer.Screen name='Profile' component={Profile} options= {{ title: "Profile",}}/>
-          <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{ title: "Alerts",}}/>
-          <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{ title: "Routes",}}/>
-          <ProfileDrawer.Screen name='LogOut' component={LogOut} options= {{ title: "LogOut",}}/>
+          <ProfileDrawer.Screen name='Profile' component={Profile} options= {{headerTitle: 'Profile', title: "Profile",}}/>
+          <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{headerTitle: 'Alerts', title: "Alerts",}}/>
+          <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{headerTitle: 'Routes', title: "Routes",}}/>
+          <ProfileDrawer.Screen name='LogOut' component={LogOut} options= {{ headerTitle: 'LogOut',title: "LogOut",}}/>
 
         </ProfileDrawer.Navigator> :
       <AuthStack.Navigator screenOptions= {{
@@ -66,8 +66,8 @@ export default class App extends React.Component {
         headerTintColor: '#000', 
         headerTitleStyle: {fontWeight: 'bold',},}}>
           <AuthStack.Screen name=" " component={HomeScreen}/>
-          <AuthStack.Screen name="login" component={LoginScreen} options= {{ title: "Login",}}/>
-          <AuthStack.Screen name="registration" component={RegistrationScreen} options= {{ title: "Registration",}}/>
+          <AuthStack.Screen name="login" component={LoginScreen} options= {{headerTitle: 'Login', title: "Login",}}/>
+          <AuthStack.Screen name="registration" component={RegistrationScreen} options= {{headerTitle: 'Registration', title: "Registration",}}/>
       </AuthStack.Navigator>
       }
 

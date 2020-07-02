@@ -1,5 +1,5 @@
 import React  from 'react';
-import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity} from "react-native";
+import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableHighlight} from "react-native";
 import {globalStyles} from '../Styles'; 
 const groups=[];
 const group = [
@@ -64,10 +64,10 @@ class Group extends React.Component {
                             keyExtractor={item=> item.id}
                             data={group}
                             renderItem={({item}) => (
-                                <TouchableOpacity
+                                <TouchableHighlight
                                 onPress={() => this.viewGroupHandler(group, item)}>
                                 <Text style={styles.listItems}>{item.name}</Text>
-                                </TouchableOpacity>
+                                </TouchableHighlight>
                             
                             )}/>
                

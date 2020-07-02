@@ -25,13 +25,6 @@ export default function HomeScreen ({navigation}) {
         onPress = {() => navigation.push('registration')}
       />
       </View>
-
-      <View style={globalStyles.button}>
-      <Button
-        title='Find Route'
-        onPress = {() => navigation.push('find route')}
-      />
-      </View>
       
       </View>
   )

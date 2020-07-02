@@ -40,7 +40,7 @@ class LoginForm extends React.Component{
             <View style={globalStyles.container}>
                 
                 <Formik
-                initialValues={{Email: null, LoginPassword: null}}
+                initialValues={{Email: null, Password: null}}
                 validationSchema={LoginSchema}
                 
                 onSubmit={(values, actions) => {

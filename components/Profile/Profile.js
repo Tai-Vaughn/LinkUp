@@ -1,8 +1,9 @@
 import React  from 'react';
-import { View , Text, Button, StyleSheet, ScrollView} from 'react-native';
+import { View , Text, Button, StyleSheet} from 'react-native';
 import FindRouteScreen from '../FindRoute/FindRouteScreen';
 import {globalStyles} from '../Styles'; 
 import Alerter from '../Alerts/Alerter';
+import { ScrollView } from 'react-native-gesture-handler';
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
 
 class StartMenue extends React.Component{

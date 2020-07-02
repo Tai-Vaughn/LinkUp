@@ -56,7 +56,7 @@ export default class App extends React.Component {
           <ProfileDrawer.Screen name='Profile' component={Profile} options= {{title: "Profile",}}/>
           <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{title: "Alerts",}}/>
           <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{title: "Routes",}}/>
-          <ProfileDrawer.Screen name='Route' component={ViewGroup} options= {{title: "ViewGroup",}}/>
+          <ProfileDrawer.Screen name='ViewGroup' component={ViewGroup} options= {{title: "ViewGroup",}}/>
           <ProfileDrawer.Screen name='LogOut' component={LogOut} options= {{title: "LogOut",}}/>
 
         </ProfileDrawer.Navigator> :

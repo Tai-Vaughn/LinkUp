@@ -49,7 +49,17 @@ class Group extends React.Component {
         }
         
     }
-    
+    addMemberHandler=()=>{
+        {
+            return (
+                <View style={styles.container}> 
+                    
+                </View>
+                
+            ); 
+        }
+        
+    }
     
     render() {
         let i=0;
@@ -59,7 +69,7 @@ class Group extends React.Component {
                 <View style={styles.container} >
                     <Text style={styles.text}>Available Groups:</Text>
                     <View>
-                    <Text style={styles.nullgroup}>No Groups.</Text>
+                    <Text style={styles.nullgroup}>No Groups Available.</Text>
                     </View>
                     
                 </View>

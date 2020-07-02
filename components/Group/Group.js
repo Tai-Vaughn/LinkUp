@@ -1,8 +1,8 @@
 import React  from 'react';
 import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity} from "react-native";
 import {globalStyles} from '../Styles'; 
-const group=[];
-const groups = [
+const groups=[];
+const group = [
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
       name: 'First Item',

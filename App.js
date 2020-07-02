@@ -42,7 +42,6 @@ export default class App extends React.Component {
     getFonts();
     Dataservice.getMarkers()
     Dataservice.token$.subscribe(data =>this.setState({JWT_Token: data}))
-    Dataservice.graph$.subscribe(data => console.log(data.dijkstra('Post Grad Living','Rex Nettleford Hall'))) 
   }
 
   stateHelper(){

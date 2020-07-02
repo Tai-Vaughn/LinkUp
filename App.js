@@ -25,8 +25,7 @@ const getFonts = () => Font.loadAsync({
   'righteous': require('./components/fonts/Righteous-Regular.ttf')
 });
 const AuthStack = createStackNavigator();
-const ProfileStack = createDrawerNavigator();
-
+const ProfileDrawer = createDrawerNavigator();
 
 export default class App extends React.Component {
   // const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -36,15 +35,13 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       fontsLoaded : true,
-      JWT_Token : null,
-      markers: null,
-    };
+      JWT_Token : null
+    }
   }
-
   componentDidMount(){
     getFonts();
-    Dataservice.getMarkers()
     Dataservice.token$.subscribe(data =>this.setState({JWT_Token: data}))
+    Dataservice.getGroups()
   }
 
   stateHelper(){
@@ -77,5 +74,5 @@ export default class App extends React.Component {
   };
 
   /* watchman watch-del-all && react-native start --reset-cache
-
+     
       */

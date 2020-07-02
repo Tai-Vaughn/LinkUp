@@ -62,8 +62,8 @@ export default class App extends React.Component {
         </ProfileDrawer.Navigator> :
       <AuthStack.Navigator >
           <AuthStack.Screen name=" " component={HomeScreen}/>
-          <AuthStack.Screen name="login" component={LoginScreen} options= {{title: "",}}/>
-          <AuthStack.Screen name="registration" component={RegistrationScreen} options= {{title: "",}}/>
+          <AuthStack.Screen name="login" component={LoginScreen} />
+          <AuthStack.Screen name="registration" component={RegistrationScreen}/>
       </AuthStack.Navigator>
       }
 
@@ -73,10 +73,5 @@ export default class App extends React.Component {
   };
 
   /* watchman watch-del-all && react-native start --reset-cache
-<ProfileDrawer.Navigator initialRouteName = "Profile" screenOptions= {{
-          headerStyle:{backgroundColor:'#fff'}, 
-          headerTintColor: '#000', 
-          headerTitleStyle: {fontWeight: 'bold',},}}>
-
-      
+     
       */

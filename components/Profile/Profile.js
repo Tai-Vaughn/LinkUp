@@ -51,8 +51,8 @@ class StartMenue extends React.Component{
                     </Text>
                 </View>
                 <View>
-                    <Text >John Doe</Text>
-                    <Text>jdoe</Text>
+                    <Text style={styles.user}>John Doe</Text>
+                    <Text style={styles.user}>jdoe</Text>
                 </View>
                 
                 <View>
@@ -96,7 +96,13 @@ const styles = StyleSheet.create({
      fontSize: 20,
      marginBottom: 90,
      fontFamily: 'righteous'
-   }
+   },
+   user:{
+    color: 'black',
+    fontSize: 18,
+    marginBottom: 90,
+    fontFamily: 'righteous'
+  }
  
  });
 

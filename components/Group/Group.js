@@ -1,5 +1,5 @@
 import React  from 'react';
-import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity} from "react-native";
+import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableHighlight} from "react-native";
 import {globalStyles} from '../Styles'; 
 const groups=[];
 const group = [
@@ -30,19 +30,36 @@ class Group extends React.Component {
     viewGroupHandler=(group,item)=>{
         if(item.id===group.id){
             return (
-                <View style={styles.container}>
-                <Text style={styles.listItems}>{group.name}</Text>
-                <Text style={styles.listItems}>  {group.start} to {group.destination}</Text>
-                <Text style={styles.listItems}> {group.time}</Text>
-                <ScrollView>
-                    <Text>{group.members}</Text>
-                </ScrollView>
-            </View>
+                <View style={styles.container}> 
+                    <View >
+                        <Text style={styles.listItems}>{group.name}</Text>
+                        <Text style={styles.listItems}>  {group.start} to {group.destination}</Text>
+                        <Text style={styles.listItems}> {group.time}</Text>
+                        <ScrollView>
+                            <Text>{group.members}</Text>
+                        </ScrollView>
+                    </View>
+                    <View style={globalStyles.button}>
+                        <Button 
+                        title='Join'/>
+                    </View>
+                </View>
+                
             ); 
         }
         
     }
-    
+    addMemberHandler=()=>{
+        {
+            return (
+                <View style={styles.container}> 
+                    
+                </View>
+                
+            ); 
+        }
+        
+    }
     
     render() {
         let i=0;
@@ -50,7 +67,11 @@ class Group extends React.Component {
     if (j===0){
             return(
                 <View style={styles.container} >
-                    <Text style={styles.text}>No Groups.</Text>
+                    <Text style={styles.text}>Available Groups:</Text>
+                    <View>
+                    <Text style={styles.nullgroup}>No Groups Available.</Text>
+                    </View>
+                    
                 </View>
             );
     }else{
@@ -60,21 +81,21 @@ class Group extends React.Component {
         return (
             <View style={styles.container}>
                <Text style={styles.text}>Available Groups:</Text>
-                <FlatList
+               <ScrollView nestedScrollEnabled={true}>
+                    <View>
+                    <FlatList
                             keyExtractor={item=> item.id}
                             data={group}
                             renderItem={({item}) => (
-                                <TouchableOpacity
-                                onPress={() => this.viewGroupHandler(group, item)}>
-                                <Text style={styles.listItems}>{item.name}</Text>
-                                </TouchableOpacity>
-                            
-                            )}/>
-               
-                <View style={globalStyles.button}>
-                            <Button 
-                            title='Search'/>
-                </View>
+                            <TouchableHighlight
+                            onPress={() => this.viewGroupHandler(group, item)}>
+                            <Text style={styles.listItems}>{item.name}</Text>
+                            </TouchableHighlight>
+                                            
+                    )}/>
+                    </View>
+                </ScrollView>
+                
             </View>
             
             
@@ -96,6 +117,12 @@ const styles = StyleSheet.create({
         marginBottom: 90,
         fontFamily: 'righteous'
       },
+      nullgroup:{
+        color: 'black',
+        fontSize: 18,
+        marginBottom: 90,
+        fontFamily: 'righteous'
+      },
     listItems: {
         padding: 10,
             fontSize: 20,
@@ -108,6 +135,10 @@ export default Group;
                                     <Text>{title}</Text>
                                 
                             </View>
+                             <View style={globalStyles.button}>
+                            <Button 
+                            title='Search'/>
+                </View>
 return (
             <View style={styles.container}>
                 <Text style={styles.text}>Groups</Text>

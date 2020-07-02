@@ -1,34 +1,43 @@
 import React  from 'react';
 import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity} from "react-native";
 import {globalStyles} from '../Styles'; 
-
-const group = [
+const group=[];
+const groups = [
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      title: 'First Item',
+      name: 'First Item',
+      start:'library',
+      destination:'union',
+      time:'4:30',
     },
     {
       id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Second Item',
+      name: 'Second Item',
+      start:'union',
+      destination:'rex',
+      time:'9:00',
     },
     {
       id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      title: 'Third Item',
+      name: 'Third Item',
+      start:'scitech',
+      destination:'law',
+      time:'2:00',
     },
   ];
 
 class Group extends React.Component {
     viewGroupHandler=()=>{
-        let i=0;
-        //let group=[];
-        //groupsList= DataService.groups$.subscribe();
-        let j=group.length;
-        if (group===0){
-            console.warn('No Groups.')
-                return;
-        }else{
-
-        }
+        return (
+            <View style={styles.container}>
+            <Text>{group.name}</Text>
+            <Text> {group.start} to {group.destination}</Text>
+            <Text> {group.time}</Text>
+            <ScrollView>
+                <Text>{group.members}</Text>
+            </ScrollView>
+        </View>
+        ); 
     }
     
     
@@ -50,8 +59,8 @@ class Group extends React.Component {
                             data={group}
                             renderItem={({item}) => (
                                 <TouchableOpacity
-                                onPress={() => this.viewGroupHandler(id)}>
-                                <Text>{item.title}</Text>
+                                onPress={() => this.viewGroupHandler(item.id)}>
+                                <Text style={styles.listItems}>{item.name}</Text>
                                 </TouchableOpacity>
                             
                             )}/>

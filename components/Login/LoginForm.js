@@ -45,7 +45,8 @@ class LoginForm extends React.Component{
                 
                 onSubmit={(values, actions) => {
                     actions.resetForm();
-                    console.log(values);
+                    DataService.login(values)
+                    console.log(values)
                 }}
                 >
 
@@ -89,7 +90,7 @@ class LoginForm extends React.Component{
                         <View style={globalStyles.button}>
                             <Button 
                             title='Submit' 
-                            onPress={() => DataService.login(props.values)}
+                            onPress={props.handleSubmit}
                             />
                         </View>
                     </View>

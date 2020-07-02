@@ -8,6 +8,13 @@ class Group extends React.Component {
                 <Text>
                     Groups
                 </Text>
+                <View style={globalStyles.button}>
+                            <Button 
+                            title='Search' 
+                            onPress={() => DataService.getGroups()}
+                            onPress={props.handleSubmit}
+                            />
+                </View>
             </View>
         ); 
     }

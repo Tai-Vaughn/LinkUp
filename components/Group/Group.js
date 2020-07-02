@@ -27,7 +27,7 @@ const group = [
   ];
 
 class Group extends React.Component {
-    viewGroupHandler=(props)=>{
+    viewGroupHandler=(group,item)=>{
         if(item.name===group.name){
             return (
                 <View style={styles.container}>

@@ -58,7 +58,8 @@ class StartMenue extends React.Component{
                 <ScrollView>
                 <View>
                     <View style={globalStyles.button}>
-                        <Button title='Map'/>
+                        <Button title='Map'
+                        onPress = {() => this.props.navigation.navigate('Map')}/>
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Find Route'

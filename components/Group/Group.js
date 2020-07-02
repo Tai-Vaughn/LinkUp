@@ -1,9 +1,8 @@
 import React  from 'react';
-import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity} from "react-native";
+import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableHighlight} from "react-native";
 import {globalStyles} from '../Styles'; 
 import * as DataService from '../Service/DataService'
 import { date } from 'yup';
-
 const group = [
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -85,11 +84,7 @@ class Group extends React.Component {
                     <View>
                     <Text style={styles.nullgroup}>No Groups Available.</Text>
                     </View>
-                    <View style={globalStyles.button}>
-                        <Button title='Create Group'
-                        onPress = {() => this.addMemberHandler}/>
-                        <FindRouteScreen />
-                </View>
+                    
                 </View>
             );
     }else{
@@ -104,10 +99,10 @@ class Group extends React.Component {
                             keyExtractor={item=> item.id}
                             data={group}
                             renderItem={({item}) => (
-                            <TouchableOpacity
-                            onPress={() => <viewGroupHandler data item />}>
+                            <TouchableHighlight
+                            onPress={() => this.viewGroupHandler(group, item)}>
                             <Text style={styles.listItems}>{item.name}</Text>
-                            </TouchableOpacity>
+                            </TouchableHighlight>
                     )}/>
                 
             </View> 

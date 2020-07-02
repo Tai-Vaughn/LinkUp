@@ -25,20 +25,18 @@ class Group extends React.Component {
         console.warn('No Groups.')
             return;
     }else{
-        for(i;i<j;i++){
-            //if groups is populated display a list of persons/groups
+        
+            //if groups is populated display a list of persons/groups for(i;i<j;i++)
             //list group names
         return (
             <View style={styles.container}>
-               
+               <Text style={styles.text}>Available Groups:</Text>
                 <FlatList
                             keyExtractor={item=> item.id}
                             data={group}
                             renderItem={item => (
                             <View style={styles.listItems} >
-                                <TouchableOpacity onPress={this.showGroupMembersHandler}>
-                                    <Text>Available Groups: {item.groupName}</Text>
-                                </TouchableOpacity>
+                                    <Text>{item.value}</Text>
                                 
                             </View>)}/>
                 
@@ -50,7 +48,7 @@ class Group extends React.Component {
             </View>
             
             
-            );}
+            );
                             }
     }
 }

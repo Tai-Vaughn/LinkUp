@@ -30,6 +30,15 @@ class Group extends React.Component {
 
         }
     }
+    Item({ id, title}) {
+        return (
+          <TouchableOpacity
+            onPress={() => this.viewGroupHandler(id)}        
+          >
+            <Text>{title}</Text>
+          </TouchableOpacity>
+        );
+      }
     
     render() {
         let i=0;

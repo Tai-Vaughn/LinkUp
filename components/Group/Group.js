@@ -2,7 +2,20 @@ import React  from 'react';
 import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity} from "react-native";
 import {globalStyles} from '../Styles'; 
 
-let group=['0:lol','1:Amy', '2:Joe'];
+const group = [
+    {
+      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+      title: 'First Item',
+    },
+    {
+      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+      title: 'Second Item',
+    },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      title: 'Third Item',
+    },
+  ];
 
 class Group extends React.Component {
     viewGroupHandler=()=>{
@@ -34,13 +47,13 @@ class Group extends React.Component {
                 <FlatList
                             keyExtractor={item=> item.id}
                             data={group}
-                            renderItem={item => (
-                            <View style={styles.listItems} >
-                                    <Text>{item.value}</Text>
-                                
-                            </View>)}/>
-                
-                    
+                            renderItem={({item}) => (
+                                <Item 
+                                id={item.id}
+                                title={item.title}/>
+                            
+                            )}/>
+               
                 <View style={globalStyles.button}>
                             <Button 
                             title='Search'/>
@@ -74,7 +87,11 @@ const styles = StyleSheet.create({
     });
 export default Group;
 
-/*return (
+/*<View style={styles.listItems} >
+                                    <Text>{title}</Text>
+                                
+                            </View>
+return (
             <View style={styles.container}>
                 <Text style={styles.text}>Groups</Text>
                 <SafeAreaView>

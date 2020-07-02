@@ -19,9 +19,6 @@ change first view component to KeyboardAvoidingView behaviour='padding'
    spacing: {
         paddingTop: 40,
     }
-
-how to get cursor at the beginning of text
-(cursor is at beginning on tablet but in the middle on phone)
 */
 
 
@@ -56,7 +53,7 @@ class LoginForm extends React.Component{
                     <View>
                         
                         <TextInput
-                        placeholder='E-mail Address'
+                        placeholder='Username or E-mail Address'
                         returnKeyType='next'
 
                         style={globalStyles.input}
@@ -73,7 +70,7 @@ class LoginForm extends React.Component{
                         </Text>
 
                         <TextInput
-                        placeholder='Confirm Password'
+                        placeholder='Password'
                         returnKeyType='go'
                         secureTextEntry
 

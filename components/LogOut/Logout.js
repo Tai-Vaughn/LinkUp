@@ -1,9 +1,8 @@
 import React from 'react';
 import {View, Image, Text, ScrollView, StyleSheet} from 'react-native';
-import LoginForm from './LoginForm';
 import {globalStyles} from '../Styles'; 
 
-export default function LoginScreen  ({ navigation }){
+export default function LogOut  ({ navigation }){
         return (
           <ScrollView>
             <View style={styles.container}>

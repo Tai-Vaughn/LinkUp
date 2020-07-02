@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {globalStyles} from '../Styles';
-import {View, TextInput, Button, Text} from 'react-native';
+import {View, TextInput, Button, Text, StyleSheet} from 'react-native';
 import * as DataService from '../Service/DataService';
 import {Formik} from 'formik';
 import * as yup from 'yup';
@@ -16,15 +16,12 @@ const CreateAccountSchema = yup.object({
     .required()
     .min(6),
 
-    IDNumber: yup.string()
-    .required()
-    .test('is-num-higher-than-4', 'You must choose a group size of at least 4 persons (including yourself)', (val) => {
-        return parseInt(val) >= 4;
-    })
-    ,
+    IDNumber: yup.string() 
+    .required(),
 
     Email: yup.string()
-    .required(),
+    .required()
+    .email(),
 
     Password: yup.string()
     .required()
@@ -32,22 +29,24 @@ const CreateAccountSchema = yup.object({
 
     ConfirmPassword: yup.string()
     .required()
-    .min(8),
+    .test('passwords-match', 'Passwords must match', function(value) {
+        return this.parent.Password === value;
+      }),
 })
 
 class CreateAccountScreen extends React.Component{
     render(){
         return (
         
-            <View style={globalStyles.container}>
+            <View style={styles.container}>
                 
                 <Formik
-                initialValues={{FirstName: null, LastName: null, Username: null, IDNumber: null, Email: null,
-                Password: null, ConfirmPassword: null}}
+                initialValues={{FirstName: '', LastName: '', Username: '', IDNumber: '', Email: '',
+                Password: '', ConfirmPassword: ''}}
                 validationSchema={CreateAccountSchema}
                 onSubmit={(values, actions) => {
                     actions.resetForm();
-                    console.log(values);
+                    DataService.createUser(values)
                 }}
                 >
 
@@ -142,7 +141,6 @@ class CreateAccountScreen extends React.Component{
                         <View style={globalStyles.button}>
                             <Button 
                             title='Submit' 
-                            onPress={() => DataService.createUser(props.values)}
                             onPress={props.handleSubmit}
                             />
                         </View>
@@ -155,5 +153,13 @@ class CreateAccountScreen extends React.Component{
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: 'steelblue',
+        flex: 1,
+        marginTop: 30
+    }
+});
 
 export default CreateAccountScreen;

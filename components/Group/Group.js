@@ -1,9 +1,8 @@
 import React  from 'react';
-import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity} from "react-native";
+import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableHighlight} from "react-native";
 import {globalStyles} from '../Styles'; 
 import * as DataService from '../Service/DataService'
 import { date } from 'yup';
-
 const group = [
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -41,16 +40,16 @@ class Group extends React.Component {
         DataService.getGroups()
         DataService.groups$.subscribe(data => this.setState({groups: data}))
     }
-    viewGroupHandler=(group,item)=>{
-        if(item.id===group.id){
+viewGroupHandler=({item})=>{
+        
             return (
                 <View style={styles.container}>     
                     <View >
-                        <Text style={styles.listItems}>{group.name}</Text>
-                        <Text style={styles.listItems}>  {group.start} to {group.destination}</Text>
-                        <Text style={styles.listItems}> {group.time}</Text>
+                        <Text style={styles.listItems}>{item.name}</Text>
+                        <Text style={styles.listItems}>  {item.start} to {item.destination}</Text>
+                        <Text style={styles.listItems}> {item.time}</Text>
                         <ScrollView>
-                            <Text>{group.members}</Text>
+                            <Text>{item.members}</Text>
                         </ScrollView>
                     </View>
                     <View style={globalStyles.button}>
@@ -60,7 +59,7 @@ class Group extends React.Component {
                 </View>
                 
             ); 
-        }
+        
         
     }
     addMemberHandler=()=>{
@@ -85,11 +84,7 @@ class Group extends React.Component {
                     <View>
                     <Text style={styles.nullgroup}>No Groups Available.</Text>
                     </View>
-                    <View style={globalStyles.button}>
-                        <Button title='Create Group'
-                        onPress = {() => this.addMemberHandler}/>
-                        <FindRouteScreen />
-                </View>
+                    
                 </View>
             );
     }else{
@@ -104,10 +99,10 @@ class Group extends React.Component {
                             keyExtractor={item=> item.id}
                             data={group}
                             renderItem={({item}) => (
-                            <TouchableOpacity
-                            onPress={() => <viewGroupHandler data item />}>
+                            <TouchableHighlight
+                            onPress={() => this.viewGroupHandler({item})}>
                             <Text style={styles.listItems}>{item.name}</Text>
-                            </TouchableOpacity>
+                            </TouchableHighlight>
                     )}/>
                 
             </View> 

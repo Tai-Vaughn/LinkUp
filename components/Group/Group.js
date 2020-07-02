@@ -1,5 +1,5 @@
 import React  from 'react';
-import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity,SafeAreaView} from "react-native";
+import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity} from "react-native";
 
 let group=['0:lol','1:Amy', '2:Joe'];
 
@@ -29,7 +29,7 @@ class Group extends React.Component {
             //list group names
         return (
             <View style={styles.container}>
-               <SafeAreaView style={styles.container}>
+               
                 <FlatList
                             keyExtractor={item=> item.id}
                             data={group}
@@ -40,7 +40,7 @@ class Group extends React.Component {
                                 </TouchableOpacity>
                                 
                             </View>)}/>
-                </SafeAreaView>
+                
                     
                 <View style={globalStyles.button}>
                             <Button 

@@ -27,17 +27,20 @@ const group = [
   ];
 
 class Group extends React.Component {
-    viewGroupHandler=()=>{
-        return (
-            <View style={styles.container}>
-            <Text>{group.name}</Text>
-            <Text> {group.start} to {group.destination}</Text>
-            <Text> {group.time}</Text>
-            <ScrollView>
-                <Text>{group.members}</Text>
-            </ScrollView>
-        </View>
-        ); 
+    viewGroupHandler=(props)=>{
+        if(item.name===group.name){
+            return (
+                <View style={styles.container}>
+                <Text style={styles.listItems}>{group.name}</Text>
+                <Text style={styles.listItems}>  {group.start} to {group.destination}</Text>
+                <Text style={styles.listItems}> {group.time}</Text>
+                <ScrollView>
+                    <Text>{group.members}</Text>
+                </ScrollView>
+            </View>
+            ); 
+        }
+        
     }
     
     
@@ -62,7 +65,7 @@ class Group extends React.Component {
                             data={group}
                             renderItem={({item}) => (
                                 <TouchableOpacity
-                                onPress={() => this.viewGroupHandler(item.id)}>
+                                onPress={() => this.viewGroupHandler(group, item.name)}>
                                 <Text style={styles.listItems}>{item.name}</Text>
                                 </TouchableOpacity>
                             
@@ -95,7 +98,7 @@ const styles = StyleSheet.create({
       },
     listItems: {
         padding: 10,
-            fontSize: 18,
+            fontSize: 20,
             height: 44,
         },
     });

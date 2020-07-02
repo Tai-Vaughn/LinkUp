@@ -30,15 +30,7 @@ class Group extends React.Component {
 
         }
     }
-    Item=({ id, title}) =>{
-        return (
-          <TouchableOpacity
-            onPress={() => this.viewGroupHandler(id)}        
-          >
-            <Text>{title}</Text>
-          </TouchableOpacity>
-        );
-      }
+    
     
     render() {
         let i=0;
@@ -57,9 +49,10 @@ class Group extends React.Component {
                             keyExtractor={item=> item.id}
                             data={group}
                             renderItem={({item}) => (
-                                <Item 
-                                id={item.id}
-                                title={item.title}/>
+                                <TouchableOpacity
+                                onPress={() => this.viewGroupHandler(id)}>
+                                <Text>{item.title}</Text>
+                                </TouchableOpacity>
                             
                             )}/>
                

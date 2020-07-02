@@ -40,7 +40,7 @@ class Group extends React.Component {
         DataService.getGroups()
         DataService.groups$.subscribe(data => this.setState({groups: data}))
     }
-viewGroupHandler=({item})=>{
+viewGroupHandler=(props)=>{
         
             return (
                 <View style={styles.container}>     
@@ -100,7 +100,7 @@ viewGroupHandler=({item})=>{
                             data={group}
                             renderItem={({item}) => (
                             <TouchableHighlight
-                            onPress={() => this.viewGroupHandler({item})}>
+                            onPress={() => this.viewGroupHandler(item)}>
                             <Text style={styles.listItems}>{item.name}</Text>
                             </TouchableHighlight>
                     )}/>

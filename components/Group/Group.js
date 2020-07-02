@@ -57,7 +57,11 @@ class Group extends React.Component {
     if (j===0){
             return(
                 <View style={styles.container} >
-                    <Text style={styles.text}>No Groups.</Text>
+                    <Text style={styles.text}>Available Groups:</Text>
+                    <View>
+                    <Text style={styles.nullgroup}>No Groups.</Text>
+                    </View>
+                    
                 </View>
             );
     }else{
@@ -67,21 +71,21 @@ class Group extends React.Component {
         return (
             <View style={styles.container}>
                <Text style={styles.text}>Available Groups:</Text>
-                <FlatList
+               <ScrollView nestedScrollEnabled={true}>
+                    <View>
+                    <FlatList
                             keyExtractor={item=> item.id}
                             data={group}
                             renderItem={({item}) => (
-                                <TouchableHighlight
-                                onPress={() => this.viewGroupHandler(group, item)}>
-                                <Text style={styles.listItems}>{item.name}</Text>
-                                </TouchableHighlight>
-                            
-                            )}/>
-               
-                <View style={globalStyles.button}>
-                            <Button 
-                            title='Search'/>
-                </View>
+                            <TouchableHighlight
+                            onPress={() => this.viewGroupHandler(group, item)}>
+                            <Text style={styles.listItems}>{item.name}</Text>
+                            </TouchableHighlight>
+                                            
+                    )}/>
+                    </View>
+                </ScrollView>
+                
             </View>
             
             
@@ -103,6 +107,12 @@ const styles = StyleSheet.create({
         marginBottom: 90,
         fontFamily: 'righteous'
       },
+      nullgroup:{
+        color: 'black',
+        fontSize: 18,
+        marginBottom: 90,
+        fontFamily: 'righteous'
+      },
     listItems: {
         padding: 10,
             fontSize: 20,
@@ -115,6 +125,10 @@ export default Group;
                                     <Text>{title}</Text>
                                 
                             </View>
+                             <View style={globalStyles.button}>
+                            <Button 
+                            title='Search'/>
+                </View>
 return (
             <View style={styles.container}>
                 <Text style={styles.text}>Groups</Text>

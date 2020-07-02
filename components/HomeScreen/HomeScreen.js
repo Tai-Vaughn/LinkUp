@@ -25,13 +25,6 @@ export default function HomeScreen ({navigation}) {
         onPress = {() => navigation.push('registration')}
       />
       </View>
-
-      <View style={globalStyles.button}>
-      <Button
-        title='Map'
-        onPress = {() => navigation.push('callmap')}
-      />
-      </View>
       
       </View>
   )

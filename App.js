@@ -19,7 +19,7 @@ import * as Font from 'expo-font';
 import * as Dataservice from './components/Service/DataService';
 import Alerter from './components/Alerts/Alerter';
 import FindRouteScreen from './components/FindRoute/FindRouteScreen';
-import ViewGroup from './components/Group/ViewGroup';
+import Group from './components/Group/Group';
 
 const getFonts = () => Font.loadAsync({
   'righteous': require('./components/fonts/Righteous-Regular.ttf')
@@ -59,7 +59,7 @@ export default class App extends React.Component {
           headerTitleStyle: {fontWeight: 'bold',},}}/>
           <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{title: "Alerts",}}/>
           <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{title: "Routes",}}/>
-          <ProfileDrawer.Screen name='ViewGroup' component={ViewGroup} options= {{title: "ViewGroup",}}/>
+          <ProfileDrawer.Screen name='ViewGroup' component={Group} options= {{title: "Group",}}/>
           <ProfileDrawer.Screen name='LogOut' component={LogOut} options= {{title: "LogOut",}}/>
 
         </ProfileDrawer.Navigator> :

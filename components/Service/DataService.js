@@ -2,14 +2,17 @@ import React from 'react';
 import {Subject , of} from 'rxjs';
 import {map, catchError, tap} from 'rxjs/operators'
 import { ajax } from 'rxjs/ajax';
+import * as Graph from './GraphService'
 
 const tokenSubject  = new Subject
 const markersSubject = new Subject
 const groupsSubject = new Subject
+const graphSubject = new Subject
 
 export const markers$ = markersSubject.asObservable()
 export const token$ = tokenSubject.asObservable()
 export const groups$ = groupsSubject.asObservable()
+export const graph$ = graphSubject.asObservable()
 
 export const login = (Authinfo) => {
     ajax({
@@ -55,9 +58,9 @@ export const getMarkers = () => {
             'Content-Type': 'application/json'
         }
     }).pipe(
-        map( (response) => {
-            console.log(response.response);
+        tap( (response) => {
             markersSubject.next(response.response)
+            graphSubject.next(new Graph.GraphClass(response.response))
         } ),
         catchError(error => {
             console.log('error: ', error);

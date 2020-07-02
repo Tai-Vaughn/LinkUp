@@ -21,7 +21,8 @@ export const globalStyles = StyleSheet.create ({
         color: 'white',
         fontSize: 40,
         fontFamily: 'righteous',
-        alignSelf: 'center'
+        alignSelf: 'center',
+        paddingTop: 10
       },
 
     button:{

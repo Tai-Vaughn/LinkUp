@@ -19,9 +19,6 @@ change first view component to KeyboardAvoidingView behaviour='padding'
    spacing: {
         paddingTop: 40,
     }
-
-how to get cursor at the beginning of text
-(cursor is at beginning on tablet but in the middle on phone)
 */
 
 
@@ -32,7 +29,7 @@ const LoginSchema = yup.object({
     Email: yup.string()
     .required(),
 
-    LoginPassword: yup.string()
+    Password: yup.string()
     .required()
 })
 
@@ -43,7 +40,7 @@ class LoginForm extends React.Component{
             <View style={globalStyles.container}>
                 
                 <Formik
-                initialValues={{Email: null, LoginPassword: null}}
+                initialValues={{Email: '', Password: ''}}
                 validationSchema={LoginSchema}
                 
                 onSubmit={(values, actions) => {
@@ -56,7 +53,7 @@ class LoginForm extends React.Component{
                     <View>
                         
                         <TextInput
-                        placeholder='E-mail Address'
+                        placeholder='Username or E-mail Address'
                         returnKeyType='next'
 
                         style={globalStyles.input}
@@ -64,7 +61,7 @@ class LoginForm extends React.Component{
                         value={props.values.Email}    
 
                         onBlur={props.handleBlur('Email')}
-                        onSubmitEditing={() => this.LoginPasswordInput.focus()}
+                        onSubmitEditing={() => this.Password.focus()}
                         />
 
                         <Text 
@@ -73,20 +70,20 @@ class LoginForm extends React.Component{
                         </Text>
 
                         <TextInput
-                        placeholder='Confirm Password'
+                        placeholder='Password'
                         returnKeyType='go'
                         secureTextEntry
 
                         style={globalStyles.input}
-                        onChangeText={props.handleChange('LoginPassword')}
-                        value={props.values.LoginPassword}
+                        onChangeText={props.handleChange('Password')}
+                        value={props.values.Password}
 
-                        ref={(input) => this.LoginPasswordInput = input}
-                        onBlur={props.handleBlur('LoginPassword')}
+                        ref={(input) => this.Password = input}
+                        onBlur={props.handleBlur('Password')}
                         />
                         
                         <Text style={globalStyles.errorMessage}> 
-                        {props.touched.LoginPassword && props.errors.LoginPassword}
+                        {props.touched.Password && props.errors.Password}
                         </Text>
 
                         <View style={globalStyles.button}>

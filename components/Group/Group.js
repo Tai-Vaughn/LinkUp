@@ -81,8 +81,7 @@ class Group extends React.Component {
         return (
             <View style={styles.container}>
                <Text style={styles.text}>Available Groups:</Text>
-               <ScrollView nestedScrollEnabled={true}>
-                    <View>
+               
                     <FlatList
                             keyExtractor={item=> item.id}
                             data={group}
@@ -93,8 +92,6 @@ class Group extends React.Component {
                             </TouchableHighlight>
                                             
                     )}/>
-                    </View>
-                </ScrollView>
                 
             </View>
             
@@ -114,13 +111,12 @@ const styles = StyleSheet.create({
     text:{
         color: 'white',
         fontSize: 20,
-        marginBottom: 90,
+        marginBottom: 50,
         fontFamily: 'righteous'
       },
       nullgroup:{
         color: 'black',
         fontSize: 18,
-        marginBottom: 90,
         fontFamily: 'righteous'
       },
     listItems: {

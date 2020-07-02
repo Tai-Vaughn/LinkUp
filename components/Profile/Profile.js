@@ -94,13 +94,12 @@ const styles = StyleSheet.create({
    text:{
      color: 'white',
      fontSize: 20,
-     marginBottom: 90,
+     marginBottom: 50,
      fontFamily: 'righteous'
    },
    user:{
     color: 'black',
     fontSize: 18,
-    marginBottom: 90,
     fontFamily: 'righteous'
   }
  

@@ -66,6 +66,10 @@ class StartMenue extends React.Component{
                         <FindRouteScreen />
                     </View>
                     <View style={globalStyles.button}>
+                        <Button title='View Groups'
+                        onPress = {() => this.props.navigation.navigate('ViewGroup')}/>
+                    </View>
+                    <View style={globalStyles.button}>
                         <Button title='Alert'
                          onPress = {() => this.props.navigation.navigate('Alerter')}/>
                     </View>

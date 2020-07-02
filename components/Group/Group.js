@@ -30,14 +30,21 @@ class Group extends React.Component {
     viewGroupHandler=(group,item)=>{
         if(item.id===group.id){
             return (
-                <View style={styles.container}>
-                <Text style={styles.listItems}>{group.name}</Text>
-                <Text style={styles.listItems}>  {group.start} to {group.destination}</Text>
-                <Text style={styles.listItems}> {group.time}</Text>
-                <ScrollView>
-                    <Text>{group.members}</Text>
-                </ScrollView>
-            </View>
+                <View style={styles.container}> 
+                    <View >
+                        <Text style={styles.listItems}>{group.name}</Text>
+                        <Text style={styles.listItems}>  {group.start} to {group.destination}</Text>
+                        <Text style={styles.listItems}> {group.time}</Text>
+                        <ScrollView>
+                            <Text>{group.members}</Text>
+                        </ScrollView>
+                    </View>
+                    <View style={globalStyles.button}>
+                        <Button 
+                        title='Join'/>
+                    </View>
+                </View>
+                
             ); 
         }
         

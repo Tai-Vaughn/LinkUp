@@ -157,9 +157,7 @@ export class GraphClass {
     }
 }
 
-export const FindPath = (Graph , Start, End) => {
 
-}
 // const Markers$ = Dataservice.markers$.subscribe(data => console.log(data)) 
 // Markers$.unsubscribe()
 

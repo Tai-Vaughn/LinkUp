@@ -46,7 +46,7 @@ class Group extends React.Component {
         let j=group.length;
     if (j===0){
         console.warn('No Groups.')
-            return;
+            return null;
     }else{
         
             //if groups is populated display a list of persons/groups for(i;i<j;i++)

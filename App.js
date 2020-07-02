@@ -52,7 +52,10 @@ export default class App extends React.Component {
   return (
     <NavigationContainer>
       {this.state.JWT_Token ?
-        <ProfileDrawer.Navigator initialRouteName = "Profile" >
+        <ProfileDrawer.Navigator initialRouteName = "Profile" screenOptions= {{
+          headerStyle:{backgroundColor:'#fff'}, 
+          headerTintColor: '#000', 
+          headerTitleStyle: {fontWeight: 'bold',},}}>
           <ProfileDrawer.Screen name='Profile' component={Profile} options= {{title: "Profile",}}/>
           <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{title: "Alerts",}}/>
           <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{title: "Routes",}}/>
@@ -60,10 +63,7 @@ export default class App extends React.Component {
           <ProfileDrawer.Screen name='LogOut' component={LogOut} options= {{title: "LogOut",}}/>
 
         </ProfileDrawer.Navigator> :
-      <AuthStack.Navigator screenOptions= {{
-        headerStyle:{backgroundColor:'#fff'}, 
-        headerTintColor: '#000', 
-        headerTitleStyle: {fontWeight: 'bold',},}}>
+      <AuthStack.Navigator >
           <AuthStack.Screen name=" " component={HomeScreen}/>
           <AuthStack.Screen name="login" component={LoginScreen} options= {{title: "",}}/>
           <AuthStack.Screen name="registration" component={RegistrationScreen} options= {{title: "",}}/>

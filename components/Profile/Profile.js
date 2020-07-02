@@ -56,9 +56,9 @@ class StartMenue extends React.Component{
                 </View>
                 
                 <View>
-                    <Text> Menu:</Text>
                     <View style={globalStyles.button}>
-                        <Button title='Map'/>
+                        <Button title='Map'
+                        onPress = {() => this.props.navigation.navigate('Map')}/>
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Find Route'

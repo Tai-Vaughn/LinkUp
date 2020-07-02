@@ -98,7 +98,7 @@ viewGroupHandler=(item)=>{
                             data={group}
                             renderItem={({item}) => (
                             <TouchableHighlight
-                            onPress={() => this.viewGroupHandler(item)}>
+                            onPress={this.viewGroupHandler(item)}>
                             <Text style={styles.listItems}>{item.name}</Text>
                             </TouchableHighlight>
                     )}/>

@@ -58,7 +58,7 @@ export default class App extends React.Component {
           <ProfileDrawer.Screen name='LogOut' component={LogOut} options= {{title: "LogOut",}}/>
 
         </ProfileDrawer.Navigator> :
-      <AuthStack.Navigator >
+      <AuthStack.Navigator screenOptions={{headerShown: false,}}>
           <AuthStack.Screen name=" " component={HomeScreen}/>
           <AuthStack.Screen name="login" component={LoginScreen} options= {{title: "",}}/>
           <AuthStack.Screen name="registration" component={RegistrationScreen} options= {{title: "",}}/>

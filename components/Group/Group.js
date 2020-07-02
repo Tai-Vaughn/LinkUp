@@ -40,16 +40,16 @@ class Group extends React.Component {
         DataService.getGroups()
         DataService.groups$.subscribe(data => this.setState({groups: data}))
     }
-    viewGroupHandler=(group,item)=>{
-        if(item.id===group.id){
+viewGroupHandler=({item})=>{
+        
             return (
                 <View style={styles.container}>     
                     <View >
-                        <Text style={styles.listItems}>{group.name}</Text>
-                        <Text style={styles.listItems}>  {group.start} to {group.destination}</Text>
-                        <Text style={styles.listItems}> {group.time}</Text>
+                        <Text style={styles.listItems}>{item.name}</Text>
+                        <Text style={styles.listItems}>  {item.start} to {item.destination}</Text>
+                        <Text style={styles.listItems}> {item.time}</Text>
                         <ScrollView>
-                            <Text>{group.members}</Text>
+                            <Text>{item.members}</Text>
                         </ScrollView>
                     </View>
                     <View style={globalStyles.button}>
@@ -59,7 +59,7 @@ class Group extends React.Component {
                 </View>
                 
             ); 
-        }
+        
         
     }
     addMemberHandler=()=>{
@@ -100,7 +100,7 @@ class Group extends React.Component {
                             data={group}
                             renderItem={({item}) => (
                             <TouchableHighlight
-                            onPress={() => this.viewGroupHandler(group, item)}>
+                            onPress={() => this.viewGroupHandler({item})}>
                             <Text style={styles.listItems}>{item.name}</Text>
                             </TouchableHighlight>
                     )}/>

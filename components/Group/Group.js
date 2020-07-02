@@ -1,7 +1,8 @@
 import React  from 'react';
 import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableHighlight} from "react-native";
 import {globalStyles} from '../Styles'; 
-const groups=[];
+import * as DataService from '../Service/DataService'
+import { date } from 'yup';
 const group = [
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -27,10 +28,22 @@ const group = [
   ];
 
 class Group extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            groups : []
+        }
+    }
+ 
+    componentDidMount(){
+        DataService.getGroups()
+        DataService.groups$.subscribe(data => this.setState({groups: data}))
+    }
     viewGroupHandler=(group,item)=>{
         if(item.id===group.id){
             return (
-                <View style={styles.container}> 
+                <View style={styles.container}>     
                     <View >
                         <Text style={styles.listItems}>{group.name}</Text>
                         <Text style={styles.listItems}>  {group.start} to {group.destination}</Text>
@@ -80,7 +93,7 @@ class Group extends React.Component {
             //list group names
         return (
             <View style={styles.container}>
-               <Text style={styles.text}>Available Groups:</Text>
+               <Text style={styles.text}>Available Gcroups:</Text>
                
                     <FlatList
                             keyExtractor={item=> item.id}
@@ -90,10 +103,9 @@ class Group extends React.Component {
                             onPress={() => this.viewGroupHandler(group, item)}>
                             <Text style={styles.listItems}>{item.name}</Text>
                             </TouchableHighlight>
-                                            
                     )}/>
                 
-            </View>
+            </View> 
             
             
             );

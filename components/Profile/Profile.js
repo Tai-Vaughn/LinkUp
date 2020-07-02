@@ -3,7 +3,6 @@ import { View , Text, Button, StyleSheet} from 'react-native';
 import FindRouteScreen from '../FindRoute/FindRouteScreen';
 import {globalStyles} from '../Styles'; 
 import Alerter from '../Alerts/Alerter';
-import { ScrollView } from 'react-native-gesture-handler';
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
 
 class StartMenue extends React.Component{
@@ -55,8 +54,9 @@ class StartMenue extends React.Component{
                     <Text style={styles.user}>John Doe</Text>
                     <Text style={styles.user}>jdoe</Text>
                 </View>
-                <ScrollView>
+                
                 <View>
+                    <Text> Menu:</Text>
                     <View style={globalStyles.button}>
                         <Button title='Map'/>
                     </View>
@@ -77,9 +77,6 @@ class StartMenue extends React.Component{
                         <Button title='Friends'/>
                     </View>
                 </View>
-
-                </ScrollView>
-                
             </View>
         ); 
     }

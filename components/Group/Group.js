@@ -46,7 +46,7 @@ class Group extends React.Component {
         let j=group.length;
     if (j===0){
             return(
-                <View style={styles.listItems} >
+                <View style={styles.container} >
                     <Text style={styles.text}>No Groups.</Text>
                 </View>
             );

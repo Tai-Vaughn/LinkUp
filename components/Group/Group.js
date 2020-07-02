@@ -28,7 +28,7 @@ const group = [
 
 class Group extends React.Component {
     viewGroupHandler=(group,item)=>{
-        if(item.name===group.name){
+        if(item.id===group.id){
             return (
                 <View style={styles.container}>
                 <Text style={styles.listItems}>{group.name}</Text>
@@ -65,7 +65,7 @@ class Group extends React.Component {
                             data={group}
                             renderItem={({item}) => (
                                 <TouchableOpacity
-                                onPress={() => this.viewGroupHandler(group, item.name)}>
+                                onPress={() => this.viewGroupHandler(group, item)}>
                                 <Text style={styles.listItems}>{item.name}</Text>
                                 </TouchableOpacity>
                             

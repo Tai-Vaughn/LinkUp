@@ -16,6 +16,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import * as Font from 'expo-font';  
 import * as Dataservice from './components/Service/DataService';
+import * as GraphService from './components/Service/GraphService';
 
 const getFonts = () => Font.loadAsync({
   'righteous': require('./components/fonts/Righteous-Regular.ttf')
@@ -41,8 +42,7 @@ export default class App extends React.Component {
     getFonts();
     Dataservice.getMarkers()
     Dataservice.token$.subscribe(data =>this.setState({JWT_Token: data}))
-    // Dataservice.graph$.subscribe(data => console.log(data)) 
-
+    Dataservice.graph$.subscribe(data => console.log(data.dijkstra('Post Grad Living','Rex Nettleford Hall'))) 
   }
 
   stateHelper(){

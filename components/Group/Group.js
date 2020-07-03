@@ -83,13 +83,13 @@ class Group extends React.Component {
             <View style={styles.container}>
                <Text style={styles.text}>Available Groups:</Text>
                
-               {groups.length===0 ?
+               {this.state.groups.length===0 ?
                    <View>
                     <Text style={styles.nullgroup}>No Groups Available.</Text>
                    </View> :
                    <FlatList
                         keyExtractor={item=> item._id}
-                        data={groups}
+                        data={this.state.groups}
                         renderItem={({item}) => (
                         <TouchableOpacity
                         onPress={<ViewGroup party={item} />}>

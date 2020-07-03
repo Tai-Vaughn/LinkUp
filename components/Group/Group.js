@@ -1,5 +1,5 @@
 import React  from 'react';
-import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableHighlight} from "react-native";
+import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity} from "react-native";
 import {globalStyles} from '../Styles'; 
 import * as DataService from '../Service/DataService'
 import { date } from 'yup';
@@ -97,10 +97,10 @@ viewGroupHandler=(item)=>{
                             keyExtractor={item=> item.id}
                             data={group}
                             renderItem={({item}) => (
-                            <TouchableHighlight
-                            onPress={this.viewGroupHandler(item)}>
+                            <TouchableOpacity
+                            onPress={() => this.viewGroupHandler(item)}>
                             <Text style={styles.listItems}>{item.name}</Text>
-                            </TouchableHighlight>
+                            </TouchableOpacity>
                     )}/>
                 
             </View> 

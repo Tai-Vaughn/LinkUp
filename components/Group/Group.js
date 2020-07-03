@@ -68,6 +68,7 @@ class Group extends React.Component {
         
             //if groups is populated display a list of persons/groups for(i;i<j;i++)
             //list group names
+            //data={this.state.groups}
         return (
             <View style={styles.container}>
                <Text style={styles.text}>Available Groups:</Text>
@@ -78,11 +79,11 @@ class Group extends React.Component {
                    </View> :
                    <FlatList
                         keyExtractor={item=> item.id}
-                        data={this.state.groups}
+                        data={group}
                         renderItem={({item}) => (
                         <TouchableOpacity
                         onPress={<ViewGroup group={item} />}>
-                        <Text style={styles.listItems}>{item.GroupName}</Text>
+                        <Text style={styles.listItems}>{item.name}</Text>
                    </TouchableOpacity>
                      )}/>
                 }

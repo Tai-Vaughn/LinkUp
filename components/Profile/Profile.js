@@ -26,13 +26,12 @@ class StartMenue extends React.Component{
         return (
            
             <View style={styles.container}>
-                <View style={styles.menu}>
+                
                 <Icon name='menu' 
                 underlayColor="transparent"
+                iconStyle={styles.menu}
                 onPress={()=> this.props.navigation.toggleDrawer()} />
-
-                </View>
-                
+               
                 <View>
                     <Text style={styles.user}>John Doe</Text>
                     <View style={globalStyles.logoContainer}>
@@ -84,9 +83,8 @@ const styles = StyleSheet.create({
        flex: 1
    },
    menu:{
-    flexDirection: 'row-reverse',
-    justifyContent:'start',
-    alignItems:'flex-start',
+    
+    alignSelf:'flex-start',
     color: 'white',
     fontSize: 26,
    },

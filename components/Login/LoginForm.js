@@ -1,13 +1,13 @@
 import React from 'react';
 import {StyleSheet, View, TextInput, Button, Text} from 'react-native';
-import {globalStyles} from '../Styles'; 
-import {Formik} from 'formik'; 
+import {globalStyles} from '../Styles';
+import {Formik} from 'formik';
 import * as yup from 'yup';
 import { fetchUpdateAsync } from 'expo-updates';
 import * as DataService from '../Service/DataService';
 import {map,tap} from 'rxjs/operators'
 
-/* 
+/*
 MAY NEED FOR IOS
 
 import StatusBar
@@ -36,13 +36,13 @@ const LoginSchema = yup.object({
 class LoginForm extends React.Component{
     render(){
         return (
-        
+
             <View style={globalStyles.container}>
-                
+
                 <Formik
-                initialValues={{Email: null, Password: null}}
+                initialValues={{Email: '', Password: ''}}
                 validationSchema={LoginSchema}
-                
+
                 onSubmit={(values, actions) => {
                     actions.resetForm();
                     console.log(values);
@@ -51,21 +51,21 @@ class LoginForm extends React.Component{
 
                 {(props) => (
                     <View>
-                        
+
                         <TextInput
                         placeholder='Username or E-mail Address'
                         returnKeyType='next'
 
                         style={globalStyles.input}
                         onChangeText={props.handleChange('Email')}
-                        value={props.values.Email}    
+                        value={props.values.Email}
 
                         onBlur={props.handleBlur('Email')}
-                        onSubmitEditing={() => this.LoginPasswordInput.focus()}
+                        onSubmitEditing={() => this.Password.focus()}
                         />
 
-                        <Text 
-                        style={globalStyles.errorMessage}> 
+                        <Text
+                        style={globalStyles.errorMessage}>
                         {props.touched.Email && props.errors.Email}
                         </Text>
 
@@ -78,26 +78,26 @@ class LoginForm extends React.Component{
                         onChangeText={props.handleChange('Password')}
                         value={props.values.Password}
 
-                        ref={(input) => this.LoginPasswordInput = input}
+                        ref={(input) => this.Password = input}
                         onBlur={props.handleBlur('Password')}
                         />
-                        
-                        <Text style={globalStyles.errorMessage}> 
+
+                        <Text style={globalStyles.errorMessage}>
                         {props.touched.Password && props.errors.Password}
                         </Text>
 
                         <View style={globalStyles.button}>
-                            <Button 
-                            title='Submit' 
+                            <Button
+                            title='Submit'
                             onPress={() => DataService.login(props.values)}
                             />
                         </View>
                     </View>
                 )}
                 </Formik>
-               
+
             </View>
-         
+
         )
     }
 }

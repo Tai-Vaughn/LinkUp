@@ -33,11 +33,14 @@ const group = [
                 
                 <View style={styles.container}>     
                     <View >
-                        <Text style={styles.listItems}>{props.name}</Text>
-                        <Text style={styles.listItems}>  {props.start} to {props.destination}</Text>
-                        <Text style={styles.listItems}> {props.time}</Text>
+                        <Text style={styles.listItems}>{props.GroupName}</Text>
+                        <Text style={styles.listItems}>  {props.StartLocation} to {props.EndLocation}</Text>
+                        <Text style={styles.listItems}> {props.StartTime}</Text>
                         
                     </View>
+                    <ScrollView>
+                        <Text>{props.GroupMembers}</Text>
+                    </ScrollView>
                     <View style={globalStyles.button}>
                         <Button 
                         title='Join'/>
@@ -49,7 +52,7 @@ const group = [
         
     }
 class Group extends React.Component {
-
+    _isMounted = false;
     constructor(props){
         super(props);
         this.state = {
@@ -58,9 +61,16 @@ class Group extends React.Component {
     }
  
     componentDidMount(){
+        this._isMounted = true;
         DataService.getGroups()
-        DataService.groups$.subscribe(data => this.setState({groups: data}))
+        if(this._isMounted){
+            DataService.groups$.subscribe(data => this.setState({groups: data}))
+        }
+        
     }
+    componentWillUnmount() {
+        this._isMounted = false;
+      }
 
     
     render() {
@@ -68,20 +78,21 @@ class Group extends React.Component {
         
             //if groups is populated display a list of persons/groups for(i;i<j;i++)
             //list group names
+            //data={this.state.groups}
         return (
             <View style={styles.container}>
                <Text style={styles.text}>Available Groups:</Text>
                
-               {group.length===0 ?
+               {groups.length===0 ?
                    <View>
                     <Text style={styles.nullgroup}>No Groups Available.</Text>
                    </View> :
                    <FlatList
-                        keyExtractor={item=> item.id}
-                        data={this.state.groups}
+                        keyExtractor={item=> item._id}
+                        data={groups}
                         renderItem={({item}) => (
                         <TouchableOpacity
-                        onPress={<ViewGroup item />}>
+                        onPress={<ViewGroup party={item} />}>
                         <Text style={styles.listItems}>{item.GroupName}</Text>
                    </TouchableOpacity>
                      )}/>

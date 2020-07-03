@@ -2,30 +2,11 @@ import React  from 'react';
 import { View , Text, Button, StyleSheet, Image} from 'react-native';
 import {globalStyles} from '../Styles'; 
 import { ScrollView } from 'react-native-gesture-handler';
+import {Icon } from 'react-native-elements'
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
 
 class StartMenue extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={
-           isLoading:true,
-            dataSource:null,
-        }
-    }
-    componentDidMount(){
-        return fetch('https://linkupcapstone.herokuapp.com/users/signup')
-        .then((response)=>response.json())
-        .then((responseJson)=>{
-            this.setState({
-                isLoading:false,
-                dataSource:responseJson.signup,
-
-            })
-        })
-        .catch((error)=>{
-            console.log(error)
-        });
-    }
+  
     
     render() {
         /*if(this.state.isLoading){
@@ -44,24 +25,38 @@ class StartMenue extends React.Component{
         }*/
         return (
             <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>
-                        Profile Page
-                    </Text>
-                </View>
+                
                 <View>
                     <Text style={styles.user}>John Doe</Text>
                     <View style={globalStyles.logoContainer}>
                         <Image style={globalStyles.logo} source={require('../../static/profileicon.png')}/>
                     </View>
-                    <Text style={styles.user}>@johnthedon</Text>
+                    <Text style={styles.username}>@johnthedon</Text>
                 </View>
                 <ScrollView>
-                    <Text style={styles.user}></Text>
+                    <Text style={styles.pad}></Text>
                     <View style={globalStyles.button}>
+                        <Icon
+                            name="map"
+                            underlayColor="transparent"
+                            iconStyle={styles.placeIcon}
+                        />
                         <Button title='Map'/>
                     </View>
                     <View style={globalStyles.button}>
+                        <Icon
+                            name="place"
+                            underlayColor="transparent"
+                            iconStyle={styles.placeIcon}
+                        />
+                        <Button title='Previous Routes'/>
+                    </View>
+                    <View style={globalStyles.button}>
+                        <Icon
+                            name="chat"
+                            underlayColor="transparent"
+                            iconStyle={styles.placeIcon}
+                        />
                         <Button title='Friends'/>
                     </View>
                 
@@ -91,13 +86,51 @@ const styles = StyleSheet.create({
    },
    
    user:{
-    color: 'black',
-    fontSize: 20,
-    marginBottom: 20,
-    alignItems: 'center',
+       color: '#FFF',
+        fontSize: 30,
+        fontWeight: 'bold',
+        paddingBottom: 8,
+        textAlign: 'center',
     fontFamily: 'righteous'
-  }
+  },
+  username:{
+    color: '#FFF',
+     fontSize: 28,
+     fontWeight: 'bold',
+     paddingBottom: 8,
+     textAlign: 'center',
+ fontFamily: 'righteous'
+},
+placeIcon: {
+    color: 'white',
+    fontSize: 26,
+  },
+pad:{
+    marginBottom:20,
+}
  
  });
 
 export default StartMenue;
+
+/*  constructor(props){
+        super(props);
+        this.state={
+           isLoading:true,
+            dataSource:null,
+        }
+    }
+    componentDidMount(){
+        return fetch('https://linkupcapstone.herokuapp.com/users/signup')
+        .then((response)=>response.json())
+        .then((responseJson)=>{
+            this.setState({
+                isLoading:false,
+                dataSource:responseJson.signup,
+
+            })
+        })
+        .catch((error)=>{
+            console.log(error)
+        });
+    }*/

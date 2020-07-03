@@ -62,18 +62,6 @@ class StartMenue extends React.Component{
                         <Button title='Map'/>
                     </View>
                     <View style={globalStyles.button}>
-                        <Button title='Find Route'
-                        onPress = {() => this.props.navigation.navigate('Route')}/>
-                    </View>
-                    <View style={globalStyles.button}>
-                        <Button title='Alert'
-                         onPress = {() => this.props.navigation.navigate('Alerter')}/>
-                    </View>
-                    <View style={globalStyles.button}>
-                        <Button title='Group'
-                        onPress = {() => this.props.navigation.navigate('Group')}/>
-                    </View>
-                    <View style={globalStyles.button}>
                         <Button title='Friends'/>
                     </View>
                 

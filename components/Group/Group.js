@@ -1,5 +1,5 @@
 import React  from 'react';
-import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableHighlight} from "react-native";
+import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity} from "react-native";
 import {globalStyles} from '../Styles'; 
 import * as DataService from '../Service/DataService'
 import { date } from 'yup';
@@ -40,17 +40,15 @@ class Group extends React.Component {
         DataService.getGroups()
         DataService.groups$.subscribe(data => this.setState({groups: data}))
     }
-    viewGroupHandler=(group,item)=>{
-        if(item.id===group.id){
+viewGroupHandler=(item)=>{
+        
             return (
                 <View style={styles.container}>     
                     <View >
-                        <Text style={styles.listItems}>{group.name}</Text>
-                        <Text style={styles.listItems}>  {group.start} to {group.destination}</Text>
-                        <Text style={styles.listItems}> {group.time}</Text>
-                        <ScrollView>
-                            <Text>{group.members}</Text>
-                        </ScrollView>
+                        <Text style={styles.listItems}>{item.name}</Text>
+                        <Text style={styles.listItems}>  {item.start} to {item.destination}</Text>
+                        <Text style={styles.listItems}> {item.time}</Text>
+                        
                     </View>
                     <View style={globalStyles.button}>
                         <Button 
@@ -59,57 +57,41 @@ class Group extends React.Component {
                 </View>
                 
             ); 
-        }
         
-    }
-    addMemberHandler=()=>{
-        {
-            return (
-                <View style={styles.container}> 
-                    
-                </View>
-                
-            ); 
-        }
         
     }
     
     render() {
-        let i=0;
-        let j=group.length;
-    if (j===0){
-            return(
-                <View style={styles.container} >
-                    <Text style={styles.text}>Available Groups:</Text>
-                    <View>
-                    <Text style={styles.nullgroup}>No Groups Available.</Text>
-                    </View>
-                    
-                </View>
-            );
-    }else{
+        
         
             //if groups is populated display a list of persons/groups for(i;i<j;i++)
             //list group names
         return (
             <View style={styles.container}>
-               <Text style={styles.text}>Available Gcroups:</Text>
+               <Text style={styles.text}>Available Groups:</Text>
                
-                    <FlatList
-                            keyExtractor={item=> item.id}
-                            data={group}
-                            renderItem={({item}) => (
-                            <TouchableHighlight
-                            onPress={() => this.viewGroupHandler(group, item)}>
-                            <Text style={styles.listItems}>{item.name}</Text>
-                            </TouchableHighlight>
-                    )}/>
+               {group.length===0 ?
+                   <View>
+                    <Text style={styles.nullgroup}>No Groups Available.</Text>
+                   </View> :
+                   <FlatList
+                   keyExtractor={item=> item.id}
+                   data={group}
+                   renderItem={({item}) => (
+                   <TouchableOpacity
+                   onPress={() => this.viewGroupHandler(item)}>
+                   <Text style={styles.listItems}>{item.name}</Text>
+                   </TouchableOpacity>
+           )}/>
+
+               }
+                    
                 
             </View> 
             
             
             );
-                            }
+                            
     }
 }
 const styles = StyleSheet.create({
@@ -139,7 +121,12 @@ const styles = StyleSheet.create({
     });
 export default Group;
 
-/*<View style={styles.listItems} >
+/*<ScrollView>
+                            <Text>{item.members}</Text>
+                        </ScrollView>
+
+
+<View style={styles.listItems} >
                                     <Text>{title}</Text>
                                 
                             </View>

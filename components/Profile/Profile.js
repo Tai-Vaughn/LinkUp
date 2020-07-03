@@ -24,15 +24,11 @@ class StartMenue extends React.Component{
 //put return statement here and call users variable
         }*/
         return (
-            <container>
-                <header>
-                    <screenLeft>
-                        <Icon name='menu' onPress={()=> this.props.navigation('DrawerOpen')} />
-                    </screenLeft>
-                </header>
-            </container>
+           
             <View style={styles.container}>
-                
+                <screenLeft>
+                        <Icon name='menu' onPress={()=> this.props.navigation.toggleDrawer()} />
+                    </screenLeft>
                 <View>
                     <Text style={styles.user}>John Doe</Text>
                     <View style={globalStyles.logoContainer}>

@@ -13,7 +13,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 
 import {createStackNavigator} from '@react-navigation/stack';
-import { createDrawerNavigator, DrawerItem } from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import * as Font from 'expo-font';
 import * as Dataservice from './components/Service/DataService';
@@ -27,10 +27,9 @@ const getFonts = () => Font.loadAsync({
 const AuthStack = createStackNavigator();
 const ProfileDrawer = createDrawerNavigator();
 
-const CustomDrawerComponent = (props)=>{
+const CustomDrawerComponent = ()=>{
   <View style={{flex:1, height:150,backgroundColor:"white", alignItems:"center", justifyContent:"center"}}>
     <Image source={require('../../static/profileicon.png')} style={{height:120, width:120, borderRadius:60}}/>
-
   </View>
 }
 

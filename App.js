@@ -4,23 +4,28 @@ import {useState} from 'react';
 import LoginScreen from './components/Login/LoginScreen';
 import RegistrationScreen from './components/CreateAccount/CreateAccountScreen';
 import HomeScreen from './components/HomeScreen/HomeScreen';
-import Profile from './components/Profile/Profile'
+import Profile from './components/Profile/Profile';
+import LogOut from './components/LogOut/Logout';
 
 import * as React from 'react';
 import {View, Button , Text} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 
+
 import {createStackNavigator} from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import * as Font from 'expo-font';  
+import * as Font from 'expo-font';
 import * as Dataservice from './components/Service/DataService';
+import Alerter from './components/Alerts/Alerter';
+import FindRouteScreen from './components/FindRoute/FindRouteScreen';
+import Group from './components/Group/Group';
 
 const getFonts = () => Font.loadAsync({
   'righteous': require('./components/fonts/Righteous-Regular.ttf')
 });
-const AuthStack = createStackNavigator(); 
-const ProfileStack = createDrawerNavigator();
+const AuthStack = createStackNavigator();
+const ProfileDrawer = createDrawerNavigator();
 
 export default class App extends React.Component {
   // const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -44,26 +49,30 @@ export default class App extends React.Component {
   }
 
   render() {
-  return (  
+  return (
     <NavigationContainer>
-      {this.state.JWT_Token ? 
-        <ProfileStack.Navigator initialRouteName = "Profile">
-          <ProfileStack.Screen name='Profile' component={Profile}/>
-          
-        </ProfileStack.Navigator> :
-      <AuthStack.Navigator>
+      {this.state.JWT_Token ?
+        <ProfileDrawer.Navigator initialRouteName = "Profile">
+          <ProfileDrawer.Screen name='Profile' component={Profile} options= {{title: "Profile",}}/>
+          <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{title: "Alerts",}}/>
+          <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{title: "Routes",}}/>
+          <ProfileDrawer.Screen name='Group' component={Group} options= {{title: "Group",}}/>
+          <ProfileDrawer.Screen name='LogOut' component={LogOut} options= {{title: "LogOut",}}/>
+
+        </ProfileDrawer.Navigator> :
+      <AuthStack.Navigator screenOptions= {{
+        headerShown: false, }}>
           <AuthStack.Screen name=" " component={HomeScreen}/>
-          <AuthStack.Screen name="login" component={LoginScreen} options= {{ title: ""}}/>
-          <AuthStack.Screen name="registration" component={RegistrationScreen} options={{ title : ""}}/>
-      </AuthStack.Navigator> 
+          <AuthStack.Screen name="login" component={LoginScreen} />
+          <AuthStack.Screen name="registration" component={RegistrationScreen}/>
+      </AuthStack.Navigator>
       }
 
     </NavigationContainer>
- 
   );
   }
   };
 
-  /* watchman watch-del-all && react-native start --reset-cache */
-  
-
+  /* watchman watch-del-all && react-native start --reset-cache
+     
+      */

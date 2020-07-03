@@ -48,7 +48,7 @@ class CreateAccountScreen extends React.Component{
             
                 onSubmit={(values, actions) => {
                     actions.resetForm();
-                    DataService.createUser(props.values);
+                    DataService.createUser(values)
                 }}
                 >
 

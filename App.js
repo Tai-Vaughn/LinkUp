@@ -63,7 +63,7 @@ export default class App extends React.Component {
         <ProfileDrawer.Navigator initialRouteName = "Profile">
           <ProfileDrawer.Screen name='Profile' component={Profile} options= {{title: "Profile",}}/>
           <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{title: "Alerts",}}/>
-          <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{title: "Routes",}}/>
+          <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{title: "Journey",}}/>
           <ProfileDrawer.Screen name='Group' component={Group} options= {{title: "Group",}}/>
           <ProfileDrawer.Screen name='LogOut' component={LogOut} options= {{title: "LogOut",}}/>
         

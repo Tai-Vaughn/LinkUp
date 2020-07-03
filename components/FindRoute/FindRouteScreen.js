@@ -51,8 +51,13 @@ class FindRouteScreen extends React.Component{
           
       return (
           <View style={styles.container}> 
+            <View style={styles.menu}>
+               <Icon name='menu' 
+                underlayColor="transparent"
+                onPress={()=> this.props.navigation.toggleDrawer()} />
+                </View> 
             <ScrollView>
-            <Text style={globalStyles.text}>Find Route</Text>
+            <Text style={globalStyles.text}>Plan Journey</Text>
             
             <Formik
                   onSubmit={(values, actions) => {
@@ -164,7 +169,14 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'steelblue',
         flex: 1
-    }
+    },
+    menu:{
+        flexDirection:'row',
+        justifyContent:'flex-start',
+        alignItems:'flex-start',
+        color: 'white',
+        fontSize: 26,
+       },
 });
 
 export default FindRouteScreen;

@@ -66,7 +66,7 @@ export default class App extends React.Component {
           <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{title: "Journey",}}/>
           <ProfileDrawer.Screen name='Group' component={Group} options= {{title: "Group",}}/>
           <ProfileDrawer.Screen name='LogOut' component={LogOut} options= {{title: "LogOut",}}/>
-        
+          
         </ProfileDrawer.Navigator> :
       <AuthStack.Navigator screenOptions= {{
         headerShown: false, }}>
@@ -82,5 +82,9 @@ export default class App extends React.Component {
   };
 
   /* watchman watch-del-all && react-native start --reset-cache
-     
+     {navigationOptions:({navigation})=>{
+            return(
+              headerTitle:()=> <Header navigation={navigation} title='' />
+            )
+          }}
       */

@@ -81,11 +81,7 @@ class Group extends React.Component {
             //data={this.state.groups};<button onClick={() => ViewGroup(item)}>Click me!</button>
         return (
             <View style={styles.container}>
-                <View style={styles.menu}>
-                    <Icon name='menu' 
-                        underlayColor="transparent"
-                        onPress={()=> this.props.navigation.toggleDrawer()} />
-                </View> 
+                
                <Text style={styles.text}>Available Groups:</Text>
                
                {this.state.groups.length===0 ?

@@ -51,11 +51,7 @@ class FindRouteScreen extends React.Component{
           
       return (
           <View style={styles.container}> 
-            <View style={styles.menu}>
-               <Icon name='menu' 
-                underlayColor="transparent"
-                onPress={()=> this.props.navigation.toggleDrawer()} />
-                </View> 
+            
             <ScrollView>
             <Text style={globalStyles.text}>Plan Journey</Text>
             

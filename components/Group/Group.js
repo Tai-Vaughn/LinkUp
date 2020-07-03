@@ -55,6 +55,7 @@ class Group extends React.Component {
     _isMounted = false;
     constructor(props){
         super(props);
+        this.onPress = this.onPress.bind(this);
         this.state = {
             groups : []
         }
@@ -92,7 +93,7 @@ class Group extends React.Component {
                         data={this.state.groups}
                         renderItem={({item}) => (
                         <TouchableOpacity
-                        onPress={<ViewGroup party={item} />}>
+                        onPress={()=>this.ViewGroup (item) }>
                         <Text style={styles.listItems}>{item.GroupName}</Text>
                    </TouchableOpacity>
                      )}/>

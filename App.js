@@ -29,7 +29,7 @@ const ProfileDrawer = createDrawerNavigator();
 
 const CustomDrawerComponent = ()=>{
   <View style={{flex:1, height:150,backgroundColor:"white", alignItems:"center", justifyContent:"center"}}>
-    <Image source={require('../../static/profileicon.png')} style={{height:120, width:120, borderRadius:60}}/>
+    <Image source={require('./static/profileicon.png')} style={{height:120, width:120, borderRadius:60}}/>
   </View>
 }
 
@@ -60,9 +60,7 @@ export default class App extends React.Component {
   return (
     <NavigationContainer>
       {this.state.JWT_Token ?
-        <ProfileDrawer.Navigator initialRouteName = "Profile" drawerContentOptions={{
-          alignItems:"center", justifyContent:"center",
-        }}>
+        <ProfileDrawer.Navigator initialRouteName = "Profile">
           <ProfileDrawer.Screen name='Profile' component={Profile} options= {{title: "Profile",}}/>
           <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{title: "Alerts",}}/>
           <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{title: "Routes",}}/>

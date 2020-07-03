@@ -5,27 +5,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
 
 class StartMenue extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={
-           isLoading:true,
-            dataSource:null,
-        }
-    }
-    componentDidMount(){
-        return fetch('https://linkupcapstone.herokuapp.com/users/signup')
-        .then((response)=>response.json())
-        .then((responseJson)=>{
-            this.setState({
-                isLoading:false,
-                dataSource:responseJson.signup,
-
-            })
-        })
-        .catch((error)=>{
-            console.log(error)
-        });
-    }
+  
     
     render() {
         /*if(this.state.isLoading){
@@ -101,3 +81,25 @@ const styles = StyleSheet.create({
  });
 
 export default StartMenue;
+
+/*  constructor(props){
+        super(props);
+        this.state={
+           isLoading:true,
+            dataSource:null,
+        }
+    }
+    componentDidMount(){
+        return fetch('https://linkupcapstone.herokuapp.com/users/signup')
+        .then((response)=>response.json())
+        .then((responseJson)=>{
+            this.setState({
+                isLoading:false,
+                dataSource:responseJson.signup,
+
+            })
+        })
+        .catch((error)=>{
+            console.log(error)
+        });
+    }*/

@@ -24,22 +24,21 @@ class StartMenue extends React.Component{
         }*/
         return (
             <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>
-                        Profile Page
-                    </Text>
-                </View>
+                
                 <View>
                     <Text style={styles.user}>John Doe</Text>
                     <View style={globalStyles.logoContainer}>
                         <Image style={globalStyles.logo} source={require('../../static/profileicon.png')}/>
                     </View>
-                    <Text style={styles.user}>@johnthedon</Text>
+                    <Text style={styles.username}>@johnthedon</Text>
                 </View>
                 <ScrollView>
-                    <Text style={styles.user}></Text>
+                    <Text style={styles.pad}></Text>
                     <View style={globalStyles.button}>
                         <Button title='Map'/>
+                    </View>
+                    <View style={globalStyles.button}>
+                        <Button title='Previous Routes'/>
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Friends'/>
@@ -71,12 +70,24 @@ const styles = StyleSheet.create({
    },
    
    user:{
-    color: 'black',
-    fontSize: 20,
-    marginBottom: 20,
-    alignItems: 'center',
+       color: '#FFF',
+        fontSize: 30,
+        fontWeight: 'bold',
+        paddingBottom: 8,
+        textAlign: 'center',
     fontFamily: 'righteous'
-  }
+  },
+  username:{
+    color: '#FFF',
+     fontSize: 28,
+     fontWeight: 'bold',
+     paddingBottom: 8,
+     textAlign: 'center',
+ fontFamily: 'righteous'
+},
+pad:{
+    marginBottom:20,
+}
  
  });
 

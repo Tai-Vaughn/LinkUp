@@ -29,7 +29,7 @@ const LoginSchema = yup.object({
     Email: yup.string()
     .required(),
 
-    LoginPassword: yup.string()
+    Password: yup.string()
     .required()
 })
 
@@ -40,7 +40,7 @@ class LoginForm extends React.Component{
             <View style={globalStyles.container}>
                 
                 <Formik
-                initialValues={{Email: null, LoginPassword: null}}
+                initialValues={{Email: null, Password: null}}
                 validationSchema={LoginSchema}
                 
                 onSubmit={(values, actions) => {
@@ -75,15 +75,15 @@ class LoginForm extends React.Component{
                         secureTextEntry
 
                         style={globalStyles.input}
-                        onChangeText={props.handleChange('LoginPassword')}
-                        value={props.values.LoginPassword}
+                        onChangeText={props.handleChange('Password')}
+                        value={props.values.Password}
 
                         ref={(input) => this.LoginPasswordInput = input}
-                        onBlur={props.handleBlur('LoginPassword')}
+                        onBlur={props.handleBlur('Password')}
                         />
                         
                         <Text style={globalStyles.errorMessage}> 
-                        {props.touched.LoginPassword && props.errors.LoginPassword}
+                        {props.touched.Password && props.errors.Password}
                         </Text>
 
                         <View style={globalStyles.button}>

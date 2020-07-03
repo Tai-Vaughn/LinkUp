@@ -60,54 +60,38 @@ viewGroupHandler=(item)=>{
         
         
     }
-    addMemberHandler=()=>{
-        {
-            return (
-                <View style={styles.container}> 
-                    
-                </View>
-                
-            ); 
-        }
-        
-    }
     
     render() {
-        let i=0;
-        let j=group.length;
-    if (j===0){
-            return(
-                <View style={styles.container} >
-                    <Text style={styles.text}>Available Groups:</Text>
-                    <View>
-                    <Text style={styles.nullgroup}>No Groups Available.</Text>
-                    </View>
-                    
-                </View>
-            );
-    }else{
+        
         
             //if groups is populated display a list of persons/groups for(i;i<j;i++)
             //list group names
         return (
             <View style={styles.container}>
-               <Text style={styles.text}>Available Gcroups:</Text>
+               <Text style={styles.text}>Available Groups:</Text>
                
-                    <FlatList
-                            keyExtractor={item=> item.id}
-                            data={group}
-                            renderItem={({item}) => (
-                            <TouchableOpacity
-                            onPress={() => this.viewGroupHandler(item)}>
-                            <Text style={styles.listItems}>{item.name}</Text>
-                            </TouchableOpacity>
-                    )}/>
+               {group.length===0 ?
+                   <View>
+                    <Text style={styles.nullgroup}>No Groups Available.</Text>
+                   </View> :
+                   <FlatList
+                   keyExtractor={item=> item.id}
+                   data={group}
+                   renderItem={({item}) => (
+                   <TouchableOpacity
+                   onPress={() => this.viewGroupHandler(item)}>
+                   <Text style={styles.listItems}>{item.name}</Text>
+                   </TouchableOpacity>
+           )}/>
+
+               }
+                    
                 
             </View> 
             
             
             );
-                            }
+                            
     }
 }
 const styles = StyleSheet.create({

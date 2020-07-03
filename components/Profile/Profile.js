@@ -84,7 +84,8 @@ const styles = StyleSheet.create({
        flex: 1
    },
    menu:{
-    
+    flexDirection:'row',
+    justifyContent:'flex-start',
     alignItems:'flex-start',
     color: 'white',
     fontSize: 26,

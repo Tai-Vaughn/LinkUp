@@ -78,7 +78,7 @@ class Group extends React.Component {
         
             //if groups is populated display a list of persons/groups for(i;i<j;i++)
             //list group names
-            //data={this.state.groups}
+            //data={this.state.groups};<button onClick={() => ViewGroup(item)}>Click me!</button>
         return (
             <View style={styles.container}>
                <Text style={styles.text}>Available Groups:</Text>
@@ -92,10 +92,11 @@ class Group extends React.Component {
                         data={this.state.groups}
                         renderItem={({item}) => (
                         <TouchableOpacity
-                        onPress={()=>this.ViewGroup (item) }>
+                        onPress={() => ViewGroup(item)}>
                         <Text style={styles.listItems}>{item.GroupName}</Text>
                    </TouchableOpacity>
                      )}/>
+                     
                 }
                     
                 

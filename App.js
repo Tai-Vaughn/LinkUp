@@ -55,7 +55,11 @@ export default class App extends React.Component {
     <NavigationContainer>
       {this.state.JWT_Token ?
         <ProfileDrawer.Navigator initialRouteName = "Profile">
-          <ProfileDrawer.Screen name='Profile' component={Profile} options= {{title: "Profile",}}/>
+          <ProfileDrawer.Screen name='Profile' component={Profile} options= {{title: "Profile", drawerIcon: ({ tintColor }) => (
+          <Image
+            source={require("../../static/profileicon.png")}
+            resizeMode="contain"
+            style={{ width: 20, height: 20, tintColor: tintColor }}/>)}}/>
           <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{title: "Alerts",}}/>
           <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{title: "Routes",}}/>
           <ProfileDrawer.Screen name='Group' component={Group} options= {{title: "Group",}}/>

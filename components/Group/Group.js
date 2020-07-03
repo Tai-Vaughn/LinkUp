@@ -81,7 +81,7 @@ class Group extends React.Component {
                    data={group}
                    renderItem={({item}) => (
                    <TouchableOpacity
-                   onPress={<ViewGroup item />}>
+                   onPress={{ViewGroup (item)}}>
                    <Text style={styles.listItems}>{item.name}</Text>
                    </TouchableOpacity>
            )}/>
@@ -117,6 +117,7 @@ const styles = StyleSheet.create({
       },
     listItems: {
         padding: 10,
+        alignItems: 'center',
             fontSize: 20,
             height: 44,
         },

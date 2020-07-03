@@ -29,7 +29,6 @@ class StartMenue extends React.Component{
                 <View style={styles.menu}>
                 <Icon name='menu' 
                 underlayColor="transparent"
-                iconStyle={styles.placeIcon}
                 onPress={()=> this.props.navigation.toggleDrawer()} />
 
                 </View>
@@ -85,7 +84,11 @@ const styles = StyleSheet.create({
        flex: 1
    },
    menu:{
-    alignItems:'flex-start'
+    flexDirection: 'row-reverse',
+    justifyContent='start',
+    alignItems:'flex-start',
+    color: 'white',
+    fontSize: 26,
    },
  
    text:{

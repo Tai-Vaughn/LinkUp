@@ -92,7 +92,7 @@ class Group extends React.Component {
                         data={this.state.groups}
                         renderItem={({item}) => (
                         <TouchableOpacity
-                        onPress={() => ViewGroup(item)}>
+                        onPress={() => ViewGroup(this.item)}>
                         <Text style={styles.listItems}>{item.GroupName}</Text>
                    </TouchableOpacity>
                      )}/>

@@ -55,6 +55,7 @@ class StartMenue extends React.Component{
                 </View>
                 <ScrollView>
                 <View>
+                <Text style={styles.user}></Text>
                     <View style={globalStyles.button}>
                         <Button title='Map'/>
                     </View>
@@ -93,13 +94,15 @@ const styles = StyleSheet.create({
  
    text:{
      color: 'white',
-     fontSize: 20,
+     fontSize: 30,
      marginBottom: 50,
      fontFamily: 'righteous'
    },
+   
    user:{
     color: 'black',
-    fontSize: 18,
+    fontSize: 20,
+    marginBottom: 20,
     fontFamily: 'righteous'
   }
  

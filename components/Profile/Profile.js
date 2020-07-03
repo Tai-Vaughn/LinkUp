@@ -1,5 +1,5 @@
 import React  from 'react';
-import { View , Text, Button, StyleSheet} from 'react-native';
+import { View , Text, Button, StyleSheet, Image} from 'react-native';
 import {globalStyles} from '../Styles'; 
 import { ScrollView } from 'react-native-gesture-handler';
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
@@ -57,22 +57,9 @@ class StartMenue extends React.Component{
                     <Text style={styles.user}>@johnthedon</Text>
                 </View>
                 <ScrollView>
-                
                     <Text style={styles.user}></Text>
                     <View style={globalStyles.button}>
                         <Button title='Map'/>
-                    </View>
-                    <View style={globalStyles.button}>
-                        <Button title='Find Route'
-                        onPress = {() => this.props.navigation.navigate('Route')}/>
-                    </View>
-                    <View style={globalStyles.button}>
-                        <Button title='Alert'
-                         onPress = {() => this.props.navigation.navigate('Alerter')}/>
-                    </View>
-                    <View style={globalStyles.button}>
-                        <Button title='Group'
-                        onPress = {() => this.props.navigation.navigate('Group')}/>
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Friends'/>

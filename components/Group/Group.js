@@ -3,6 +3,8 @@ import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity}
 import {globalStyles} from '../Styles'; 
 import * as DataService from '../Service/DataService'
 import { date } from 'yup';
+import ViewGroup from './ViewGroup';
+
 const group = [
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -40,27 +42,7 @@ class Group extends React.Component {
         DataService.getGroups()
         DataService.groups$.subscribe(data => this.setState({groups: data}))
     }
-viewGroupHandler=(props)=>{
-    const {item}=this.props
-            return (
-                
-                <View style={styles.container}>     
-                    <View >
-                        <Text style={styles.listItems}>{item.name}</Text>
-                        <Text style={styles.listItems}>  {item.start} to {item.destination}</Text>
-                        <Text style={styles.listItems}> {item.time}</Text>
-                        
-                    </View>
-                    <View style={globalStyles.button}>
-                        <Button 
-                        title='Join'/>
-                    </View>
-                </View>
-                
-            ); 
-        
-        
-    }
+
     
     render() {
         
@@ -80,7 +62,7 @@ viewGroupHandler=(props)=>{
                    data={group}
                    renderItem={({item}) => (
                    <TouchableOpacity
-                   onPress={() => this.viewGroupHandler(item)}>
+                   onPress={() => ViewGroup(item)}>
                    <Text style={styles.listItems}>{item.name}</Text>
                    </TouchableOpacity>
            )}/>

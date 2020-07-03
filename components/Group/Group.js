@@ -77,16 +77,15 @@ class Group extends React.Component {
                     <Text style={styles.nullgroup}>No Groups Available.</Text>
                    </View> :
                    <FlatList
-                   keyExtractor={item=> item.id}
-                   data={group}
-                   renderItem={({item}) => (
-                   <TouchableOpacity
-                   onPress={<ViewGroup item />}>
-                   <Text style={styles.listItems}>{item.name}</Text>
+                        keyExtractor={item=> item.id}
+                        data={this.state.groups}
+                        renderItem={({item}) => (
+                        <TouchableOpacity
+                        onPress={<ViewGroup item />}>
+                        <Text style={styles.listItems}>{item.GroupName}</Text>
                    </TouchableOpacity>
-           )}/>
-
-               }
+                     )}/>
+                }
                     
                 
             </View> 

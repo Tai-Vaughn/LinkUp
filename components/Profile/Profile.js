@@ -2,6 +2,7 @@ import React  from 'react';
 import { View , Text, Button, StyleSheet, Image} from 'react-native';
 import {globalStyles} from '../Styles'; 
 import { ScrollView } from 'react-native-gesture-handler';
+import {Icon } from 'react-native-elements'
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
 
 class StartMenue extends React.Component{
@@ -35,12 +36,27 @@ class StartMenue extends React.Component{
                 <ScrollView>
                     <Text style={styles.pad}></Text>
                     <View style={globalStyles.button}>
+                        <Icon
+                            name="map"
+                            underlayColor="transparent"
+                            iconStyle={styles.placeIcon}
+                        />
                         <Button title='Map'/>
                     </View>
                     <View style={globalStyles.button}>
+                        <Icon
+                            name="place"
+                            underlayColor="transparent"
+                            iconStyle={styles.placeIcon}
+                        />
                         <Button title='Previous Routes'/>
                     </View>
                     <View style={globalStyles.button}>
+                        <Icon
+                            name="chat"
+                            underlayColor="transparent"
+                            iconStyle={styles.placeIcon}
+                        />
                         <Button title='Friends'/>
                     </View>
                 
@@ -85,6 +101,10 @@ const styles = StyleSheet.create({
      textAlign: 'center',
  fontFamily: 'righteous'
 },
+placeIcon: {
+    color: 'white',
+    fontSize: 26,
+  },
 pad:{
     marginBottom:20,
 }

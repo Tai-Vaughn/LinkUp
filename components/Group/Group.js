@@ -55,7 +55,6 @@ class Group extends React.Component {
     _isMounted = false;
     constructor(props){
         super(props);
-        this.onPress = this.onPress.bind(this);
         this.state = {
             groups : []
         }

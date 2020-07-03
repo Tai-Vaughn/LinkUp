@@ -26,7 +26,11 @@ class StartMenue extends React.Component{
         return (
            
             <View style={styles.container}>
+                <View style={styles.menu}>
                 <Icon name='menu' onPress={()=> this.props.navigation.toggleDrawer()} />
+
+                </View>
+                
                 <View>
                     <Text style={styles.user}>John Doe</Text>
                     <View style={globalStyles.logoContainer}>
@@ -76,6 +80,9 @@ const styles = StyleSheet.create({
        justifyContent: 'center',
        alignItems: 'center',
        flex: 1
+   },
+   menu:{
+    alignItems:'left'
    },
  
    text:{

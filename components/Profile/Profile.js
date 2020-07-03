@@ -1,8 +1,6 @@
 import React  from 'react';
-import { View , Text, Button, StyleSheet} from 'react-native';
-import FindRouteScreen from '../FindRoute/FindRouteScreen';
+import { View , Text, Button, StyleSheet, Image} from 'react-native';
 import {globalStyles} from '../Styles'; 
-import Alerter from '../Alerts/Alerter';
 import { ScrollView } from 'react-native-gesture-handler';
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
 
@@ -53,17 +51,19 @@ class StartMenue extends React.Component{
                 </View>
                 <View>
                     <Text style={styles.user}>John Doe</Text>
-                    <Text style={styles.user}>jdoe</Text>
+                    <View style={globalStyles.logoContainer}>
+                        <Image style={globalStyles.logo} source={require('../../static/profileicon.png')}/>
+                    </View>
+                    <Text style={styles.user}>@johnthedon</Text>
                 </View>
                 <ScrollView>
-                <View>
+                    <Text style={styles.user}></Text>
                     <View style={globalStyles.button}>
                         <Button title='Map'/>
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Find Route'
                         onPress = {() => this.props.navigation.navigate('Route')}/>
-                        <FindRouteScreen />
                     </View>
                     <View style={globalStyles.button}>
                         <Button title='Alert'
@@ -76,7 +76,7 @@ class StartMenue extends React.Component{
                     <View style={globalStyles.button}>
                         <Button title='Friends'/>
                     </View>
-                </View>
+                
 
                 </ScrollView>
                 
@@ -96,13 +96,15 @@ const styles = StyleSheet.create({
  
    text:{
      color: 'white',
-     fontSize: 20,
+     fontSize: 30,
      marginBottom: 50,
      fontFamily: 'righteous'
    },
+   
    user:{
     color: 'black',
-    fontSize: 18,
+    fontSize: 20,
+    marginBottom: 20,
     fontFamily: 'righteous'
   }
  

@@ -40,9 +40,10 @@ class Group extends React.Component {
         DataService.getGroups()
         DataService.groups$.subscribe(data => this.setState({groups: data}))
     }
-viewGroupHandler=(item)=>{
-        
+viewGroupHandler=(props)=>{
+    const {item}=this.props
             return (
+                
                 <View style={styles.container}>     
                     <View >
                         <Text style={styles.listItems}>{item.name}</Text>

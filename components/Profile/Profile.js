@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
      color: 'white',
      fontSize: 30,
      marginBottom: 50,
+     alignItems: 'center',
      fontFamily: 'righteous'
    },
    
@@ -93,6 +94,7 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 20,
     marginBottom: 20,
+    alignItems: 'center',
     fontFamily: 'righteous'
   }
  

@@ -3,7 +3,6 @@ import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity}
 import {globalStyles} from '../Styles'; 
 import * as DataService from '../Service/DataService'
 import { date } from 'yup';
-import ViewGroup from './ViewGroup';
 
 const group = [
     {
@@ -29,6 +28,26 @@ const group = [
     },
   ];
 
+  function ViewGroup(props){
+            return (
+                
+                <View style={styles.container}>     
+                    <View >
+                        <Text style={styles.listItems}>{props.name}</Text>
+                        <Text style={styles.listItems}>  {props.start} to {props.destination}</Text>
+                        <Text style={styles.listItems}> {props.time}</Text>
+                        
+                    </View>
+                    <View style={globalStyles.button}>
+                        <Button 
+                        title='Join'/>
+                    </View>
+                </View>
+                
+            ); 
+        
+        
+    }
 class Group extends React.Component {
 
     constructor(props){
@@ -62,7 +81,7 @@ class Group extends React.Component {
                    data={group}
                    renderItem={({item}) => (
                    <TouchableOpacity
-                   onPress={() => ViewGroup(item)}>
+                   onPress={{ViewGroup (item)}}>
                    <Text style={styles.listItems}>{item.name}</Text>
                    </TouchableOpacity>
            )}/>
@@ -98,6 +117,7 @@ const styles = StyleSheet.create({
       },
     listItems: {
         padding: 10,
+        alignItems: 'center',
             fontSize: 20,
             height: 44,
         },

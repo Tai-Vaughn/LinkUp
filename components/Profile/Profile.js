@@ -51,11 +51,14 @@ class StartMenue extends React.Component{
                 </View>
                 <View>
                     <Text style={styles.user}>John Doe</Text>
-                    <Text style={styles.user}>jdoe</Text>
+                    <View style={globalStyles.logoContainer}>
+                        <Image style={globalStyles.logo} source={require('../../static/profileicon.png')}/>
+                    </View>
+                    <Text style={styles.user}>@johnthedon</Text>
                 </View>
                 <ScrollView>
-                <View>
-                <Text style={styles.user}></Text>
+                
+                    <Text style={styles.user}></Text>
                     <View style={globalStyles.button}>
                         <Button title='Map'/>
                     </View>
@@ -74,7 +77,7 @@ class StartMenue extends React.Component{
                     <View style={globalStyles.button}>
                         <Button title='Friends'/>
                     </View>
-                </View>
+                
 
                 </ScrollView>
                 

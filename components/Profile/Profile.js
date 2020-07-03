@@ -26,9 +26,7 @@ class StartMenue extends React.Component{
         return (
            
             <View style={styles.container}>
-                <screenLeft>
-                        <Icon name='menu' onPress={()=> this.props.navigation.toggleDrawer()} />
-                    </screenLeft>
+                <Icon name='menu' onPress={()=> this.props.navigation.toggleDrawer()} />
                 <View>
                     <Text style={styles.user}>John Doe</Text>
                     <View style={globalStyles.logoContainer}>

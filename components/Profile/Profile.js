@@ -24,9 +24,8 @@ class StartMenue extends React.Component{
 //put return statement here and call users variable
         }*/
         return (
-           
             <View style={styles.container}>
-               <View style={[ styles.menu, this.props.style ]}>
+               <View style={menul}>
                <Icon name='menu' 
                 underlayColor="transparent"
                 onPress={()=> this.props.navigation.toggleDrawer()} />
@@ -74,6 +73,7 @@ class StartMenue extends React.Component{
         ); 
     }
 }
+
 
 const styles = StyleSheet.create({
     container: {
@@ -124,6 +124,7 @@ pad:{
 }
  
  });
+ const menul = StyleSheet.compose(styles.container, styles.menu);
 
 export default StartMenue;
 

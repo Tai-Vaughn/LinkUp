@@ -1,5 +1,5 @@
 import React  from 'react';
-import { View , Text, Button, StyleSheet} from 'react-native';
+import { View , Text, Button, StyleSheet, Image} from 'react-native';
 import {globalStyles} from '../Styles'; 
 import { ScrollView } from 'react-native-gesture-handler';
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
@@ -57,7 +57,6 @@ class StartMenue extends React.Component{
                     <Text style={styles.user}>@johnthedon</Text>
                 </View>
                 <ScrollView>
-                
                     <Text style={styles.user}></Text>
                     <View style={globalStyles.button}>
                         <Button title='Map'/>

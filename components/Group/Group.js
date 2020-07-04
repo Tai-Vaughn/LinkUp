@@ -5,7 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import * as DataService from '../Service/DataService'
 import { date } from 'yup';
 
-const navigation = useNavigation();
 const group = [
     {
         id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -32,7 +31,6 @@ const group = [
 
   
 class Group extends React.Component {
-    
     _isMounted = false;
     constructor(props){
         super(props);
@@ -124,6 +122,39 @@ const styles = StyleSheet.create({
     });
 export default Group;
 
-/*
+/*<ScrollView>
+                            <Text>{item.members}</Text>
+                        </ScrollView>
 
-*/
+
+<View style={styles.listItems} >
+                                    <Text>{title}</Text>
+                                
+                            </View>
+                             <View style={globalStyles.button}>
+                            <Button 
+                            title='Search'/>
+                </View>
+return (
+            <View style={styles.container}>
+                <Text style={styles.text}>Groups</Text>
+                <SafeAreaView>
+                <FlatList
+                            keyExtractor={item=> item.id}
+                            data={group}
+                            renderItem={item => (
+                            <View style={styles.listItems} >
+                                <TouchableOpacity onPress={this.viewGroupHandler}>
+                                    <Text style={styles.text}>Available Groups: {item.groupName}</Text>
+                                </TouchableOpacity>
+                                
+                            </View>)}/>
+                </SafeAreaView>
+                    
+                <View style={globalStyles.button}>
+                            <Button 
+                            title='Search' 
+                            />
+                </View>
+            </View>
+        ); */

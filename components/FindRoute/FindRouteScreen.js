@@ -73,11 +73,7 @@ class FindRouteScreen extends React.Component{
                             <Picker.Item label='Yes' value='yes'/>
                             <Picker.Item label='No' value='no'/>
                         </Picker>
-                        { PickerValue==='no'?
-                        <View>
-                            </View>
-                        :
-                        <View>
+                    
                             <Picker
                         selectedValue={this.state.PickerValue2}
                         onValueChange={(itemValue,itemIndex) => this.setState({PickerValue2: itemValue})}
@@ -102,10 +98,7 @@ class FindRouteScreen extends React.Component{
                             <Picker.Item label='19' value='Nineteen'/>
                             <Picker.Item label='20' value='Twenty'/>
                         </Picker>
-                            </View>
                         
-                        }
-
                         
 
                         <Picker

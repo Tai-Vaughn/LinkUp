@@ -20,6 +20,7 @@ import * as Dataservice from './components/Service/DataService';
 import Alerter from './components/Alerts/Alerter';
 import FindRouteScreen from './components/FindRoute/FindRouteScreen';
 import Group from './components/Group/Group';
+import ViewGroup from './components/Group/ViewGroup';
 
 const getFonts = () => Font.loadAsync({
   'righteous': require('./components/fonts/Righteous-Regular.ttf')
@@ -65,6 +66,7 @@ export default class App extends React.Component {
           <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{title: "Alerts",}}/>
           <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{title: "Journey",}}/>
           <ProfileDrawer.Screen name='Group' component={Group} options= {{title: "Group",}}/>
+          <ProfileDrawer.Screen name='ViewGroup' component={ViewGroup} options= {{title: "ViewGroup",}}/>
           <ProfileDrawer.Screen name='LogOut' component={LogOut} options= {{title: "LogOut",}}/>
           
         </ProfileDrawer.Navigator> :

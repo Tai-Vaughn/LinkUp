@@ -58,18 +58,17 @@ class Group extends React.Component {
     render() {
         
         
-            //if groups is populated display a list of persons/groups for(i;i<j;i++)
-            //list group names
+            //if groups is populated display a list of group names
             //data={this.state.groups};
         return (
             <View style={styles.container}>
-                <View >
+                
                <Icon name='menu' 
                 underlayColor="transparent"
                 size={28}
                 iconStyle={styles.menu}
                 onPress={()=> this.props.navigation.toggleDrawer()} />
-                </View> 
+                
                 
                <Text style={styles.text}>Available Groups:</Text>
                

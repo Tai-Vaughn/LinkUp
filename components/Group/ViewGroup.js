@@ -28,3 +28,36 @@ export default function ViewGroup({navigation}){
 
 
 }
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: 'steelblue',
+       padding: 50,
+       justifyContent: 'center',
+       alignItems: 'center',
+        flex: 1,
+    },
+    menu:{
+        flexDirection:'row',
+        justifyContent:'flex-start',
+        alignItems:'flex-start',
+        color: 'white',
+        fontSize: 26,
+       },
+    text:{
+        color: 'white',
+        fontSize: 20,
+        marginBottom: 50,
+        fontFamily: 'righteous'
+      },
+      nullgroup:{
+        color: 'black',
+        fontSize: 18,
+        fontFamily: 'righteous'
+      },
+    listItems: {
+        padding: 10,
+        alignItems: 'center',
+            fontSize: 20,
+            height: 44,
+        },
+    });

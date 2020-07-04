@@ -4,11 +4,12 @@ import {globalStyles} from '../Styles';
 import * as DataService from '../Service/DataService'
 import { date } from 'yup';
 
-export default function ViewGroup({navigation}){
+export default function ViewGroup({route, navigation}){
     return (
         
         <View style={styles.container}>     
             <View >
+                <Text>view group</Text>
             <Text style={styles.listItems}>{navigation.getParam('GroupName')}</Text> 
                 
                 <Text style={styles.listItems}>  {navigation.getParam('StartLocation')} to {navigation.getParam('EndLocation')}</Text>

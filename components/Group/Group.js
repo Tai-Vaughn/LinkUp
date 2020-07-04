@@ -71,7 +71,7 @@ class Group extends React.Component {
                         data={group}
                         renderItem={({item}) => (
                         <TouchableOpacity
-                        onPress={() =>this.props.navigation.navigate('ViewGroup',{item})}>
+                        onPress={() =>navigation.navigate('ViewGroup',{item})}>
                         <Text style={styles.listItems}>{item.GroupName}</Text>
                    </TouchableOpacity>
                      )}/>

@@ -35,7 +35,6 @@ const reports = [
   ];
 
 class Alerter extends React.Component{
-    
    
     assaultHandler=()=>{
         let i=0;

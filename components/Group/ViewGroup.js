@@ -9,7 +9,6 @@ export default function ViewGroup({navigation, route}){
         
         <View style={styles.container}>     
             <View >
-                <Text>View Group</Text>
             <Text style={styles.listItems}>{route.params.GroupName}</Text> 
                 
                 <Text style={styles.listItems}>  {route.params.StartLocation} to {route.params.EndLocation}</Text>

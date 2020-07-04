@@ -66,7 +66,7 @@ class Group extends React.Component {
             //data={this.state.groups};
         return (
             <View style={styles.container}>
-                <View>
+                <View style={styles.menu}>
                 <Icon name='menu' 
                 underlayColor="transparent"
                 size={28}
@@ -76,7 +76,6 @@ class Group extends React.Component {
                 
                <Text style={styles.text}>Available Groups:</Text>
 
-               <View>
                {this.state.groups.length===0 ?
                    <View>
                     <Text style={styles.nullgroup}>No Groups Available.</Text>
@@ -96,10 +95,6 @@ class Group extends React.Component {
                      )}/>
                      
                 }
-
-               </View>
-               
-               
                     
                 
             </View> 
@@ -115,7 +110,7 @@ const styles = StyleSheet.create({
        padding: 50,
        justifyContent: 'center',
        alignItems: 'center',
-        flex: 1,
+       flex: 1
     },
     separator: {
         width: "100%",

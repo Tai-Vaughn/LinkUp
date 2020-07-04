@@ -62,8 +62,8 @@ class Group extends React.Component {
             //data={this.state.groups};
         return (
             <View style={styles.container}>
-                
-               <Icon name='menu' 
+                <View>
+                <Icon name='menu' 
                 underlayColor="transparent"
                 size={28}
                 iconStyle={styles.menu}
@@ -71,6 +71,9 @@ class Group extends React.Component {
                 
                 
                <Text style={styles.text}>Available Groups:</Text>
+
+                </View>
+               
                
                {this.state.groups.length===0 ?
                    <View>

@@ -41,17 +41,6 @@ class Group extends React.Component {
             groups : []
         }
     }
-    FlatListItemSeparator = () => {
-        return (
-          <View
-            style={{
-              height: 1,
-              width: "100%",
-              backgroundColor: "#000",
-            }}
-          />
-        );
-      }
  
     componentDidMount(){
         this._isMounted = true;
@@ -87,16 +76,15 @@ class Group extends React.Component {
                 
                <Text style={styles.text}>Available Groups:</Text>
 
-               {group.length===0 ?
+               {this.state.groups.length===0 ?
                    <View>
                     <Text style={styles.nullgroup}>No Groups Available.</Text>
                    </View> :
                    <FlatList
                         keyExtractor={item=> item._id}
-                        ItemSeparatorComponent = { this.FlatListItemSeparator }
-                        data={group}
+                        data={this.state.groups}
                         renderItem={({item}) => (
-                            <View>
+                            <View style={styles.separator}>
                                 <Text style={styles.listItems}>{item.GroupName}</Text>
                                 <Text style={styles.listItems}>{item.StartLocation} to {item.EndLocation}</Text>
                                 <Text style={styles.listItems}>Time: {item.StartTime}</Text>

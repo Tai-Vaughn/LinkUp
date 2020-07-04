@@ -5,8 +5,8 @@ import {globalStyles} from '../Styles';
 import Alerter from '../Alerts/Alerter';
 import parseJwt from '../Service/jwtparser';
 
-var jwtDecode = require('jwt-decode');
-var decoded = jwt_decode(JWT_Token);
+//var jwtDecode = require('jwt-decode');
+//var decoded = jwt_decode(JWT_Token);
 class StartMenue extends React.Component{
     constructor(props){
         super(props);

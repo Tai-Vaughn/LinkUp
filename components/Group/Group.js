@@ -12,6 +12,7 @@ const group = [
         StartLocation:'library',
         EndLocation:'union',
         StartTime:'4:30',
+        GroupMembers:['jdoe','kary'],
       },
       {
         id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
@@ -19,6 +20,7 @@ const group = [
         StartLocation:'union',
         EndLocation:'rex',
         StartTime:'9:00',
+        GroupMembers:['jdoe','kary','jdoe','kary'],
       },
       {
         id: '58694a0f-3da1-471f-bd96-145571e29d72',
@@ -26,6 +28,7 @@ const group = [
         StartLocation:'scitech',
         EndLocation:'law',
         StartTime:'2:00',
+        GroupMembers:['jdoe','kary', 'ray'],
       },
     ];
 
@@ -71,11 +74,14 @@ class Group extends React.Component {
                         keyExtractor={item=> item._id}
                         data={group}
                         renderItem={({item}) => (
-                        <TouchableOpacity>
-                        <Text style={styles.listItems}>{item.GroupName}</Text>
-                        <Text style={styles.listItems}>{item.StartLocation} to {item.EndLocation}</Text>
-                        <Text style={styles.listItems}>{item.StartTime}</Text>
-                   </TouchableOpacity>
+                            <View style={styles.separator}>
+                                <Text style={styles.listItems}>{item.GroupName}</Text>
+                                <Text style={styles.listItems}>{item.StartLocation} to {item.EndLocation}</Text>
+                                <Text style={styles.listItems}>{item.StartTime}</Text>
+                                <Text style={styles.listItems}>{item.GroupMembers.length}</Text>
+                                <Button title='Join'/>
+                         </View>
+                        
                      )}/>
                      
                 }
@@ -96,6 +102,13 @@ const styles = StyleSheet.create({
        alignItems: 'center',
         flex: 1,
     },
+    separator: {
+        
+        flex: 1, 
+        borderWidth: 1, 
+        borderColor: 'grey'
+
+       },
     menu:{
         flexDirection:'row',
         justifyContent:'flex-start',
@@ -128,36 +141,4 @@ export default Group;
 <ScrollView>
                             <Text>{item.members}</Text>
                         </ScrollView>
-
-
-<View style={styles.listItems} >
-                                    <Text>{title}</Text>
-                                
-                            </View>
-                             <View style={globalStyles.button}>
-                            <Button 
-                            title='Search'/>
-                </View>
-return (
-            <View style={styles.container}>
-                <Text style={styles.text}>Groups</Text>
-                <SafeAreaView>
-                <FlatList
-                            keyExtractor={item=> item.id}
-                            data={group}
-                            renderItem={item => (
-                            <View style={styles.listItems} >
-                                <TouchableOpacity onPress={this.viewGroupHandler}>
-                                    <Text style={styles.text}>Available Groups: {item.groupName}</Text>
-                                </TouchableOpacity>
-                                
-                            </View>)}/>
-                </SafeAreaView>
-                    
-                <View style={globalStyles.button}>
-                            <Button 
-                            title='Search' 
-                            />
-                </View>
-            </View>
-        ); */
+*/

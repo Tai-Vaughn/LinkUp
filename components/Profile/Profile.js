@@ -2,11 +2,26 @@ import React  from 'react';
 import { View , Text, Button, StyleSheet, Image} from 'react-native';
 import {globalStyles} from '../Styles'; 
 import { ScrollView } from 'react-native-gesture-handler';
-import {Icon } from 'react-native-elements'
+import {Icon } from 'react-native-elements';
+import * as Dataservice from '../Service/DataService';
+import { date } from 'yup';
+import { shareReplay } from 'rxjs/operators';
+var jwtDecode = require('jwt-decode');
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
 
-class StartMenue extends React.Component{
-  
+export default class StartMenue extends React.Component{
+    constructor(props){
+     super(props),
+     this.state = {
+         CurrentUser : {}
+     }
+     
+    }
+
+    componentDidMount(){
+      Dataservice.token$.subscribe(data =>  this.setState({CurrentUser :(jwtDecode(data))}))  
+    }
+
     
     render() {
         /*if(this.state.isLoading){
@@ -36,11 +51,11 @@ class StartMenue extends React.Component{
                 
                
                 <View>
-                    <Text style={styles.user}>John Doe</Text>
+                    <Text style={styles.user}> {this.state.CurrentUser.firstName} {this.state.CurrentUser.lastName}</Text>
                     <View style={globalStyles.logoContainer}>
                         <Image style={globalStyles.logo} source={require('../../static/profileicon.png')}/>
                     </View>
-                    <Text style={styles.username}>@johnthedon</Text>
+                    <Text style={styles.username}>@{this.state.CurrentUser.username}</Text>
                 </View>
                 <ScrollView>
                     <Text style={styles.pad}></Text>
@@ -125,8 +140,6 @@ pad:{
 }
  
  });
-
-export default StartMenue;
 
 /*  constructor(props){
         super(props);

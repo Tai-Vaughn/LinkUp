@@ -1,18 +1,19 @@
 import React from 'react';
 import {Subject , of} from 'rxjs';
-import {map, catchError, tap} from 'rxjs/operators'
+import {catchError, tap, shareReplay} from 'rxjs/operators'
 import { ajax } from 'rxjs/ajax';
 import * as Graph from './GraphService'
+var jwtDecode = require('jwt-decode');
 
 const tokenSubject  = new Subject
 const markersSubject = new Subject
 const groupsSubject = new Subject
 const graphSubject = new Subject
 
-export const markers$ = markersSubject.asObservable()
-export const token$ = tokenSubject.asObservable()
-export const groups$ = groupsSubject.asObservable()
-export const graph$ = graphSubject.asObservable()
+export const markers$ = markersSubject.asObservable().pipe(shareReplay(1))
+export const token$ = tokenSubject.asObservable().pipe(shareReplay(1))
+export const groups$ = groupsSubject.asObservable().pipe(shareReplay(1))
+export const graph$ = graphSubject.asObservable().pipe(shareReplay(1))
 
 export const login = (Authinfo) => {
     ajax({
@@ -26,6 +27,7 @@ export const login = (Authinfo) => {
     }).pipe(
         tap( (response) => {
             tokenSubject.next(response.response.token)
+            //console.log(jwtDecode(response.response.token))
         } ),
         catchError(error => {
             console.log('error: ', error);
@@ -45,7 +47,7 @@ export const createUser = (UserInfo) => {
         body: JSON.stringify(UserInfo)
 
     }).pipe(
-        map(res => console.log(res.response)),
+        tap(res => console.log(res.response)),
         catchError( err => console.log(err))
     ).subscribe()
 }

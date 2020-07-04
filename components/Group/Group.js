@@ -73,13 +73,13 @@ class Group extends React.Component {
                 
                <Text style={styles.text}>Available Groups:</Text>
                
-               {group.length===0 ?
+               {this.state.groups.length===0 ?
                    <View>
                     <Text style={styles.nullgroup}>No Groups Available.</Text>
                    </View> :
                    <FlatList
                         keyExtractor={item=> item._id}
-                        data={group}
+                        data={this.state.groups}
                         renderItem={({item}) => (
                             <View style={styles.separator}>
                                 <Text style={styles.listItems}>{item.GroupName}</Text>
@@ -105,13 +105,14 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'steelblue',
        padding: 50,
-       
+       justifyContent: 'center',
+       alignItems: 'center',
         flex: 1,
     },
     separator: {
         width: "100%",
         flex: 1, 
-        borderBottomColor: 'black',
+        borderColor: 'black',
 
        },
     menu:{
@@ -124,8 +125,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 20,
         marginBottom: 50,
-        justifyContent: 'center',
-       alignItems: 'center',
+        
         fontFamily: 'righteous'
       },
       nullgroup:{

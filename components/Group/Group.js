@@ -6,31 +6,31 @@ import { date } from 'yup';
 
 const group = [
     {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      GroupName: 'First Item',
-      StartLocation:'library',
-      EndLocation:'union',
-      StartTime:'4:30',
-    },
-    {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      GroupName: 'Second Item',
-      StartLocation:'union',
-      EndLocation:'rex',
-      StartTime:'9:00',
-    },
-    {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      GroupName: 'Third Item',
-      StartLocation:'scitech',
-      EndLocation:'law',
-      StartTime:'2:00',
-    },
-  ];
+        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+        GroupName: 'First Item',
+        StartLocation:'library',
+        EndLocation:'union',
+        StartTime:'4:30',
+      },
+      {
+        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+        GroupName: 'Second Item',
+        StartLocation:'union',
+        EndLocation:'rex',
+        StartTime:'9:00',
+      },
+      {
+        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        GroupName: 'Third Item',
+        StartLocation:'scitech',
+        EndLocation:'law',
+        StartTime:'2:00',
+      },
+    ];
 
   
-export default function Group ({navigation}){
-   /* _isMounted = false;
+class Group extends React.Component {
+    _isMounted = false;
     constructor(props){
         super(props);
         this.state = {
@@ -49,8 +49,9 @@ export default function Group ({navigation}){
     componentWillUnmount() {
         this._isMounted = false;
       }
-*/
+
     
+    render() {
         
         
             //if groups is populated display a list of persons/groups for(i;i<j;i++)
@@ -70,7 +71,7 @@ export default function Group ({navigation}){
                         data={group}
                         renderItem={({item}) => (
                         <TouchableOpacity
-                        onPress={() =>navigation.navigate('ViewGroup',{item})}>
+                        onPress={() =>this.props.navigation.navigate('ViewGroup',{item})}>
                         <Text style={styles.listItems}>{item.GroupName}</Text>
                    </TouchableOpacity>
                      )}/>
@@ -83,7 +84,7 @@ export default function Group ({navigation}){
             
             );
                             
-    
+    }
 }
 const styles = StyleSheet.create({
     container: {
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
             height: 44,
         },
     });
-//export default Group;
+export default Group;
 
 /*<ScrollView>
                             <Text>{item.members}</Text>

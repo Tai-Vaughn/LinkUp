@@ -76,13 +76,13 @@ class Group extends React.Component {
                 
                <Text style={styles.text}>Available Groups:</Text>
 
-               {group.length===0 ?
+               {this.state.groups.length===0 ?
                    <View>
                     <Text style={styles.nullgroup}>No Groups Available.</Text>
                    </View> :
                    <FlatList
                         keyExtractor={item=> item._id}
-                        data={group}
+                        data={this.state.groups}
                         renderItem={({item}) => (
                             <View style={styles.separator}>
                                 <Text style={styles.listItems}>{item.GroupName}</Text>

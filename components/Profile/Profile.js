@@ -26,7 +26,7 @@ class StartMenue extends React.Component{
         return (
            
             <View style={styles.container}>
-               <View style={[ styles.menu, this.props.style ]}>
+               <View style={menu}>
                <Icon name='menu' 
                 underlayColor="transparent"
                 size={28}

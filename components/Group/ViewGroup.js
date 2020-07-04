@@ -4,15 +4,15 @@ import {globalStyles} from '../Styles';
 import * as DataService from '../Service/DataService'
 import { date } from 'yup';
 
-export default function ViewGroup({navigation}){
+export default function ViewGroup({navigation, route}){
     return (
         
         <View style={styles.container}>     
             <View >
-            <Text style={styles.listItems}>{this.props.route.params.GroupName}</Text> 
+            <Text style={styles.listItems}>{route.params.GroupName}</Text> 
                 
-                <Text style={styles.listItems}>  {this.props.route.params.StartLocation} to {this.props.route.params.EndLocation}</Text>
-                <Text style={styles.listItems}> {this.props.route.params.StartTime}</Text>
+                <Text style={styles.listItems}>  {route.params.StartLocation} to {route.params.EndLocation}</Text>
+                <Text style={styles.listItems}> {route.params.StartTime}</Text>
                 
             </View>
             <ScrollView>

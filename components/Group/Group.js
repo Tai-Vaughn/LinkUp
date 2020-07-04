@@ -1,7 +1,6 @@
 import React  from 'react';
 import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity} from "react-native";
 import {globalStyles} from '../Styles'; 
-import { NavigationContainer } from '@react-navigation/native';
 import * as DataService from '../Service/DataService'
 import { date } from 'yup';
 
@@ -60,9 +59,16 @@ class Group extends React.Component {
         
             //if groups is populated display a list of persons/groups for(i;i<j;i++)
             //list group names
-            //data={this.state.groups};<button onClick={() => ViewGroup(item)}>Click me!</button>
+            //data={this.state.groups};
         return (
             <View style={styles.container}>
+                <View >
+               <Icon name='menu' 
+                underlayColor="transparent"
+                size={28}
+                iconStyle={styles.menu}
+                onPress={()=> this.props.navigation.toggleDrawer()} />
+                </View> 
                 
                <Text style={styles.text}>Available Groups:</Text>
                
@@ -77,8 +83,8 @@ class Group extends React.Component {
                             <View style={styles.separator}>
                                 <Text style={styles.listItems}>{item.GroupName}</Text>
                                 <Text style={styles.listItems}>{item.StartLocation} to {item.EndLocation}</Text>
-                                <Text style={styles.listItems}>Time:{item.StartTime}</Text>
-                                <Text style={styles.listItems}>Number in Group:{item.GroupMembers.length}</Text>
+                                <Text style={styles.listItems}>Time: {item.StartTime}</Text>
+                                <Text style={styles.listItems}>Size: {item.GroupMembers.length}</Text>
                                 <Button title='Join'/>
                          </View>
                         
@@ -104,16 +110,14 @@ const styles = StyleSheet.create({
     separator: {
         width: "100%",
         flex: 1, 
-        borderWidth: 1, 
         borderBottomColor: 'black',
 
        },
     menu:{
         flexDirection:'row',
-        justifyContent:'flex-start',
-        alignItems:'flex-start',
         color: 'white',
-        fontSize: 26,
+        position:'absolute',
+        left:16,
        },
     text:{
         color: 'white',

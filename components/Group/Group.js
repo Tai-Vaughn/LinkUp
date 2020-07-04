@@ -77,8 +77,8 @@ class Group extends React.Component {
                             <View style={styles.separator}>
                                 <Text style={styles.listItems}>{item.GroupName}</Text>
                                 <Text style={styles.listItems}>{item.StartLocation} to {item.EndLocation}</Text>
-                                <Text style={styles.listItems}>{item.StartTime}</Text>
-                                <Text style={styles.listItems}>{item.GroupMembers.length}</Text>
+                                <Text style={styles.listItems}>Time:{item.StartTime}</Text>
+                                <Text style={styles.listItems}>Number in Group:{item.GroupMembers.length}</Text>
                                 <Button title='Join'/>
                          </View>
                         
@@ -104,9 +104,10 @@ const styles = StyleSheet.create({
     },
     separator: {
         
-        flex: 1, 
+        flex: 3, 
         borderWidth: 1, 
-        borderColor: 'grey'
+        
+        borderBottomColor: 'grey',
 
        },
     menu:{

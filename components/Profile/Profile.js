@@ -27,7 +27,6 @@ class StartMenue extends React.Component{
            
             <View style={styles.container}>
                <View >
-                   <Text>Icon Spot</Text>
                <Icon name='menu' 
                 underlayColor="transparent"
                 size={28}
@@ -80,7 +79,7 @@ class StartMenue extends React.Component{
 
 const styles = StyleSheet.create({
     container: {
-       backgroundColor: 'blue',
+       backgroundColor: 'steelblue',
        padding: 50,
        justifyContent: 'center',
        alignItems: 'center',

@@ -71,9 +71,10 @@ class Group extends React.Component {
                         keyExtractor={item=> item._id}
                         data={group}
                         renderItem={({item}) => (
-                        <TouchableOpacity
-                        onPress={() =>props.navigate('ViewGroup',{item})}>
+                        <TouchableOpacity>
                         <Text style={styles.listItems}>{item.GroupName}</Text>
+                        <Text style={styles.listItems}>{item.StartLocation} to {item.EndLocation}</Text>
+                        <Text style={styles.listItems}>{item.StartTime}</Text>
                    </TouchableOpacity>
                      )}/>
                      
@@ -122,7 +123,9 @@ const styles = StyleSheet.create({
     });
 export default Group;
 
-/*<ScrollView>
+/*<TouchableOpacity
+                        onPress={() =>props.navigate('ViewGroup',{item})}>
+<ScrollView>
                             <Text>{item.members}</Text>
                         </ScrollView>
 

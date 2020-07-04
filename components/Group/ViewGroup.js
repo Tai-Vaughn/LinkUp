@@ -1,19 +1,20 @@
 import React  from 'react';
 import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity} from "react-native";
 import {globalStyles} from '../Styles'; 
+import { NavigationContainer } from '@react-navigation/native';
 import * as DataService from '../Service/DataService'
 import { date } from 'yup';
 
-export default function ViewGroup({route, navigation}){
+export default function ViewGroup({navigation, route}){
     return (
-        
+                
         <View style={styles.container}>     
             <View >
                 <Text>view group</Text>
-            <Text style={styles.listItems}>{navigation.getParam('GroupName')}</Text> 
+            <Text style={styles.listItems}>{route.params.GroupName}</Text> 
                 
-                <Text style={styles.listItems}>  {navigation.getParam('StartLocation')} to {navigation.getParam('EndLocation')}</Text>
-                <Text style={styles.listItems}> {navigation.getParam('StartTime')}</Text>
+                <Text style={styles.listItems}>  {route.params.StartLocation} to {route.params.EndLocation}</Text>
+                <Text style={styles.listItems}> {route.params.StartTime}</Text>
                 
             </View>
             <ScrollView>

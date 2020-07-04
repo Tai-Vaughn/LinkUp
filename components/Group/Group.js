@@ -1,6 +1,7 @@
 import React  from 'react';
 import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity} from "react-native";
 import {globalStyles} from '../Styles'; 
+import { NavigationContainer } from '@react-navigation/native';
 import * as DataService from '../Service/DataService'
 import { date } from 'yup';
 
@@ -71,7 +72,7 @@ class Group extends React.Component {
                         data={group}
                         renderItem={({item}) => (
                         <TouchableOpacity
-                        onPress={() =>navigation.navigate('ViewGroup',{item})}>
+                        onPress={() =>this.props.navigation.navigate('ViewGroup',{item})}>
                         <Text style={styles.listItems}>{item.GroupName}</Text>
                    </TouchableOpacity>
                      )}/>

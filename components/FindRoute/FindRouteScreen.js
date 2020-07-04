@@ -51,8 +51,9 @@ class FindRouteScreen extends React.Component{
           
       return (
           <View style={styles.container}> 
+            
             <ScrollView>
-            <Text style={globalStyles.text}>Find Route</Text>
+            <Text style={globalStyles.text}>Plan Journey</Text>
             
             <Formik
                   onSubmit={(values, actions) => {
@@ -72,8 +73,8 @@ class FindRouteScreen extends React.Component{
                             <Picker.Item label='Yes' value='yes'/>
                             <Picker.Item label='No' value='no'/>
                         </Picker>
-
-                        <Picker
+                    
+                            <Picker
                         selectedValue={this.state.PickerValue2}
                         onValueChange={(itemValue,itemIndex) => this.setState({PickerValue2: itemValue})}
                         >
@@ -97,6 +98,8 @@ class FindRouteScreen extends React.Component{
                             <Picker.Item label='19' value='Nineteen'/>
                             <Picker.Item label='20' value='Twenty'/>
                         </Picker>
+                        
+                        
 
                         <Picker
                         selectedValue={this.state.PickerValue3}
@@ -164,7 +167,14 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'steelblue',
         flex: 1
-    }
+    },
+    menu:{
+        flexDirection:'row',
+        justifyContent:'flex-start',
+        alignItems:'flex-start',
+        color: 'white',
+        fontSize: 26,
+       },
 });
 
 export default FindRouteScreen;

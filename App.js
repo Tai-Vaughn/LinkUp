@@ -8,7 +8,7 @@ import Profile from './components/Profile/Profile';
 import LogOut from './components/LogOut/Logout';
 
 import * as React from 'react';
-import {View, Button , Text} from 'react-native'
+import {View, Button , Text, Image} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 
 
@@ -20,12 +20,19 @@ import * as Dataservice from './components/Service/DataService';
 import Alerter from './components/Alerts/Alerter';
 import FindRouteScreen from './components/FindRoute/FindRouteScreen';
 import Group from './components/Group/Group';
+import ViewGroup from './components/Group/ViewGroup';
 
 const getFonts = () => Font.loadAsync({
   'righteous': require('./components/fonts/Righteous-Regular.ttf')
 });
 const AuthStack = createStackNavigator();
 const ProfileDrawer = createDrawerNavigator();
+
+const CustomDrawerComponent = ()=>{
+  <View style={{flex:1, height:150,backgroundColor:"white", alignItems:"center", justifyContent:"center"}}>
+    <Image source={require('./static/profileicon.png')} style={{height:120, width:120, borderRadius:60}}/>
+  </View>
+}
 
 export default class App extends React.Component {
   // const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -55,10 +62,10 @@ export default class App extends React.Component {
         <ProfileDrawer.Navigator initialRouteName = "Profile">
           <ProfileDrawer.Screen name='Profile' component={Profile} options= {{title: "Profile",}}/>
           <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{title: "Alerts",}}/>
-          <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{title: "Routes",}}/>
+          <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{title: "Journey",}}/>
           <ProfileDrawer.Screen name='Group' component={Group} options= {{title: "Group",}}/>
           <ProfileDrawer.Screen name='LogOut' component={LogOut} options= {{title: "LogOut",}}/>
-
+          
         </ProfileDrawer.Navigator> :
       <AuthStack.Navigator screenOptions= {{
         headerShown: false, }}>
@@ -74,5 +81,9 @@ export default class App extends React.Component {
   };
 
   /* watchman watch-del-all && react-native start --reset-cache
-     
+     {navigationOptions:({navigation})=>{
+            return(
+              headerTitle:()=> <Header navigation={navigation} title='' />
+            )
+          }}
       */

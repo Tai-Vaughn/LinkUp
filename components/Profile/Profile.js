@@ -24,8 +24,17 @@ class StartMenue extends React.Component{
 //put return statement here and call users variable
         }*/
         return (
+           
             <View style={styles.container}>
+               <View >
+               <Icon name='menu' 
+                underlayColor="transparent"
+                size={28}
+                iconStyle={styles.menu}
+                onPress={()=> this.props.navigation.toggleDrawer()} />
+                </View> 
                 
+               
                 <View>
                     <Text style={styles.user}>John Doe</Text>
                     <View style={globalStyles.logoContainer}>
@@ -75,6 +84,12 @@ const styles = StyleSheet.create({
        justifyContent: 'center',
        alignItems: 'center',
        flex: 1
+   },
+   menu:{
+    flexDirection:'row',
+    color: 'white',
+    position:'absolute',
+    left:16,
    },
  
    text:{

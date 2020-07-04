@@ -1,56 +1,38 @@
 import React  from 'react';
 import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity} from "react-native";
-import {globalStyles} from '../Styles'; 
+import {globalStyles} from '../Styles';
+import {Icon } from 'react-native-elements' 
 import * as DataService from '../Service/DataService'
 import { date } from 'yup';
 
 const group = [
     {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      name: 'First Item',
-      start:'library',
-      destination:'union',
-      time:'4:30',
-    },
-    {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      name: 'Second Item',
-      start:'union',
-      destination:'rex',
-      time:'9:00',
-    },
-    {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      name: 'Third Item',
-      start:'scitech',
-      destination:'law',
-      time:'2:00',
-    },
-  ];
+        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+        GroupName: 'First Item',
+        StartLocation:'library',
+        EndLocation:'union',
+        StartTime:'4:30',
+        GroupMembers:['jdoe','kary'],
+      },
+      {
+        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+        GroupName: 'Second Item',
+        StartLocation:'union',
+        EndLocation:'rex',
+        StartTime:'9:00',
+        GroupMembers:['jdoe','kary','jdoe','kary'],
+      },
+      {
+        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        GroupName: 'Third Item',
+        StartLocation:'scitech',
+        EndLocation:'law',
+        StartTime:'2:00',
+        GroupMembers:['jdoe','kary', 'ray'],
+      },
+    ];
 
-  function ViewGroup(props){
-            return (
-                
-                <View style={styles.container}>     
-                    <View >
-                        <Text style={styles.listItems}>{props.GroupName}</Text>
-                        <Text style={styles.listItems}>  {props.StartLocation} to {props.EndLocation}</Text>
-                        <Text style={styles.listItems}> {props.StartTime}</Text>
-                        
-                    </View>
-                    <ScrollView>
-                        <Text>{props.GroupMembers}</Text>
-                    </ScrollView>
-                    <View style={globalStyles.button}>
-                        <Button 
-                        title='Join'/>
-                    </View>
-                </View>
-                
-            ); 
-        
-        
-    }
+  
 class Group extends React.Component {
     _isMounted = false;
     constructor(props){
@@ -71,31 +53,47 @@ class Group extends React.Component {
     componentWillUnmount() {
         this._isMounted = false;
       }
+    addMember(props){
+        // take the groupmembers array and add the current username and push update to database
+          GroupMembers.push(username)
+      }
 
     
     render() {
         
         
-            //if groups is populated display a list of persons/groups for(i;i<j;i++)
-            //list group names
-            //data={this.state.groups}
+            //if groups is populated display a list of group names
+            //data={this.state.groups};
         return (
             <View style={styles.container}>
+                <View style={styles.menu}>
+                <Icon name='menu' 
+                underlayColor="transparent"
+                size={28}
+                iconStyle={styles.menu}
+                onPress={()=> this.props.navigation.toggleDrawer()} />
+                </View>
+                
                <Text style={styles.text}>Available Groups:</Text>
-               
-               {groups.length===0 ?
+
+               {group.length===0 ?
                    <View>
                     <Text style={styles.nullgroup}>No Groups Available.</Text>
                    </View> :
                    <FlatList
                         keyExtractor={item=> item._id}
-                        data={groups}
+                        data={group}
                         renderItem={({item}) => (
-                        <TouchableOpacity
-                        onPress={<ViewGroup party={item} />}>
-                        <Text style={styles.listItems}>{item.GroupName}</Text>
-                   </TouchableOpacity>
+                            <View style={styles.separator}>
+                                <Text style={styles.listItems}>{item.GroupName}</Text>
+                                <Text style={styles.listItems}>{item.StartLocation} to {item.EndLocation}</Text>
+                                <Text style={styles.listItems}>Time: {item.StartTime}</Text>
+                                <Text style={styles.listItems}>Size: {item.GroupMembers.length}</Text>
+                                <Button title='Join' onPress={this.addMember}/>
+                         </View>
+                        
                      )}/>
+                     
                 }
                     
                 
@@ -112,12 +110,25 @@ const styles = StyleSheet.create({
        padding: 50,
        justifyContent: 'center',
        alignItems: 'center',
-        flex: 1,
+       flex: 1
     },
+    separator: {
+        width: "100%",
+        flex: 1, 
+        borderColor: 'black',
+
+       },
+    menu:{
+        flexDirection:'row',
+        color: 'white',
+        position:'absolute',
+        left:16,
+       },
     text:{
         color: 'white',
         fontSize: 20,
         marginBottom: 50,
+        
         fontFamily: 'righteous'
       },
       nullgroup:{
@@ -134,39 +145,9 @@ const styles = StyleSheet.create({
     });
 export default Group;
 
-/*<ScrollView>
+/*<TouchableOpacity
+                        onPress={() =>props.navigate('ViewGroup',{item})}>
+<ScrollView>
                             <Text>{item.members}</Text>
                         </ScrollView>
-
-
-<View style={styles.listItems} >
-                                    <Text>{title}</Text>
-                                
-                            </View>
-                             <View style={globalStyles.button}>
-                            <Button 
-                            title='Search'/>
-                </View>
-return (
-            <View style={styles.container}>
-                <Text style={styles.text}>Groups</Text>
-                <SafeAreaView>
-                <FlatList
-                            keyExtractor={item=> item.id}
-                            data={group}
-                            renderItem={item => (
-                            <View style={styles.listItems} >
-                                <TouchableOpacity onPress={this.viewGroupHandler}>
-                                    <Text style={styles.text}>Available Groups: {item.groupName}</Text>
-                                </TouchableOpacity>
-                                
-                            </View>)}/>
-                </SafeAreaView>
-                    
-                <View style={globalStyles.button}>
-                            <Button 
-                            title='Search' 
-                            />
-                </View>
-            </View>
-        ); */
+*/

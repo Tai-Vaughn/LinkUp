@@ -1,13 +1,13 @@
 import React from 'react';
 import {StyleSheet, View, TextInput, Button, Text} from 'react-native';
-import {globalStyles} from '../Styles'; 
-import {Formik} from 'formik'; 
+import {globalStyles} from '../Styles';
+import {Formik} from 'formik';
 import * as yup from 'yup';
 import { fetchUpdateAsync } from 'expo-updates';
 import * as DataService from '../Service/DataService';
 import {map,tap} from 'rxjs/operators'
 
-/* 
+/*
 MAY NEED FOR IOS
 
 import StatusBar
@@ -36,13 +36,13 @@ const LoginSchema = yup.object({
 class LoginForm extends React.Component{
     render(){
         return (
-        
+
             <View style={globalStyles.container}>
-                
+
                 <Formik
                 initialValues={{Email: '', Password: ''}}
                 validationSchema={LoginSchema}
-                
+
                 onSubmit={(values, actions) => {
                     actions.resetForm();
                     DataService.login(values)
@@ -52,21 +52,21 @@ class LoginForm extends React.Component{
 
                 {(props) => (
                     <View>
-                        
+
                         <TextInput
                         placeholder='Username or E-mail Address'
                         returnKeyType='next'
 
                         style={globalStyles.input}
                         onChangeText={props.handleChange('Email')}
-                        value={props.values.Email}    
+                        value={props.values.Email}
 
                         onBlur={props.handleBlur('Email')}
                         onSubmitEditing={() => this.Password.focus()}
                         />
 
-                        <Text 
-                        style={globalStyles.errorMessage}> 
+                        <Text
+                        style={globalStyles.errorMessage}>
                         {props.touched.Email && props.errors.Email}
                         </Text>
 
@@ -82,8 +82,8 @@ class LoginForm extends React.Component{
                         ref={(input) => this.Password = input}
                         onBlur={props.handleBlur('Password')}
                         />
-                        
-                        <Text style={globalStyles.errorMessage}> 
+
+                        <Text style={globalStyles.errorMessage}>
                         {props.touched.Password && props.errors.Password}
                         </Text>
 
@@ -96,9 +96,9 @@ class LoginForm extends React.Component{
                     </View>
                 )}
                 </Formik>
-               
+
             </View>
-         
+
         )
     }
 }

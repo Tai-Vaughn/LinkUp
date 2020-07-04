@@ -26,11 +26,12 @@ class StartMenue extends React.Component{
         return (
            
             <View style={styles.container}>
-               <View >
+            <View style={styles.menu}>
+            
                <Icon name='menu' 
                 underlayColor="transparent"
-                size={28}
-                iconStyle={styles.menu}
+                
+                iconStyle={styles.placeIcon}
                 onPress={()=> this.props.navigation.toggleDrawer()} />
                 </View> 
                 
@@ -87,52 +88,44 @@ const styles = StyleSheet.create({
     },
     placeIcon: {
         color: 'white',
-        fontSize: 26,
+        fontSize: 28,
       },
     pad:{
         marginBottom:20,
-    },
+    }, 
+    user:{
+        color: '#FFF',
+         fontSize: 30,
+         fontWeight: 'bold',
+         paddingBottom: 8,
+         textAlign: 'center',
+     fontFamily: 'righteous'
+   },
+   username:{
+     color: '#FFF',
+      fontSize: 28,
+      fontWeight: 'bold',
+      paddingBottom: 8,
+      textAlign: 'center',
+  fontFamily: 'righteous'
+ },
+ menu:{
+    flexDirection:'row',
+    position:'absolute',
+    left:16,
+   },
      
  });
 
 export default StartMenue;
 
-/* 
-   menu:{
-    flexDirection:'row',
-    color: 'white',
-    position:'absolute',
-    left:16,
-   },
- 
-   text:{
+/* text:{
      color: 'white',
      fontSize: 30,
      marginBottom: 50,
      alignItems: 'center',
      fontFamily: 'righteous'
    },
-   
-   user:{
-       color: '#FFF',
-        fontSize: 30,
-        fontWeight: 'bold',
-        paddingBottom: 8,
-        textAlign: 'center',
-    fontFamily: 'righteous'
-  },
-  username:{
-    color: '#FFF',
-     fontSize: 28,
-     fontWeight: 'bold',
-     paddingBottom: 8,
-     textAlign: 'center',
- fontFamily: 'righteous'
-},
-
-
-
-
 constructor(props){
         super(props);
         this.state={

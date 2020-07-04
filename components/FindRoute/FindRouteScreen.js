@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View, Button, Picker, Text, StyleSheet} from 'react-native';
 import {globalStyles} from '../Styles';
+import DateTime from './DateTime';
 
 
 // import FixedBottom from './FixedBottom';
@@ -19,6 +20,7 @@ class FindRouteScreen extends React.Component{
             PickerValue2:'',
             PickerValue3:'',
             PickerValue4:'',
+            Time:'',
             Markers: []
         }
     }
@@ -135,6 +137,8 @@ class FindRouteScreen extends React.Component{
                             <Picker.Item label='Mona School of Business and Management' value='MSBM'/>
                             <Picker.Item label='Other Halls' value='etc'/>
                         </Picker>
+                    
+                        {this.Time}= <Button title='Time' onPress={()=>DateTime}/>
                         
                         <View style={globalStyles.button}>
                             <Button 

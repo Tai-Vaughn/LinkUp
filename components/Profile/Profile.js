@@ -29,7 +29,7 @@ class StartMenue extends React.Component{
                <Icon name='menu' 
                 underlayColor="transparent"
                 size={28}
-                style={styles.menu}
+                iconStyle={styles.menu}
                 onPress={()=> this.props.navigation.toggleDrawer()} />
                 </View> 
                 
@@ -83,7 +83,6 @@ const styles = StyleSheet.create({
        padding: 50,
        justifyContent: 'center',
        alignItems: 'center',
-       
        flex: 1
    },
    menu:{

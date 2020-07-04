@@ -1,43 +1,66 @@
 import React  from 'react';
 import { View , Text, Image, StyleSheet, Button, ScrollView} from 'react-native';
 import {globalStyles} from '../Styles'; 
-
+const reports = [
+    {
+      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+      type: 'Aggravated Assault',
+      description:'library destination: union',
+      time:'4:30',
+    },
+    {
+      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+      type: 'Aggravated Assault',
+      description:'union',
+      time:'9:00',
+    },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      type: 'Aggravated Assault',
+      description:'scitech',
+      time:'2:00',
+    },
+    {
+        id: '58694a0f-3da1-471f-bd96-145571e29d32',
+        type: 'Break-In',
+        description:'scitech',
+        time:'2:00',
+      },
+      {
+        id: '58694a0f-3da1-471f-bd96-145571e29e72',
+        type: 'Aggravated Assault',
+        description:'scitech',
+        time:'2:00',
+      },
+  ];
 
 class Alerter extends React.Component{
-    _isMounted = false;
-    constructor(props){
-        super(props);
-        this.state = {
-            reports : []
-        }
-    }
+    
+      SampleFunction=(item)=>{
  
-    componentDidMount(){
-        this._isMounted = true;
-        DataService.getGroups()
-        if(this._isMounted){
-            DataService.groups$.subscribe(data => this.setState({groups: data}))
-        }
-        
-    }
-    componentWillUnmount() {
-        this._isMounted = false;
+        Alert.alert(item);
+     
       }
-
    
     assaultHandler=()=>{
-        for(let i=0; i<4;i++){
-            if(report.type==="Aggravated Assault"){
-                description.push(report.description[i]);
+        let i=0;
+        
+            if(reports.type==="Aggravated Assault" && i<4){
+                description.push(reports.description);
+                i++;
 
             }
 
-        }
+        const textInputComponents = description.map(type => <TextInput placeholder={type} />)
         return(
             <ScrollView>
                 <View>
                     <View><Text>Aggravated Assault:</Text></View>
-                    <View><Text>{description}</Text></View>
+                    <View><>{textInputComponents}</></View>
+                    { description.map((item, key)=>(
+                    <Text key={key} style={styles.TextStyle} 
+                    onPress={ this.SampleFunction.bind(this, item) }> { item } </Text>)
+                    )}
                     
                     
                 </View>
@@ -180,6 +203,10 @@ const styles = StyleSheet.create({
        alignItems: 'center',
        flex: 1
    },
+   TextStyle:{
+    fontSize : 25,
+     textAlign: 'center'
+  },
  
    text:{
      color: 'black',

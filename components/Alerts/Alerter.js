@@ -4,6 +4,26 @@ import {globalStyles} from '../Styles';
 
 
 class Alerter extends React.Component{
+    _isMounted = false;
+    constructor(props){
+        super(props);
+        this.state = {
+            reports : []
+        }
+    }
+ 
+    componentDidMount(){
+        this._isMounted = true;
+        DataService.getGroups()
+        if(this._isMounted){
+            DataService.groups$.subscribe(data => this.setState({groups: data}))
+        }
+        
+    }
+    componentWillUnmount() {
+        this._isMounted = false;
+      }
+
    
     assaultHandler=()=>{
         for(let i=0; i<4;i++){

@@ -53,6 +53,10 @@ class Group extends React.Component {
     componentWillUnmount() {
         this._isMounted = false;
       }
+    addMember(props){
+        // take the groupmembers array and add the current username and push update to database
+          GroupMembers.push(username)
+      }
 
     
     render() {
@@ -68,13 +72,11 @@ class Group extends React.Component {
                 size={28}
                 iconStyle={styles.menu}
                 onPress={()=> this.props.navigation.toggleDrawer()} />
-                
+                </View>
                 
                <Text style={styles.text}>Available Groups:</Text>
 
-                </View>
-               
-               
+               <View>
                {this.state.groups.length===0 ?
                    <View>
                     <Text style={styles.nullgroup}>No Groups Available.</Text>
@@ -88,12 +90,16 @@ class Group extends React.Component {
                                 <Text style={styles.listItems}>{item.StartLocation} to {item.EndLocation}</Text>
                                 <Text style={styles.listItems}>Time: {item.StartTime}</Text>
                                 <Text style={styles.listItems}>Size: {item.GroupMembers.length}</Text>
-                                <Button title='Join'/>
+                                <Button title='Join' onPress={this.addMember}/>
                          </View>
                         
                      )}/>
                      
                 }
+
+               </View>
+               
+               
                     
                 
             </View> 

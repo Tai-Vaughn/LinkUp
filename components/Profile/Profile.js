@@ -83,11 +83,11 @@ const styles = StyleSheet.create({
        padding: 50,
        justifyContent: 'center',
        alignItems: 'center',
-       flexDirection:'row',
+       
        flex: 1
    },
    menu:{
-    
+    flexDirection:'row',
     color: 'white',
     position:'absolute',
     left:16,

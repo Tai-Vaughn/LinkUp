@@ -63,13 +63,13 @@ class Group extends React.Component {
             //data={this.state.groups};
         return (
             <View style={styles.container}>
-                <View >
+            
                <Icon name='menu' 
                 underlayColor="transparent"
                 size={28}
                 iconStyle={styles.menu}
                 onPress={()=> this.props.navigation.toggleDrawer()} />
-                </View> 
+                
                 
                <Text style={styles.text}>Available Groups:</Text>
                
@@ -110,12 +110,12 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     separator: {
+        height: 1,
         width: "100%",
-        flex: 1, 
         borderColor: 'black',
 
        },
-    menu:{
+       menu:{
         flexDirection:'row',
         color: 'white',
         position:'absolute',

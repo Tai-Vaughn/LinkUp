@@ -98,16 +98,14 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'steelblue',
        padding: 50,
-       justifyContent: 'center',
-       alignItems: 'center',
+       
         flex: 1,
     },
     separator: {
-        
-        flex: 3, 
+        width: "100%",
+        flex: 1, 
         borderWidth: 1, 
-        
-        borderBottomColor: 'grey',
+        borderBottomColor: 'black',
 
        },
     menu:{
@@ -121,6 +119,8 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 20,
         marginBottom: 50,
+        justifyContent: 'center',
+       alignItems: 'center',
         fontFamily: 'righteous'
       },
       nullgroup:{

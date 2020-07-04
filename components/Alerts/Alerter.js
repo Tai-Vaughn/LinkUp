@@ -36,11 +36,6 @@ const reports = [
 
 class Alerter extends React.Component{
     
-      SampleFunction=(item)=>{
- 
-        Alert.alert(item);
-     
-      }
    
     assaultHandler=()=>{
         let i=0;

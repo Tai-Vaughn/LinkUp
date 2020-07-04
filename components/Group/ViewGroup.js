@@ -9,10 +9,10 @@ export default function ViewGroup({navigation}){
         
         <View style={styles.container}>     
             <View >
-            <Text style={styles.listItems}>{navigation.getParam('GroupName')}</Text> 
+            <Text style={styles.listItems}>{this.props.route.params.GroupName}</Text> 
                 
-                <Text style={styles.listItems}>  {navigation.getParam('StartLocation')} to {navigation.getParam('EndLocation')}</Text>
-                <Text style={styles.listItems}> {navigation.getParam('StartTime')}</Text>
+                <Text style={styles.listItems}>  {this.props.route.params.StartLocation} to {this.props.route.params.EndLocation}</Text>
+                <Text style={styles.listItems}> {this.props.route.params.StartTime}</Text>
                 
             </View>
             <ScrollView>

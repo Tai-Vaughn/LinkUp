@@ -52,7 +52,14 @@ class FindRouteScreen extends React.Component{
           
       return (
           <View style={styles.container}> 
+            <View style={styles.menu}>
             
+            <Icon name='menu' 
+             underlayColor="transparent"
+             
+             iconStyle={styles.placeIcon}
+             onPress={()=> this.props.navigation.toggleDrawer()} />
+             </View> 
             <ScrollView>
             <Text style={globalStyles.text}>Plan Journey</Text>
             
@@ -171,13 +178,16 @@ const styles = StyleSheet.create({
         backgroundColor: 'steelblue',
         flex: 1
     },
-    menu:{
-        flexDirection:'row',
-        justifyContent:'flex-start',
-        alignItems:'flex-start',
+           placeIcon: {
         color: 'white',
-        fontSize: 26,
+        fontSize: 28,
+      },
+      menu:{
+        flexDirection:'row',
+        position:'absolute',
+        left:16,
        },
+     
 });
 
 export default FindRouteScreen;

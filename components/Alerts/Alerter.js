@@ -154,36 +154,48 @@ class Alerter extends React.Component{
                     <Text>{reports}</Text>
                 </View>*/
             return (
-                <ScrollView>
-                <View style={styles.container}>
-                    <View style={globalStyles.logoContainer}>
+                <View>
+                    <View style={styles.menu}>
                     
-                    <Text style={styles.text}>RECENT CRIMINAL ACTIVITY</Text>
-                </View> 
-                
-                <View style={globalStyles.button}>
-                    <Button title='Aggravated Assault' onPress={this.assaultHandler}/>
-                </View> 
-                <View style={globalStyles.button}>
-                    <Button title='Break-In'onPress={this.breakHandler}/>
-                </View> 
-                <View style={globalStyles.button}>
-                    <Button title='Kidnapping/Attempted Kidnapping'onPress={this.kidnapHandler}/>
-                </View> 
-                <View style={globalStyles.button}>
-                    <Button title='Robbery/Attempted Robbery'onPress={this.robHandler}/>
-                </View> 
-                <View style={globalStyles.button}>
-                    <Button title='Sexual Assault/Rape'onPress={this.saHandler}/>
-                </View> 
-                <View style={globalStyles.button}>
-                    <Button title='Shooting'onPress={this.shootHandler}/>
-                </View> 
-                <View style={globalStyles.button}>
-                    <Button title='Theft'onPress={this.theftHandler}/>
-                </View> 
+                        <Icon name='menu' 
+                        underlayColor="transparent"
+                        
+                        iconStyle={styles.placeIcon}
+                        onPress={()=> this.props.navigation.toggleDrawer()} />
+                    </View>
+                    <View style={globalStyles.logoContainer}>
+                            <Text style={styles.text}>RECENT CRIMINAL ACTIVITY</Text>
+                    </View> 
+                    <ScrollView>
+                            
+                        <View style={styles.container}>
+                            
+                        
+                        <View style={globalStyles.button}>
+                            <Button title='Aggravated Assault' onPress={this.assaultHandler}/>
+                        </View> 
+                        <View style={globalStyles.button}>
+                            <Button title='Break-In'onPress={this.breakHandler}/>
+                        </View> 
+                        <View style={globalStyles.button}>
+                            <Button title='Kidnapping/Attempted Kidnapping'onPress={this.kidnapHandler}/>
+                        </View> 
+                        <View style={globalStyles.button}>
+                            <Button title='Robbery/Attempted Robbery'onPress={this.robHandler}/>
+                        </View> 
+                        <View style={globalStyles.button}>
+                            <Button title='Sexual Assault/Rape'onPress={this.saHandler}/>
+                        </View> 
+                        <View style={globalStyles.button}>
+                            <Button title='Shooting'onPress={this.shootHandler}/>
+                        </View> 
+                        <View style={globalStyles.button}>
+                            <Button title='Theft'onPress={this.theftHandler}/>
+                        </View> 
+                        </View>
+                        </ScrollView> 
                 </View>
-                </ScrollView>
+                
             ); 
         //}
         
@@ -201,6 +213,15 @@ const styles = StyleSheet.create({
     fontSize : 25,
      textAlign: 'center'
   },
+  placeIcon: {
+    color: 'white',
+    fontSize: 28,
+  },
+  menu:{
+    flexDirection:'row',
+    position:'absolute',
+    left:16,
+   },
  
    text:{
      color: 'black',

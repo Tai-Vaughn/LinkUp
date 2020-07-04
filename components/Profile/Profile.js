@@ -126,6 +126,13 @@ export default StartMenue;
      alignItems: 'center',
      fontFamily: 'righteous'
    },
+   menu:{
+        flexDirection:'row',
+        justifyContent:'flex-start',
+        alignItems:'flex-start',
+        color: 'white',
+        fontSize: 26,
+       },
 constructor(props){
         super(props);
         this.state={

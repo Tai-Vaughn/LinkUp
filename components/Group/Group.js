@@ -53,6 +53,18 @@ class Group extends React.Component {
     componentWillUnmount() {
         this._isMounted = false;
       }
+      FlatListItemSeparator = () => {
+        return (
+          <View
+            style={{
+              height: 1,
+              paddingTop:20,
+              width: "100%",
+              backgroundColor: "#000",
+            }}
+          />
+        );
+      }
     addMember(props){
         // take the groupmembers array and add the current username and push update to database
           GroupMembers.push(username)
@@ -82,6 +94,7 @@ class Group extends React.Component {
                    </View> :
                    <FlatList
                         keyExtractor={item=> item._id}
+                        ItemSeparatorComponent = { this.FlatListItemSeparator }
                         data={group}
                         renderItem={({item}) => (
                             <View style={styles.separator}>

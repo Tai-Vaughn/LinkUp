@@ -80,7 +80,7 @@ export default class App extends React.Component {
     </NavigationContainer>
   );
   }
-  };
+  }
 
   /* watchman watch-del-all && react-native start --reset-cache
      {navigationOptions:({navigation})=>{

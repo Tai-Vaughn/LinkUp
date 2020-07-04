@@ -1,6 +1,7 @@
 import React  from 'react';
 import { FlatList, StyleSheet, Text, Button, View, ScrollView, TouchableOpacity} from "react-native";
-import {globalStyles} from '../Styles'; 
+import {globalStyles} from '../Styles';
+import {Icon } from 'react-native-elements' 
 import * as DataService from '../Service/DataService'
 import { date } from 'yup';
 

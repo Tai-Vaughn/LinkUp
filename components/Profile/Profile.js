@@ -79,12 +79,25 @@ class StartMenue extends React.Component{
 
 const styles = StyleSheet.create({
     container: {
-       backgroundColor: 'steelblue',
-       padding: 50,
-       justifyContent: 'center',
-       alignItems: 'center',
-       flex: 1
-   },
+        backgroundColor: 'steelblue',
+        padding: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1
+    },
+    placeIcon: {
+        color: 'white',
+        fontSize: 26,
+      },
+    pad:{
+        marginBottom:20,
+    },
+     
+ });
+
+export default StartMenue;
+
+/* 
    menu:{
     flexDirection:'row',
     color: 'white',
@@ -116,19 +129,11 @@ const styles = StyleSheet.create({
      textAlign: 'center',
  fontFamily: 'righteous'
 },
-placeIcon: {
-    color: 'white',
-    fontSize: 26,
-  },
-pad:{
-    marginBottom:20,
-}
- 
- });
 
-export default StartMenue;
 
-/*  constructor(props){
+
+
+constructor(props){
         super(props);
         this.state={
            isLoading:true,

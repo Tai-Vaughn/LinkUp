@@ -81,7 +81,6 @@ class Group extends React.Component {
                 <View style={styles.menu}>
                 <Icon name='menu' 
                 underlayColor="transparent"
-                size={28}
                 iconStyle={styles.menu}
                 onPress={()=> this.props.navigation.toggleDrawer()} />
                 </View>

@@ -1,9 +1,9 @@
 import React, { useState, Component } from "react";
 import { Button, View, Text,AppRegistry,StyleSheet } from "react-native";
-import DateTimePicker from "@react-native-community/datetimepicker";
+import DateTimePicker from "react-native-modal-datetime-picker"; //"@react-native-community/datetimepicker"
 import { TouchableOpacity } from "react-native-gesture-handler";
 import moment from 'moment'
-export default class Time extends Component{
+export default class Timer extends Component{
     constructor(){
         super()
         this.state={

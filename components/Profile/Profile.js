@@ -8,6 +8,7 @@ import { date } from 'yup';
 import { shareReplay } from 'rxjs/operators';
 import MyDatePicker from '../FindRoute/DatePicker';
 import Timer from '../FindRoute/Timer'
+import Timee from '../FindRoute/Timee';
 var jwtDecode = require('jwt-decode');
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
 
@@ -49,14 +50,14 @@ export default class StartMenue extends React.Component{
                 </View>
                 
                 <ScrollView>
-                    <Text style={styles.pad}> <Timer/></Text>
+                    
                     <View style={globalStyles.button}>
                         <Icon
                             name="map"
                             underlayColor="transparent"
                             iconStyle={styles.placeIcon}
                         />
-                        <Button title='Map'/>
+                        <Button title='Map' onPress={new Date()} />
                     </View>
                     <View style={globalStyles.button}>
                         <Icon

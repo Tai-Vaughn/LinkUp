@@ -38,20 +38,7 @@ const reports = [
   ];
 
 class Alerter extends React.Component{
-    constructor(props) {
-        super(props);
     
-        const descriptions=[];
-    
-        /*for (let i = 0; i < 4; i++) {
-            descriptions.push({
-                type: reports.type,
-                description: reports.description
-            });
-        }
-    
-        this.state = { descriptions };*/
-    }
     SampleFunction=(item)=>{
  
         Alert.alert(item);
@@ -82,9 +69,7 @@ class Alerter extends React.Component{
                 <View>
                     <Text>Aggravated Assault:</Text>
                     <View>
-                    {descriptions.map((descriptions, index) => (
-                        {description}    ))}
-                        
+                    
                     </View>
 
                     
@@ -112,7 +97,7 @@ class Alerter extends React.Component{
             <ScrollView>
                 <View>
                     <Text>Kidnapping/Attempted Kidnapping'</Text>
-                    <Text>{description}</Text>
+                    
                 </View>
             </ScrollView>
             
@@ -124,8 +109,7 @@ class Alerter extends React.Component{
             <ScrollView>
                 <View>
                     <Text>Robbery/Attempted Robbery</Text>
-                    <Text>{description}</Text>
-                </View>
+                                    </View>
             </ScrollView>
             
         )
@@ -136,7 +120,7 @@ class Alerter extends React.Component{
             <ScrollView>
                 <View>
                     <Text>Sexual Assault/Rape</Text>
-                    <Text>{description}</Text>
+                    
                 </View>
             </ScrollView>
             
@@ -148,7 +132,7 @@ class Alerter extends React.Component{
             <ScrollView>
                 <View>
                     <Text>Shooting</Text>
-                    <Text>{description}</Text>
+                    
                 </View>
             </ScrollView>
             
@@ -160,7 +144,7 @@ class Alerter extends React.Component{
             <ScrollView>
                 <View>
                     <Text>Theft</Text>
-                    <Text>{description}</Text>
+                    
                 </View>
             </ScrollView>
             
@@ -201,7 +185,7 @@ class Alerter extends React.Component{
                             
                         
                         <View style={globalStyles.button}>
-                            <Button title='Aggravated Assault' onPress={this.assaultHandler(reports)}/>
+                            <Button title='Aggravated Assault' onPress={this.assaultHandler}/>
                         </View> 
                         <View style={globalStyles.button}>
                             <Button title='Break-In'onPress={this.breakHandler}/>

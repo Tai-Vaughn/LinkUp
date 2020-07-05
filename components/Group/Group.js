@@ -5,33 +5,6 @@ import {Icon } from 'react-native-elements'
 import * as DataService from '../Service/DataService'
 import { date } from 'yup';
 
-const group = [
-    {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        GroupName: 'First Item',
-        StartLocation:'library',
-        EndLocation:'union',
-        StartTime:'4:30',
-        GroupMembers:['jdoe','kary'],
-      },
-      {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        GroupName: 'Second Item',
-        StartLocation:'union',
-        EndLocation:'rex',
-        StartTime:'9:00',
-        GroupMembers:['jdoe','kary','jdoe','kary'],
-      },
-      {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        GroupName: 'Third Item',
-        StartLocation:'scitech',
-        EndLocation:'law',
-        StartTime:'2:00',
-        GroupMembers:['jdoe','kary', 'ray'],
-      },
-    ];
-
   
 class Group extends React.Component {
     _isMounted = false;
@@ -161,15 +134,32 @@ const styles = StyleSheet.create({
 export default Group;
 
 /*
- 
-    separator: {
-        width: "100%",
-        flex: 1, 
-        borderColor: 'black',
-        paddingTop:5,
-
-       },
-    
+    const group = [
+    {
+        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+        GroupName: 'First Item',
+        StartLocation:'library',
+        EndLocation:'union',
+        StartTime:'4:30',
+        GroupMembers:['jdoe','kary'],
+      },
+      {
+        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+        GroupName: 'Second Item',
+        StartLocation:'union',
+        EndLocation:'rex',
+        StartTime:'9:00',
+        GroupMembers:['jdoe','kary','jdoe','kary'],
+      },
+      {
+        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        GroupName: 'Third Item',
+        StartLocation:'scitech',
+        EndLocation:'law',
+        StartTime:'2:00',
+        GroupMembers:['jdoe','kary', 'ray'],
+      },
+    ];
       
 
 <TouchableOpacity

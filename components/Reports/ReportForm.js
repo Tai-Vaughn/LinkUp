@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { StyleSheet, View, TextInput, Button, Picker, TouchableOpacity, Text, ScrollView, Platform } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Timee from '../FindRoute/Timee';
+import MyDatePicker from '../FindRoute/DatePicker';
 
 /* 
 Time/Date source code was copied from a github repo linked on React Native's website: 
@@ -58,7 +59,8 @@ export default class ReportForm extends Component {
                         returnKeyType='next'
                         style={styles.details}
                     />
-                    <Text style={styles.input} ><Timee /></Text>
+                    <Text ><MyDatePicker /></Text>
+                    <Text style={styles.pad}></Text>
                     <View style={styles.buttonContainer}>
                         <Button
                             title='submit'
@@ -94,7 +96,9 @@ const styles = StyleSheet.create({
         width: 300,
         flexWrap: 'wrap'
     },
-
+    pad:{
+        marginBottom:10,
+    },
     buttonContainer: {
         backgroundColor: 'dodgerblue',
         borderRadius: 10,

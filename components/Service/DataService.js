@@ -92,5 +92,14 @@ export const getGroups = () => {
         ).subscribe()
 }
 export const joinGroup = (groupID , userID) => {
-
+    ajax({
+        url: `${env.BaseUrl}groups/join/${groupID}/${userID}`,
+        method: 'PUT',
+        headers: { 
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }).pipe(
+        tap( getGroups())
+    ).subscribe()
 }

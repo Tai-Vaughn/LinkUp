@@ -211,6 +211,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         position: 'relative',
         left: 18,
+        top:20,
     },
     pad:{
         marginBottom:20,

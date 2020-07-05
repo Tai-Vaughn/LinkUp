@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontFamily: 'righteous',
         alignSelf: 'center',
-        paddingTop: 10
+        paddingTop: 5
       },
       nullgroup:{
         color: 'black',

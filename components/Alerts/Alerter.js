@@ -245,10 +245,10 @@ const styles = StyleSheet.create({
     },
     header:{
         color: 'white',
-        fontSize: 27,
+        fontSize: 23,
         fontFamily: 'righteous',
         alignSelf: 'center',
-        paddingTop: 10
+        paddingTop: 5
       },
 
     text: {

@@ -95,7 +95,6 @@ pad:{
     marginBottom:20,
 },menu:{
     flexDirection:'row',
-    color: 'white',
     position:'absolute',
     left:16,
    },

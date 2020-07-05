@@ -58,7 +58,7 @@ class Group extends React.Component {
           <View
             style={{
               height: 1,
-              paddingTop:20,
+            
               width: "100%",
               backgroundColor: "#000",
             }}
@@ -79,11 +79,12 @@ class Group extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.menu}>
-                <Icon name='menu' 
+               <Icon name='menu' 
                 underlayColor="transparent"
-                iconStyle={styles.menu}
+                size={28}
+                iconStyle={styles.placeIcon}
                 onPress={()=> this.props.navigation.toggleDrawer()} />
-                </View>
+                </View> 
                 
                <Text style={styles.text}>Available Groups:</Text>
 
@@ -102,6 +103,7 @@ class Group extends React.Component {
                                 <Text style={styles.listItems}>Time: {item.StartTime}</Text>
                                 <Text style={styles.listItems}>Size: {item.GroupMembers.length}</Text>
                                 <Button title='Join' onPress={this.addMember}/>
+                                <Text style={styles.pad}></Text>
                          </View>
                         
                      )}/>
@@ -125,16 +127,11 @@ const styles = StyleSheet.create({
        alignItems: 'center',
        flex: 1
     },
-    separator: {
-        width: "100%",
-        flex: 1, 
-        borderColor: 'black',
-        paddingTop:5,
-
-       },
+    pad:{
+        marginBottom:20,
+    },
     menu:{
         flexDirection:'row',
-        color: 'white',
         position:'absolute',
         left:16,
        },
@@ -156,10 +153,26 @@ const styles = StyleSheet.create({
             fontSize: 20,
             height: 44,
         },
+        placeIcon: {
+            color: 'white',
+            fontSize: 26,
+          },
     });
 export default Group;
 
-/*<TouchableOpacity
+/*
+ 
+    separator: {
+        width: "100%",
+        flex: 1, 
+        borderColor: 'black',
+        paddingTop:5,
+
+       },
+    
+      
+
+<TouchableOpacity
                         onPress={() =>props.navigate('ViewGroup',{item})}>
 <ScrollView>
                             <Text>{item.members}</Text>

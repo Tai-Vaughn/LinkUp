@@ -133,6 +133,7 @@ const styles = StyleSheet.create({
     });
 export default Group;
 
+
 /*
 flexDirection: 'column',
        justifyContent: 'center',

@@ -20,7 +20,7 @@ export default class MyDatePicker extends Component {
         <DatePicker
           style={{width: 200}}
           date={this.state.date} //initial date from state
-          mode="date" //The enum of date, datetime and time
+          mode="datetime" //The enum of date, datetime and time
           placeholder="select date"
           format="DD-MM-YYYY"
           confirmBtnText="Confirm"

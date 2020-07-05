@@ -24,28 +24,15 @@ export default class StartMenue extends React.Component{
 
     
     render() {
-        /*if(this.state.isLoading){
-            return(
-                <View>
-                    <Text>
-                        Profile Page
-                    </Text>
-                </View>
-            )
-        }else{
-            let users=this.state.dataSource.map((val,key)=>{
-                return <View key={key}><Text>{val.username}</Text></View>
-            });
-//put return statement here and call users variable
-        }*/
+        
         return (
            
             <View style={styles.container}>
-               <View >
+               <View style={styles.menu}>
                <Icon name='menu' 
                 underlayColor="transparent"
                 size={28}
-                iconStyle={styles.menu}
+                iconStyle={styles.placeIcon}
                 onPress={()=> this.props.navigation.toggleDrawer()} />
                 </View> 
                 
@@ -100,19 +87,17 @@ const styles = StyleSheet.create({
        alignItems: 'center',
        flex: 1
    },
-   menu:{
+   placeIcon: {
+    color: 'white',
+    fontSize: 26,
+  },
+pad:{
+    marginBottom:20,
+},menu:{
     flexDirection:'row',
     color: 'white',
     position:'absolute',
     left:16,
-   },
- 
-   text:{
-     color: 'white',
-     fontSize: 30,
-     marginBottom: 50,
-     alignItems: 'center',
-     fontFamily: 'righteous'
    },
    
    user:{
@@ -130,35 +115,19 @@ const styles = StyleSheet.create({
      paddingBottom: 8,
      textAlign: 'center',
  fontFamily: 'righteous'
-},
-placeIcon: {
-    color: 'white',
-    fontSize: 26,
-  },
-pad:{
-    marginBottom:20,
-}
+}, 
+   
  
  });
 
-/*  constructor(props){
-        super(props);
-        this.state={
-           isLoading:true,
-            dataSource:null,
-        }
-    }
-    componentDidMount(){
-        return fetch('https://linkupcapstone.herokuapp.com/users/signup')
-        .then((response)=>response.json())
-        .then((responseJson)=>{
-            this.setState({
-                isLoading:false,
-                dataSource:responseJson.signup,
+/*
 
-            })
-        })
-        .catch((error)=>{
-            console.log(error)
-        });
-    }*/
+   text:{
+     color: 'white',
+     fontSize: 30,
+     marginBottom: 50,
+     alignItems: 'center',
+     fontFamily: 'righteous'
+   },
+ 
+*/

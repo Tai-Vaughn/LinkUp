@@ -1,6 +1,8 @@
 import React  from 'react';
 import { View , Text, Image, StyleSheet, Button, ScrollView} from 'react-native';
 import {globalStyles} from '../Styles'; 
+import {Icon } from 'react-native-elements';
+
 const reports = [
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -35,6 +37,12 @@ const reports = [
   ];
 
 class Alerter extends React.Component{
+    SampleFunction=(item)=>{
+ 
+        Alert.alert(item);
+     
+      }
+
    
     assaultHandler=()=>{
         let i=0;
@@ -45,12 +53,12 @@ class Alerter extends React.Component{
 
             }
 
-        const textInputComponents = description.map(type => <TextInput placeholder={type} />)
+//        const textInputComponents = description.map(type => <TextInput placeholder={type} />); <View><>{textInputComponents}</></View>
         return(
             <ScrollView>
                 <View>
-                    <View><Text>Aggravated Assault:</Text></View>
-                    <View><>{textInputComponents}</></View>
+                    <Text>Aggravated Assault:</Text>
+
                     { description.map((item, key)=>(
                     <Text key={key} style={styles.TextStyle} 
                     onPress={ this.SampleFunction.bind(this, item) }> { item } </Text>)
@@ -154,21 +162,18 @@ class Alerter extends React.Component{
                     <Text>{reports}</Text>
                 </View>*/
             return (
-                <View>
+                <View style={styles.container}>
                     <View style={styles.menu}>
-                    
-                        <Icon name='menu' 
+                    <Icon name='menu' 
                         underlayColor="transparent"
-                        
+                        size={28}
                         iconStyle={styles.placeIcon}
                         onPress={()=> this.props.navigation.toggleDrawer()} />
-                    </View>
-                    <View style={globalStyles.logoContainer}>
-                            <Text style={styles.text}>RECENT CRIMINAL ACTIVITY</Text>
-                    </View> 
+                        </View> 
+                        <Text style={styles.text}>RECENT CRIMINAL ACTIVITY</Text>
                     <ScrollView>
-                            
-                        <View style={styles.container}>
+                    
+                        <View >
                             
                         
                         <View style={globalStyles.button}>
@@ -233,25 +238,5 @@ const styles = StyleSheet.create({
  });
 export default Alerter;
 
-/* constructor(props){
-        super(props);
-        this.state={
-           isLoading:true,
-            dataSource:null,
-        }
-    }
-    //Get from database
-    componentDidMount(){
-        return fetch('https://linkupcapstone.herokuapp.com/users/reports')
-        .then((response)=>response.json())
-        .then((responseJson)=>{
-            this.setState({
-                isLoading:false,
-                dataSource:responseJson.reports,
-
-            })
-        })
-        .catch((error)=>{
-            console.log(error)
-        });
-    }*/
+/* 
+    */

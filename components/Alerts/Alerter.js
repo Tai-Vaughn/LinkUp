@@ -169,7 +169,8 @@ class Alerter extends React.Component{
                         iconStyle={styles.placeIcon}
                         onPress={()=> this.props.navigation.toggleDrawer()} />
                         </View> 
-                        <Text style={styles.text}>RECENT CRIMINAL ACTIVITY</Text>
+                        <Text style={globalStyles.text}>RECENT CRIMINAL ACTIVITY</Text>
+                        <Text style={styles.pad}></Text>
                     <ScrollView>
                     
                         <View >
@@ -208,11 +209,12 @@ class Alerter extends React.Component{
 const styles = StyleSheet.create({
     container: {
        backgroundColor: 'steelblue',
-       padding: 50,
-       justifyContent: 'center',
-       alignItems: 'center',
+       padding: 40,
        flex: 1
    },
+   pad:{
+    marginBottom:20,
+},
    TextStyle:{
     fontSize : 25,
      textAlign: 'center'
@@ -239,6 +241,8 @@ export default Alerter;
 
 /* 
 
+       justifyContent: 'center',
+       alignItems: 'center',
                     { descriptions.map((item, key)=>(
                     <Text key={reports.id} style={styles.TextStyle} 
                     onPress={ this.SampleFunction.bind(this, item) }> { item } </Text>)

@@ -174,6 +174,7 @@ class FindRouteScreen extends React.Component{
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'steelblue',
+        padding: 10,
         flex: 1
     },
            placeIcon: {

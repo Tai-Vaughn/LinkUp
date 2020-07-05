@@ -83,8 +83,6 @@ const styles = StyleSheet.create({
     container: {
        backgroundColor: 'steelblue',
        padding: 50,
-       justifyContent: 'center',
-       alignItems: 'center',
        flex: 1
    },
    placeIcon: {
@@ -120,6 +118,9 @@ pad:{
  });
 
 /*
+
+       justifyContent: 'center',
+       alignItems: 'center',
 
    text:{
      color: 'white',

@@ -59,7 +59,7 @@ class Group extends React.Component {
                 onPress={()=> this.props.navigation.toggleDrawer()} />
                 </View> 
                 
-               <Text style={styles.text}>Available Groups:</Text>
+               <Text style={globalStyles.text}>Available Groups:</Text>
 
                {this.state.groups.length===0 ?
                    <View>
@@ -75,7 +75,7 @@ class Group extends React.Component {
                                 <Text style={styles.listItems}>{item.StartLocation} to {item.EndLocation}</Text>
                                 <Text style={styles.listItems}>Time: {item.StartTime}</Text>
                                 <Text style={styles.listItems}>Size: {item.GroupMembers.length}</Text>
-                                <Button title='Join' onPress={this.addMember}/>
+                                <View style={styles.butn}><Button title='Join'  onPress={this.addMember}/></View>
                                 <Text style={styles.pad}></Text>
                          </View>
                         
@@ -95,10 +95,11 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'steelblue',
        padding: 50,
-       flexDirection: 'column',
-       justifyContent: 'center',
-       alignItems: 'center',
+       
        flex: 1
+    },
+    butn:{
+      width:200,
     },
     pad:{
         marginBottom:20,
@@ -134,6 +135,9 @@ const styles = StyleSheet.create({
 export default Group;
 
 /*
+flexDirection: 'column',
+       justifyContent: 'center',
+       alignItems: 'center',
     const group = [
     {
         id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',

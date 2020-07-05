@@ -3,7 +3,7 @@ import { View , Text, Image, StyleSheet, Button, ScrollView} from 'react-native'
 import {globalStyles} from '../Styles'; 
 import {Icon } from 'react-native-elements';
 
-const descriptions=[];
+
 const reports = [
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -38,6 +38,20 @@ const reports = [
   ];
 
 class Alerter extends React.Component{
+    constructor(props) {
+        super(props);
+    
+        const descriptions=[];
+    
+        /*for (let i = 0; i < 4; i++) {
+            descriptions.push({
+                type: reports.type,
+                description: reports.description
+            });
+        }
+    
+        this.state = { descriptions };*/
+    }
     SampleFunction=(item)=>{
  
         Alert.alert(item);
@@ -46,21 +60,31 @@ class Alerter extends React.Component{
 
    
     assaultHandler=(reports)=>{
+        
         let i=0;
         
-            if(reports.type==="Aggravated Assault" && i<4){
-                descriptions.push([reports.id,reports.description]);
+            if(reports.type==="Aggravated Assault"){
+                if(i<4){
+                    descriptions.push({
+                        id: reports.id,
+                        description: reports.description
+                    });
+
+                }
+                
                 i++;
 
             }
 
-        const textInputComponents = descriptions.map(type => <TextInput placeholder={type} />); 
+        //const textInputComponents = descriptions.map(type => <TextInput placeholder={type} />); <>{textInputComponents}</>
         return(
             <ScrollView>
                 <View>
                     <Text>Aggravated Assault:</Text>
                     <View>
-                        <>{textInputComponents}</>
+                    {descriptions.map((descriptions, index) => (
+                        {description}    ))}
+                        
                     </View>
 
                     

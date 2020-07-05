@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import {View, Button, Picker, Text, StyleSheet} from 'react-native';
+import {View, AsyncStorage, Button, Picker, Text, StyleSheet} from 'react-native';
 import {globalStyles} from '../Styles';
+
 import {Icon } from 'react-native-elements';
 
 // import FixedBottom from './FixedBottom';
@@ -19,8 +20,24 @@ class FindRouteScreen extends React.Component{
             PickerValue2:'',
             PickerValue3:'',
             PickerValue4:'',
+            Time:'',
             Markers: []
         }
+    }
+
+    async getTime(){
+        try {
+            const { action, hour, minute } = await TimePickerAndroid.open({
+              hour: 14,
+              minute: 0,
+              is24Hour: false // Will display '2 PM'
+            });
+            if (action !== TimePickerAndroid.dismissedAction) {
+              // Selected hour (0-23), minute (0-59)
+            }
+          } catch ({ code, message }) {
+            console.warn('Cannot open time picker', message);
+          }
     }
     // setMarkers = () => {
         
@@ -142,7 +159,8 @@ class FindRouteScreen extends React.Component{
                             <Picker.Item label='Mona School of Business and Management' value='MSBM'/>
                             <Picker.Item label='Other Halls' value='etc'/>
                         </Picker>
-                    
+                        <Button title='Time' onPress={()=> this.getTime} />
+                        
                         
                         <View style={globalStyles.button}>
                             <Button 

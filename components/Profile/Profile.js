@@ -41,12 +41,11 @@ export default class StartMenue extends React.Component{
         return (
            
             <View style={styles.container}>
-            <View style={styles.menu}>
-            
+               <View >
                <Icon name='menu' 
                 underlayColor="transparent"
-                
-                iconStyle={styles.placeIcon}
+                size={28}
+                iconStyle={styles.menu}
                 onPress={()=> this.props.navigation.toggleDrawer()} />
                 </View> 
                 
@@ -95,60 +94,54 @@ export default class StartMenue extends React.Component{
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'steelblue',
-        padding: 50,
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1
-    },
-    placeIcon: {
-        color: 'white',
-        fontSize: 28,
-      },
-    pad:{
-        marginBottom:20,
-    }, 
-    user:{
-        color: '#FFF',
-         fontSize: 30,
-         fontWeight: 'bold',
-         paddingBottom: 8,
-         textAlign: 'center',
-     fontFamily: 'righteous'
+       backgroundColor: 'steelblue',
+       padding: 50,
+       justifyContent: 'center',
+       alignItems: 'center',
+       flex: 1
    },
-   username:{
-     color: '#FFF',
-      fontSize: 28,
-      fontWeight: 'bold',
-      paddingBottom: 8,
-      textAlign: 'center',
-  fontFamily: 'righteous'
- },
- menu:{
+   menu:{
     flexDirection:'row',
+    color: 'white',
     position:'absolute',
     left:16,
    },
-     
- });
-
-export default StartMenue;
-
-/* text:{
+ 
+   text:{
      color: 'white',
      fontSize: 30,
      marginBottom: 50,
      alignItems: 'center',
      fontFamily: 'righteous'
    },
-   menu:{
-        flexDirection:'row',
-        justifyContent:'flex-start',
-        alignItems:'flex-start',
-        color: 'white',
-        fontSize: 26,
-       },
-constructor(props){
+   
+   user:{
+       color: '#FFF',
+        fontSize: 30,
+        fontWeight: 'bold',
+        paddingBottom: 8,
+        textAlign: 'center',
+    fontFamily: 'righteous'
+  },
+  username:{
+    color: '#FFF',
+     fontSize: 28,
+     fontWeight: 'bold',
+     paddingBottom: 8,
+     textAlign: 'center',
+ fontFamily: 'righteous'
+},
+placeIcon: {
+    color: 'white',
+    fontSize: 26,
+  },
+pad:{
+    marginBottom:20,
+}
+ 
+ });
+
+/*  constructor(props){
         super(props);
         this.state={
            isLoading:true,

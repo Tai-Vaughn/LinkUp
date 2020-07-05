@@ -209,8 +209,8 @@ const styles = StyleSheet.create({
     },
     menu: {
         flexDirection: 'row',
-        position: 'absolute',
-        left: 16,
+        position: 'relative',
+        left: 18,
     },
     pad:{
         marginBottom:20,

@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
       },
       header:{
         color: 'white',
-        fontSize: 35,
+        fontSize: 30,
         fontFamily: 'righteous',
         alignSelf: 'center',
         paddingTop: 10

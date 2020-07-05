@@ -1,6 +1,7 @@
 import React from 'react';
-import {View, Image, Text, ScrollView, StyleSheet} from 'react-native';
+import {View, Image, Text, ScrollView, StyleSheet, Button} from 'react-native';
 import {globalStyles} from '../Styles'; 
+import * as DataService from '../Service/DataService';
 
 export default function LogOut  ({ navigation }){
         return (
@@ -12,8 +13,8 @@ export default function LogOut  ({ navigation }){
               style={globalStyles.logo}
               source={require('../../static/LinkUp.png')}/>
               <Text style={globalStyles.name}>LINK UP</Text>
-           
-              <LoginForm/>
+              <Button title="Log Out" onPress={DataService.LogOut()}/>
+              
             </View>
 
             </View>

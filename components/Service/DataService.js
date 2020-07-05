@@ -34,6 +34,9 @@ export const login = (Authinfo) => {
         
         ).subscribe()
 }
+export const LogOut=()=>{
+    tokenSubject.next(null)
+}
 export const createUser = (UserInfo) => {
     ajax({
         url: 'https://linkupcapstone.herokuapp.com/users/signup',

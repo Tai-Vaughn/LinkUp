@@ -42,7 +42,7 @@ class Alerter extends React.Component {
 
     SampleFunction = (item) => {
 
-        Alert.alert(item);
+        alert(item);
 
     }
 
@@ -58,22 +58,25 @@ class Alerter extends React.Component {
 
             <View style={styles.container}>
                 <Text style={globalStyles.text}> Aggravated Assault:</Text>
-
                 <ScrollView>
 
                     {reports.map((item, key) => (
-                        <View>
+
+                        <TouchableOpacity key={key} onPress={this.SampleFunction.bind(this, item.description)}>
+
                             <Text style={styles.TextStyle} > {item.description} </Text>
 
                             <Text style={styles.TextStyle} > Time: {item.time} </Text>
 
                             <View style={{ width: '100%', height: 1, backgroundColor: '#000' }} />
 
-                        </View>
+                        </TouchableOpacity>
+
                     ))
                     }
 
                 </ScrollView>
+
             </View>
 
 
@@ -90,7 +93,7 @@ class Alerter extends React.Component {
 
                         {reports.map((item, key) => (
 
-                            <TouchableOpacity key={key} onPress={this.SampleFunction.bind(this, item.type)}>
+                            <TouchableOpacity key={key} onPress={this.SampleFunction.bind(this, item.description)}>
 
                                 <Text style={styles.TextStyle} > {item.description} </Text>
 
@@ -170,7 +173,7 @@ class Alerter extends React.Component {
 
     }
     render() {
-      
+
         return (
             <View style={styles.container}>
                 <View style={styles.menu}>
@@ -183,12 +186,11 @@ class Alerter extends React.Component {
                 <Text style={globalStyles.text}>RECENT CRIMINAL ACTIVITY</Text>
                 <Text style={styles.pad}></Text>
 
-
                 <ScrollView>
 
                     <View >
 
-                       
+
                         <View style={globalStyles.button}>
                             <Button title='Aggravated Assault' onPress={this.assaultHandler} />
                         </View>
@@ -238,7 +240,7 @@ const styles = StyleSheet.create({
     },
     menu: {
         flexDirection: 'row',
-        position: 'absolute',
+        position: 'relative',
         left: 16,
     },
 

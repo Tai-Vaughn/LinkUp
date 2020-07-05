@@ -99,7 +99,7 @@ pad:{
     marginBottom:20,
 },menu:{
     flexDirection:'row',
-    position:'absolute',
+    position:'relative',
     left:16,
    },
    

@@ -42,15 +42,13 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       fontsLoaded : true,
-      JWT_Token : null,
-      markers: null,
-    };
+      JWT_Token : null
+    }
   }
-  
   componentDidMount(){
     getFonts();
-    Dataservice.getMarkers()
     Dataservice.token$.subscribe(data =>this.setState({JWT_Token: data}))
+    Dataservice.getGroups()
   }
 
   stateHelper(){

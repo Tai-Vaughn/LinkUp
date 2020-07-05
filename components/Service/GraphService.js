@@ -1,8 +1,3 @@
-import * as Dataservice from './DataService'
-import { tap } from 'rxjs/operators';
-import { date, object } from 'yup';
-import { idText } from 'typescript';
-
 class QElement { 
     constructor(element, priority) 
     { 

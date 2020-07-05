@@ -40,12 +40,12 @@ class LoginForm extends React.Component{
             <View style={globalStyles.container}>
 
                 <Formik
-                initialValues={{Email: '', Password: ''}}
+                initialValues={{Email: 'Isamutai200@gmail.com', Password: 'pass123'}}
                 validationSchema={LoginSchema}
 
                 onSubmit={(values, actions) => {
                     actions.resetForm();
-                    console.log(values);
+                    DataService.login(values)
                 }}
                 >
 
@@ -87,9 +87,9 @@ class LoginForm extends React.Component{
                         </Text>
 
                         <View style={globalStyles.button}>
-                            <Button
-                            title='Submit'
-                            onPress={() => DataService.login(props.values)}
+                            <Button 
+                            title='Submit' 
+                            onPress={props.handleSubmit}
                             />
                         </View>
                     </View>

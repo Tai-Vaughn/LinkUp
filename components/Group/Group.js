@@ -59,7 +59,7 @@ class Group extends React.Component {
                 onPress={()=> this.props.navigation.toggleDrawer()} />
                 </View> 
                 
-               <Text style={globalStyles.text}>Available Groups:</Text>
+               <Text style={styles.header}>Available Groups:</Text>
 
                {this.state.groups.length===0 ?
                    <View>
@@ -119,6 +119,13 @@ const styles = StyleSheet.create({
         marginBottom: 50,
         
         fontFamily: 'righteous'
+      },
+      header:{
+        color: 'white',
+        fontSize: 35,
+        fontFamily: 'righteous',
+        alignSelf: 'center',
+        paddingTop: 10
       },
       nullgroup:{
         color: 'black',

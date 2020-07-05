@@ -183,7 +183,7 @@ class Alerter extends React.Component {
                         iconStyle={styles.placeIcon}
                         onPress={() => this.props.navigation.toggleDrawer()} />
                 </View>
-                <Text style={globalStyles.text}>RECENT CRIMINAL ACTIVITY</Text>
+                <Text style={styles.header}>RECENT CRIMINAL ACTIVITY</Text>
                 <Text style={styles.pad}></Text>
 
                 <ScrollView>
@@ -243,6 +243,13 @@ const styles = StyleSheet.create({
         position: 'relative',
         left: 16,
     },
+    header:{
+        color: 'white',
+        fontSize: 35,
+        fontFamily: 'righteous',
+        alignSelf: 'center',
+        paddingTop: 10
+      },
 
     text: {
         color: 'black',

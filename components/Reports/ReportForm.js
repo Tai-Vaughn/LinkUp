@@ -79,7 +79,7 @@ export default class ReportForm extends Component {
                             />
 
 
-                            <Text ><MyDatePicker /></Text>
+                            
                             <Text style={styles.pad}></Text>
                             <View style={styles.buttonContainer}>
                                 <Button onPress={handleSubmit} title="Submit" />
@@ -151,3 +151,4 @@ const styles = StyleSheet.create({
     }
 
 });
+//<Text ><MyDatePicker /></Text>

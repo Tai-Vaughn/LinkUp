@@ -72,6 +72,14 @@ class FindRouteScreen extends React.Component {
                     <Text style={globalStyles.text}>Plan Journey</Text>
 
                     <Formik
+                    initialValues={{
+                        PickerValue: '',
+                        PickerValue2: '',
+                        PickerValue3: '',
+                        PickerValue4: '',
+                        Time: '',
+                        Markers: []
+                    }}
                         onSubmit={(values, actions) => {
                             actions.resetForm();
                             console.log(values);
@@ -138,7 +146,7 @@ class FindRouteScreen extends React.Component {
                                 <Picker
                                     selectedValue={this.state.PickerValue4}
                                     onValueChange={(itemValue) => this.setState({ PickerValue4: itemValue })}
-                                    style={{ marginBottom: 40 }}
+                                    
                                 >
                                     <Picker.Item label='Destination' value='' />
                                     <Picker.Item label='138 Student Living (Phase 1)' value='138 Phase 1' />
@@ -151,12 +159,14 @@ class FindRouteScreen extends React.Component {
                                     <Picker.Item label='Mona School of Business and Management' value='MSBM' />
                                     <Picker.Item label='Other Halls' value='etc' />
                                 </Picker>
-                                <Button
-                                    onPress={() => {
-                                        <Timee/>
-                                    }}
-                                    title="Departure Time"
-                                />
+                                <TextInput
+                                placeholder='Departure Time, [HH:mm]'
+                                placeholderTextColor='black'
+                                returnKeyType='next'
+                                style={styles.input}
+                                onChangeText={props.handleChange('Time')}
+                                value={props.values.Time}
+                            />
                                 <Text style={styles.pad}></Text>
 
 
@@ -199,11 +209,19 @@ const styles = StyleSheet.create({
     },
     menu: {
         flexDirection: 'row',
-        position: 'relative',
+        position: 'absolute',
         left: 16,
     },
     pad:{
         marginBottom:20,
+    },
+    input: {
+        height: 25,
+        backgroundColor: 'white',
+        paddingHorizontal: 10,
+        width: "100%",
+        flexWrap: 'wrap',
+        marginTop:1,
     }
 
 });

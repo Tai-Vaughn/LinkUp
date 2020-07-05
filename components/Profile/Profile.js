@@ -6,6 +6,8 @@ import {Icon } from 'react-native-elements';
 import * as Dataservice from '../Service/DataService';
 import { date } from 'yup';
 import { shareReplay } from 'rxjs/operators';
+import MyDatePicker from '../FindRoute/DatePicker';
+import Timer from '../FindRoute/Timer'
 var jwtDecode = require('jwt-decode');
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
 
@@ -43,9 +45,11 @@ export default class StartMenue extends React.Component{
                         <Image style={globalStyles.logo} source={require('../../static/profileicon.png')}/>
                     </View>
                     <Text style={styles.username}>@{this.state.CurrentUser.username}</Text>
+                    
                 </View>
+                
                 <ScrollView>
-                    <Text style={styles.pad}></Text>
+                    <Text style={styles.pad}> <Timer/></Text>
                     <View style={globalStyles.button}>
                         <Icon
                             name="map"
@@ -69,6 +73,7 @@ export default class StartMenue extends React.Component{
                             iconStyle={styles.placeIcon}
                         />
                         <Button title='Friends'/>
+                        
                     </View>
                 
 

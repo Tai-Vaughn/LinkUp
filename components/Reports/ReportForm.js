@@ -4,6 +4,7 @@ import { StyleSheet, View, TextInput, Button, Picker, TouchableOpacity, Text, Sc
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Timee from '../FindRoute/Timee';
 import MyDatePicker from '../FindRoute/DatePicker';
+import { Formik } from 'formik';
 
 /* 
 Time/Date source code was copied from a github repo linked on React Native's website: 
@@ -14,7 +15,7 @@ export default class ReportForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+
             Location: '',
             Type: '',
             Description: '',
@@ -24,50 +25,71 @@ export default class ReportForm extends Component {
     render() {
         return (
             <ScrollView>
-                <View>
 
-                    <TextInput
-                        placeholder='Where did the incident occur?'
-                        placeholderTextColor='rgba(255,255,255,0.7)'
-                        returnKeyType='next'
-                        style={styles.input}
-                    />
+                <Formik
+                    initialValues={{
+                        Location: '',
+                        Type: '',
+                        Description: '',
+                        Date: ''
+                    }}
+                    onSubmit={(values, actions) => {
+                        actions.resetForm();
+                        console.log(values);
+                    }}
+                >
+                    {({ handleChange, handleBlur, handleSubmit, values }) => (
+                        <View>
+                            <TextInput
+                                placeholder='Where did the incident occur?'
+                                placeholderTextColor='rgba(255,255,255,0.7)'
+                                returnKeyType='next'
+                                style={styles.input}
+                                onChangeText={handleChange('Location')}
+                                onBlur={handleBlur('Location')}
+                                value={values.Location}
+                            />
+
+                            <Picker
+                                style={styles.input}
+                                selectedValue={this.state.Type}
+                                onValueChange={(itemValue) => this.setState({ Type: itemValue })}
+                            >
+                                <Picker.Item label='What was the Type of Crime committed?' value='' />
+                                <Picker.Item label='Aggravated Assault' value='Aggravated Assault' />
+                                <Picker.Item label='Break-In' value='Break-In' />
+                                <Picker.Item label="Kidnapping/Attempted Kidnapping" value='Kidnapping/Attempted Kidnapping' />
+                                <Picker.Item label="Robbery/Attempted Robbery" value='Robbery/Attempted Robbery' />
+                                <Picker.Item label='Sexual Assault/Rape' value='Sexual Assault/Rape' />
+                                <Picker.Item label='Shooting' value='Shooting' />
+                                <Picker.Item label='Theft' value='Theft' />
 
 
-                    <Picker
-                        style={styles.input}
-                        selectedValue={this.state.Type}
-                        onValueChange={(itemValue) => this.setState({ Type: itemValue })}
-                    >
-                        <Picker.Item label='What was the Type of Crime committed?' value='' />
-                        <Picker.Item label='Aggravated Assault' value='Aggravated Assault' />
-                        <Picker.Item label='Break-In' value='Break-In' />
-                        <Picker.Item label="Kidnapping/Attempted Kidnapping" value='Kidnapping/Attempted Kidnapping' />
-                        <Picker.Item label="Robbery/Attempted Robbery" value='Robbery/Attempted Robbery' />
-                        <Picker.Item label='Sexual Assault/Rape' value='Sexual Assault/Rape' />
-                        <Picker.Item label='Shooting' value='Shooting' />
-                        <Picker.Item label='Theft' value='Theft' />
+                            </Picker>
+                            <TextInput
+                                placeholder='Report Details'
+                                multiline
+                                numberOfLines={8}
+                                placeholderTextColor='rgba(255,255,255,0.7)'
+                                returnKeyType='next'
+                                style={styles.details}
+                                onChangeText={handleChange('Description')}
+                                onBlur={handleBlur('Description')}
+                                value={values.Description}
+                            />
 
 
-                    </Picker>
+                            <Text ><MyDatePicker /></Text>
+                            <Text style={styles.pad}></Text>
+                            <View style={styles.buttonContainer}>
+                                <Button onPress={handleSubmit} title="Submit" />
+                            </View>
 
-                    <TextInput
-                        placeholder='Report Details'
-                        placeholderTextColor='rgba(255,255,255,0.7)'
-                        multiline
-                        numberOfLines={8}
-                        returnKeyType='next'
-                        style={styles.details}
-                    />
-                    <Text ><MyDatePicker /></Text>
-                    <Text style={styles.pad}></Text>
-                    <View style={styles.buttonContainer}>
-                        <Button
-                            title='submit'
-                        />
-                    </View>
+                        </View>
 
-                </View>
+                    )}
+                </Formik>
+
             </ScrollView>
         );
 
@@ -96,8 +118,8 @@ const styles = StyleSheet.create({
         width: 300,
         flexWrap: 'wrap'
     },
-    pad:{
-        marginBottom:10,
+    pad: {
+        marginBottom: 10,
     },
     buttonContainer: {
         backgroundColor: 'dodgerblue',

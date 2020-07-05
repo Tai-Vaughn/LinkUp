@@ -9,7 +9,7 @@ class GenReportScreen extends React.Component{
       return (
        
           <View style={styles.container}>
-              <View style={styles.menu}>
+             <View style={styles.menu}>
                         <Icon name='menu'
                             underlayColor="transparent"
                             size={28}
@@ -17,6 +17,7 @@ class GenReportScreen extends React.Component{
                             onPress={() => this.props.navigation.toggleDrawer()} />
                     </View> 
             <ScrollView>
+            
               <Text style={styles.text}>Make a Report</Text>
               <Text style={styles.textDetails}>If you or someone you know has been attacked or 
                 you happened to witness one and wish to report it, fill out the fields below. 
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
 },
 menu: {
     flexDirection: 'row',
-    position: 'relative',
+    position: 'absolute',
     left: 16,
 },
 

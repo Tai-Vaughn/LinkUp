@@ -73,8 +73,8 @@ export const getMarkers = () => {
             return of(error);
           })
         ).subscribe()
- }
- export const getGroups = () => {
+}
+export const getGroups = () => {
     ajax({
         url: "https://linkupcapstone.herokuapp.com/groups",
         method: "GET",
@@ -89,4 +89,4 @@ export const getMarkers = () => {
             return of(error);
           })
         ).subscribe()
- }
+}

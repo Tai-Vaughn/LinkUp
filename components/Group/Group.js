@@ -7,25 +7,24 @@ import { date } from 'yup';
 
   
 class Group extends React.Component {
-    _isMounted = false;
     constructor(props){
         super(props);
         this.state = {
-            groups : []
+            groups : [],
+            CurrentUser : {}
         }
     }
  
     componentDidMount(){
-        this._isMounted = true;
         DataService.getGroups()
-        if(this._isMounted){
-            DataService.groups$.subscribe(data => this.setState({groups: data}))
-        }
-        
+        DataService.groups$.subscribe(data => this.setState({groups: data}))
+        DataService.token$.subscribe(data =>  this.setState({CurrentUser :(jwtDecode(data))})) 
     }
+
     componentWillUnmount() {
-        this._isMounted = false;
+    
       }
+
       FlatListItemSeparator = () => {
         return (
           <View

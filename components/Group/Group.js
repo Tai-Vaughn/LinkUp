@@ -100,7 +100,6 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'steelblue',
        padding: 50,
-       
        flex: 1
     },
     butn:{
@@ -111,7 +110,7 @@ const styles = StyleSheet.create({
     },
     menu:{
         flexDirection:'row',
-        position:'absolute',
+        position:'relative',
         left:16,
        },
     text:{
@@ -138,6 +137,7 @@ const styles = StyleSheet.create({
           },
     });
 export default Group;
+
 
 /*
 flexDirection: 'column',

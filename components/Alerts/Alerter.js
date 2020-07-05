@@ -3,7 +3,7 @@ import { View , Text, Image, StyleSheet, Button, ScrollView} from 'react-native'
 import {globalStyles} from '../Styles'; 
 import {Icon } from 'react-native-elements';
 
-const descriptions=[];
+
 const reports = [
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -38,6 +38,7 @@ const reports = [
   ];
 
 class Alerter extends React.Component{
+    
     SampleFunction=(item)=>{
  
         Alert.alert(item);
@@ -46,21 +47,29 @@ class Alerter extends React.Component{
 
    
     assaultHandler=(reports)=>{
+        
         let i=0;
         
-            if(reports.type==="Aggravated Assault" && i<4){
-                descriptions.push([reports.id,reports.description]);
+            if(reports.type==="Aggravated Assault"){
+                if(i<4){
+                    descriptions.push({
+                        id: reports.id,
+                        description: reports.description
+                    });
+
+                }
+                
                 i++;
 
             }
 
-        const textInputComponents = descriptions.map(type => <TextInput placeholder={type} />); 
+        //const textInputComponents = descriptions.map(type => <TextInput placeholder={type} />); <>{textInputComponents}</>
         return(
             <ScrollView>
                 <View>
                     <Text>Aggravated Assault:</Text>
                     <View>
-                        <>{textInputComponents}</>
+                    
                     </View>
 
                     
@@ -88,7 +97,7 @@ class Alerter extends React.Component{
             <ScrollView>
                 <View>
                     <Text>Kidnapping/Attempted Kidnapping'</Text>
-                    <Text>{description}</Text>
+                    
                 </View>
             </ScrollView>
             
@@ -100,8 +109,7 @@ class Alerter extends React.Component{
             <ScrollView>
                 <View>
                     <Text>Robbery/Attempted Robbery</Text>
-                    <Text>{description}</Text>
-                </View>
+                                    </View>
             </ScrollView>
             
         )
@@ -112,7 +120,7 @@ class Alerter extends React.Component{
             <ScrollView>
                 <View>
                     <Text>Sexual Assault/Rape</Text>
-                    <Text>{description}</Text>
+                    
                 </View>
             </ScrollView>
             
@@ -124,7 +132,7 @@ class Alerter extends React.Component{
             <ScrollView>
                 <View>
                     <Text>Shooting</Text>
-                    <Text>{description}</Text>
+                    
                 </View>
             </ScrollView>
             
@@ -136,7 +144,7 @@ class Alerter extends React.Component{
             <ScrollView>
                 <View>
                     <Text>Theft</Text>
-                    <Text>{description}</Text>
+                    
                 </View>
             </ScrollView>
             
@@ -177,7 +185,7 @@ class Alerter extends React.Component{
                             
                         
                         <View style={globalStyles.button}>
-                            <Button title='Aggravated Assault' onPress={this.assaultHandler(reports)}/>
+                            <Button title='Aggravated Assault' onPress={this.assaultHandler}/>
                         </View> 
                         <View style={globalStyles.button}>
                             <Button title='Break-In'onPress={this.breakHandler}/>

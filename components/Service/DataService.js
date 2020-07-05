@@ -1,8 +1,9 @@
 import React from 'react';
 import {Subject , of} from 'rxjs';
-import {catchError, tap, shareReplay} from 'rxjs/operators'
+import {catchError, tap, shareReplay} from 'rxjs/operators';
 import { ajax } from 'rxjs/ajax';
-import * as Graph from './GraphService'
+import * as Graph from './GraphService';
+
 var jwtDecode = require('jwt-decode');
 
 const tokenSubject  = new Subject

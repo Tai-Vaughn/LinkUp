@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {View, Button, Picker, Text, StyleSheet} from 'react-native';
 import {globalStyles} from '../Styles';
-
+import {Icon } from 'react-native-elements';
 
 // import FixedBottom from './FixedBottom';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -19,7 +19,6 @@ class FindRouteScreen extends React.Component{
             PickerValue2:'',
             PickerValue3:'',
             PickerValue4:'',
-            Time:'',
             Markers: []
         }
     }
@@ -52,15 +51,15 @@ class FindRouteScreen extends React.Component{
           
       return (
           <View style={styles.container}> 
-            <View style={styles.menu}>
-            
-            <Icon name='menu' 
-             underlayColor="transparent"
-             
-             iconStyle={styles.placeIcon}
-             onPress={()=> this.props.navigation.toggleDrawer()} />
-             </View> 
+           
             <ScrollView>
+            <View style={styles.menu}>
+               <Icon name='menu' 
+                underlayColor="transparent"
+                size={28}
+                iconStyle={styles.placeIcon}
+                onPress={()=> this.props.navigation.toggleDrawer()} />
+                </View> 
             <Text style={globalStyles.text}>Plan Journey</Text>
             
             <Formik
@@ -144,7 +143,6 @@ class FindRouteScreen extends React.Component{
                             <Picker.Item label='Other Halls' value='etc'/>
                         </Picker>
                     
-                        {this.Time}= <Button title='Time'/>
                         
                         <View style={globalStyles.button}>
                             <Button 

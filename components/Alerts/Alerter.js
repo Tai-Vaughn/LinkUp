@@ -3,6 +3,7 @@ import { View , Text, Image, StyleSheet, Button, ScrollView} from 'react-native'
 import {globalStyles} from '../Styles'; 
 import {Icon } from 'react-native-elements';
 
+const descriptions=[];
 const reports = [
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -44,26 +45,24 @@ class Alerter extends React.Component{
       }
 
    
-    assaultHandler=()=>{
+    assaultHandler=(reports)=>{
         let i=0;
         
             if(reports.type==="Aggravated Assault" && i<4){
-                description.push(reports.description);
+                descriptions.push([reports.id,reports.description]);
                 i++;
 
             }
 
-//        const textInputComponents = description.map(type => <TextInput placeholder={type} />); <View><>{textInputComponents}</></View>
+        const textInputComponents = descriptions.map(type => <TextInput placeholder={type} />); 
         return(
             <ScrollView>
                 <View>
                     <Text>Aggravated Assault:</Text>
+                    <View>
+                        <>{textInputComponents}</>
+                    </View>
 
-                    { description.map((item, key)=>(
-                    <Text key={key} style={styles.TextStyle} 
-                    onPress={ this.SampleFunction.bind(this, item) }> { item } </Text>)
-                    )}
-                    
                     
                 </View>
             </ScrollView>
@@ -177,7 +176,7 @@ class Alerter extends React.Component{
                             
                         
                         <View style={globalStyles.button}>
-                            <Button title='Aggravated Assault' onPress={this.assaultHandler}/>
+                            <Button title='Aggravated Assault' onPress={this.assaultHandler(reports)}/>
                         </View> 
                         <View style={globalStyles.button}>
                             <Button title='Break-In'onPress={this.breakHandler}/>
@@ -239,4 +238,10 @@ const styles = StyleSheet.create({
 export default Alerter;
 
 /* 
+
+                    { descriptions.map((item, key)=>(
+                    <Text key={reports.id} style={styles.TextStyle} 
+                    onPress={ this.SampleFunction.bind(this, item) }> { item } </Text>)
+                    )}
+                    
     */

@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
 },
 menu: {
     flexDirection: 'row',
-    position: 'relative',
+    position: 'absolute',
     left: 16,
 },
 

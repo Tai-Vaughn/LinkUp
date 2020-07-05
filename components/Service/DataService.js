@@ -3,6 +3,7 @@ import {Subject , of} from 'rxjs';
 import {catchError, tap, shareReplay} from 'rxjs/operators';
 import { ajax } from 'rxjs/ajax';
 import * as Graph from './GraphService';
+import {env} from '../../Environment/environment'
 
 var jwtDecode = require('jwt-decode');
 
@@ -18,7 +19,7 @@ export const graph$ = graphSubject.asObservable().pipe(shareReplay(1))
 
 export const login = (Authinfo) => {
     ajax({
-        url:'https://linkupcapstone.herokuapp.com/users/login',
+        url: `${env.BaseUrl}users/login`,
         method:'POST',
         headers: {
              Accept: 'application/json',
@@ -42,7 +43,7 @@ export const LogOut=()=>{
 }
 export const createUser = (UserInfo) => {
     ajax({
-        url: 'https://linkupcapstone.herokuapp.com/users/signup',
+        url: `${env.BaseUrl}users/signup`,
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -57,7 +58,7 @@ export const createUser = (UserInfo) => {
 }
 export const getMarkers = () => {
     ajax({
-        url: "https://linkupcapstone.herokuapp.com/markers",
+        url: `${env.BaseUrl}markers`,
         method: "GET",
         headers: {
             Accept: 'application/json',
@@ -73,10 +74,10 @@ export const getMarkers = () => {
             return of(error);
           })
         ).subscribe()
- }
- export const getGroups = () => {
+}
+export const getGroups = () => {
     ajax({
-        url: "https://linkupcapstone.herokuapp.com/groups",
+        url: `${env.BaseUrl}groups`,
         method: "GET",
         headers: { 
             Accept: 'application/json',
@@ -89,4 +90,16 @@ export const getMarkers = () => {
             return of(error);
           })
         ).subscribe()
- }
+}
+export const joinGroup = (groupID , userID) => {
+    ajax({
+        url: `${env.BaseUrl}groups/join/${groupID}/${userID}`,
+        method: 'PUT',
+        headers: { 
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }).pipe(
+        tap( getGroups())
+    ).subscribe()
+}

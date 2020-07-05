@@ -4,28 +4,29 @@ import {globalStyles} from '../Styles';
 import {Icon } from 'react-native-elements' 
 import * as DataService from '../Service/DataService'
 import { date } from 'yup';
-
+var jwtDecode = require('jwt-decode');
   
 class Group extends React.Component {
-    _isMounted = false;
     constructor(props){
         super(props);
         this.state = {
-            groups : []
+            groups : [],
+            CurrentUser : {}
         }
     }
  
     componentDidMount(){
-        this._isMounted = true;
         DataService.getGroups()
-        if(this._isMounted){
-            DataService.groups$.subscribe(data => this.setState({groups: data}))
-        }
-        
+        // DataService.groups$.subscribe(data => console.log(data))
+        DataService.groups$.subscribe(data => this.setState({groups: data}))
+        // DataService.token$.subscribe(data =>  console.log(jwtDecode(data)))
+        DataService.token$.subscribe(data =>  this.setState({CurrentUser :(jwtDecode(data))})) 
     }
+
     componentWillUnmount() {
-        this._isMounted = false;
+    
       }
+
       FlatListItemSeparator = () => {
         return (
           <View
@@ -38,9 +39,8 @@ class Group extends React.Component {
           />
         );
       }
-    addMember(props){
-        // take the groupmembers array and add the current username and push update to database
-          GroupMembers.push(username)
+    addMember(GroupId,UserID){
+        DataService.joinGroup(GroupId,UserID)
       }
 
     
@@ -75,7 +75,12 @@ class Group extends React.Component {
                                 <Text style={styles.listItems}>{item.StartLocation} to {item.EndLocation}</Text>
                                 <Text style={styles.listItems}>Time: {item.StartTime}</Text>
                                 <Text style={styles.listItems}>Size: {item.GroupMembers.length}</Text>
-                                <View style={styles.butn}><Button title='Join'  onPress={this.addMember}/></View>
+                                <View style={styles.butn}>
+                                  <Button 
+                                  disabled={item.GroupMembers.includes('' + this.state.CurrentUser.studentID)} 
+                                  title='Join'  
+                                  onPress={() => this.addMember(item._id,this.state.CurrentUser.studentID)}/>
+                                </View>
                                 <Text style={styles.pad}></Text>
                          </View>
                         
@@ -132,6 +137,7 @@ const styles = StyleSheet.create({
           },
     });
 export default Group;
+
 
 /*
 flexDirection: 'column',

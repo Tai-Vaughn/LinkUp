@@ -55,12 +55,12 @@ export default class ReportForm extends Component {
                                 selectedValue={this.state.Type}
                                 onValueChange={(itemValue) => this.setState({ Type: itemValue })}
                             >
-                                <Picker.Item label='What was the Type of Crime committed?' value='' />
+                                <Picker.Item label='Type of Crime' value='' />
                                 <Picker.Item label='Aggravated Assault' value='Aggravated Assault' />
                                 <Picker.Item label='Break-In' value='Break-In' />
-                                <Picker.Item label="Kidnapping/Attempted Kidnapping" value='Kidnapping/Attempted Kidnapping' />
-                                <Picker.Item label="Robbery/Attempted Robbery" value='Robbery/Attempted Robbery' />
-                                <Picker.Item label='Sexual Assault/Rape' value='Sexual Assault/Rape' />
+                                <Picker.Item label="Kidnapping/Attempted Kidnapping" value='Kidnapping' />
+                                <Picker.Item label="Robbery/Attempted Robbery" value='Robbery' />
+                                <Picker.Item label='Sexual Assault/Rape' value='Sexual Assault' />
                                 <Picker.Item label='Shooting' value='Shooting' />
                                 <Picker.Item label='Theft' value='Theft' />
 
@@ -116,7 +116,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         borderRadius: 10,
         width: 300,
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        alignItems: 'flex-start'
     },
     pad: {
         marginBottom: 10,

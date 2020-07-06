@@ -99,7 +99,8 @@ class Group extends React.Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'steelblue',
-       padding: 50,
+        padding: 40,
+        alignItems: 'center',
        flex: 1
     },
     butn:{
@@ -110,8 +111,10 @@ const styles = StyleSheet.create({
     },
     menu:{
         flexDirection:'row',
-        position:'relative',
-        left:16,
+        position: 'absolute',
+    left: 18,
+    top:30,
+
        },
     text:{
         color: 'white',
@@ -125,7 +128,8 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontFamily: 'righteous',
         alignSelf: 'center',
-        paddingTop: 5
+        paddingTop: 10,
+        paddingBottom:10,
       },
       nullgroup:{
         color: 'black',

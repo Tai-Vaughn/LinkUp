@@ -240,15 +240,16 @@ const styles = StyleSheet.create({
     },
     menu: {
         flexDirection: 'row',
-        position: 'relative',
+        position: 'absolute',
         left: 16,
+        top:30,
     },
     header:{
         color: 'white',
-        fontSize: 23,
+        fontSize: 30,
         fontFamily: 'righteous',
         alignSelf: 'center',
-        paddingTop: 5
+        paddingTop: 10
       },
 
     text: {

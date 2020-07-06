@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
     menu: {
         flexDirection: 'row',
         position: 'relative',
-        left: 18,
+        left: 16,
         top:20,
     },
     pad:{

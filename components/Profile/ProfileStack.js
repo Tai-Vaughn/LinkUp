@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import {StyleSheet} from 'react-native'
 
 import Profile from './ProfileScreen'
-import Map from './Maps'
+import Map from '../Map/Maps'
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
 
 const ProfileStack = createStackNavigator();

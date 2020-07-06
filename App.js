@@ -21,7 +21,7 @@ import Alerter from './components/Alerts/Alerter';
 import FindRouteScreen from './components/FindRoute/FindRouteScreen';
 import Group from './components/Group/Group';
 import ViewGroup from './components/Group/ViewGroup';
-import Map from './components/Profile/Maps'
+import Map from './components/Map/Maps'
 
 const getFonts = () => Font.loadAsync({
   'righteous': require('./components/fonts/Righteous-Regular.ttf')
@@ -36,9 +36,6 @@ const CustomDrawerComponent = ()=>{
 }
 
 export default class App extends React.Component {
-  // const [fontsLoaded, setFontsLoaded] = useState(false);
-  // const [islogedin , setIsLoggedin] = React.useState (true);
-  // const [JWT_Token , setToken] =React.useState(null);
   constructor(props){
     super(props);
     this.state = {

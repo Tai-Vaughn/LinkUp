@@ -4,7 +4,7 @@ import {useState} from 'react';
 import LoginScreen from './components/Login/LoginScreen';
 import RegistrationScreen from './components/CreateAccount/CreateAccountScreen';
 import HomeScreen from './components/HomeScreen/HomeScreen';
-import Profile from './components/Profile/Profile';
+import Profile from './components/Profile/ProfileStack';
 import LogOut from './components/LogOut/Logout';
 
 import * as React from 'react';
@@ -21,7 +21,7 @@ import Alerter from './components/Alerts/Alerter';
 import FindRouteScreen from './components/FindRoute/FindRouteScreen';
 import Group from './components/Group/Group';
 import ViewGroup from './components/Group/ViewGroup';
-import Map from './components/Map/Maps'
+import Map from './components/Profile/Maps'
 
 const getFonts = () => Font.loadAsync({
   'righteous': require('./components/fonts/Righteous-Regular.ttf')
@@ -61,7 +61,7 @@ export default class App extends React.Component {
     <NavigationContainer>
       {this.state.JWT_Token ?
         <ProfileDrawer.Navigator initialRouteName = "Profile">
-          <ProfileDrawer.Screen name='Profile' component={Map} options= {{title: "Profile",}}/>
+          <ProfileDrawer.Screen name='Profile' component={Profile} options= {{title: "Profile",}}/>
           <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{title: "Alerts",}}/>
           <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{title: "Journey",}}/>
           <ProfileDrawer.Screen name='Group' component={Group} options= {{title: "Group",}}/>

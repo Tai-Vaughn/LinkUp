@@ -10,7 +10,7 @@ var jwtDecode = require('jwt-decode');
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
 
 export default class StartMenue extends React.Component{
-    constructor(props){
+    constructor(props , {navigation}){
      super(props),
      this.state = {
          CurrentUser : {}
@@ -52,7 +52,9 @@ export default class StartMenue extends React.Component{
                             underlayColor="transparent"
                             iconStyle={styles.placeIcon}
                         />
-                        <Button title='Map'/>
+                        <Button title='Map'
+                        onPress={() => this.props.navigation.navigate('Map')}
+                        />
                     </View>
                     <View style={globalStyles.button}>
                         <Icon

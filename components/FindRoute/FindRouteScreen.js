@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {View, AsyncStorage, Button, Picker, Text, StyleSheet} from 'react-native';
+
 import {globalStyles} from '../Styles';
 
 import {Icon } from 'react-native-elements';

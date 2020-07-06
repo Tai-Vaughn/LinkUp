@@ -218,11 +218,12 @@ const styles = StyleSheet.create({
     },
     input: {
         height: 25,
-        backgroundColor: 'white',
+        backgroundColor: 'steelblue',
         paddingHorizontal: 10,
         width: "100%",
         flexWrap: 'wrap',
         marginTop:1,
+        fontWeight:'bold',
     }
 
 });

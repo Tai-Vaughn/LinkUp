@@ -90,8 +90,9 @@ pad:{
     marginBottom:20,
 },menu:{
     flexDirection:'row',
-    position:'relative',
-    left:16,
+    position: 'absolute',
+    left: 18,
+    top:30,
    },
    
    user:{

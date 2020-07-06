@@ -25,12 +25,13 @@ export default class LogOut extends React.Component {
           <Image
             style={globalStyles.logo}
             source={require('../../static/LinkUp.png')} />
+          <Text style={styles.pad}></Text>
           <Text style={globalStyles.name}>LINK UP</Text>
-          <View style={globalStyles.button}>
-            <Button title="Log Out" onPress={() => this.LogOut()} />
-          </View>
+          <Text style={styles.pad}></Text>
 
-
+        </View>
+        <View style={globalStyles.button}>
+          <Button title="Log Out" onPress={() => this.LogOut()} />
         </View>
 
       </View>
@@ -53,5 +54,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     position: 'relative',
     left: 16,
+  },
+  pad: {
+    paddingBottom: 20,
   }
 });

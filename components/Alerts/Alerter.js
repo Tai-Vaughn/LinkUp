@@ -246,7 +246,7 @@ const styles = StyleSheet.create({
     },
     header:{
         color: 'white',
-        fontSize: 30,
+        fontSize: 20,
         fontFamily: 'righteous',
         alignSelf: 'center',
         paddingTop: 10

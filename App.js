@@ -4,7 +4,7 @@ import {useState} from 'react';
 import LoginScreen from './components/Login/LoginScreen';
 import RegistrationScreen from './components/CreateAccount/CreateAccountScreen';
 import HomeScreen from './components/HomeScreen/HomeScreen';
-import Profile from './components/Profile/Profile';
+import Profile from './components/Profile/ProfileStack';
 import LogOut from './components/LogOut/Logout';
 
 import * as React from 'react';
@@ -21,6 +21,7 @@ import Alerter from './components/Alerts/Alerter';
 import FindRouteScreen from './components/FindRoute/FindRouteScreen';
 import Group from './components/Group/Group';
 import ViewGroup from './components/Group/ViewGroup';
+import Map from './components/Map/Maps'
 import GenReportScreen from './components/Reports/ReportScreen';
 
 const getFonts = () => Font.loadAsync({
@@ -36,9 +37,6 @@ const CustomDrawerComponent = ()=>{
 }
 
 export default class App extends React.Component {
-  // const [fontsLoaded, setFontsLoaded] = useState(false);
-  // const [islogedin , setIsLoggedin] = React.useState (true);
-  // const [JWT_Token , setToken] =React.useState(null);
   constructor(props){
     super(props);
     this.state = {

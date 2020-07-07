@@ -3,7 +3,7 @@ import { useState } from 'react';
 import {StyleSheet, View, Text, ScrollView} from 'react-native';
 import ReportForm from './ReportForm';
 import { Icon } from 'react-native-elements';
-import propsp from './Pickertest'
+
 
 class GenReportScreen extends React.Component{
   render(){

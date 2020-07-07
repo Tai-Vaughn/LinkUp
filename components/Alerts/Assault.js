@@ -40,9 +40,14 @@ const reports = [
         time: '2:00',
     },
 ];
-let report=[];
 
 export default class Assault extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            report : []
+        }
+    }
     SampleFunction = (item) => {
 
         alert(item);
@@ -51,7 +56,7 @@ export default class Assault extends React.Component {
     sort =()=>{
         if(reports.type==='Aggravated Assault'){
        
-            report.push({
+            this.state.report.push({
                 id: reports.id,
                 type:reports.type,
                 description: reports.description,

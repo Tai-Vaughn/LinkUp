@@ -223,6 +223,7 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         marginTop:1,
         fontWeight:'bold',
+        fontSize: 12
     }
 
 });

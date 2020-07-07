@@ -19,7 +19,9 @@ export default class Map extends React.Component {
 
     componentDidMount(){
         Dataservice.getMarkers()
-        Dataservice.graph$.subscribe(data => this.setState({Graph:data}))
+        Dataservice.graph$.subscribe(data => {this.setState({Graph:data})
+        //; console.log(data)
+    })
 
         Dataservice.markers$.subscribe(data => 
             {

@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
         color: 'white',
         paddingHorizontal: 10,
         borderRadius: 10,
-        width: 200,
+        width: 250,
         flexWrap: 'wrap'
     },
     details: {
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         color: 'white',
         paddingHorizontal: 10,
         borderRadius: 10,
-        width: 200,
+        width: 250,
         flexWrap: 'wrap',
         textAlign: 'left',
         textAlignVertical:'top'

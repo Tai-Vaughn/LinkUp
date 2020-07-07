@@ -193,7 +193,7 @@ class Alerter extends React.Component {
                             <Text style={styles.TextStyle} > {item.description} </Text>
 
                             <Text style={styles.TextStyle} > Time: {item.time} </Text>
-                            <View style={{ width: '100%', height: 1, backgroundColor: '#000', padding: 5}} />
+                            <View style={{ width: '100%', height: 1, backgroundColor: '#000', padding: 2}} />
                         </TouchableOpacity>
 
 

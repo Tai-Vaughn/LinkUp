@@ -46,7 +46,7 @@ export default class StartMenue extends React.Component{
                         <Image style={globalStyles.logo} source={require('../../static/profileicon.png')}/>
                     </View>
                     <Text style={styles.username}>@{this.state.CurrentUser.username}</Text>
-                    
+                    <Text style={styles.pad}></Text>
                 </View>
                 
                 <ScrollView>

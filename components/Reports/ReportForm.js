@@ -22,6 +22,7 @@ export default class ReportForm extends Component {
             Date: ''
         }
     }
+    
     render() {
         return (
             <ScrollView>
@@ -53,7 +54,9 @@ export default class ReportForm extends Component {
                             <Picker
                                 style={styles.input}
                                 selectedValue={this.state.Type}
-                                onValueChange={(itemValue) => this.setState({ Type: itemValue })}
+                                onValueChange={(itemValue) =>{
+                                    setFieldValue('Type of Crime', itemValue) 
+                                    this.setState({ Type: itemValue })} }
                             >
                                 <Picker.Item label='Type of Crime' value='' />
                                 <Picker.Item label='Aggravated Assault' value='Aggravated Assault' />

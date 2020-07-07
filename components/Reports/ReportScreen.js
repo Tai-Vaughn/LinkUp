@@ -3,6 +3,7 @@ import { useState } from 'react';
 import {StyleSheet, View, Text, ScrollView} from 'react-native';
 import ReportForm from './ReportForm';
 import { Icon } from 'react-native-elements';
+import propsp from './Pickertest'
 
 class GenReportScreen extends React.Component{
   render(){
@@ -22,9 +23,10 @@ class GenReportScreen extends React.Component{
               <Text style={styles.textDetails}>If you or someone you know has been attacked or 
                 you happened to witness one and wish to report it, fill out the fields below. 
                 If you do not see the location in the prescribed menu, ensure to include it in your 
-                report details.
+                report details.<ReportForm/>
               </Text>
-              <ReportForm/>
+              <propsp />
+              
             </ScrollView>
           </View>
       )
@@ -63,7 +65,7 @@ menu: {
     color:'white',
     justifyContent:'flex-start',
     marginBottom: 10,
-    width: 300
+    width: 275
   }
 
 });

@@ -41,7 +41,7 @@ const reports = [
     },
 ];
 
-export default class Assault extends React.Component {
+export default class Kidnapping extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -54,9 +54,9 @@ export default class Assault extends React.Component {
 
     }
     sort =()=>{
-        if(reports.type==='Aggravated Assault'){
+        if(reports.type==='Kidnapping'){
        
-            this.state.report=reports.filter(type='Aggravated Assault')
+            this.state.report=reports.filter(type='Kidnapping')
            
 
         }
@@ -118,12 +118,5 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
 
+
 });
- /*<Text style={styles.header}>Aggravated Assault</Text>
- <View style={styles.menu}>
-              <Icon name='menu'
-               underlayColor="transparent"
-               size={28}
-               iconStyle={styles.placeIcon}
-               onPress={()=> this.props.navigation.toggleDrawer()} />
-               </View>*/

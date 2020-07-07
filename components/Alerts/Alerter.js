@@ -52,130 +52,6 @@ class Alerter extends React.Component {
 
     }
 
-
-    assaultHandler = () => {
-
-        if (reports.type === 'Aggravated Assault') {
-            report.push(reports);
-
-        }
-        return (
-
-
-            <View style={styles.container}>
-                <Text style={globalStyles.text}> Aggravated Assault:</Text>
-                <ScrollView >
-
-                    {reports.map((item, key) => (
-
-                        <TouchableOpacity key={key} style={styles.alertr} onPress={this.SampleFunction.bind(this, item.description)}>
-                            <Text style={styles.TextStyle} > {item.type} </Text>
-                            <Text style={styles.TextStyle} > {item.description} </Text>
-
-                            <Text style={styles.TextStyle} > Time: {item.time} </Text>
-
-                        </TouchableOpacity>
-
-
-                    ))
-                    }
-
-                </ScrollView>
-
-            </View>
-
-
-        )
-
-    }
-
-    breakHandler = () => {
-        return (
-            <ScrollView>
-                <View>
-                    <Text>Break-In</Text>
-                    <ScrollView >
-
-                        {reports.map((item, key) => (
-
-                            <TouchableOpacity key={key} style={styles.alertr} onPress={this.SampleFunction.bind(this, item.description)}>
-                                <Text style={styles.TextStyle} > {item.type} </Text>
-                                <Text style={styles.TextStyle} > {item.description} </Text>
-
-                                <Text style={styles.TextStyle} > Time: {item.time} </Text>
-
-                            </TouchableOpacity>
-
-
-                        ))
-                        }
-
-                    </ScrollView>
-                </View>
-            </ScrollView>
-
-        )
-
-    }
-    kidnapHandler = () => {
-        return (
-            <ScrollView>
-                <View>
-                    <Text>Kidnapping/Attempted Kidnapping'</Text>
-
-                </View>
-            </ScrollView>
-
-        )
-
-    }
-    robHandler = () => {
-        return (
-            <ScrollView>
-                <View>
-                    <Text>Robbery/Attempted Robbery</Text>
-                </View>
-            </ScrollView>
-
-        )
-
-    }
-    saHandler = () => {
-        return (
-            <ScrollView>
-                <View>
-                    <Text>Sexual Assault/Rape</Text>
-
-                </View>
-            </ScrollView>
-
-        )
-
-    }
-    shootHandler = () => {
-        return (
-            <ScrollView>
-                <View>
-                    <Text>Shooting</Text>
-
-                </View>
-            </ScrollView>
-
-        )
-
-    }
-    theftHandler = () => {
-        return (
-            <ScrollView>
-                <View>
-                    <Text>Theft</Text>
-
-                </View>
-            </ScrollView>
-
-        )
-
-    }
     render() {
 
         return (
@@ -198,22 +74,22 @@ class Alerter extends React.Component {
                             <Button title='Aggravated Assault' onPress={()=>this.props.navigation.navigate('Assault')} />
                         </View>
                         <View style={globalStyles.button}>
-                            <Button title='Break-In' onPress={this.breakHandler} />
+                            <Button title='Break-In'  onPress={()=>this.props.navigation.navigate('BreakIn')} />
                         </View>
                         <View style={globalStyles.button}>
-                            <Button title='Kidnapping/Attempted Kidnapping' onPress={this.kidnapHandler} />
+                            <Button title='Kidnapping/Attempted Kidnapping' onPress={()=>this.props.navigation.navigate('Kidnapping')} />
                         </View>
                         <View style={globalStyles.button}>
-                            <Button title='Robbery/Attempted Robbery' onPress={this.robHandler} />
+                            <Button title='Robbery/Attempted Robbery' onPress={()=>this.props.navigation.navigate('Robbery')} />
                         </View>
                         <View style={globalStyles.button}>
-                            <Button title='Sexual Assault/Rape' onPress={this.saHandler} />
+                            <Button title='Sexual Assault/Rape' onPress={()=>this.props.navigation.navigate('SexualAssault')} />
                         </View>
                         <View style={globalStyles.button}>
-                            <Button title='Shooting' onPress={this.shootHandler} />
+                            <Button title='Shooting' onPress={()=>this.props.navigation.navigate('Shooting')} />
                         </View>
                         <View style={globalStyles.button}>
-                            <Button title='Theft' onPress={this.theftHandler} />
+                            <Button title='Theft' onPress={()=>this.props.navigation.navigate('Theft')} />
                         </View>
                     </View>
                 </ScrollView>
@@ -304,4 +180,32 @@ export default Alerter;
 
                      
 
-    */
+     breakHandler = () => {
+        return (
+            <ScrollView>
+                <View>
+                    <Text>Break-In</Text>
+                    <ScrollView >
+
+                        {reports.map((item, key) => (
+
+                            <TouchableOpacity key={key} style={styles.alertr} onPress={this.SampleFunction.bind(this, item.description)}>
+                                <Text style={styles.TextStyle} > {item.type} </Text>
+                                <Text style={styles.TextStyle} > {item.description} </Text>
+
+                                <Text style={styles.TextStyle} > Time: {item.time} </Text>
+
+                            </TouchableOpacity>
+
+
+                        ))
+                        }
+
+                    </ScrollView>
+                </View>
+            </ScrollView>
+
+        )
+
+    }
+                    */

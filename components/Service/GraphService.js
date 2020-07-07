@@ -92,6 +92,7 @@ export class GraphClass {
 
     dijkstra(start, end){
         let unvisited = this.setUnvisited()
+        this.visited= []
     
         for (let i = 0; i < this.noOfVerticies; i++) {
              this.dist.set(unvisited[i], Infinity)

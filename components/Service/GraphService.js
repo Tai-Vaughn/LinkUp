@@ -79,12 +79,23 @@ export class GraphClass {
     }
 
     populate(list){
+        let hr = new Date().getHours()
         for (let i=0; i< this.noOfVerticies; i++){
            this.addVerticies(list[i].name)
         };
         for (let i=0; i<this.noOfVerticies; i++){
             for (let x=0; x<list[i].neighbour.length; x++){
-                this.addEdge(list[i].name,list[i].neighbour[x].name,list[i].neighbour[x].cost)
+                if(hr >= 19 || hr <=8){
+                    let modifiers = list[i].neighbour[x].modifiers
+                    // console.log(list[i].neighbour[x].cost + list[i].neighbour[x].modifiers.night)
+                    // let cost = list[i].neighbour[x].cost * (1+list[i].neighbour[x].modifiers.night)
+                    let cost = list[i].neighbour[x].cost * (1+0.5+modifiers.night)
+                    console.log("from :" + list[i].name+ "To:"+list[i].neighbour[x].name + " cost" +cost)
+                    this.addEdge(list[i].name,list[i].neighbour[x].name,cost)
+                } else {
+                    this.addEdge(list[i].name,list[i].neighbour[x].name,list[i].neighbour[x].cost)
+                }
+                
             }
 
         }

@@ -1,8 +1,9 @@
 import React  from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
 import {StyleSheet} from 'react-native'
 
+import Header from "../shared/Header"
 import Profile from './ProfileScreen'
 import Map from '../Map/Maps'
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
@@ -13,7 +14,7 @@ export default class StartMenue extends React.Component{
         return(
             <NavigationContainer independent={true}>
                 <ProfileStack.Navigator>
-                    <ProfileStack.Screen name="Profile" component={Profile}/>
+                    <ProfileStack.Screen name="Profile" component={Profile} navigationOptions={headerTitle=()=><Header/>}/>
                     <ProfileStack.Screen name="Map" component={Map}/>
                 </ProfileStack.Navigator>
             </NavigationContainer>

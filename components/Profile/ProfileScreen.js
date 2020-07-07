@@ -61,14 +61,7 @@ export default class StartMenue extends React.Component{
                         onPress={() => this.props.navigation.navigate('Map')}
                         />
                     </View>
-                    <View style={globalStyles.button}>
-                        <Icon
-                            name="place"
-                            underlayColor="transparent"
-                            iconStyle={styles.placeIcon}
-                        />
-                        <Button title='Previous Routes'/>
-                    </View>
+                    
                     
                                    
 
@@ -90,7 +83,7 @@ const styles = StyleSheet.create({
     fontSize: 26,
   },
 pad:{
-    marginBottom:20,
+    marginBottom:30,
 },menu:{
     flexDirection:'row',
     position: 'absolute',
@@ -125,6 +118,14 @@ pad:{
                             iconStyle={styles.placeIcon}
                         />
                         <Button title='Friends'/>
+                    </View>
+                    <View style={globalStyles.button}>
+                        <Icon
+                            name="place"
+                            underlayColor="transparent"
+                            iconStyle={styles.placeIcon}
+                        />
+                        <Button title='Previous Routes'/>
                     </View>
 
        justifyContent: 'center',

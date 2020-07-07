@@ -99,9 +99,7 @@ class FindRouteScreen extends React.Component {
 
                                 <Picker
                                     selectedValue={this.state.PickerValue2}
-                                    onValueChange={(itemValue, itemIndex) =>{
-                                        setFieldValue('PickerValue2', itemValue) 
-                                        this.setState({ PickerValue2: itemValue })} }
+                                    onValueChange={(itemValue, itemIndex) =>this.setState({ PickerValue2: itemValue })} 
                                 >
                                     <Picker.Item label='Group Size (Must be 4 or higher)' value='' />
                                     <Picker.Item label='0' value='No Group' />

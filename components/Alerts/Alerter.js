@@ -195,7 +195,7 @@ class Alerter extends React.Component {
 
 
                         <View style={globalStyles.button}>
-                            <Button title='Aggravated Assault' onPress={this.props.navigation.navigate('Assault')} />
+                            <Button title='Aggravated Assault' onPress={()=>this.props.navigation.navigate('Assault')} />
                         </View>
                         <View style={globalStyles.button}>
                             <Button title='Break-In' onPress={this.breakHandler} />

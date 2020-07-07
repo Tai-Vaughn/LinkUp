@@ -40,6 +40,7 @@ const reports = [
         time: '2:00',
     },
 ];
+let report=[];
 
 export default class Assault extends React.Component {
     SampleFunction = (item) => {
@@ -47,6 +48,19 @@ export default class Assault extends React.Component {
         alert(item);
 
     }
+    sort =()=>{
+        if(reports.type==='Aggravated Assault'){
+       
+            report.push({
+                id: reports.id,
+                type:reports.type,
+                description: reports.description,
+                time: reports.time
+            });
+
+        }
+    }
+    
 
     render() {
 
@@ -56,7 +70,7 @@ export default class Assault extends React.Component {
 
                 <ScrollView >
 
-                    {reports.map((item, key) => (
+                    {report.map((item, key) => (
 
                         <TouchableOpacity key={key} onPress={this.SampleFunction.bind(this, item.description)}>
                             <Text style={styles.TextStyle} > {item.type} </Text>

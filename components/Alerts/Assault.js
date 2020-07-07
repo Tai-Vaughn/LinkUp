@@ -1,5 +1,5 @@
 import React  from 'react';
-import {  View, Text, Alert, TouchableOpacity, Platform, Image, StyleSheet, Button, ScrollView } from 'react-native';
+import {  View, Text, Alert, TouchableOpacity, StyleSheet,} from 'react-native';
 import {globalStyles} from '../Styles'; 
 import { ScrollView } from 'react-native-gesture-handler';
 import {Icon } from 'react-native-elements';

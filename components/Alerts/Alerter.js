@@ -60,21 +60,21 @@ class Alerter extends React.Component {
                 <Text style={globalStyles.text}> Aggravated Assault:</Text>
                 <ScrollView >
 
-                        {reports.map((item, key) => (
+                    {reports.map((item, key) => (
 
-                            <TouchableOpacity key={key} style={styles.alertr} onPress={this.SampleFunction.bind(this, item.description)}>
-                                <Text style={styles.TextStyle} > {item.type} </Text>
-                                <Text style={styles.TextStyle} > {item.description} </Text>
+                        <TouchableOpacity key={key} style={styles.alertr} onPress={this.SampleFunction.bind(this, item.description)}>
+                            <Text style={styles.TextStyle} > {item.type} </Text>
+                            <Text style={styles.TextStyle} > {item.description} </Text>
 
-                                <Text style={styles.TextStyle} > Time: {item.time} </Text>
-                                
-                            </TouchableOpacity>
-                            
-                            
-                        ))
-                        }
+                            <Text style={styles.TextStyle} > Time: {item.time} </Text>
 
-                    </ScrollView>
+                        </TouchableOpacity>
+
+
+                    ))
+                    }
+
+                </ScrollView>
 
             </View>
 
@@ -97,10 +97,10 @@ class Alerter extends React.Component {
                                 <Text style={styles.TextStyle} > {item.description} </Text>
 
                                 <Text style={styles.TextStyle} > Time: {item.time} </Text>
-                                
+
                             </TouchableOpacity>
-                            
-                            
+
+
                         ))
                         }
 
@@ -183,7 +183,109 @@ class Alerter extends React.Component {
                 </View>
                 <Text style={styles.header}>RECENT CRIMINAL ACTIVITY</Text>
                 <Text style={styles.pad}></Text>
-                <ScrollView>
+
+                <ScrollView >
+
+                    {reports.map((item, key) => (
+
+                        <TouchableOpacity key={key}  onPress={this.SampleFunction.bind(this, item.description)}>
+                            <Text style={styles.TextStyle} > {item.type} </Text>
+                            <Text style={styles.TextStyle} > {item.description} </Text>
+
+                            <Text style={styles.TextStyle} > Time: {item.time} </Text>
+                            <View style={{ width: '100%', height: 1, backgroundColor: '#000', padding: 5}} />
+                        </TouchableOpacity>
+
+
+                    ))
+                    }
+
+                </ScrollView>
+
+            </View>
+
+        );
+        //}
+
+    }
+}
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: 'steelblue',
+        padding: 40,
+        flex: 1
+    },
+    pad: {
+        marginBottom: 20,
+    },
+    TextStyle: {
+        fontSize: 25,
+        color: 'white',
+        textAlign: 'center'
+    },
+
+    alertr: {
+        borderColor: "white",
+        borderWidth: 1,
+        padding: 5,
+
+
+    },
+    placeIcon: {
+        color: 'white',
+        fontSize: 28,
+    },
+    menu: {
+        flexDirection: 'row',
+        position: 'absolute',
+        left: 16,
+        top: 30,
+    },
+    header: {
+        color: 'white',
+        fontSize: 20,
+        fontFamily: 'righteous',
+        alignSelf: 'center',
+        paddingTop: 10
+    },
+
+    text: {
+        color: 'black',
+        fontSize: 18,
+        marginBottom: 90,
+        fontFamily: 'righteous'
+    }
+
+});
+export default Alerter;
+
+/*
+
+
+<View style={{ width: '100%', height: 1, backgroundColor: '#000'}} />
+  let i=0;
+
+            if(reports.type==="Aggravated Assault"){
+                if(i<4){
+                    descriptions.push({
+                        id: reports.id,
+                        description: reports.description
+                    });
+
+                }
+
+                i++;
+
+            }
+
+       justifyContent: 'center',
+       alignItems: 'center',
+                    { descriptions.map((item, key)=>(
+                    <Text key={reports.id} style={styles.TextStyle}
+                    onPress={ this.SampleFunction.bind(this, item) }> { item } </Text>)
+                    )}
+
+                     <ScrollView>
 
                     <View >
 
@@ -211,89 +313,5 @@ class Alerter extends React.Component {
                         </View>
                     </View>
                 </ScrollView>
-
-               
-            </View>
-
-        );
-        //}
-
-    }
-}
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: 'steelblue',
-        padding: 40,
-        flex: 1
-    },
-    pad: {
-        marginBottom: 20,
-    },
-    TextStyle: {
-        fontSize: 25,
-        color: 'white',
-        textAlign: 'center'
-    },
-  
-    alertr:{
-        borderColor:"white",
-        borderWidth:1,
-        padding:5,
-
-        
-    },
-    placeIcon: {
-        color: 'white',
-        fontSize: 28,
-    },
-    menu: {
-        flexDirection: 'row',
-        position: 'absolute',
-        left: 16,
-        top:30,
-    },
-    header:{
-        color: 'white',
-        fontSize: 20,
-        fontFamily: 'righteous',
-        alignSelf: 'center',
-        paddingTop: 10
-      },
-
-    text: {
-        color: 'black',
-        fontSize: 18,
-        marginBottom: 90,
-        fontFamily: 'righteous'
-    }
-
-});
-export default Alerter;
-
-/*
- 
-
-<View style={{ width: '100%', height: 1, backgroundColor: '#000'}} />
-  let i=0;
-
-            if(reports.type==="Aggravated Assault"){
-                if(i<4){
-                    descriptions.push({
-                        id: reports.id,
-                        description: reports.description
-                    });
-
-                }
-
-                i++;
-
-            }
-
-       justifyContent: 'center',
-       alignItems: 'center',
-                    { descriptions.map((item, key)=>(
-                    <Text key={reports.id} style={styles.TextStyle}
-                    onPress={ this.SampleFunction.bind(this, item) }> { item } </Text>)
-                    )}
 
     */

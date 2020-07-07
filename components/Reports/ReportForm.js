@@ -116,8 +116,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         borderRadius: 10,
         width: 300,
-        flexWrap: 'wrap',
-        alignItems: 'flex-start'
+        flexWrap: 'wrap'
     },
     pad: {
         marginBottom: 10,

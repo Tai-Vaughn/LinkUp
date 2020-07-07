@@ -69,14 +69,7 @@ export default class StartMenue extends React.Component{
                         />
                         <Button title='Previous Routes'/>
                     </View>
-                    <View style={globalStyles.button}>
-                        <Icon
-                            name="chat"
-                            underlayColor="transparent"
-                            iconStyle={styles.placeIcon}
-                        />
-                        <Button title='Friends'/>
-                    </View>
+                    
                                    
 
                 </ScrollView>
@@ -125,7 +118,14 @@ pad:{
  
  });
 
-/*
+/*<View style={globalStyles.button}>
+                        <Icon
+                            name="chat"
+                            underlayColor="transparent"
+                            iconStyle={styles.placeIcon}
+                        />
+                        <Button title='Friends'/>
+                    </View>
 
        justifyContent: 'center',
        alignItems: 'center',

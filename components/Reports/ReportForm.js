@@ -6,6 +6,7 @@ import Timee from '../FindRoute/Timee';
 import MyDatePicker from '../FindRoute/DatePicker';
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import * as DataService from '../Service/DataService';
 
 
 /* 
@@ -42,7 +43,7 @@ export default class ReportForm extends Component {
                         Description: '',
                         Time: ''
                     }}
-                    validationSchema={ReportFormSchema}
+                   // validationSchema={ReportFormSchema}
                     onSubmit={(values, action) => {
                         action.resetForm();
                         console.log(values);
@@ -63,8 +64,8 @@ export default class ReportForm extends Component {
                             <Picker
                                 style={styles.input}
                                 selectedValue={this.state.Type}
-                                onValueChange={(itemValue, itemIndex) => {
-                                    setFieldValue('Type of Crime', itemValue)
+                                onValueChange={(itemValue) => {
+                                    setFieldValue('Type', itemValue)
                                     this.setState({Type: itemValue})
                                 }}>
                                // onValueChange={(itemValue) =>this.setState({ Type: itemValue })} 

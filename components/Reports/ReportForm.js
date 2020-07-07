@@ -16,22 +16,32 @@ https://github.com/react-native-community/datetimepicker
 
 const ReportFormSchema = yup.object({
     Location: yup.string()
-    .required(),
+        .required(),
 
     Type: yup.string()
-    .required(),
+        .required(),
 
     Description: yup.string()
-    .required(),
+        .required(),
 
-    Time: yup.string() 
-    .required(),
+    Time: yup.string()
+        .required(),
 
 })
 
 
 export default class ReportForm extends Component {
-    
+    constructor(props, { navigation }) {
+        super(props),
+            this.state = {
+                Location: '',
+                Type: '',
+                Description: '',
+                Time: ''
+            }
+
+    }
+
     render() {
         return (
             <ScrollView>
@@ -64,9 +74,9 @@ export default class ReportForm extends Component {
                             <Picker
                                 style={styles.input}
                                 selectedValue={this.state.Type}
-                                onValueChange={(itemValue) =>this.setState({ Type: itemValue })} >
-                               
-                            
+                                onValueChange={(itemValue) => this.setState({ Type: itemValue })} >
+
+
                                 <Picker.Item label='Type of Crime' value='' />
                                 <Picker.Item label='Aggravated Assault' value='Aggravated Assault' />
                                 <Picker.Item label='Break-In' value='Break-In' />
@@ -98,7 +108,7 @@ export default class ReportForm extends Component {
                             />
 
 
-                            
+
                             <Text style={styles.pad}></Text>
                             <View style={styles.buttonContainer}>
                                 <Button onPress={handleSubmit} title="Submit" />
@@ -137,7 +147,7 @@ const styles = StyleSheet.create({
         width: 275,
         flexWrap: 'wrap',
         textAlign: 'left',
-        textAlignVertical:'top'
+        textAlignVertical: 'top'
     },
     pad: {
         marginBottom: 10,

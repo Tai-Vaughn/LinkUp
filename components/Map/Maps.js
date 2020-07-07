@@ -86,10 +86,10 @@ export default class Map extends React.Component {
                     style={styles.map}
                     provider = {PROVIDER_GOOGLE}
                     region={{
-                            latitude: 18.006013,
-                            longitude: -76.747103,
-                            latitudeDelta: 0.0422,
-                            longitudeDelta: 0.0421,
+                            latitude: 17.998099,
+                            longitude: -76.745103,
+                            latitudeDelta: 0.0000,
+                            longitudeDelta: 0.0121,
                     }}>
                         {markersList}
                 </MapView>

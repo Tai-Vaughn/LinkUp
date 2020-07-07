@@ -58,7 +58,11 @@ export default class ReportForm extends Component {
                                 onSubmit={() => {
                                     action.resetForm();
                                 }}
-                                onValueChange={(itemValue) =>this.setState({ Type: itemValue })} 
+                                onValueChange={(itemValue, itemIndex) => {
+                                    setFieldValue('Type of Crime', itemValue)
+                                    this.setState({Type: itemValue})
+                                }}
+                               // onValueChange={(itemValue) =>this.setState({ Type: itemValue })} 
                             >
                                 <Picker.Item label='Type of Crime' value='' />
                                 <Picker.Item label='Aggravated Assault' value='Aggravated Assault' />

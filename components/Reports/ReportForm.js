@@ -55,7 +55,7 @@ export default class ReportForm extends Component {
                             <Picker
                                 style={styles.input}
                                 selectedValue={this.state.Type}
-                                onSubmit={(values, action) => {
+                                onSubmit={() => {
                                     action.resetForm();
                                 }}
                                 onValueChange={(itemValue) =>this.setState({ Type: itemValue })} 

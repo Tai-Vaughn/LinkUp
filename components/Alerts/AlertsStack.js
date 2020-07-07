@@ -4,7 +4,7 @@ import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
 import {StyleSheet} from 'react-native'
 
 import Header from "../shared/Header"
-import Profile from '..Profile/ProfileScreen'
+import Profile from '../Profile/ProfileScreen'
 import Alerter from './Alerter'
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
 

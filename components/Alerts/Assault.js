@@ -1,8 +1,8 @@
-import React  from 'react';
-import {  View, Text, Alert, TouchableOpacity, StyleSheet,} from 'react-native';
-import {globalStyles} from '../Styles'; 
+import React from 'react';
+import { View, Text, Alert, TouchableOpacity, StyleSheet, } from 'react-native';
+import { globalStyles } from '../Styles';
 import { ScrollView } from 'react-native-gesture-handler';
-import {Icon } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 import * as Dataservice from '../Service/DataService';
 import { date } from 'yup';
 import { shareReplay } from 'rxjs/operators';
@@ -41,39 +41,29 @@ const reports = [
     },
 ];
 
-export default class Assault extends React.Component{
+export default class Assault extends React.Component {
     SampleFunction = (item) => {
 
         alert(item);
 
     }
-    
+
     render() {
-        
+
         return (
-           
+
             <View style={styles.container}>
-               <View style={styles.menu}>
-               <Icon name='menu' 
-                underlayColor="transparent"
-                size={28}
-                iconStyle={styles.placeIcon}
-                onPress={()=> this.props.navigation.toggleDrawer()} />
-                </View> 
-                
-                <Text style={styles.header}>Aggravated Assault</Text>
-                <Text style={styles.pad}></Text>
 
                 <ScrollView >
 
                     {reports.map((item, key) => (
 
-                        <TouchableOpacity key={key}  onPress={this.SampleFunction.bind(this, item.description)}>
+                        <TouchableOpacity key={key} onPress={this.SampleFunction.bind(this, item.description)}>
                             <Text style={styles.TextStyle} > {item.type} </Text>
                             <Text style={styles.TextStyle} > {item.description} </Text>
 
                             <Text style={styles.TextStyle} > Time: {item.time} </Text>
-                            <View style={{ width: '100%', height: 1, backgroundColor: '#000', padding: 2}} />
+                            <View style={{ width: '100%', height: 1, backgroundColor: '#000', padding: 2 }} />
                         </TouchableOpacity>
 
 
@@ -82,48 +72,60 @@ export default class Assault extends React.Component{
 
                 </ScrollView>
 
-                
-                
+
+
             </View>
-        ); 
+        );
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-       backgroundColor: 'steelblue',
-       padding: 50,
-       flex: 1
-   },
-   placeIcon: {
-    color: 'white',
-    fontSize: 26,
-  },
-pad:{
-    marginBottom:30,
-},menu:{
-    flexDirection:'row',
-    position: 'absolute',
-    left: 18,
-    top:30,
-   },
-   
-   user:{
-       color: '#FFF',
+        backgroundColor: 'steelblue',
+        padding: 50,
+        flex: 1
+    },
+    placeIcon: {
+        color: 'white',
+        fontSize: 26,
+    },
+    pad: {
+        marginBottom: 30,
+    }, menu: {
+        flexDirection: 'row',
+        position: 'absolute',
+        left: 18,
+        top: 30,
+    },
+    TextStyle: {
+        fontSize: 25,
+        color: 'white',
+        textAlign: 'center'
+    },
+    user: {
+        color: '#FFF',
         fontSize: 30,
         fontWeight: 'bold',
         paddingBottom: 8,
         textAlign: 'center',
-    fontFamily: 'righteous'
-  },
-  username:{
-    color: '#FFF',
-     fontSize: 28,
-     fontWeight: 'bold',
-     paddingBottom: 8,
-     textAlign: 'center',
- fontFamily: 'righteous'
-}, 
-   
- 
- });
+        fontFamily: 'righteous'
+    },
+    username: {
+        color: '#FFF',
+        fontSize: 28,
+        fontWeight: 'bold',
+        paddingBottom: 8,
+        textAlign: 'center',
+        fontFamily: 'righteous'
+    },
+
+
+});
+ /*<Text style={styles.header}>Aggravated Assault</Text>
+ <View style={styles.menu}>
+              <Icon name='menu'
+               underlayColor="transparent"
+               size={28}
+               iconStyle={styles.placeIcon}
+               onPress={()=> this.props.navigation.toggleDrawer()} />
+               </View>*/

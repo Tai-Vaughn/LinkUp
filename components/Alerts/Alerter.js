@@ -68,7 +68,7 @@ class Alerter extends React.Component {
 
                 <ScrollView >
 
-                    {this.state.report.map((item, key) => (
+                    {reports.map((item, key) => (
 
                         <TouchableOpacity key={key} onPress={this.SampleFunction.bind(this, item.description)}>
                             <Text style={styles.TextStyle} > {item.type} </Text>

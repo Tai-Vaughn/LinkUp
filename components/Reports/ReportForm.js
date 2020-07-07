@@ -55,7 +55,7 @@ export default class ReportForm extends Component {
                                 style={styles.input}
                                 selectedValue={this.state.Type}
                                 onValueChange={(itemValue) =>{
-                                    setFieldValue('Type', itemValue) 
+                                    setFieldValue({Type: itemValue}) 
                                     this.setState({ Type: itemValue })} }
                             >
                                 <Picker.Item label='Type of Crime' value='' />
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
         color: 'white',
         paddingHorizontal: 10,
         borderRadius: 10,
-        width: 300,
+        width: 200,
         flexWrap: 'wrap'
     },
     details: {
@@ -118,8 +118,9 @@ const styles = StyleSheet.create({
         color: 'white',
         paddingHorizontal: 10,
         borderRadius: 10,
-        width: 300,
-        flexWrap: 'wrap'
+        width: 200,
+        flexWrap: 'wrap',
+        textAlign: 'flex-start'
     },
     pad: {
         marginBottom: 10,

@@ -75,7 +75,7 @@ export default class Assault extends React.Component {
 
                 <ScrollView >
 
-                    {report.map((item, key) => (
+                    {this.state.report.map((item, key) => (
 
                         <TouchableOpacity key={key} onPress={this.SampleFunction.bind(this, item.description)}>
                             <Text style={styles.TextStyle} > {item.type} </Text>

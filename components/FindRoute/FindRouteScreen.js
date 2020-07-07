@@ -72,7 +72,14 @@ class FindRouteScreen extends React.Component {
                     <Text style={globalStyles.text}>Plan Journey</Text>
 
                     <Formik
-                     onSubmit={(values, action) => {
+                    initialValues={{
+                        PickerValue: '',
+                        PickerValue2: '',
+                        PickerValue3: '',
+                        PickerValue4: '',
+                        Time: ''
+                    }}
+                        onSubmit={(values, action) => {
                             action.resetForm();
                             console.log(values);
                         }}

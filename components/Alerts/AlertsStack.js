@@ -3,9 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
 import {StyleSheet} from 'react-native'
 
-import Header from "../shared/Header"
-import Profile from '../Profile/ProfileScreen'
+
 import Alerter from './Alerter'
+import Assault from './Assault'
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
 
 const AlertsStack = createStackNavigator();
@@ -14,8 +14,8 @@ export default class Alerted extends React.Component{
         return(
             <NavigationContainer independent={true}>
                 <AlertsStack.Navigator>
-                    <AlertsStack.Screen name="Profile" component={Profile}  options={{headerShown: false,}}/>
-                    <AlertsStack.Screen name="Alerts" component={Alerter}/>
+                <AlertsStack.Screen name="Alerts" component={Alerter}/>
+                    <AlertsStack.Screen name="Aggravated Assault" component={Assault}/>
                 </AlertsStack.Navigator>
             </NavigationContainer>
         )

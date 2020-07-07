@@ -10,25 +10,25 @@ const reports = [
         id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
         type: 'Aggravated Assault',
         description: 'library destination: union',
-        time: '4:30',
+        time: '1:30',
     },
     {
         id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
         type: 'Aggravated Assault',
         description: 'union id: 58694a0f-3da1-471f-bd96-145571e29d32,type: Break-In,description: scitech,time: 2:00kkxnnkznmSNXkncnkacnjdcndscnsmd,ncsmsdcm.',
-        time: '9:00',
+        time: '3:00',
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29d72',
         type: 'Aggravated Assault',
         description: 'scitech',
-        time: '2:00',
+        time: '4:50',
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29d32',
         type: 'Break-In',
         description: 'scitech',
-        time: '2:00',
+        time: '9:00',
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29e72',
@@ -39,12 +39,12 @@ const reports = [
 ];
 
 class Alerter extends React.Component {
-    constructor(props , {navigation}){
+    constructor(props, { navigation }) {
         super(props),
-        this.state = {
-        }
-        
-       }
+            this.state = {
+            }
+
+    }
 
     SampleFunction = (item) => {
 
@@ -65,40 +65,29 @@ class Alerter extends React.Component {
                 </View>
                 <Text style={styles.header}>RECENT CRIMINAL ACTIVITY</Text>
                 <Text style={styles.pad}></Text>
-                <ScrollView>
 
-                    <View >
+                <ScrollView >
+
+                    {this.state.report.map((item, key) => (
+
+                        <TouchableOpacity key={key} onPress={this.SampleFunction.bind(this, item.description)}>
+                            <Text style={styles.TextStyle} > {item.type} </Text>
+                            <Text style={styles.TextStyle} > {item.description} </Text>
+
+                            <Text style={styles.TextStyle} > Time: {item.time} </Text>
+                            <View style={{ width: '100%', height: 1, backgroundColor: '#000', padding: 2 }} />
+                        </TouchableOpacity>
 
 
-                        <View style={globalStyles.button}>
-                            <Button title='Aggravated Assault' onPress={()=>this.props.navigation.navigate('Assault')} />
-                        </View>
-                        <View style={globalStyles.button}>
-                            <Button title='Break-In'  onPress={()=>this.props.navigation.navigate('BreakIn')} />
-                        </View>
-                        <View style={globalStyles.button}>
-                            <Button title='Kidnapping/Attempted Kidnapping' onPress={()=>this.props.navigation.navigate('Kidnapping')} />
-                        </View>
-                        <View style={globalStyles.button}>
-                            <Button title='Robbery/Attempted Robbery' onPress={()=>this.props.navigation.navigate('Robbery')} />
-                        </View>
-                        <View style={globalStyles.button}>
-                            <Button title='Sexual Assault/Rape' onPress={()=>this.props.navigation.navigate('SexualAssault')} />
-                        </View>
-                        <View style={globalStyles.button}>
-                            <Button title='Shooting' onPress={()=>this.props.navigation.navigate('Shooting')} />
-                        </View>
-                        <View style={globalStyles.button}>
-                            <Button title='Theft' onPress={()=>this.props.navigation.navigate('Theft')} />
-                        </View>
-                    </View>
+                    ))
+                    }
+
                 </ScrollView>
 
-                
             </View>
 
         );
-        //}
+
 
     }
 }
@@ -155,7 +144,37 @@ export default Alerter;
 /*
 
 
-<View style={{ width: '100%', height: 1, backgroundColor: '#000'}} />
+<
+<ScrollView>
+
+                    <View >
+
+
+                        <View style={globalStyles.button}>
+                            <Button title='Aggravated Assault' onPress={()=>this.props.navigation.navigate('Assault')} />
+                        </View>
+                        <View style={globalStyles.button}>
+                            <Button title='Break-In'  onPress={()=>this.props.navigation.navigate('BreakIn')} />
+                        </View>
+                        <View style={globalStyles.button}>
+                            <Button title='Kidnapping/Attempted Kidnapping' onPress={()=>this.props.navigation.navigate('Kidnapping')} />
+                        </View>
+                        <View style={globalStyles.button}>
+                            <Button title='Robbery/Attempted Robbery' onPress={()=>this.props.navigation.navigate('Robbery')} />
+                        </View>
+                        <View style={globalStyles.button}>
+                            <Button title='Sexual Assault/Rape' onPress={()=>this.props.navigation.navigate('SexualAssault')} />
+                        </View>
+                        <View style={globalStyles.button}>
+                            <Button title='Shooting' onPress={()=>this.props.navigation.navigate('Shooting')} />
+                        </View>
+                        <View style={globalStyles.button}>
+                            <Button title='Theft' onPress={()=>this.props.navigation.navigate('Theft')} />
+                        </View>
+                    </View>
+                </ScrollView>
+
+View style={{ width: '100%', height: 1, backgroundColor: '#000'}} />
   let i=0;
 
             if(reports.type==="Aggravated Assault"){
@@ -178,7 +197,7 @@ export default Alerter;
                     onPress={ this.SampleFunction.bind(this, item) }> { item } </Text>)
                     )}
 
-                     
+
 
      breakHandler = () => {
         return (

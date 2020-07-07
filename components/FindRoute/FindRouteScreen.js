@@ -80,7 +80,7 @@ class FindRouteScreen extends React.Component {
                         Time: ''
                     }}
                         onSubmit={(values, actions) => {
-                            actions.resetForm();
+                            action.resetForm();
                             console.log(values);
                         }}
                     >

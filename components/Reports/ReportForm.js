@@ -20,7 +20,7 @@ export default class ReportForm extends Component {
             Location: '',
             Type: '',
             Description: '',
-            Date: ''
+            Time: ''
         }
     }
     
@@ -33,7 +33,7 @@ export default class ReportForm extends Component {
                         Location: '',
                         Type: '',
                         Description: '',
-                        Date: ''
+                        Time: ''
                     }}
                     onSubmit={(values, action) => {
                         action.resetForm();
@@ -81,6 +81,15 @@ export default class ReportForm extends Component {
                                 onChangeText={handleChange('Description')}
                                 onBlur={handleBlur('Description')}
                                 value={values.Description}
+                            />
+                            <TextInput
+                                placeholder='What time did the incident occur?'
+                                placeholderTextColor='rgba(255,255,255,0.7)'
+                                returnKeyType='next'
+                                style={styles.input}
+                                onChangeText={handleChange('Time')}
+                                onBlur={handleBlur('Time')}
+                                value={values.Time}
                             />
 
 

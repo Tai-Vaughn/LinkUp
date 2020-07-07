@@ -17,7 +17,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import * as Font from 'expo-font';
 import * as Dataservice from './components/Service/DataService';
-import Alerter from './components/Alerts/AlertsStack';
+import Alerted from './components/Alerts/AlertsStack';
 import FindRouteScreen from './components/FindRoute/FindRouteScreen';
 import Group from './components/Group/Group';
 import ViewGroup from './components/Group/ViewGroup';
@@ -60,7 +60,7 @@ export default class App extends React.Component {
       {this.state.JWT_Token ?
         <ProfileDrawer.Navigator initialRouteName = "Profile">
           <ProfileDrawer.Screen name='Profile' component={Profile} options= {{title: "Your Profile",}}/>
-          <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{title: "Check Alerts",}}/>
+          <ProfileDrawer.Screen name='Alerter' component={Alerted} options= {{title: "Check Alerts",}}/>
           <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{title: "Start a Journey",}}/>
           <ProfileDrawer.Screen name='Group' component={Group} options= {{title: "Join a Group",}}/>
           <ProfileDrawer.Screen name='Report' component={GenReportScreen} options= {{title: "Make a Report",}}/>

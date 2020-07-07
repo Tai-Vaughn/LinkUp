@@ -9,7 +9,7 @@ import Alerter from './Alerter'
 //import { createStackNavigator, createAppContainer } from '@react-navigation';
 
 const AlertsStack = createStackNavigator();
-export default class Alerter extends React.Component{
+export default class Alerted extends React.Component{
     render(){
         return(
             <NavigationContainer independent={true}>

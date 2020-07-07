@@ -1,5 +1,5 @@
 import { TextInput, View } from "react-native";
-import { compose } from "recompose";
+//import { compose } from "recompose";
 import makeInput, {
   KeyboardModal,
   withPickerValues

@@ -23,9 +23,9 @@ class GenReportScreen extends React.Component{
               <Text style={styles.textDetails}>If you or someone you know has been attacked or 
                 you happened to witness one and wish to report it, fill out the fields below. 
                 If you do not see the location in the prescribed menu, ensure to include it in your 
-                report details.<ReportForm/>
+                report details.
               </Text>
-              <propsp />
+              <ReportForm/>
               
             </ScrollView>
           </View>

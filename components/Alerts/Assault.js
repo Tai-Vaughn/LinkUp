@@ -54,7 +54,7 @@ export default class Assault extends React.Component {
 
     }
     sort =()=>{
-        this.state.report=reports.filter(type==='Aggravated Assault');
+        this.state.report=reports.filter(type,'Aggravated Assault');
         
     }
     

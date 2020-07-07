@@ -35,7 +35,7 @@ export default class ReportForm extends Component {
                         Description: '',
                         Date: ''
                     }}
-                    onSubmit={(values, actions) => {
+                    onSubmit={(values, action) => {
                         action.resetForm();
                         console.log(values);
                     }}

@@ -4,7 +4,7 @@ import {globalStyles} from '../Styles';
 import { ScrollView } from 'react-native-gesture-handler';
 import {Icon } from 'react-native-elements'
 
-export default function Header({navigation, title}){
+export default function Header(){
     return(
         <View style={StyleSheet.header}>
             <Icon name='menu' 
@@ -13,7 +13,7 @@ export default function Header({navigation, title}){
                 styles={styles.icon}
                 onPress={()=> this.props.navigation.toggleDrawer()} />
             <View>
-                <Text style={StyleSheet.headertext}>{title}</Text>
+                <Text style={StyleSheet.headertext}>Profile</Text>
             </View>
         </View>
     )

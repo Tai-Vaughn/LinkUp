@@ -5,6 +5,8 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import Timee from '../FindRoute/Timee';
 import MyDatePicker from '../FindRoute/DatePicker';
 import { Formik } from 'formik';
+import * as yup from 'yup';
+import * as DataService from '../Service/DataService';
 
 
 /* 
@@ -12,18 +14,34 @@ Time/Date source code was copied from a github repo linked on React Native's web
 https://github.com/react-native-community/datetimepicker
 */
 
-export default class ReportForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+const ReportFormSchema = yup.object({
+    Location: yup.string()
+        .required(),
 
-            Location: '',
-            Type: '',
-            Description: '',
-            Time: ''
-        }
+    Type: yup.string()
+        .required(),
+
+    Description: yup.string()
+        .required(),
+
+    Time: yup.string()
+        .required(),
+
+})
+
+
+export default class ReportForm extends Component {
+    constructor(props, { navigation }) {
+        super(props),
+            this.state = {
+                Location: '',
+                Type: '',
+                Description: '',
+                Time: ''
+            }
+
     }
-    
+
     render() {
         return (
             <ScrollView>
@@ -35,6 +53,7 @@ export default class ReportForm extends Component {
                         Description: '',
                         Time: ''
                     }}
+                    validationSchema={ReportFormSchema}
                     onSubmit={(values, action) => {
                         action.resetForm();
                         console.log(values);
@@ -55,15 +74,9 @@ export default class ReportForm extends Component {
                             <Picker
                                 style={styles.input}
                                 selectedValue={this.state.Type}
-                                onSubmit={() => {
-                                    action.resetForm();
-                                }}
-                                onValueChange={(itemValue, itemIndex) => {
-                                    setFieldValue('Type of Crime', itemValue)
-                                    this.setState({Type: itemValue})
-                                }}
-                               // onValueChange={(itemValue) =>this.setState({ Type: itemValue })} 
-                            >
+                                onValueChange={(itemValue) => this.setState({ Type: itemValue })} >
+
+
                                 <Picker.Item label='Type of Crime' value='' />
                                 <Picker.Item label='Aggravated Assault' value='Aggravated Assault' />
                                 <Picker.Item label='Break-In' value='Break-In' />
@@ -72,8 +85,6 @@ export default class ReportForm extends Component {
                                 <Picker.Item label='Sexual Assault/Rape' value='Sexual Assault' />
                                 <Picker.Item label='Shooting' value='Shooting' />
                                 <Picker.Item label='Theft' value='Theft' />
-
-
                             </Picker>
                             <TextInput
                                 placeholder='Report Details'
@@ -97,7 +108,7 @@ export default class ReportForm extends Component {
                             />
 
 
-                            
+
                             <Text style={styles.pad}></Text>
                             <View style={styles.buttonContainer}>
                                 <Button onPress={handleSubmit} title="Submit" />
@@ -136,7 +147,7 @@ const styles = StyleSheet.create({
         width: 275,
         flexWrap: 'wrap',
         textAlign: 'left',
-        textAlignVertical:'top'
+        textAlignVertical: 'top'
     },
     pad: {
         marginBottom: 10,

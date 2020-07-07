@@ -15,7 +15,7 @@ export default class Alerted extends React.Component{
             <NavigationContainer independent={true}>
                 <AlertsStack.Navigator>
                     <AlertsStack.Screen name="Alerts" component={Alerter} options={{headerShown: false,}}/>
-                    <AlertsStack.Screen name="Assault" component={Assault} options = {{headerStyle: {backgroundColor: 'blue'}, HeaderTitle:'Aggravated Assault'}}/>
+                    <AlertsStack.Screen name="Assault" component={Assault} options = {{title:'Aggravated Assault', headerStyle: {backgroundColor: 'steelblue'}}}/>
                 </AlertsStack.Navigator>
             </NavigationContainer>
         )

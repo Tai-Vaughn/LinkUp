@@ -21,7 +21,8 @@ import Alerted from './components/Alerts/AlertsStack';
 import FindRouteScreen from './components/FindRoute/FindRouteScreen';
 import Group from './components/Group/Group';
 import ViewGroup from './components/Group/ViewGroup';
-import Map from './components/Map/Maps'
+import Map from './components/Map/Maps';
+import Assault from './components/Alerts/Assault';
 import GenReportScreen from './components/Reports/ReportScreen';
 
 const getFonts = () => Font.loadAsync({

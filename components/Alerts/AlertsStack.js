@@ -14,7 +14,7 @@ export default class Alerted extends React.Component{
         return(
             <NavigationContainer independent={true}>
                 <AlertsStack.Navigator>
-                <AlertsStack.Screen name="Alerts" component={Alerter}/>
+                    <AlertsStack.Screen name="Alerts" component={Alerter} options={{headerShown: false,}}/>
                     <AlertsStack.Screen name="Aggravated Assault" component={Assault}/>
                 </AlertsStack.Navigator>
             </NavigationContainer>

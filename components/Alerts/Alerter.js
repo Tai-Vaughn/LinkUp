@@ -39,6 +39,12 @@ const reports = [
 ];
 
 class Alerter extends React.Component {
+    constructor(props , {navigation}){
+        super(props),
+        this.state = {
+        }
+        
+       }
 
     SampleFunction = (item) => {
 

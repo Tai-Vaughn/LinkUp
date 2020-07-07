@@ -183,25 +183,36 @@ class Alerter extends React.Component {
                 </View>
                 <Text style={styles.header}>RECENT CRIMINAL ACTIVITY</Text>
                 <Text style={styles.pad}></Text>
+                <ScrollView>
 
-                <ScrollView >
-
-                    {reports.map((item, key) => (
-
-                        <TouchableOpacity key={key}  onPress={this.SampleFunction.bind(this, item.description)}>
-                            <Text style={styles.TextStyle} > {item.type} </Text>
-                            <Text style={styles.TextStyle} > {item.description} </Text>
-
-                            <Text style={styles.TextStyle} > Time: {item.time} </Text>
-                            <View style={{ width: '100%', height: 1, backgroundColor: '#000', padding: 2}} />
-                        </TouchableOpacity>
+                    <View >
 
 
-                    ))
-                    }
-
+                        <View style={globalStyles.button}>
+                            <Button title='Aggravated Assault' onPress={this.props.navigation.navigate('Assault')} />
+                        </View>
+                        <View style={globalStyles.button}>
+                            <Button title='Break-In' onPress={this.breakHandler} />
+                        </View>
+                        <View style={globalStyles.button}>
+                            <Button title='Kidnapping/Attempted Kidnapping' onPress={this.kidnapHandler} />
+                        </View>
+                        <View style={globalStyles.button}>
+                            <Button title='Robbery/Attempted Robbery' onPress={this.robHandler} />
+                        </View>
+                        <View style={globalStyles.button}>
+                            <Button title='Sexual Assault/Rape' onPress={this.saHandler} />
+                        </View>
+                        <View style={globalStyles.button}>
+                            <Button title='Shooting' onPress={this.shootHandler} />
+                        </View>
+                        <View style={globalStyles.button}>
+                            <Button title='Theft' onPress={this.theftHandler} />
+                        </View>
+                    </View>
                 </ScrollView>
 
+                
             </View>
 
         );
@@ -285,33 +296,6 @@ export default Alerter;
                     onPress={ this.SampleFunction.bind(this, item) }> { item } </Text>)
                     )}
 
-                     <ScrollView>
-
-                    <View >
-
-
-                        <View style={globalStyles.button}>
-                            <Button title='Aggravated Assault' onPress={this.assaultHandler} />
-                        </View>
-                        <View style={globalStyles.button}>
-                            <Button title='Break-In' onPress={this.breakHandler} />
-                        </View>
-                        <View style={globalStyles.button}>
-                            <Button title='Kidnapping/Attempted Kidnapping' onPress={this.kidnapHandler} />
-                        </View>
-                        <View style={globalStyles.button}>
-                            <Button title='Robbery/Attempted Robbery' onPress={this.robHandler} />
-                        </View>
-                        <View style={globalStyles.button}>
-                            <Button title='Sexual Assault/Rape' onPress={this.saHandler} />
-                        </View>
-                        <View style={globalStyles.button}>
-                            <Button title='Shooting' onPress={this.shootHandler} />
-                        </View>
-                        <View style={globalStyles.button}>
-                            <Button title='Theft' onPress={this.theftHandler} />
-                        </View>
-                    </View>
-                </ScrollView>
+                     
 
     */

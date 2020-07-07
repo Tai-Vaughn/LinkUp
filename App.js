@@ -17,7 +17,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import * as Font from 'expo-font';
 import * as Dataservice from './components/Service/DataService';
-import Alerter from './components/Alerts/Alerter';
+import Alerter from './components/Alerts/AlertsStack';
 import FindRouteScreen from './components/FindRoute/FindRouteScreen';
 import Group from './components/Group/Group';
 import ViewGroup from './components/Group/ViewGroup';

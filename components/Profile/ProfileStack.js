@@ -14,7 +14,7 @@ export default class StartMenue extends React.Component{
         return(
             <NavigationContainer independent={true}>
                 <ProfileStack.Navigator>
-                    <ProfileStack.Screen name="Profile" component={Profile}  options={{headerTitle: ()=> <Header/>}}/>
+                    <ProfileStack.Screen name="Profile" component={Profile}  options={{headerShown: false,}}/>
                     <ProfileStack.Screen name="Map" component={Map}/>
                 </ProfileStack.Navigator>
             </NavigationContainer>

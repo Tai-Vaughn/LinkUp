@@ -56,12 +56,8 @@ export default class Assault extends React.Component {
     sort =()=>{
         if(reports.type==='Aggravated Assault'){
        
-            this.state.report.push({
-                id: reports.id,
-                type:reports.type,
-                description: reports.description,
-                time: reports.time
-            });
+            this.state.report=reports.filter(type='Aggravated Assault')
+           
 
         }
     }

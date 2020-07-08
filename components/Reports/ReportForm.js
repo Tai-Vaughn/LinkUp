@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
         textAlignVertical: 'top'
     },
     pad: {
-        marginBottom: 10,
+        marginBottom: 5,
     },
     buttonContainer: {
         backgroundColor: 'dodgerblue',

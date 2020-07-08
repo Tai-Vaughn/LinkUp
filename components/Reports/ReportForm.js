@@ -55,8 +55,9 @@ export default class ReportForm extends Component {
                     }}
                    // validationSchema={ReportFormSchema}
                     onSubmit={(values, actions) => {
-                        console.log(values);
-                        actions.resetForm();                        
+                        
+                        actions.resetForm(); 
+                        console.log(values);                       
                         this.setState({type: '',
                         description:'',
                         start: '',
@@ -72,8 +73,8 @@ export default class ReportForm extends Component {
                                 
                                 selectedValue={this.state.type}
                                 
-                                onValueChange={(value, itemIndex) =>this.setState({ type: value })} 
-                                value={values.type}>
+                                onValueChange={(itemValue, itemIndex) =>this.setState({ type: itemValue })} 
+                                >
 
 
                                 <Picker.Item label='Type of Crime' value=''></Picker.Item>
@@ -101,7 +102,7 @@ export default class ReportForm extends Component {
                                 placeholderTextColor='rgba(255,255,255,0.7)'
                                 returnKeyType='next'
                                 style={styles.input}
-                                keyboardType='numeric'
+                                
                                 onChangeText={handleChange('start')}
                                 onBlur={handleBlur('start')}
                                 value={values.start}
@@ -111,7 +112,7 @@ export default class ReportForm extends Component {
                                 placeholderTextColor='rgba(255,255,255,0.7)'
                                 returnKeyType='next'
                                 style={styles.input}
-                                keyboardType='numeric'
+                                
                                 onChangeText={handleChange('end')}
                                 onBlur={handleBlur('end')}
                                 value={values.end}

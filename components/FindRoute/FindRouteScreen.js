@@ -21,7 +21,7 @@ class FindRouteScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+            GroupName:'',
             PickerValue2: '',
             PickerValue3: '',
             PickerValue4: '',
@@ -70,10 +70,13 @@ class FindRouteScreen extends React.Component {
                             onPress={() => this.props.navigation.toggleDrawer()} />
                     </View>
                     <Text style={globalStyles.text}>Plan Journey</Text>
+                    <Text style={styles.pad}> </Text>
+                    <Text style={{fontSize:20, color:'white'}}>Fill in the fields to create your group journey.</Text>
+                    <Text style={styles.pad}> </Text>
 
                     <Formik
                     initialValues={{
-                        
+                        GroupName:'',
                         PickerValue2: '',
                         PickerValue3: '',
                         PickerValue4: '',
@@ -82,16 +85,25 @@ class FindRouteScreen extends React.Component {
                         onSubmit={(values, actions) => {
                             actions.resetForm();
                             console.log(values);
-                            this.setState({PickerValue2: '',
+                            this.setState({
+                                GroupName:'',
+                            PickerValue2: '',
                             PickerValue3: '',
                             PickerValue4: '',
-                            Time: ''});
+                            Time: ''})
                         }}
                     >
 
                         {(props) => (
-                            <View>
-                                
+                            <View >
+                                <TextInput
+                                placeholder='Enter Group Name'
+                                placeholderTextColor='black'
+                                returnKeyType='next'
+                                style={styles.input}
+                                onChangeText={props.handleChange('GroupName')}
+                                value={props.values.GroupName}
+                            />
 
                                 <Picker
                                     selectedValue={this.state.PickerValue2}
@@ -155,7 +167,7 @@ class FindRouteScreen extends React.Component {
                                     <Picker.Item label='Other Halls' value='etc' />
                                 </Picker>
                                 <TextInput
-                                placeholder='Departure Time, [HH:mm]'
+                                placeholder='Enter Departure Time'
                                 placeholderTextColor='black'
                                 returnKeyType='next'
                                 style={styles.input}
@@ -196,7 +208,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'steelblue',
         padding: 10,
-        flex: 1
+        flex: 1,
     },
     placeIcon: {
         color: 'white',
@@ -218,9 +230,9 @@ const styles = StyleSheet.create({
         width: "100%",
         flexWrap: 'wrap',
         marginTop:1,
-        fontWeight:'bold',
-        fontSize: 12
-    }
+        fontSize: 16
+    },
+    
 
 });
 

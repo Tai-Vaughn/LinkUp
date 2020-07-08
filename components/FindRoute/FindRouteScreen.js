@@ -71,6 +71,8 @@ class FindRouteScreen extends React.Component {
                     </View>
                     <Text style={globalStyles.text}>Plan Journey</Text>
                     <Text style={styles.pad}> </Text>
+                    <Text style={{fontSize:20, color:'white'}}>Fill in the fields to start your journey.</Text>
+                    <Text style={styles.pad}> </Text>
 
                     <Formik
                     initialValues={{
@@ -165,7 +167,7 @@ class FindRouteScreen extends React.Component {
                                     <Picker.Item label='Other Halls' value='etc' />
                                 </Picker>
                                 <TextInput
-                                placeholder='Departure Time, [HH:mm]'
+                                placeholder='Departure Time'
                                 placeholderTextColor='black'
                                 returnKeyType='next'
                                 style={styles.input}

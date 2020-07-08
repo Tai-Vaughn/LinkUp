@@ -21,11 +21,11 @@ class FindRouteScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            
-            PickerValue2: '',
-            PickerValue3: '',
-            PickerValue4: '',
-            Time: '',
+            GroupName:'',
+            GroupMembers: '',
+            StartLocation: '',
+            EndLocation: '',
+            StartTime: '',
             Markers: []
         }
     }
@@ -74,28 +74,39 @@ class FindRouteScreen extends React.Component {
                     <Formik
                     initialValues={{
                         
-                        PickerValue2: '',
-                        PickerValue3: '',
-                        PickerValue4: '',
-                        Time: ''
+                        GroupName:'',
+                        GroupMembers: '',
+                        StartLocation: '',
+                        EndLocation: '',
+                        StartTime: '',
                     }}
                         onSubmit={(values, actions) => {
                             actions.resetForm();
                             console.log(values);
-                            this.setState({PickerValue2: '',
-                            PickerValue3: '',
-                            PickerValue4: '',
-                            Time: ''});
+                            this.setState({GroupName:'',
+                            GroupMembers: '',
+                            StartLocation: '',
+                            EndLocation: '',
+                            StartTime: '',});
                         }}
                     >
 
                         {(props) => (
                             <View>
+                                 <TextInput
+                                placeholder='Name of Group'
+                                placeholderTextColor='rgba(255,255,255,0.7)'
+                                returnKeyType='next'
+                                style={styles.input}
+                                onChangeText={handleChange('GroupName')}
+                                onBlur={handleBlur('GroupName')}
+                                value={values.GroupName}
+                            />
                                 
 
                                 <Picker
-                                    selectedValue={this.state.PickerValue2}
-                                    onValueChange={(itemValue, itemIndex) =>this.setState({ PickerValue2: itemValue })} 
+                                    selectedValue={this.state.GroupMembers}
+                                    onValueChange={(itemValue, itemIndex) =>this.setState({ GroupMembers: itemValue })} 
                                 >
                                     <Picker.Item label='Group Size (Must be 4 or higher)' value='' />
                                     
@@ -121,8 +132,8 @@ class FindRouteScreen extends React.Component {
 
 
                                 <Picker
-                                    selectedValue={this.state.PickerValue3}
-                                    onValueChange={(itemValue) => this.setState({ PickerValue3: itemValue })}
+                                    selectedValue={this.state.StartLocation}
+                                    onValueChange={(itemValue) => this.setState({ StartLocation: itemValue })}
                                 >
                                     <Picker.Item label='Origin' value='' />
                                     <Picker.Item label='138 Student Living (Phase 1)' value='138 Phase 1' />
@@ -139,8 +150,8 @@ class FindRouteScreen extends React.Component {
                                 </Picker>
 
                                 <Picker
-                                    selectedValue={this.state.PickerValue4}
-                                    onValueChange={(itemValue) => this.setState({ PickerValue4: itemValue })}
+                                    selectedValue={this.state.EndLocation}
+                                    onValueChange={(itemValue) => this.setState({EndLocation: itemValue })}
                                     
                                 >
                                     <Picker.Item label='Destination' value='' />
@@ -159,8 +170,8 @@ class FindRouteScreen extends React.Component {
                                 placeholderTextColor='black'
                                 returnKeyType='next'
                                 style={styles.input}
-                                onChangeText={props.handleChange('Time')}
-                                value={props.values.Time}
+                                onChangeText={props.handleChange('StartTime')}
+                                value={props.values.StartTime}
                             />
                                 <Text style={styles.pad}></Text>
 

@@ -54,9 +54,10 @@ export default class ReportForm extends Component {
                         time: ''
                     }}
                    // validationSchema={ReportFormSchema}
-                    onSubmit={(values, action) => {
-                        action.resetForm();
+                    onSubmit={(values, actions) => {
+                        actions.resetForm();
                         console.log(values);
+                        
                     }}
                 >
                     {({ handleChange, handleBlur, handleSubmit, values }) => (
@@ -102,6 +103,7 @@ export default class ReportForm extends Component {
                                 placeholderTextColor='rgba(255,255,255,0.7)'
                                 returnKeyType='next'
                                 style={styles.input}
+                                keyboardType='numeric'
                                 onChangeText={handleChange('time')}
                                 onBlur={handleBlur('time')}
                                 value={values.time}

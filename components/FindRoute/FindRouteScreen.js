@@ -78,17 +78,16 @@ class FindRouteScreen extends React.Component {
                         GroupMembers: '',
                         StartLocation: '',
                         EndLocation: '',
-                        StartTime: '',
+                        StartTime: ''
                     }}
                         onSubmit={(values, actions) => {
-                            
-                            console.log(values);
                             actions.resetForm();
+                            console.log(values);
                             this.setState({GroupName:'',
                             GroupMembers: '',
                             StartLocation: '',
                             EndLocation: '',
-                            StartTime: '',});
+                            StartTime: ''});
                         }}
                     >
 
@@ -99,8 +98,8 @@ class FindRouteScreen extends React.Component {
                                 placeholderTextColor='rgba(255,255,255,0.7)'
                                 returnKeyType='next'
                                 style={styles.input}
-                                onChangeText={handleChange('GroupName')}
-                                onBlur={handleBlur('GroupName')}
+                                onChangeText={props.handleChange('GroupName')}
+                                onBlur={props.handleBlur('GroupName')}
                                 value={values.GroupName}
                             />
                                 

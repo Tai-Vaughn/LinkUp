@@ -55,8 +55,9 @@ export default class ReportForm extends Component {
                     }}
                    // validationSchema={ReportFormSchema}
                     onSubmit={(values, actions) => {
-                        console.log(values);
-                        actions.resetForm();                        
+                        
+                        actions.resetForm(); 
+                        console.log(values);                       
                         this.setState({type: '',
                         description:'',
                         start: '',
@@ -73,7 +74,7 @@ export default class ReportForm extends Component {
                                 selectedValue={this.state.type}
                                 
                                 onValueChange={(itemValue, itemIndex) =>this.setState({ type: itemValue })} 
-                                values={itemValue.type}>
+                                >
 
 
                                 <Picker.Item label='Type of Crime' value=''></Picker.Item>

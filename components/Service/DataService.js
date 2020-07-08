@@ -52,10 +52,21 @@ export const createUser = (UserInfo) => {
         body: JSON.stringify(UserInfo)
 
     }).pipe(
-        tap(res => console.log(res.response)),
         catchError( err => console.log(err))
     ).subscribe()
 }
+export const addAlert = (AlertInfo) => {
+    ajax({
+        url: `${env.BaseUrl}users/signup`,
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(AlertInfo)
+    })
+}
+
 export const getMarkers = () => {
     ajax({
         url: `${env.BaseUrl}markers`,

@@ -19,6 +19,8 @@ const ReportFormSchema = yup.object({
     type: yup.string()
         .required(),
 
+    description: yup.string()
+        .required(),
     start: yup.string()
         .required(),
 
@@ -33,6 +35,7 @@ export default class ReportForm extends Component {
         super(props),
             this.state = {
                 type: '',
+                description:'',
                 start: '',
                 end: ''
             }
@@ -46,6 +49,7 @@ export default class ReportForm extends Component {
                 <Formik
                     initialValues={{
                         type: '',
+                        description:'',
                         start: '',
                         end: ''
                     }}
@@ -54,6 +58,7 @@ export default class ReportForm extends Component {
                         console.log(values);
                         actions.resetForm();                        
                         this.setState({type: '',
+                        description:'',
                         start: '',
                         end: ''});
                     }}
@@ -79,8 +84,18 @@ export default class ReportForm extends Component {
                                 <Picker.Item label='Theft' value='theft' ></Picker.Item>
                             </Picker>
                             <TextInput
-                                placeholder='Start'
-                                
+                                placeholder='Report Details'
+                                multiline
+                                numberOfLines={8}
+                                placeholderTextColor='rgba(255,255,255,0.7)'
+                                returnKeyType='next'
+                                style={styles.details}
+                                onChangeText={handleChange('description')}
+                                onBlur={handleBlur('description')}
+                                value={values.description}
+                            />
+                            <TextInput
+                                placeholder='What time did the incident start?'
                                 placeholderTextColor='rgba(255,255,255,0.7)'
                                 returnKeyType='next'
                                 style={styles.input}
@@ -90,7 +105,7 @@ export default class ReportForm extends Component {
                                 value={values.start}
                             />
                             <TextInput
-                                placeholder='End'
+                                placeholder='What time did the incident end?'
                                 placeholderTextColor='rgba(255,255,255,0.7)'
                                 returnKeyType='next'
                                 style={styles.input}
@@ -99,6 +114,7 @@ export default class ReportForm extends Component {
                                 onBlur={handleBlur('end')}
                                 value={values.end}
                             />
+
 
 
 

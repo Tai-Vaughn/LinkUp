@@ -71,7 +71,7 @@ class FindRouteScreen extends React.Component {
                     </View>
                     <Text style={globalStyles.text}>Plan Journey</Text>
                     <Text style={styles.pad}> </Text>
-                    <Text style={{fontSize:20, color:'white'}}>Fill in the fields to start your journey.</Text>
+                    <Text style={{fontSize:20, color:'white'}}>Fill in the fields to create your group journey.</Text>
                     <Text style={styles.pad}> </Text>
 
                     <Formik
@@ -97,7 +97,7 @@ class FindRouteScreen extends React.Component {
                         {(props) => (
                             <View >
                                 <TextInput
-                                placeholder='Group Name'
+                                placeholder='Enter Group Name'
                                 placeholderTextColor='black'
                                 returnKeyType='next'
                                 style={styles.input}
@@ -167,7 +167,7 @@ class FindRouteScreen extends React.Component {
                                     <Picker.Item label='Other Halls' value='etc' />
                                 </Picker>
                                 <TextInput
-                                placeholder='Departure Time'
+                                placeholder='Enter Departure Time'
                                 placeholderTextColor='black'
                                 returnKeyType='next'
                                 style={styles.input}

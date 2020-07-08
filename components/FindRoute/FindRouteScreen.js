@@ -21,7 +21,7 @@ class FindRouteScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            PickerValue: '',
+            
             PickerValue2: '',
             PickerValue3: '',
             PickerValue4: '',
@@ -73,36 +73,32 @@ class FindRouteScreen extends React.Component {
 
                     <Formik
                     initialValues={{
-                        PickerValue: '',
+                        
                         PickerValue2: '',
                         PickerValue3: '',
                         PickerValue4: '',
                         Time: ''
                     }}
-                        onSubmit={(values, action) => {
-                            action.resetForm();
+                        onSubmit={(values, actions) => {
+                            actions.resetForm();
                             console.log(values);
+                            this.setState({PickerValue2: '',
+                            PickerValue3: '',
+                            PickerValue4: '',
+                            Time: ''});
                         }}
                     >
 
                         {(props) => (
                             <View>
-                                <Picker
-                                    selectedValue={this.state.PickerValue}
-                                    onValueChange={(itemValue) => this.setState({ PickerValue: itemValue })}
-                                    style={{ marginTop: 20 }}
-                                >
-                                    <Picker.Item label='Would You Like to Travel with a Group?' value='' />
-                                    <Picker.Item label='Yes' value='yes' />
-                                    <Picker.Item label='No' value='no' />
-                                </Picker>
+                                
 
                                 <Picker
                                     selectedValue={this.state.PickerValue2}
                                     onValueChange={(itemValue, itemIndex) =>this.setState({ PickerValue2: itemValue })} 
                                 >
                                     <Picker.Item label='Group Size (Must be 4 or higher)' value='' />
-                                    <Picker.Item label='0' value='No Group' />
+                                    
                                     <Picker.Item label='4' value='Four' />
                                     <Picker.Item label='5' value='Five' />
                                     <Picker.Item label='6' value='Six' />

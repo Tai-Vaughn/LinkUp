@@ -15,16 +15,16 @@ https://github.com/react-native-community/datetimepicker
 */
 
 const ReportFormSchema = yup.object({
-    Location: yup.string()
+    location: yup.string()
         .required(),
 
-    Type: yup.string()
+    type: yup.string()
         .required(),
 
-    Description: yup.string()
+    description: yup.string()
         .required(),
 
-    Time: yup.string()
+    time: yup.string()
         .required(),
 
 })
@@ -34,10 +34,10 @@ export default class ReportForm extends Component {
     constructor(props, { navigation }) {
         super(props),
             this.state = {
-                Location: '',
-                Type: '',
-                Description: '',
-                Time: ''
+                location: '',
+                type: '',
+                description: '',
+                time: ''
             }
 
     }
@@ -48,15 +48,19 @@ export default class ReportForm extends Component {
 
                 <Formik
                     initialValues={{
-                        Location: '',
-                        Type: '',
-                        Description: '',
-                        Time: ''
+                        location: '',
+                        type: '',
+                        description: '',
+                        time: ''
                     }}
-                    validationSchema={ReportFormSchema}
-                    onSubmit={(values, action) => {
-                        action.resetForm();
+                   // validationSchema={ReportFormSchema}
+                    onSubmit={(values, actions) => {
+                        actions.resetForm();
                         console.log(values);
+                        this.setState({location: '',
+                        type: '',
+                        description: '',
+                        time: ''});
                     }}
                 >
                     {({ handleChange, handleBlur, handleSubmit, values }) => (
@@ -66,25 +70,25 @@ export default class ReportForm extends Component {
                                 placeholderTextColor='rgba(255,255,255,0.7)'
                                 returnKeyType='next'
                                 style={styles.input}
-                                onChangeText={handleChange('Location')}
-                                onBlur={handleBlur('Location')}
-                                value={values.Location}
+                                onChangeText={handleChange('location')}
+                                onBlur={handleBlur('location')}
+                                value={values.location}
                             />
 
                             <Picker
                                 style={styles.input}
-                                selectedValue={this.state.Type}
-                                onValueChange={(itemValue) => this.setState({ Type: itemValue })} >
+                                selectedValue={this.state.type}
+                                onValueChange={(value) => this.setState({ type: value })} >
 
 
                                 <Picker.Item label='Type of Crime' value='' />
-                                <Picker.Item label='Aggravated Assault' value='Aggravated Assault' />
-                                <Picker.Item label='Break-In' value='Break-In' />
-                                <Picker.Item label="Kidnapping/Attempted Kidnapping" value='Kidnapping' />
-                                <Picker.Item label="Robbery/Attempted Robbery" value='Robbery' />
-                                <Picker.Item label='Sexual Assault/Rape' value='Sexual Assault' />
-                                <Picker.Item label='Shooting' value='Shooting' />
-                                <Picker.Item label='Theft' value='Theft' />
+                                <Picker.Item label='Aggravated Assault' value='aggravatedAssault' />
+                                <Picker.Item label='Break-In' value='breakIn' />
+                                <Picker.Item label="Kidnapping/Attempted Kidnapping" value='kidnapping' />
+                                <Picker.Item label="Robbery/Attempted Robbery" value='robbery' />
+                                <Picker.Item label='Sexual Assault/Rape' value='sexualAssault' />
+                                <Picker.Item label='Shooting' value='shooting' />
+                                <Picker.Item label='Theft' value='theft' />
                             </Picker>
                             <TextInput
                                 placeholder='Report Details'
@@ -93,18 +97,19 @@ export default class ReportForm extends Component {
                                 placeholderTextColor='rgba(255,255,255,0.7)'
                                 returnKeyType='next'
                                 style={styles.details}
-                                onChangeText={handleChange('Description')}
-                                onBlur={handleBlur('Description')}
-                                value={values.Description}
+                                onChangeText={handleChange('description')}
+                                onBlur={handleBlur('description')}
+                                value={values.description}
                             />
                             <TextInput
                                 placeholder='What time did the incident occur?'
                                 placeholderTextColor='rgba(255,255,255,0.7)'
                                 returnKeyType='next'
                                 style={styles.input}
-                                onChangeText={handleChange('Time')}
-                                onBlur={handleBlur('Time')}
-                                value={values.Time}
+                                keyboardType='numeric'
+                                onChangeText={handleChange('time')}
+                                onBlur={handleBlur('time')}
+                                value={values.time}
                             />
 
 
@@ -150,7 +155,7 @@ const styles = StyleSheet.create({
         textAlignVertical: 'top'
     },
     pad: {
-        marginBottom: 10,
+        marginBottom: 5,
     },
     buttonContainer: {
         backgroundColor: 'dodgerblue',

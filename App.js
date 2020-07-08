@@ -6,6 +6,7 @@ import RegistrationScreen from './components/CreateAccount/CreateAccountScreen';
 import HomeScreen from './components/HomeScreen/HomeScreen';
 import Profile from './components/Profile/ProfileStack';
 import LogOut from './components/LogOut/Logout';
+import Alerter from './components/Alerts/Alerter'
 
 import * as React from 'react';
 import {View, Button , Text, Image} from 'react-native'
@@ -61,7 +62,7 @@ export default class App extends React.Component {
       {this.state.JWT_Token ?
         <ProfileDrawer.Navigator initialRouteName = "Profile">
           <ProfileDrawer.Screen name='Profile' component={Profile} options= {{title: "Your Profile",}}/>
-          <ProfileDrawer.Screen name='Alerter' component={Alerted} options= {{title: "Check Alerts",}}/>
+          <ProfileDrawer.Screen name='Alerter' component={Alerter} options= {{title: "Check Alerts",}}/>
           <ProfileDrawer.Screen name='Route' component={FindRouteScreen} options= {{title: "Start a Journey",}}/>
           <ProfileDrawer.Screen name='Group' component={Group} options= {{title: "Join a Group",}}/>
           <ProfileDrawer.Screen name='Report' component={GenReportScreen} options= {{title: "Make a Report",}}/>
@@ -82,6 +83,7 @@ export default class App extends React.Component {
   }
 
   /* watchman watch-del-all && react-native start --reset-cache
+  <ProfileDrawer.Screen name='Alerter' component={Alerted} options= {{title: "Check Alerts",}}/>
      {navigationOptions:({navigation})=>{
             return(
               headerTitle:()=> <Header navigation={navigation} title='' />

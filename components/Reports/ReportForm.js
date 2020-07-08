@@ -78,7 +78,7 @@ export default class ReportForm extends Component {
                             <Picker
                                 style={styles.input}
                                 selectedValue={this.state.type}
-                                onValueChange={(value) => this.setState({ type: value })} >
+                                onValueChange={(itemValue, itemIndex) => this.setState({ type: itemValue })} >
 
 
                                 <Picker.Item label='Type of Crime' value=''></Picker.Item>

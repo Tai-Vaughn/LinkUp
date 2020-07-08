@@ -70,6 +70,7 @@ class FindRouteScreen extends React.Component {
                             onPress={() => this.props.navigation.toggleDrawer()} />
                     </View>
                     <Text style={globalStyles.text}>Plan Journey</Text>
+                    <Text style={styles.pad}> </Text>
 
                     <Formik
                     initialValues={{
@@ -92,12 +93,12 @@ class FindRouteScreen extends React.Component {
                     >
 
                         {(props) => (
-                            <View>
+                            <View style={{borderColor:"white", borderWidth:1}}>
                                 <TextInput
                                 placeholder='Group Name'
                                 placeholderTextColor='black'
                                 returnKeyType='next'
-                                style={styles.nameInp}
+                                style={styles.input}
                                 onChangeText={props.handleChange('GroupName')}
                                 value={props.values.GroupName}
                             />
@@ -206,8 +207,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'steelblue',
         padding: 10,
         flex: 1,
-        borderWidth:2,
-        borderColor: 'white'
     },
     placeIcon: {
         color: 'white',
@@ -230,19 +229,9 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         marginTop:1,
         fontWeight:'bold',
-        fontSize: 18
+        fontSize: 16
     },
-    nameInp:{
-        height: 25,
-        backgroundColor: 'steelblue',
-        paddingHorizontal: 10,
-        width: "100%",
-        flexWrap: 'wrap',
-        marginTop:1,
-        fontWeight:'bold',
-        fontSize: 18,
-        paddingTop:10,
-    }
+    
 
 });
 

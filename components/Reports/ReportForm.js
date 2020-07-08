@@ -57,7 +57,10 @@ export default class ReportForm extends Component {
                     onSubmit={(values, actions) => {
                         actions.resetForm();
                         console.log(values);
-                        
+                        this.setState({location: '',
+                        type: '',
+                        description: '',
+                        time: ''});
                     }}
                 >
                     {({ handleChange, handleBlur, handleSubmit, values }) => (

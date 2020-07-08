@@ -82,6 +82,10 @@ class FindRouteScreen extends React.Component {
                         onSubmit={(values, actions) => {
                             actions.resetForm();
                             console.log(values);
+                            this.setState({PickerValue2: '',
+                            PickerValue3: '',
+                            PickerValue4: '',
+                            Time: ''});
                         }}
                     >
 

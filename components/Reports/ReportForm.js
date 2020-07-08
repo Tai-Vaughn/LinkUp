@@ -56,11 +56,11 @@ export default class ReportForm extends Component {
                    // validationSchema={ReportFormSchema}
                     onSubmit={(values, actions) => {
                         actions.resetForm();
-                        console.log(values);
-                        this.setState({location: '',
+                        /*{location: '',
                         type: '',
                         description: '',
-                        time: ''});
+                        time: ''},*/
+                        this.setState(()=>{ console.log(values)});
                     }}
                 >
                     {({ handleChange, handleBlur, handleSubmit, values }) => (

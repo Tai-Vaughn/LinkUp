@@ -77,14 +77,14 @@ export default class ReportForm extends Component {
                                 onValueChange={(itemValue) => this.setState({ Type: itemValue })} >
 
 
-                                <Picker.Item label='Type of Crime' value='' />
-                                <Picker.Item label='Aggravated Assault' value='Aggravated Assault' />
+                                <Picker.Item label='Type of Crime' value=''></Picker.Item>
+                                <Picker.Item label='Aggravated Assault' value='Aggravated Assault' ></Picker.Item>
                                 <Picker.Item label='Break-In' value='Break-In' />
-                                <Picker.Item label="Kidnapping/Attempted Kidnapping" value='Kidnapping' />
-                                <Picker.Item label="Robbery/Attempted Robbery" value='Robbery' />
-                                <Picker.Item label='Sexual Assault/Rape' value='Sexual Assault' />
-                                <Picker.Item label='Shooting' value='Shooting' />
-                                <Picker.Item label='Theft' value='Theft' />
+                                <Picker.Item label="Kidnapping/Attempted Kidnapping" value='Kidnapping' ></Picker.Item>
+                                <Picker.Item label="Robbery/Attempted Robbery" value='Robbery' ></Picker.Item>
+                                <Picker.Item label='Sexual Assault/Rape' value='Sexual Assault'></Picker.Item>
+                                <Picker.Item label='Shooting' value='Shooting'></Picker.Item>
+                                <Picker.Item label='Theft' value='Theft' ></Picker.Item>
                             </Picker>
                             <TextInput
                                 placeholder='Report Details'

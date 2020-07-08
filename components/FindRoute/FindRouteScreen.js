@@ -97,7 +97,7 @@ class FindRouteScreen extends React.Component {
                                 placeholder='Group Name'
                                 placeholderTextColor='black'
                                 returnKeyType='next'
-                                style={styles.input}
+                                style={styles.nameInp}
                                 onChangeText={props.handleChange('GroupName')}
                                 value={props.values.GroupName}
                             />
@@ -205,7 +205,8 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'steelblue',
         padding: 10,
-        flex: 1
+        flex: 1,
+        borderWidth:2,
     },
     placeIcon: {
         color: 'white',
@@ -228,7 +229,18 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         marginTop:1,
         fontWeight:'bold',
-        fontSize: 12
+        fontSize: 18
+    },
+    nameInp:{
+        height: 25,
+        backgroundColor: 'steelblue',
+        paddingHorizontal: 10,
+        width: "100%",
+        flexWrap: 'wrap',
+        marginTop:1,
+        fontWeight:'bold',
+        fontSize: 18,
+        paddingTop:10,
     }
 
 });

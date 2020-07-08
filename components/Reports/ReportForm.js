@@ -96,7 +96,7 @@ export default class ReportForm extends Component {
                                 style={styles.details}
                                 onChangeText={handleChange('description')}
                                 onBlur={handleBlur('description')}
-                                onSubmitEditing={() => this.start.focus()}
+                                
                                 value={values.description}
                             />
                             <TextInput
@@ -107,7 +107,7 @@ export default class ReportForm extends Component {
                                 
                                 onChangeText={handleChange('start')}
                                 onBlur={handleBlur('start')}
-                                onSubmitEditing={() => this.end.focus()}
+                                
                                 value={values.start}
                             />
                             <TextInput

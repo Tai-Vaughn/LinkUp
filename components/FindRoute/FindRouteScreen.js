@@ -207,6 +207,7 @@ const styles = StyleSheet.create({
         padding: 10,
         flex: 1,
         borderWidth:2,
+        borderColor: 'white'
     },
     placeIcon: {
         color: 'white',

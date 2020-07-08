@@ -55,12 +55,12 @@ export default class ReportForm extends Component {
                     }}
                    // validationSchema={ReportFormSchema}
                     onSubmit={(values, actions) => {
-                        actions.resetForm();
-                        /*{location: '',
+                        console.log(values);
+                        actions.resetForm();                        
+                        this.setState({location: '',
                         type: '',
                         description: '',
-                        time: ''},*/
-                        this.setState(()=>{ console.log(values)});
+                        time: ''});
                     }}
                 >
                     {({ handleChange, handleBlur, handleSubmit, values }) => (
@@ -70,6 +70,7 @@ export default class ReportForm extends Component {
                                 placeholderTextColor='rgba(255,255,255,0.7)'
                                 returnKeyType='next'
                                 style={styles.input}
+                                
                                 onChangeText={handleChange('location')}
                                 onBlur={handleBlur('location')}
                                 value={values.location}
@@ -77,8 +78,10 @@ export default class ReportForm extends Component {
 
                             <Picker
                                 style={styles.input}
+                                
                                 selectedValue={this.state.type}
-                                onValueChange={(itemValue, itemIndex) => this.setState({ type: itemValue })} >
+                                onValueChange={(itemValue, itemIndex) => 
+                                this.setState({ type: itemValue }, (type,itemIndex)=>{console.log(type[itemIndex])})} >
 
 
                                 <Picker.Item label='Type of Crime' value=''></Picker.Item>

@@ -53,7 +53,7 @@ export default class ReportForm extends Component {
                         Description: '',
                         Time: ''
                     }}
-                    //validationSchema={ReportFormSchema}
+                    validationSchema={ReportFormSchema}
                     onSubmit={(values, action) => {
                         action.resetForm();
                         console.log(values);
@@ -77,14 +77,14 @@ export default class ReportForm extends Component {
                                 onValueChange={(value) => this.setState({ Type: value })} >
 
 
-                                <Picker.Item label='Type of Crime' value=''></Picker.Item>
-                                <Picker.Item label='Aggravated Assault' value='Aggravated Assault' ></Picker.Item>
+                                <Picker.Item label='Type of Crime' value='' />
+                                <Picker.Item label='Aggravated Assault' value='Aggravated Assault' />
                                 <Picker.Item label='Break-In' value='Break-In' />
-                                <Picker.Item label="Kidnapping/Attempted Kidnapping" value='Kidnapping' ></Picker.Item>
-                                <Picker.Item label="Robbery/Attempted Robbery" value='Robbery' ></Picker.Item>
-                                <Picker.Item label='Sexual Assault/Rape' value='Sexual Assault'></Picker.Item>
-                                <Picker.Item label='Shooting' value='Shooting'></Picker.Item>
-                                <Picker.Item label='Theft' value='Theft' ></Picker.Item>
+                                <Picker.Item label="Kidnapping/Attempted Kidnapping" value='Kidnapping' />
+                                <Picker.Item label="Robbery/Attempted Robbery" value='Robbery' />
+                                <Picker.Item label='Sexual Assault/Rape' value='Sexual Assault' />
+                                <Picker.Item label='Shooting' value='Shooting' />
+                                <Picker.Item label='Theft' value='Theft' />
                             </Picker>
                             <TextInput
                                 placeholder='Report Details'

@@ -21,7 +21,7 @@ class FindRouteScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+            GroupName:'',
             PickerValue2: '',
             PickerValue3: '',
             PickerValue4: '',
@@ -73,7 +73,7 @@ class FindRouteScreen extends React.Component {
 
                     <Formik
                     initialValues={{
-                        
+                        GroupName:'',
                         PickerValue2: '',
                         PickerValue3: '',
                         PickerValue4: '',
@@ -82,7 +82,9 @@ class FindRouteScreen extends React.Component {
                         onSubmit={(values, actions) => {
                             actions.resetForm();
                             console.log(values);
-                            this.setState({PickerValue2: '',
+                            this.setState({
+                                GroupName:'',
+                            PickerValue2: '',
                             PickerValue3: '',
                             PickerValue4: '',
                             Time: ''})
@@ -91,7 +93,14 @@ class FindRouteScreen extends React.Component {
 
                         {(props) => (
                             <View>
-                                
+                                <TextInput
+                                placeholder='Group Name'
+                                placeholderTextColor='black'
+                                returnKeyType='next'
+                                style={styles.input}
+                                onChangeText={props.handleChange('GroupName')}
+                                value={props.values.GroupName}
+                            />
 
                                 <Picker
                                     selectedValue={this.state.PickerValue2}

@@ -9,32 +9,32 @@ const reports = [
     {
         id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
         type: 'Aggravated Assault',
-        description: 'library destination: union',
-        time: '1:30',
+        start: '9:15',
+        end: '10:00',
     },
     {
         id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        type: 'Aggravated Assault',
-        description: 'union id: 58694a0f-3da1-471f-bd96-145571e29d32,type: Break-In,description: scitech,time: 2:00kkxnnkznmSNXkncnkacnjdcndscnsmd,ncsmsdcm.',
-        time: '3:00',
+        type: 'Sexual Assault',
+        start: '9:45',
+        end: '10:30',
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        type: 'Aggravated Assault',
-        description: 'scitech',
-        time: '4:50',
+        type: 'Theft',
+        start: '12:00',
+        end: '12:10',
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29d32',
         type: 'Break-In',
-        description: 'scitech',
-        time: '9:00',
+        start: '1:00',
+        end: '1:30',
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29e72',
         type: 'Aggravated Assault',
-        description: 'scitech',
-        time: '2:00',
+        start: '1:15',
+        end: '1:30',
     },
 ];
 
@@ -70,11 +70,10 @@ class Alerter extends React.Component {
 
                     {reports.map((item, key) => (
 
-                        <TouchableOpacity key={key} onPress={this.SampleFunction.bind(this, item.description)}>
-                            <Text style={styles.TextStyle} > {item.type} </Text>
-                            <Text style={styles.TextStyle} > {item.description} </Text>
+                        <TouchableOpacity key={key} onPress={this.SampleFunction.bind(this, item.start)}>
+                            <Text style={styles.TextStyle} >There has been reports of a {item.type} </Text>
+                            <Text style={styles.TextStyle} > between {item.start} and {item.end} </Text>
 
-                            <Text style={styles.TextStyle} > Time: {item.time} </Text>
                             <View style={{ width: '100%', height: 1, backgroundColor: '#000', padding: 2 }} />
                         </TouchableOpacity>
 

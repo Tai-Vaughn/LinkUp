@@ -15,16 +15,14 @@ https://github.com/react-native-community/datetimepicker
 */
 
 const ReportFormSchema = yup.object({
-    location: yup.string()
-        .required(),
-
+   
     type: yup.string()
         .required(),
 
-    description: yup.string()
+    start: yup.string()
         .required(),
 
-    time: yup.string()
+    end: yup.string()
         .required(),
 
 })
@@ -34,10 +32,9 @@ export default class ReportForm extends Component {
     constructor(props, { navigation }) {
         super(props),
             this.state = {
-                location: '',
                 type: '',
-                description: '',
-                time: ''
+                start: '',
+                end: ''
             }
 
     }
@@ -48,33 +45,22 @@ export default class ReportForm extends Component {
 
                 <Formik
                     initialValues={{
-                        location: '',
                         type: '',
-                        description: '',
-                        time: ''
+                        start: '',
+                        end: ''
                     }}
                    // validationSchema={ReportFormSchema}
                     onSubmit={(values, actions) => {
                         console.log(values);
                         actions.resetForm();                        
-                        this.setState({location: '',
-                        type: '',
-                        description: '',
-                        time: ''});
+                        this.setState({type: '',
+                        start: '',
+                        end: ''});
                     }}
                 >
                     {({ handleChange, handleBlur, handleSubmit, values }) => (
                         <View>
-                            <TextInput
-                                placeholder='Where did the incident occur?'
-                                placeholderTextColor='rgba(255,255,255,0.7)'
-                                returnKeyType='next'
-                                style={styles.input}
-                                
-                                onChangeText={handleChange('location')}
-                                onBlur={handleBlur('location')}
-                                value={values.location}
-                            />
+                            
 
                             <Picker
                                 style={styles.input}
@@ -93,25 +79,25 @@ export default class ReportForm extends Component {
                                 <Picker.Item label='Theft' value='theft' ></Picker.Item>
                             </Picker>
                             <TextInput
-                                placeholder='Report Details'
-                                multiline
-                                numberOfLines={8}
-                                placeholderTextColor='rgba(255,255,255,0.7)'
-                                returnKeyType='next'
-                                style={styles.details}
-                                onChangeText={handleChange('description')}
-                                onBlur={handleBlur('description')}
-                                value={values.description}
-                            />
-                            <TextInput
-                                placeholder='What time did the incident occur?'
+                                placeholder='Start'
+                                
                                 placeholderTextColor='rgba(255,255,255,0.7)'
                                 returnKeyType='next'
                                 style={styles.input}
                                 keyboardType='numeric'
-                                onChangeText={handleChange('time')}
-                                onBlur={handleBlur('time')}
-                                value={values.time}
+                                onChangeText={handleChange('start')}
+                                onBlur={handleBlur('start')}
+                                value={values.start}
+                            />
+                            <TextInput
+                                placeholder='End'
+                                placeholderTextColor='rgba(255,255,255,0.7)'
+                                returnKeyType='next'
+                                style={styles.input}
+                                keyboardType='numeric'
+                                onChangeText={handleChange('end')}
+                                onBlur={handleBlur('end')}
+                                value={values.end}
                             />
 
 

@@ -93,7 +93,7 @@ class FindRouteScreen extends React.Component {
                     >
 
                         {(props) => (
-                            <View style={{borderColor:"white", borderWidth:2}}>
+                            <View >
                                 <TextInput
                                 placeholder='Group Name'
                                 placeholderTextColor='black'
@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
         width: "100%",
         flexWrap: 'wrap',
         marginTop:1,
-        fontSize: 17
+        fontSize: 16
     },
     
 

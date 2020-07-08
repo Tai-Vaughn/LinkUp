@@ -81,8 +81,9 @@ class FindRouteScreen extends React.Component {
                         StartTime: '',
                     }}
                         onSubmit={(values, actions) => {
-                            actions.resetForm();
+                            
                             console.log(values);
+                            actions.resetForm();
                             this.setState({GroupName:'',
                             GroupMembers: '',
                             StartLocation: '',

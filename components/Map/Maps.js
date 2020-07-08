@@ -68,6 +68,7 @@ export default class Map extends React.Component {
                         this.setState({Start : itemValue})
                 }
                 >
+                    <Picker.Item key='start' label='start' value=''/>
                     {markerNames}
                 </Picker>
 
@@ -77,6 +78,7 @@ export default class Map extends React.Component {
                         this.setState({End : itemValue})
                 }
                 >
+                    <Picker.Item key='end' label='end' value=''/>
                     {markerNames}
                 </Picker>
 

@@ -98,7 +98,7 @@ export default class ReportForm extends Component {
                                 value={values.description}
                             />
                             <TextInput
-                                placeholder='What time did the incident start?'
+                                placeholder='Where did the incident start?'
                                 placeholderTextColor='rgba(255,255,255,0.7)'
                                 returnKeyType='next'
                                 style={styles.input}
@@ -108,7 +108,7 @@ export default class ReportForm extends Component {
                                 value={values.start}
                             />
                             <TextInput
-                                placeholder='What time did the incident end?'
+                                placeholder='Where did the incident end?'
                                 placeholderTextColor='rgba(255,255,255,0.7)'
                                 returnKeyType='next'
                                 style={styles.input}

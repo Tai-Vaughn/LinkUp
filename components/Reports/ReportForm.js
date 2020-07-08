@@ -102,7 +102,7 @@ export default class ReportForm extends Component {
                                 placeholderTextColor='rgba(255,255,255,0.7)'
                                 returnKeyType='next'
                                 style={styles.input}
-                                keyboardType='numeric'
+                                
                                 onChangeText={handleChange('start')}
                                 onBlur={handleBlur('start')}
                                 value={values.start}
@@ -112,7 +112,7 @@ export default class ReportForm extends Component {
                                 placeholderTextColor='rgba(255,255,255,0.7)'
                                 returnKeyType='next'
                                 style={styles.input}
-                                keyboardType='numeric'
+                                
                                 onChangeText={handleChange('end')}
                                 onBlur={handleBlur('end')}
                                 value={values.end}

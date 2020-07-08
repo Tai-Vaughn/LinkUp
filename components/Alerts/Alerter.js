@@ -68,7 +68,7 @@ class Alerter extends React.Component {
                         iconStyle={styles.placeIcon}
                         onPress={() => this.props.navigation.toggleDrawer()} />
                 </View>
-                <Text style={styles.header}>RECENT CRIMINAL ACTIVITY</Text>
+                <Text style={styles.header}>Alerts</Text>
                 <Text style={styles.pad}></Text>
 
                 <ScrollView >

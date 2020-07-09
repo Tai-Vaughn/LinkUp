@@ -22,9 +22,6 @@ change first view component to KeyboardAvoidingView behaviour='padding'
 */
 
 
-
-
-
 const LoginSchema = yup.object({
     Email: yup.string()
     .required(),
@@ -53,13 +50,14 @@ class LoginForm extends React.Component{
                     <View>
 
                         <TextInput
-                        placeholder='Username or E-mail Address'
+                        placeholder='E-mail Address'
                         returnKeyType='next'
 
                         style={globalStyles.input}
                         onChangeText={props.handleChange('Email')}
                         value={props.values.Email}
 
+                        autoCapitalize='none'
                         onBlur={props.handleBlur('Email')}
                         onSubmitEditing={() => this.Password.focus()}
                         />
